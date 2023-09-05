@@ -74,10 +74,12 @@
                     $(td).css('padding', '4px')
                 }
             }],
-            "lengthMenu": [
-                [10, 25, 50, 100, -1],
-                [10, 25, 50, 100, "All"]
-            ]
+            "paging"       :    true,
+            "lengthChange" :    false,
+            "searching"    :    false,
+            "ordering"     :    false,
+            "info"         :    true,
+            "autowidth"    :    false
         });
 
     })
@@ -138,11 +140,15 @@
                     <td>
     <?php
             if((isset($slideimg_name))){
-
+                if(file_exists("../../../dist/img/slides/".$slideimg_name)){ ?>
+                        <div><img src="../dist/img/slides/<?php echo $slideimg_name;?>" class="img-thumbnail" alt="<?php echo $slideimg_name;?>" style="width:304px; height:236px;"></div>
+    <?php       }else{ ?>
+                        <div><img src="../dist/img/slides/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:304px; height:236px;"></div>
+    <?php       }
             }else{ ?>
-
+                        <div><img src="../dist/img/slides/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:304px; height:236px;"></div>
     <?php   } ?>
-                        <div></div>
+
                     </td>
                     <td>
                         <div><?php echo $slide_row["slide_link"];?></div>
@@ -165,7 +171,7 @@
             }else{}
     ?>
                     </td>
-                    <td>
+                    <td align="center">
                         <div>
     <?php
             if(($slide_row["slide_status"]==0)){ ?>
