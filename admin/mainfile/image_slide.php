@@ -46,8 +46,6 @@
 
     <div class="content">
 
-
-    
     <?php
         if((isset($_POST["manage"]))){
             $manage=filter_input(INPUT_POST, 'manage');
@@ -96,7 +94,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-<form name="form_add" id="form_add" accept-charset="utf-8">
+<form name="form_add" id="form_add" accept-charset="utf-8" action="" method="post" enctype="multipart/form-data">
 
                         <div class="row">
 
@@ -163,6 +161,7 @@
                             </div>
 
                         </div>
+<input name="action " id="action " value="add">
 </form>
                     </div>                    
                 </div>
@@ -218,7 +217,7 @@
                     </div>
                     <div class="card-body">
 
-<form name="form_edit" id="form_edit" accept-charset="utf-8">
+<form name="form_edit" id="form_edit" accept-charset="utf-8" action="" method="post" enctype="multipart/form-data">
 
                         <div class="row">
 
@@ -285,7 +284,7 @@
                             </div>
 
                         </div>
-
+    <input name="action " id="action " value="edit">
 </form>
 
                     </div>
