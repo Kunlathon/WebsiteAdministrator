@@ -15,6 +15,7 @@
     include ("../../config/fnc.php");
 
     include("../../structure/link.php");
+    include("../../structure/function_php_oop.php");
 
     $RunLink = new link_system();
 
@@ -118,8 +119,7 @@
             <tbody>
     <?php
             $slide_sql = "SELECT * 
-                          FROM `tb_slide` 
-                          WHERE `slide_status`='1' 
+                          FROM `tb_slide`
                           ORDER BY `slide_id` ASC";
             $slide_list = result_array($slide_sql);
             foreach ($slide_list as $key => $slide_row) { 
@@ -137,7 +137,7 @@
                     <td>
                         <div><?php echo $slide_row["slide_topic"];?></div>
                     </td>
-                    <td>
+                    <td align="center">
     <?php
             if((isset($slideimg_name))){
                 if(file_exists("../../../dist/img/slides/".$slideimg_name)){ ?>
@@ -153,20 +153,24 @@
                     <td>
                         <div><?php echo $slide_row["slide_link"];?></div>
                     </td>
-                    <td>
+                    <td align="center">
     <?php
             if((isset($slide_row["slide_post_date"]))){
-                if((isset($slide_row["slide_post_date"]))!="0000-00-00 00:00:00"){ ?>
-                        <div></div>
+                if((($slide_row["slide_post_date"]))!="0000-00-00 00:00:00"){ 
+                    $print_post_date=new strto_datetime("datetime_th",$slide_row["slide_post_date"]);
+    ?>
+                        <div><?php echo $print_post_date->print_datetime();?></div>
     <?php       }else{}
             }else{}
     ?>
                     </td>
-                    <td>
+                    <td align="center">
     <?php
             if((isset($slide_row["slide_update_date"]))){
-                if((isset($slide_row["slide_update_date"]))!="0000-00-00 00:00:00"){ ?>
-                        <div></div>
+                if((($slide_row["slide_update_date"]))!="0000-00-00 00:00:00"){ 
+                    $print_update_date=new strto_datetime("datetime_th",$slide_row["slide_update_date"]);                
+    ?>
+                        <div><?php echo $print_update_date->print_datetime();?></div>
     <?php       }else{}
             }else{}
     ?>
@@ -186,7 +190,8 @@
                             <ul class="nav justify-content-center">
                                 <li class="nav-item">
 <form name="slide_update<?php echo $slide_row["slide_id"];?>" accept-charset="utf-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=image_slide">
-    <input type="hidden" name="manage" value="edit"> <input type="hidden" name="slide_id" value="<?php echo $slide_row["slide_id"];?>">
+    <input type="hidden" name="manage" value="edit"> 
+    <input type="hidden" name="slide_id" value="<?php echo $slide_row["slide_id"];?>">
     <button type="submit" name="button_<?php echo $slide_row["slide_id"];?>" class="btn btn-outline-secondary btn-sm" data-popup="tooltip" title="แก้ไข" data-placement="bottom"><i class="icon-pen"></i></button>
 </form>
                                 </li>

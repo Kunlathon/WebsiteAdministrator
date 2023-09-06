@@ -1,0 +1,110 @@
+html,body{
+	font-family:MS Sans Serif,Tahoma, Arial, Helvetica, sans-serif;
+    font-size:10pt;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+	SCROLLBAR-FACE-COLOR : #FFFFFF; 
+	SCROLLBAR-TRACK-COLOR : #DDDDDD; 
+	SCROLLBAR-ARROW-COLOR : #FF6600; 	
+	SCROLLBAR-3DLIGHT-COLOR : #F3F3F3; 	
+	SCROLLBAR-SHADOW-COLOR : #999999; 
+	SCROLLBAR-HIGHLIGHT-COLOR : #999999; 
+	SCROLLBAR-DARKSHADOW-COLOR : #F3F3F3; 
+
+	width:210mm;
+	height:297mm;
+	/*width:794px; 
+	height:1122px*/
+	/*height:auto !important;*/
+	/*height:100%;*/
+	float:center;
+	min-height:100%;
+	padding:0;
+	background-color: #FFFFFF;
+	margin-top: 0px;
+
+}
+a {
+	font-family:MS Sans Serif,Tahoma, Arial, Helvetica, sans-serif;
+	font-size:10pt;
+	text-decoration: none;
+	color:#000000;
+	} 
+a:link { 
+	color:#000000; text-decoration: none;
+	}
+a:visited {
+	 color:#000000; 
+	 text-decoration: none;
+ 	}
+a:active{ 
+	color:#000000;
+	 text-decoration: none;
+	 }
+a:hover{
+	color: RED; 
+	text-decoration: none;
+	}
+a:link.lin{ 
+	colo r: #FF6633; 
+	text-decoration: none;
+	}
+a:visited.lin{ 
+	color:#FF6633;
+	 text-decoration : none;
+ 	}
+a:active.lin {
+	 color:#FF6633; 
+	 text-decoration: none;
+	 }
+a:hover.lin { 
+	color: #339900; 
+	text-decoration: none;
+	}
+/* page */
+	.paginate {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: .7em;
+	}
+	a.paginate {
+	border: 1px solid #000080;
+	padding: 2px 6px 2px 6px;
+	text-decoration: none;
+	color: #000080;
+	}
+	h2 {
+		font-size: 12pt;
+		color: #003366;
+		}
+		
+		 h2 {
+		line-height: 1.2em;
+		letter-spacing:-1px;
+		margin: 0;
+		padding: 0;
+		text-align: left;
+		}
+	a.paginate:hover {
+	background-color: #000080;
+	color: #FFF;
+	text-decoration: underline;
+	}
+	a.current {
+	border: 1px solid #000080;
+	font: bold .7em Arial,Helvetica,sans-serif;
+	padding: 2px 6px 2px 6px;
+	cursor: default;
+	background:#000080;
+	color: #FFF;
+	text-decoration: none;
+	}
+	span.inactive {
+	border: 1px solid #999;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: .7em;
+	padding: 2px 6px 2px 6px;
+	color: #999;
+	cursor: default;
+	}
