@@ -196,7 +196,7 @@
 </form>
                                 </li>
                                 <li class="nav-item">
-                                    <button type="button" name="Delete_Student_Data" data-toggle="modal" data-target="#modal_theme_success_Delete" class="btn btn-outline-danger btn-sm" data-popup="tooltip" title="ลบ" data-placement="bottom"><i class="icon-bin"></i></button>
+                                    <button type="button" name="Delete_Student_Data" id="delete_slide_<?php echo $slide_row["slide_id"];?>" class="btn btn-outline-danger btn-sm" data-popup="tooltip" title="ลบ" data-placement="bottom"><i class="icon-bin"></i></button>
                                 </li>
                             </ul>
                         </div>
@@ -207,3 +207,133 @@
             </tbody>
         </table>
     </div>
+
+
+    <?php
+        $slide_sql="SELECT * 
+                    FROM `tb_slide`
+                    ORDER BY `slide_id` ASC";
+        $slide_list = result_array($slide_sql);
+        foreach ($slide_list as $key => $slide_row) { 
+            if((is_array($slide_row) && count($slide_row))){ ?>
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <script>
+        $(document).ready(function(){
+            var slide_id="<?php echo $slide_row["slide_id"];?>";
+            var action="delete";
+            var action_error="error";
+            var slide_id_error="error";
+            var copy_slide_image="<?php echo $slide_row["slide_image"];?>";
+// Defaults
+            var swalInitDeteleImageData = swal.mixin({
+                buttonsStyling: false,
+                customClass: {
+                    confirmButton: 'btn btn-primary',
+                    cancelButton: 'btn btn-light',
+                    denyButton: 'btn btn-light',
+                    input: 'form-control'
+                }
+            });
+// Defaults End
+
+            $('#delete_slide_<?php echo $slide_row["slide_id"];?>').on('click', function() {
+                swalInitDeteleImageData.fire({
+                    title: 'ต้องการลบข้อมูลหรือไม่',
+                    //text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    allowOutsideClick: false,
+                    showCancelButton: true,
+                    confirmButtonText: 'ใช่',
+                    cancelButtonText: 'ไม่',
+                    buttonsStyling: false,
+                    customClass: {
+                        confirmButton: 'btn btn-success',
+                        cancelButton: 'btn btn-danger'
+                    }
+                }).then(function(result) {
+                    if(result.value){
+
+                        if (action=="") {
+                            swalInitDeteleImageData.fire({
+                                title: 'ข้อมูลไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง',
+                                icon: 'error'
+                            });
+                            action_error="error";
+                        }else{
+                            action_error="no_error";
+                        }
+
+                        if(slide_id==""){
+                            swalInitDeteleImageData.fire({
+                                title: 'คีย์ว่าง ไม่สามารถดำเนินการลบได้',
+                                icon: 'error'
+                            });
+                            slide_id_error="error";
+                        }else{
+                            slide_id_error="no_error";
+                        }
+
+                        if(action_error=="no_error" && slide_id_error=="no_error"){
+                            $.post("<?php echo $RunLink->Call_Link_System();?>/js_code/image_slide/image_slide_process.php",{
+                                action:action,
+                                slide_id:slide_id,
+                                copy_slide_image:copy_slide_image
+                            },function(process_delete){
+                                var process_delete = process_delete.trim();
+                                if (process_delete === "no_error"){
+
+                                    let timerInterval;
+                                        swalInitDeteleImageData.fire({
+                                            title: 'ลบสำเร็จ',
+                                            //html: 'I will close in <b></b> milliseconds.',
+                                            timer: 1200,
+                                            icon: 'success',
+                                            timerProgressBar: true,
+                                            didOpen: function() {
+                                                Swal.showLoading()
+                                                timerInterval = setInterval(function() {
+                                                    const content = Swal.getContent();
+                                                    if (content) {
+                                                        const b_image_slide = content.querySelector('b_image_slide')
+                                                        if (b_image_slide) {
+                                                            b_image_slide.textContent = Swal.getTimerLeft();
+                                                        } else {}
+                                                    } else {}
+                                                }, 100);
+                                            },
+                                            willClose: function() {
+                                                clearInterval(timerInterval)
+                                            }
+                                        }).then(function(result) {
+                                            if (result.dismiss === Swal.DismissReason.timer) {
+                                                document.location = "<?php echo $RunLink->Call_Link_System(); ?>/?modules=image_slide";
+                                            } else {}
+                                        });
+
+                                }else if(process_delete === "it_error"){
+                                    swalInitDeteleImageData.fire({
+                                            title: 'ลบไม่สำเร็จ',
+                                            icon: 'error'
+                                    });
+                                }else{
+                                    swalInitDeteleImageData.fire({
+                                            title: 'พบข้อผิดพลาด',
+                                            text: process_delete,
+                                            icon: 'error'
+                                    });
+                                }
+                            })
+                        }else{}
+
+                    }else if (result.dismiss === swal.DismissReason.cancel){
+
+                    }else{
+
+                    }
+                });
+            });
+        })
+    </script>
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <?php   }else{}
+        } ?>

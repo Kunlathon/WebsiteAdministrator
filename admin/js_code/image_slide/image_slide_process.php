@@ -154,5 +154,19 @@
                         exit("<script>window.location='../../?modules=image_slide';</script>");
                     }else{}
             }
+        }elseif(($action=="delete")){
+            $slide_id=filter_input(INPUT_POST, 'slide_id');
+//delete image 
+            $copy_slide_image=filter_input(INPUT_POST, 'copy_slide_image');
+            $delete_image="../../../dist/img/slides/".$copy_slide_image;
+//delete image end        
+                if((unlink($delete_image))){
+                    $image_slide_table = "tb_slide";
+                    $image_slide_ff = "slide_id";
+                    delete($image_slide_table, "{$image_slide_ff} = '{$slide_id}'");
+                    echo "no_error";  
+                }else{
+                    echo "it_error";                    
+                }
         }else{}
 ?>
