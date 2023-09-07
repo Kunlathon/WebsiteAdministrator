@@ -131,7 +131,7 @@
                 previewZoomButtonClasses: previewZoomButtonClasses,
                 previewZoomButtonIcons: previewZoomButtonIcons,
                 fileActionSettings: fileActionSettings,
-                //maxFileSize: 1000,
+                //maxFileSize: 1500,
                 maxFileCount: 1,
                 allowedFileExtensions: ["jpg", "JPG", "png", "PNG"]
 

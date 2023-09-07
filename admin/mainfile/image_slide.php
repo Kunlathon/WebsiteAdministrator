@@ -94,7 +94,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-<form name="form_add" id="form_add" accept-charset="utf-8" action="" method="post" enctype="multipart/form-data">
+<form name="form_add" id="form_add" accept-charset="utf-8" action="<?php echo $RunLink->Call_Link_System();?>/js_code/image_slide/image_slide_process.php" method="post" enctype="multipart/form-data">
 
                         <div class="row">
 
@@ -106,7 +106,7 @@
                                                 <label class="col-form-label col-<?php echo $grid; ?>-2">หัวข้อเรื่อง</label>
                                                 <div class="col-<?php echo $grid; ?>-10">
                                                     <div id="slide_topic-null">
-                                                        <input type="text" name="slide_topic" id="slide_topic" class="form-control" value="" placeholder="กรอกข้อมูลหัวข้อเรื่อง" required="required" maxlength="">
+                                                        <input type="text" name="slide_topic" id="slide_topic" class="form-control" value="" placeholder="กรอกข้อมูลหัวข้อเรื่อง" required="required" maxlength="100">
                                                         <span style="color: #DC143C;">กรอกข้อมูลหัวข้อเรื่อง</span>                                                
                                                     </div>
                                                 <div>
@@ -161,7 +161,7 @@
                             </div>
 
                         </div>
-<input name="action " id="action " value="add">
+<input type="hidden" name="action" id="action" value="add">
 </form>
                     </div>                    
                 </div>
@@ -178,8 +178,117 @@
                         $slide_id="-";
                     }
                 } 
-                if(($slide_id!="-")){   ?>
+                if(($slide_id!="-")){   
+                    
+                    $slide_sql = "SELECT * 
+                    FROM `tb_slide`
+                    WHERE `slide_id` ='{$slide_id}'";
+                    $slide_list = result_array($slide_sql);
+                    foreach ($slide_list as $key => $slide_row) { 
+                        if((is_array($slide_row) && count($slide_row))){
+                            $slide_id=$slide_row["slide_id"];
+                            $slide_topic=$slide_row["slide_topic"];
+                            $slide_image=$slide_row["slide_image"];
+                            $slide_link=$slide_row["slide_link"];
+                            $slide_post_date=$slide_row["slide_post_date"];
+                            $slide_update_date=$slide_row["slide_update_date"];
+                            $slide_status=$slide_row["slide_status"];
+                        }else{
+                            $slide_id=null;
+                            $slide_topic=null;
+                            $slide_image=null;
+                            $slide_link=null;
+                            $slide_post_date=null;
+                            $slide_update_date=null;
+                            $slide_status=null;
+                        }
+                    }
+                    ?>
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<script>
+        $(document).ready(function(){
+            var js_img_name="<?php echo $slide_image;?>";
+            // Modal template
+            var modalTemplate = '<div class="modal-dialog modal-lg" role="document">\n' +
+                '  <div class="modal-content">\n' +
+                '    <div class="modal-header align-items-center">\n' +
+                '      <h6 class="modal-title">{heading} <small><span class="kv-zoom-title"></span></small></h6>\n' +
+                '      <div class="kv-zoom-actions btn-group">{toggleheader}{fullscreen}{borderless}{close}</div>\n' +
+                '    </div>\n' +
+                '    <div class="modal-body">\n' +
+                '      <div class="floating-buttons btn-group"></div>\n' +
+                '      <div class="kv-zoom-body file-zoom-content"></div>\n' + '{prev} {next}\n' +
+                '    </div>\n' +
+                '  </div>\n' +
+                '</div>\n';
+
+            // Buttons inside zoom modal
+            var previewZoomButtonClasses = {
+                toggleheader: 'btn btn-light btn-icon btn-header-toggle btn-sm',
+                fullscreen: 'btn btn-light btn-icon btn-sm',
+                borderless: 'btn btn-light btn-icon btn-sm',
+                close: 'btn btn-light btn-icon btn-sm'
+            };
+
+            // Icons inside zoom modal classes
+            var previewZoomButtonIcons = {
+                prev: $('html').attr('dir') == 'rtl' ? '<i class="icon-arrow-right32"></i>' : '<i class="icon-arrow-left32"></i>',
+                next: $('html').attr('dir') == 'rtl' ? '<i class="icon-arrow-left32"></i>' : '<i class="icon-arrow-right32"></i>',
+                toggleheader: '<i class="icon-menu-open"></i>',
+                fullscreen: '<i class="icon-screen-full"></i>',
+                borderless: '<i class="icon-alignment-unalign"></i>',
+                close: '<i class="icon-cross2 font-size-base"></i>'
+            };
+
+            // File actions
+            var fileActionSettings = {
+                zoomClass: '',
+                zoomIcon: '<i class="icon-zoomin3"></i>',
+                dragClass: 'p-2',
+                dragIcon: '<i class="icon-three-bars"></i>',
+                removeClass: '',
+                removeErrorClass: 'text-danger',
+                removeIcon: '<i class="icon-bin"></i>',
+                indicatorNew: '<i class="icon-file-plus text-success"></i>',
+                indicatorSuccess: '<i class="icon-checkmark3 file-icon-large text-success"></i>',
+                indicatorError: '<i class="icon-cross2 text-danger"></i>',
+                indicatorLoading: '<i class="icon-spinner2 spinner text-muted"></i>'
+            };
+
+            $('.UpdateFile_ImageSlideEdit').fileinput({
+                browseLabel: 'Browse',
+                browseIcon: '<i class="icon-file-plus mr-2"></i>',
+                uploadIcon: '<i class="icon-file-upload2 mr-2"></i>',
+                removeIcon: '<i class="icon-cross2 font-size-base mr-2"></i>',
+                layoutTemplates: {
+                    icon: '<i class="icon-file-check"></i>',
+                    modal: modalTemplate
+                },
+                initialPreview: [
+                '../dist/img/slides/'+js_img_name
+                ],
+                initialPreviewConfig: [
+                   // {caption: 'Jane.jpg', size: 930321, key: 1, url: '{$url}'}
+                   {caption: js_img_name, key: 1, url: '{$url}'}
+                ],
+                initialPreviewAsData: true,
+                overwriteInitial: true,
+                initialCaption: "No file selected",
+                previewZoomButtonClasses: previewZoomButtonClasses,
+                previewZoomButtonIcons: previewZoomButtonIcons,
+                fileActionSettings: fileActionSettings,
+                //maxFileSize: 1500,
+                maxFileCount: 1,
+                allowedFileExtensions: ["jpg", "JPG", "png", "PNG"]
+
+            });
+
+        })
+    </script>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+<!--<img src="../dist/img/slides/20200311131925_slide.jpg" class="img-rounded" alt="Cinque Terre">-->
+
         <div class="row">
             <div class="col-<?php echo $grid;?>-12">
                 <h4>แก้ไขข้อมูลภาพสไลด์</h4>
@@ -217,7 +326,7 @@
                     </div>
                     <div class="card-body">
 
-<form name="form_edit" id="form_edit" accept-charset="utf-8" action="" method="post" enctype="multipart/form-data">
+<form name="form_edit" id="form_edit" accept-charset="utf-8" action="<?php echo $RunLink->Call_Link_System();?>/js_code/image_slide/image_slide_process.php" method="post" enctype="multipart/form-data">
 
                         <div class="row">
 
@@ -229,7 +338,7 @@
                                                 <label class="col-form-label col-<?php echo $grid; ?>-2">หัวข้อเรื่อง</label>
                                                 <div class="col-<?php echo $grid; ?>-10">
                                                     <div id="slide_topic-null">
-                                                        <input type="text" name="slide_topic" id="slide_topic" class="form-control" value="" placeholder="กรอกข้อมูลหัวข้อเรื่อง" required="required" maxlength="">
+                                                        <input type="text" name="slide_topic" id="slide_topic" class="form-control" value="<?php echo $slide_topic;?>" placeholder="กรอกข้อมูลหัวข้อเรื่อง" required="required" maxlength="100">
                                                         <span style="color: #DC143C;">กรอกข้อมูลหัวข้อเรื่อง</span>                                                
                                                     </div>
                                                 <div>
@@ -243,7 +352,7 @@
                                             <div class="form-group row">
                                                 <label class="col-form-label col-<?php echo $grid; ?>-2">สิงค์</label>
                                                 <div class="col-<?php echo $grid; ?>-10">
-                                                    <input type="url" name="slide_link" id="slide_link" class="form-control" value="" placeholder="ข้อมูลสิงค์">
+                                                    <input type="url" name="slide_link" id="slide_link" class="form-control" value="<?php echo $slide_link;?>" placeholder="ข้อมูลสิงค์">
                                                 <div>
                                             </div>
                                         </fieldset>
@@ -274,7 +383,7 @@
                                     <div class="col-<?php echo $grid;?>-12">
                                         <fieldset class="mb-3">
                                             <div class="form-group row">
-                                                <input type="file" name="slide_image" id="slide_image" class="UpdateFile_ImageSlide" data-fouc>
+                                                <input type="file" name="slide_image" id="slide_image" class="UpdateFile_ImageSlideEdit" data-fouc value="../dist/img/slides/<?php echo $slide_image;?>">
                                                 <span class="form-text text-muted">นานสกุลไฟส์ <code>jpg</code>,<code>JPG</code>,<code>png</code>,<code>PNG</code></span>
                                             </div>
                                         </fieldset>
@@ -284,7 +393,9 @@
                             </div>
 
                         </div>
-    <input name="action " id="action " value="edit">
+    <input type="hidden" name="action" id="action" value="edit">
+    <input type="hidden" name="slide_id" id="slide_id" value="<?php echo $slide_id;?>">
+    <input type="hidden" name="copy_slide_image" id="copy_slide_image" value="<?php echo $slide_image;?>">
 </form>
 
                     </div>
