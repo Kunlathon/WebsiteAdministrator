@@ -32,9 +32,9 @@
                     <a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=dashboard" class="breadcrumb-item">
                         <i class="icon-home2 mr-2"></i> หน้าแรก</a>
 
-                    <a href="?modules=grade_data" class="breadcrumb-item"> จัดการระดับชั้น</a>
+                    <a href="#" class="breadcrumb-item"> จัดการระดับชั้น</a>
 
-                    <a href="?modules=grade_classroom_data&grade_key=<?php echo $grade_key; ?>" class="breadcrumb-item"> ข้อมูลระดับชั้น</a>
+                    <a href="#" class="breadcrumb-item"> ข้อมูลระดับชั้น</a>
 
                     <a href="#" class="breadcrumb-item">รายละเอียดระดับชั้น</a>
 
@@ -106,7 +106,7 @@
                                                 <label class="col-form-label col-<?php echo $grid; ?>-2">หัวข้อเรื่อง</label>
                                                 <div class="col-<?php echo $grid; ?>-10">
                                                     <div id="slide_topic-null">
-                                                        <input type="text" name="slide_topic" id="slide_topic" class="form-control" value="" placeholder="กรอกข้อมูลหัวข้อเรื่อง" required="required" maxlength="100">
+                                                        <input type="text" name="slide_topic" id="slide_topic" class="form-control" value="ศูนย์ภาษา มหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย วิทยาเขตเชียงใหม่" placeholder="กรอกข้อมูลหัวข้อเรื่อง" required="required" maxlength="100">
                                                         <span style="color: #DC143C;">กรอกข้อมูลหัวข้อเรื่อง</span>                                                
                                                     </div>
                                                 <div>

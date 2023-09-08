@@ -52,6 +52,21 @@ if ((preg_match("/main_navigation.php/", $_SERVER['PHP_SELF']))) {
         </li>
 
         <li class="nav-item nav-item-submenu">
+            <a href="#" class="nav-link"><i class="icon-city"></i> <span>จัดการหน้าเว็บไซต์</span></a>
+
+            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                <li class="nav-item"><a href="#" class="nav-link ">ประวัติศูนย์ภาษา</a></li>
+                <li class="nav-item"><a href="#" class="nav-link ">ปณิธาน & วิสัยทัศน์ & พันธกิจ & วัตถุประสงค์</a></li>
+                <li class="nav-item"><a href="#" class="nav-link ">แผนยุทธศาสตร์ & เป้าประสงค์</a></li>
+                <li class="nav-item"><a href="#" class="nav-link ">สารจากผู้บริหาร</a></li>
+                <li class="nav-item"><a href="#" class="nav-link ">โครงสร้างองค์กร และคณะกรรมการ</a></li>
+                <li class="nav-item"><a href="#" class="nav-link ">คณะผู้บริหาร</a></li>
+                <li class="nav-item"><a href="#" class="nav-link ">ติดต่อเรา</a></li>
+                <li class="nav-item"><a href="#" class="nav-link ">แผนที่</a></li>
+            </ul>
+        </li>
+
+        <li class="nav-item nav-item-submenu">
             <a href="#" class="nav-link"><i class="icon-graduation2"></i> <span>จัดการหลักสูตร</span></a>
 
             <ul class="nav nav-group-sub" data-submenu-title="Layouts">

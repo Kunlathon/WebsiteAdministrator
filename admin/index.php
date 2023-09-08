@@ -190,8 +190,9 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 		include("js_code/assessment_show/assessment_show_js.php");
 	}elseif(($modules=="image_slide")){
 		include("js_code/image_slide/image_slide_js.php");
-	}
-	else{ ?>
+	}elseif(($modules=="manage_history")){
+		include("js_code/manage_history/manage_history_js.php");
+	}else{ ?>
 		<!-- Theme JS files -->
 		<script src="<?php echo $RunLink->Call_Link_System(); ?>/template/global_assets/js/plugins/forms/inputs/typeahead/handlebars.min.js"></script>
 		<script src="<?php echo $RunLink->Call_Link_System(); ?>/template/global_assets/js/plugins/forms/inputs/alpaca/alpaca.min.js"></script>
@@ -507,6 +508,9 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 							include $load;
 							break;
 						case "image_slide":
+							include $load;
+							break;
+						case "manage_history";
 							include $load;
 							break;						
 							// ----- Non ----- //
