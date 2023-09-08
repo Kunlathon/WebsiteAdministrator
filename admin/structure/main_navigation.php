@@ -55,7 +55,7 @@ if ((preg_match("/main_navigation.php/", $_SERVER['PHP_SELF']))) {
             <a href="#" class="nav-link"><i class="icon-city"></i> <span>จัดการหน้าเว็บไซต์</span></a>
 
             <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                <li class="nav-item"><a href="#" class="nav-link ">ประวัติศูนย์ภาษา</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_history" class="nav-link ">ประวัติศูนย์ภาษา</a></li>
                 <li class="nav-item"><a href="#" class="nav-link ">ปณิธาน & วิสัยทัศน์ & พันธกิจ & วัตถุประสงค์</a></li>
                 <li class="nav-item"><a href="#" class="nav-link ">แผนยุทธศาสตร์ & เป้าประสงค์</a></li>
                 <li class="nav-item"><a href="#" class="nav-link ">สารจากผู้บริหาร</a></li>
