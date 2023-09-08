@@ -19,7 +19,7 @@
 <!--Code function by beer-->
 <?php include("structure/function_php_oop.php"); ?>
 <!--Code function by beer end-->
-<?php check_login('admin_username_aba', 'login.php'); ?>
+<?php check_login('admin_username_lcm', 'login.php'); ?>
 
 <?php
 //error_reporting (E_ALL ^ E_NOTICE);
