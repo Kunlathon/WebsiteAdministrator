@@ -17,7 +17,7 @@ if ((preg_match("/teacher_all.php/", $_SERVER['PHP_SELF']))) {
     Header("Location:../index.php");
     die();
 } else {
-    if ((check_session("admin_status_aba") == '1') || (check_session("admin_status_aba") == '2') || (check_session("admin_status_aba") == '3') || (check_session("admin_status_aba") == '4') || (check_session("admin_status_aba") == '5')) {
+    if ((check_session("admin_status_lcm") == '1') || (check_session("admin_status_lcm") == '2') || (check_session("admin_status_lcm") == '3') || (check_session("admin_status_lcm") == '4') || (check_session("admin_status_lcm") == '5')) {
 
         //$manage = filter_input(INPUT_POST, 'manage');
 
@@ -325,7 +325,7 @@ if ((preg_match("/teacher_all.php/", $_SERVER['PHP_SELF']))) {
                 ?>
 
                 <?php
-                $aid = check_session("admin_id_aba");
+                $aid = check_session("admin_id_lcm");
                 $update = date('Y-m-d H:i:s');
                 $count_all_esd = 0;
                 $count_miss = 0;

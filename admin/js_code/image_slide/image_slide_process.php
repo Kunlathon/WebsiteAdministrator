@@ -16,8 +16,8 @@
     include("../../structure/link.php");
 
     $RunLink = new link_system();
-    check_login('admin_username_aba', 'login.php');
-    $aid = check_session("admin_id_aba");
+    check_login('admin_username_lcm', 'login.php');
+    $aid = check_session("admin_id_lcm");
     $update_date = date('Y-m-d H:i:s');
     $image_date=date("YmdHis");
     $action = filter_input(INPUT_POST, 'action');

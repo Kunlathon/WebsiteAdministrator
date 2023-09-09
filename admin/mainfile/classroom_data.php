@@ -17,7 +17,7 @@ if ((preg_match("/classroom_data.php/", $_SERVER['PHP_SELF']))) {
     Header("Location: ../index.php");
     die();
 } else {
-    if ((check_session("admin_status_aba") == '1') || (check_session("admin_status_aba") == '2') || (check_session("admin_status_aba") == '3') || (check_session("admin_status_aba") == '4') || (check_session("admin_status_aba") == '5')) { ?>
+    if ((check_session("admin_status_lcm") == '1') || (check_session("admin_status_lcm") == '2') || (check_session("admin_status_lcm") == '3') || (check_session("admin_status_lcm") == '4') || (check_session("admin_status_lcm") == '5')) { ?>
 
         <div class="page-header page-header-light">
             <div class="breadcrumb-line breadcrumb-line-light header-elements-lg-inline">
@@ -285,7 +285,7 @@ if ((preg_match("/classroom_data.php/", $_SERVER['PHP_SELF']))) {
 
                                                             <?php
                                                             if ($grade_key == '1') {
-                                                                if ((check_session("admin_username_aba")) == "snaper" || (check_session("admin_username_aba") == "krusoh")) {
+                                                                if ((check_session("admin_username_lcm")) == "snaper" || (check_session("admin_username_lcm") == "krusoh")) {
                                                             ?>
 
                                                                     <th>
@@ -384,7 +384,7 @@ if ((preg_match("/classroom_data.php/", $_SERVER['PHP_SELF']))) {
                                                                 <?php
                                                                 if ($grade_key == '1') {
 
-                                                                    if ((check_session("admin_username_aba")) == "snaper" || (check_session("admin_username_aba") == "krusoh")) {
+                                                                    if ((check_session("admin_username_lcm")) == "snaper" || (check_session("admin_username_lcm") == "krusoh")) {
                                                                 ?>
 
                                                                         <td align="center">
@@ -404,7 +404,7 @@ if ((preg_match("/classroom_data.php/", $_SERVER['PHP_SELF']))) {
 
                                                                         <button type="button" name="update_<?php echo $row['classroom_t_id']; ?>" onclick="location.href='<?php echo $RunLink->Call_Link_System(); ?>/?modules=classroom_data&list=form_update&id=<?php echo base64_encode($row['classroom_t_id']); ?>';" class="btn btn-outline-secondary btn-sm" data-popup="tooltip" title="แก้ไข" data-placement="bottom" value=""><i class="icon-pen"></i></button>
                                                                         <?php
-                                                                        if (check_session("admin_status_aba") == '1') {
+                                                                        if (check_session("admin_status_lcm") == '1') {
                                                                         ?>
                                                                             <button type="button" name="delete_<?php echo $row['classroom_t_id']; ?>" data-toggle="modal" data-target="#modal_theme_success_Delete<?php echo $row['classroom_t_id']; ?>" class="btn btn-outline-danger btn-sm" data-popup="tooltip" title="ลบ" data-placement="bottom"><i class="icon-bin"></i></button>
                                                                         <?php
@@ -2148,7 +2148,7 @@ if ((preg_match("/classroom_data.php/", $_SERVER['PHP_SELF']))) {
                                                                                         
 
                                                                                             <?php
-                                                                                            if (check_session("admin_status_aba") == '1') { ?>
+                                                                                            if (check_session("admin_status_lcm") == '1') { ?>
 
                                                                                                 <button type="button" name="delete_class_<?php echo $row['course_class_id']; ?>" data-toggle="modal" data-target="#modal_class_success_Delete<?php echo $row['course_class_id']; ?>" class="btn btn-outline-danger btn-sm" data-popup="tooltip" title="ลบ" data-placement="bottom"><i class="icon-bin"></i></button>
 
@@ -2221,7 +2221,7 @@ if ((preg_match("/classroom_data.php/", $_SERVER['PHP_SELF']))) {
                                                                                                             </form>
 
                                                                                                             <?php
-                                                                                                            if (check_session("admin_status_aba") == '1') { ?>
+                                                                                                            if (check_session("admin_status_lcm") == '1') { ?>
 
                                                                                                                 <button type="button" name="delete_class_student<?php echo $rowStu['course_s_id']; ?>" data-toggle="modal" data-target="#modal_class_student_success_Delete<?php echo $rowStu['course_s_id']; ?>" class="btn btn-outline-danger btn-sm" data-popup="tooltip" title="ลบ" data-placement="bottom"><i class="icon-bin"></i></button>
 

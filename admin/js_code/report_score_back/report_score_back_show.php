@@ -19,7 +19,7 @@
     include("../../config/fnc.php");
     include("../../structure/link.php");
     $RunLink = new link_system();
-    check_login('admin_username_aba', 'login.php');
+    check_login('admin_username_lcm', 'login.php');
 ?>
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 <script type="text/javascript">

@@ -19,4 +19,4 @@
 //OFF File Js end
 
 ?>
-<?php check_login('admin_username_aba', 'login.php'); ?>
+<?php check_login('admin_username_lcm', 'login.php'); ?>

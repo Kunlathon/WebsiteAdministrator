@@ -19,7 +19,7 @@
     include("../../structure/link.php");
     $RunLink = new link_system();
 
-    check_login('admin_username_aba', 'login.php');
+    check_login('admin_username_lcm', 'login.php');
 ?>
 
 <script type="text/javascript">
@@ -206,7 +206,7 @@ $width_system = filter_input(INPUT_COOKIE, 'sw');
 
                     $csid = $_rowCou['course_s_id'];					
 
-                    $aid = check_session("admin_id_aba");
+                    $aid = check_session("admin_id_lcm");
                     $update = date('Y-m-d H:i:s');
 
                             $data3 = array(

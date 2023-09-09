@@ -5,7 +5,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
 
 include '../../config/connect.ini.php';
 include '../../config/fnc.php';
-check_login('admin_username_aba','login.php');
+check_login('admin_username_lcm','login.php');
 
 if(isset($_GET['q']) && $_GET['q']!=""){
     $q = urldecode($_GET["q"]);

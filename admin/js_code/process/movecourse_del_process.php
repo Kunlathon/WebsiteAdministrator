@@ -2,7 +2,7 @@
 
 include '../../config/connect.ini.php';
 include '../../config/fnc.php';
-check_login('admin_username_aba','login.php');
+check_login('admin_username_lcm','login.php');
 
 extract($_POST);
 z

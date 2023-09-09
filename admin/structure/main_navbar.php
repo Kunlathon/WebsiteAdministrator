@@ -18,7 +18,7 @@ if ((preg_match("/main_navbar.php/", $_SERVER['PHP_SELF']))) {
 	Header("Location: ../index.php");
 	die();
 } else {
-	check_login('admin_username_aba', 'login.php');
+	check_login('admin_username_lcm', 'login.php');
 ?>
 	<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 	<div class="navbar navbar-expand-lg navbar-dark navbar-static">
@@ -158,12 +158,12 @@ if ((preg_match("/main_navbar.php/", $_SERVER['PHP_SELF']))) {
 				</div>
 			</li>
 
-			<?php $admin_name_aba = check_session("admin_name_aba"); ?>
+			<?php $admin_name_lcm = check_session("admin_name_lcm"); ?>
 
 			<li class="nav-item nav-item-dropdown-lg dropdown dropdown-user h-100">
 				<a href="#" class="navbar-nav-link navbar-nav-link-toggler dropdown-toggle d-inline-flex align-items-center h-100" data-toggle="dropdown">
 					<img src="template/global_assets/images/placeholders/placeholder.jpg" class="rounded-pill mr-lg-2" height="34" alt="">
-					<span class="d-none d-lg-inline-block"><?php echo $admin_name_aba; ?></span>
+					<span class="d-none d-lg-inline-block"><?php echo $admin_name_lcm; ?></span>
 				</a>
 
 				<div class="dropdown-menu dropdown-menu-right">

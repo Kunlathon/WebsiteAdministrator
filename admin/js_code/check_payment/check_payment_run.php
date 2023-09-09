@@ -20,7 +20,7 @@
 <?php   include("../../structure/link.php"); 
         $RunLink = new link_system();
     ?>
-<?php check_login('admin_username_aba', 'login.php'); ?>
+<?php check_login('admin_username_lcm', 'login.php'); ?>
 
 <script type="text/javascript">
     function setScreenHWCookie() {

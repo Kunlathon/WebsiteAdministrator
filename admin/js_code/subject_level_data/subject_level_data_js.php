@@ -22,7 +22,7 @@
 
 //Data: datatables_extension_buttons_html5.js
 ?>
-<?php check_login('admin_username_aba', 'login.php'); ?>
+<?php check_login('admin_username_lcm', 'login.php'); ?>
 <script src="<?php echo $RunLink->Call_Link_System(); ?>/template/global_assets/js/plugins/tables/datatables/datatables.min.js"></script>
 <!--<script src="<?php echo $RunLink->Call_Link_System(); ?>/template/global_assets/js/plugins/tables/datatables/extensions/pdfmake/pdfmake.min.js"></script>-->
 <!--<script src="<?php echo $RunLink->Call_Link_System(); ?>/template/global_assets/js/plugins/tables/datatables/extensions/pdfmake/vfs_fonts.min.js"></script>-->

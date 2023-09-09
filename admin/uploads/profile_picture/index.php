@@ -12,5 +12,5 @@
     if (preg_match("/index.php/",$_SERVER['PHP_SELF'])) {
         Header("Location: ../index.php");
         die();
-    }elst{}
+    }else{}
 ?>

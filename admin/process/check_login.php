@@ -27,11 +27,11 @@
         $result = row_array($sql);
         
             if($result > 0){
-                $_SESSION['admin_id_aba'] = $result['admin_id'];
-                $_SESSION['admin_username_aba'] = $result['admin_username'];
-                $_SESSION['admin_name_aba'] = $result['admin_name'];
-                $_SESSION['admin_status_aba'] = $result['admin_status'];
-                $_SESSION['admin_lastlogin_aba'] = $result['admin_lastlogin'];
+                $_SESSION['admin_id_lcm'] = $result['admin_id'];
+                $_SESSION['admin_username_lcm'] = $result['admin_username'];
+                $_SESSION['admin_name_lcm'] = $result['admin_name'];
+                $_SESSION['admin_status_lcm'] = $result['admin_status'];
+                $_SESSION['admin_lastlogin_lcm'] = $result['admin_lastlogin'];
             
                 // Add log login
                     $date_now = date('Y-m-d H:i:s');
@@ -64,7 +64,7 @@
             
                     update("tb_admin", $data1, "admin_id = '$result[admin_id]'");
             
-                    $_SESSION['admin_nowlogin_aba'] = $date_now;    
+                    $_SESSION['admin_nowlogin_lcm'] = $date_now;    
             
                 //echo"<meta charset='utf-8'/><script>alert('ยินดีต้อนรับ {$_SESSION['admin_name']} เข้าสู่ระบบ!!');location.href='../index.php';</script>";
                 //header( "location: ../index.php" );

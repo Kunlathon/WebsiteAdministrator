@@ -4,7 +4,7 @@ if ((preg_match("/profile.php/", $_SERVER['PHP_SELF']))) {
     Header("Location: ../index.php");
     die();
 } else {
-    if ((check_session("admin_status_aba") == '1') || (check_session("admin_status_aba") == '2') || (check_session("admin_status_aba") == '3') || (check_session("admin_status_aba") == '4') || (check_session("admin_status_aba") == '5')) {
+    if ((check_session("admin_status_lcm") == '1') || (check_session("admin_status_lcm") == '2') || (check_session("admin_status_lcm") == '3') || (check_session("admin_status_lcm") == '4') || (check_session("admin_status_lcm") == '5')) {
         //----------------------------------------------------------------------------------------------
 ?>
 
@@ -74,7 +74,7 @@ if ((preg_match("/profile.php/", $_SERVER['PHP_SELF']))) {
             <?php    } elseif (($manage == "edit")) { ?>
 
                 <?php
-                $aid = check_session("admin_id_aba");
+                $aid = check_session("admin_id_lcm");
                 $sql = "SELECT * FROM tb_admin WHERE admin_id = '{$aid}'";
                 $row = row_array($sql);
                 ?>
@@ -213,7 +213,7 @@ if ((preg_match("/profile.php/", $_SERVER['PHP_SELF']))) {
             <?php    } elseif (($manage == "process")) { ?>
 
                 <?php
-                $aid = check_session("admin_id_aba");
+                $aid = check_session("admin_id_lcm");
                 $now_date = date('Y-m-d');
 
                 $idcard = filter_input(INPUT_POST, 'idcard');
@@ -239,7 +239,7 @@ if ((preg_match("/profile.php/", $_SERVER['PHP_SELF']))) {
 
 
             <?php    } elseif (($manage == "change_picture")) { 
-                $aid = check_session("admin_id_aba");
+                $aid = check_session("admin_id_lcm");
                 $profile_img_sql = "SELECT * FROM tb_admin WHERE admin_id = '{$aid}'";
                 $profile_img_row = row_array($profile_img_sql);
                 
@@ -291,7 +291,7 @@ if ((preg_match("/profile.php/", $_SERVER['PHP_SELF']))) {
             <?php   } else { ?>
 
                 <?php
-                $aid = check_session("admin_id_aba");
+                $aid = check_session("admin_id_lcm");
                 $sql = "SELECT * FROM tb_admin WHERE admin_id = '{$aid}'";
                 $row = row_array($sql);
                 ?>

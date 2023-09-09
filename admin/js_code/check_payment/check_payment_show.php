@@ -23,7 +23,7 @@
     $RunLink = new link_system();
 ?>
 
-<?php check_login('admin_username_aba', 'login.php'); ?>
+<?php check_login('admin_username_lcm', 'login.php'); ?>
 
 
 

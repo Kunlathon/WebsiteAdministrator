@@ -17,7 +17,7 @@ Email: mpamese.pc2001@gmail.com
 			Header("Location: ../index.php");
 			die();
 		}else{
-			check_login('admin_username_aba', 'login.php');	?>
+			check_login('admin_username_lcm', 'login.php');	?>
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 <div class="navbar navbar-expand-lg navbar-light border-bottom-0 border-top">
 	<div class="text-center d-lg-none w-100">

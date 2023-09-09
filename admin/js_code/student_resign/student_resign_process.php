@@ -15,10 +15,10 @@
 <?php include '../../config/connect.ini.php'; ?>
 <?php include '../../config/fnc.php'; ?>
 
-<?php check_login('admin_username_aba', 'student_resign_process.php'); ?>
+<?php check_login('admin_username_lcm', 'student_resign_process.php'); ?>
 
 <?php
-$aid = check_session("admin_id_aba");
+$aid = check_session("admin_id_lcm");
 $update = date('Y-m-d H:i:s');
 $action = filter_input(INPUT_POST, 'action');
 	if(($action=="update")){

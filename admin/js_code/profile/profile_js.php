@@ -19,7 +19,7 @@
 //OFF File Js end
 
 ?>
-<?php check_login('admin_username_aba', 'login.php'); ?>
+<?php check_login('admin_username_lcm', 'login.php'); ?>
 
 <script
     src="<?php echo $RunLink->Call_Link_System();?>/template/global_assets/js/plugins/extensions/jquery_ui/interactions.min.js">

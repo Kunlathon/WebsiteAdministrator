@@ -17,7 +17,7 @@
         Header("Location:../index.php");
         die();
     }else{
-        if((check_session("admin_status_aba") == '1') || (check_session("admin_status_aba") == '2') || (check_session("admin_status_aba") == '3') || (check_session("admin_status_aba") == '4') || (check_session("admin_status_aba") == '5')){ ?>
+        if((check_session("admin_status_lcm") == '1') || (check_session("admin_status_lcm") == '2') || (check_session("admin_status_lcm") == '3') || (check_session("admin_status_lcm") == '4') || (check_session("admin_status_lcm") == '5')){ ?>
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
     <?php
         $id=base64_decode(filter_input(INPUT_GET,'id'));

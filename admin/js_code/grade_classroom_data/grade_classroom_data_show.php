@@ -19,7 +19,7 @@
     
     header("Content-Type: text/html;charset=UTF-8");
 
-    check_login('admin_username_aba', 'login.php');
+    check_login('admin_username_lcm', 'login.php');
 
 ?>
 

@@ -18,7 +18,7 @@
 <?php include '../../config/connect.ini.php'; ?>
 <?php include '../../config/fnc.php'; ?>
 
-<?php check_login('admin_username_aba', 'login.php'); ?>
+<?php check_login('admin_username_lcm', 'login.php'); ?>
 
 <?php
     $aid=check_session("admin_id");

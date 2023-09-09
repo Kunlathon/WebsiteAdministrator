@@ -19,7 +19,7 @@ include("../../config/fnc.php");
 include("../../structure/link.php");
 $RunLink = new link_system(); ?>
 
-<?php check_login('admin_username_aba', 'login.php'); ?>
+<?php check_login('admin_username_lcm', 'login.php'); ?>
 
 <script type="text/javascript">
     function setScreenHWCookie() {
@@ -240,7 +240,7 @@ if ((isset($check_term, $classroom, $check_grade, $class_name))) {
                                         <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
                                         <?php
                                         if (($classroom != null)) {
-                                            if ((check_session("admin_status_aba") == '1') || (check_session("admin_status_aba") == '4') || (check_session("admin_status_aba") == '5')) { ?>
+                                            if ((check_session("admin_status_lcm") == '1') || (check_session("admin_status_lcm") == '4') || (check_session("admin_status_lcm") == '5')) { ?>
                                                 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
                                                 <tr>
                                                     <td align="center">
@@ -398,7 +398,7 @@ if ((isset($check_term, $classroom, $check_grade, $class_name))) {
                                                     </div>
 
                                                     <?php
-                                                    if ((check_session("admin_status_aba") == '1') || (check_session("admin_status_aba") == '4') || (check_session("admin_status_aba") == '5')) {
+                                                    if ((check_session("admin_status_lcm") == '1') || (check_session("admin_status_lcm") == '4') || (check_session("admin_status_lcm") == '5')) {
                                                     ?>
                                                         <div>
                                                             <form name="print1<?php echo @$row['student_id']; ?>" id="print1<?php echo @$row['student_id']; ?>" action="<?php echo $RunLink->Call_Link_System(); ?>/document/grade_report2_1.php" method="get" target="_blank">
@@ -426,7 +426,7 @@ if ((isset($check_term, $classroom, $check_grade, $class_name))) {
                                                     </div>
 
                                                     <?php
-                                                    if ((check_session("admin_status_aba") == '1') || (check_session("admin_status_aba") == '4') || (check_session("admin_status_aba") == '5')) {
+                                                    if ((check_session("admin_status_lcm") == '1') || (check_session("admin_status_lcm") == '4') || (check_session("admin_status_lcm") == '5')) {
                                                     ?>
                                                         <div>
                                                             <form name="print2<?php echo @$row['student_id']; ?>" id="print2<?php echo @$row['student_id']; ?>" action="<?php echo $RunLink->Call_Link_System(); ?>/document/grade_report2_2.php" method="get" target="_blank">
@@ -454,7 +454,7 @@ if ((isset($check_term, $classroom, $check_grade, $class_name))) {
                                                     </div>
 
                                                     <?php
-                                                    if ((check_session("admin_status_aba") == '1') || (check_session("admin_status_aba") == '4') || (check_session("admin_status_aba") == '5')) {
+                                                    if ((check_session("admin_status_lcm") == '1') || (check_session("admin_status_lcm") == '4') || (check_session("admin_status_lcm") == '5')) {
                                                     ?>
                                                         <div>
                                                             <form name="print3<?php echo @$row['student_id']; ?>" id="print3<?php echo @$row['student_id']; ?>" action="<?php echo $RunLink->Call_Link_System(); ?>/document/grade_report2_3.php" method="get" target="_blank">
@@ -481,7 +481,7 @@ if ((isset($check_term, $classroom, $check_grade, $class_name))) {
                                                     </div>
 
                                                     <?php
-                                                    if ((check_session("admin_status_aba") == '1') || (check_session("admin_status_aba") == '4') || (check_session("admin_status_aba") == '5')) {
+                                                    if ((check_session("admin_status_lcm") == '1') || (check_session("admin_status_lcm") == '4') || (check_session("admin_status_lcm") == '5')) {
                                                     ?>
                                                         <div>
                                                             <form name="print4<?php echo @$row['student_id']; ?>" id="print4<?php echo @$row['student_id']; ?>" action="<?php echo $RunLink->Call_Link_System(); ?>/document/grade_report2_4.php" method="get" target="_blank">

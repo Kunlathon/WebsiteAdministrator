@@ -2,7 +2,7 @@
 include '../../config/connect.ini.php';
 include '../../config/fnc.php';
 
-check_login('admin_username_aba','login.php');
+check_login('admin_username_lcm','login.php');
 
 $sql = "SELECT * FROM tb_score WHERE subject_id = '' OR subject_id ='0' ORDER BY score_id ASC";
 $list = result_array($sql); 

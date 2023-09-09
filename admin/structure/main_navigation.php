@@ -18,11 +18,11 @@ if ((preg_match("/main_navigation.php/", $_SERVER['PHP_SELF']))) {
     Header("Location: ../index.php");
     die();
 } else { 
-    check_login('admin_username_aba', 'login.php'); 
+    check_login('admin_username_lcm', 'login.php'); 
 ?>
     <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
     <!-- Main -->
-    <?php if (check_session("admin_status_aba") == '1') { ?>
+    <?php if ((check_session("admin_status_lcm") == '1')) { ?>
 
         <li class="nav-item">
             <a href="index.php" class="nav-link">

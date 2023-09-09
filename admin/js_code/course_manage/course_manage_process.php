@@ -16,7 +16,7 @@
 
     include ('../../config/connect.ini.php'); 
     include ('../../config/fnc.php'); 
-    check_login('admin_username_aba', 'login.php'); 
+    check_login('admin_username_lcm', 'login.php'); 
 
     $aid=check_session("admin_id");
     $update=date('Y-m-d H:i:s');

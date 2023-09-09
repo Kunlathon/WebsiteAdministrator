@@ -4,7 +4,7 @@ if ((preg_match("/subject_type_data.php/", $_SERVER['PHP_SELF']))) {
     Header("Location: ../index.php");
     die();
 } else {
-    if ((check_session("admin_status_aba") == '1') || (check_session("admin_status_aba") == '2') || (check_session("admin_status_aba") == '3') || (check_session("admin_status_aba") == '4') || (check_session("admin_status_aba") == '5')) { ?>
+    if ((check_session("admin_status_lcm") == '1') || (check_session("admin_status_lcm") == '2') || (check_session("admin_status_lcm") == '3') || (check_session("admin_status_lcm") == '4') || (check_session("admin_status_lcm") == '5')) { ?>
 
         <div class="page-header page-header-light">
             <div class="breadcrumb-line breadcrumb-line-light header-elements-lg-inline">
@@ -75,7 +75,7 @@ if ((preg_match("/subject_type_data.php/", $_SERVER['PHP_SELF']))) {
             $manage = filter_input(INPUT_GET, 'manage');
             if (($manage == "update")) {
 
-                $aid = check_session("admin_id_aba");
+                $aid = check_session("admin_id_lcm");
 
                 $subt_name = filter_input(INPUT_POST, 'subt_name');
                 $subt_name_eng = filter_input(INPUT_POST, 'subt_name_eng');
@@ -104,7 +104,7 @@ if ((preg_match("/subject_type_data.php/", $_SERVER['PHP_SELF']))) {
                 }
             } elseif (($manage == "create")) {
 
-                $aid = check_session("admin_id_aba");
+                $aid = check_session("admin_id_lcm");
                 $subt_name = filter_input(INPUT_POST, 'subt_name');
                 $subt_name_eng = filter_input(INPUT_POST, 'subt_name_eng');
 
@@ -123,7 +123,7 @@ if ((preg_match("/subject_type_data.php/", $_SERVER['PHP_SELF']))) {
 
                 insert("tb_subject_type", $data);
             } elseif (($manage == "delete")) {
-                $aid = check_session("admin_id_aba");
+                $aid = check_session("admin_id_lcm");
 
                 $table = filter_input(INPUT_POST, 'table');
                 $ff = filter_input(INPUT_POST, 'ff');

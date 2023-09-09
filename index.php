@@ -9,6 +9,13 @@
 //Tel 0932670639
 //Email: mpamese.pc2001@gmail.com , missing_yrc2014@hotmail.com	
 ?>
+<?php
+include("config/connect.ini.php");
+include("config/fnc.php");
+
+$modules = isset($_GET['modules']) ? $_GET['modules'] : '';
+
+?>
 <!doctype html>
 <!--
 * Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
@@ -45,6 +52,23 @@
     <meta property="og:title" content="ศูนย์ภาษา มหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย วิทยาเขตเชียงใหม่">
     <meta property="og:url" content="https://preview.tabler.io/static/og.png">
     <meta property="og:description" content="ศูนย์ภาษา มหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย วิทยาเขตเชียงใหม่">
+
+<?php 
+  if($modules=="temples-detail" || $modules=="travel-detail" || $modules=="tradition-detail" || $modules=="culture-detail"){
+	$id = isset($_GET['id']) ? $_GET['id'] : '';
+
+	//$sqlTravel = "SELECT * FROM tb_travel WHERE travel_id = '$id'";
+    //$rowTravel = row_array($sqlTravel);
+?>
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="<?php echo $rowTravel['travel_topic']; ?>"/>
+	<meta property="og:description" content="<?php echo $rowTravel['travel_topic']; ?>" />
+	<meta property="og:image" content="https://www.phothitech.net/languagecenter/Uploads/travel/<?php echo $rowTravel['travel_image0']; ?>" />
+
+<?php 
+	}
+?>
+
 <!---->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <!---->    
@@ -147,22 +171,22 @@
                       </span>
                     </a>
                     <div class="dropdown-menu">
-                      <a class="dropdown-item" href="">
+                      <a class="dropdown-item" href="?modules=history">
                         ประวัติศูนย์ภาษา
                       </a>
-                      <a class="dropdown-item" href="">
+                      <a class="dropdown-item" href="?modules=resolution">
                         ปณิธาน & วิสัยทัศน์ & พันธกิจ & วัตถุประสงค์
                       </a>
-                      <a class="dropdown-item" href="">
+                      <a class="dropdown-item" href="?modules=strategic_plan">
                         แผนยุทธศาสตร์ & เป้าประสงค์
                       </a>
-                      <a class="dropdown-item" href="">
+                      <a class="dropdown-item" href="?modules=management_message">
                         สารจากผู้บริหาร
                       </a>
-                      <a class="dropdown-item" href="">
+                      <a class="dropdown-item" href="?modules=structure">
                         โครงสร้างองค์กร และคณะกรรมการ
                       </a>
-                      <a class="dropdown-item" href="">
+                      <a class="dropdown-item" href="?modules=management_team">
                         คณะผู้บริหาร
                       </a>
                     </div>
@@ -184,16 +208,16 @@
                       </span>
                     </a>
                     <div class="dropdown-menu">
-                      <a class="dropdown-item" href="">
+                      <a class="dropdown-item" href="?modules=news_announcement">
                         ข่าวประกาศ
                       </a>
-                      <a class="dropdown-item" href="">
+                      <a class="dropdown-item" href="?modules=news_public">
                         ข่าวประชาสัมพันธ์
                       </a>
-                      <a class="dropdown-item" href="">
+                      <a class="dropdown-item" href="?modules=news_procurement">
                         ข่าวจัดซื้อจัดจ้าง
                       </a>
-                      <a class="dropdown-item" href="">
+                      <a class="dropdown-item" href="?modules=news_recruitment">
                         ข่าวรับสมัครงาน
                       </a>
                     </div>
@@ -274,7 +298,7 @@
                   </li>
 
 				 <li class="nav-item false">
-                    <a class="nav-link" href="index.php" >
+                    <a class="nav-link" href="?modules=contactus" >
                       <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
 						<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-phone-call" width="128" height="128" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 						  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -307,351 +331,31 @@
           </div>
         </header>
       </div>
-<!--head lock End--->      
-      <div class="page-wrapper">
-        <!-- Page header -->
+<!--head lock End--->    
 
-        <div class="page-header d-print-none">
-          <div class="container-xl">
-            <div class="row g-2 align-items-center">
-              <div class="col-md-9">
-				<!--Create a Carousel-->
-                <div id="demo" class="carousel slide" data-ride="carousel">
-                  <ul class="carousel-indicators">
-                    <li data-target="#demo" data-slide-to="0" class="active"></li>
-                    <li data-target="#demo" data-slide-to="1"></li>
-                  </ul>
+      <?php
 
-                  <div class="carousel-inner">
+	  if($modules=="history") {
+		  include("information/history.php");
+	  } else if($modules=="resolution") {
+		  include("information/resolution.php");
+	  } else if($modules=="strategic_plan") {
+		  include("information/strategic_plan.php");
+	  } else if($modules=="management_message") {
+		  include("information/management_message.php");
+	  } else if($modules=="structure") {
+		  include("information/structure.php");
+	  } else if($modules=="management_team") {
+		  include("information/management_team.php");
+	  } else if($modules=="map") {
+		  include("information/map.php");
+	  } else if($modules=="contactus") {
+		  include("information/contactus.php");
+	  } else {
+		  include("information/mainfile.php");
+	  }
 
-                    <div class="carousel-item active">
-                      <img src="dist/img/slides/slides01.jpg" alt="Los Angeles" style="width: 100%; height: 400px;">
-                    </div>
-
-                    <div class="carousel-item">
-                      <img src="dist/img/slides/slides02.jpg" alt="Chicago" style="width: 100%; height: 400px;">
-                    </div>
-
-                  </div>
-                  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                  </a>
-                  <a class="carousel-control-next" href="#demo" data-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                  </a>
-                </div>
-				<!--Create a Carousel End-->
-              </div>
-              <div class="col-md-3">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-imagecheck mb-2">             
-                      <span class="form-imagecheck">
-                        <img src="./static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach" class="form-image">
-                      </span>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-imagecheck mb-2">             
-                      <span class="form-imagecheck">
-                        <img src="./static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach" class="form-image">
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-imagecheck mb-2">             
-                      <span class="form-imagecheck">
-                        <img src="./static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach" class="form-image">
-                      </span>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-imagecheck mb-2">             
-                      <span class="form-imagecheck">
-                        <img src="./static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach" class="form-image">
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="card-body card card-link card-link-pop btn-secondary" style="background-color: #FF9933;">Pop hover effect</div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="card-body card card-link card-link-pop btn-secondary" style="background-color: #FF9933;">Pop hover effect</div>
-                  </div>                  
-                  <div class="col-md-12">
-                    <div class="card-body card card-link card-link-pop btn-secondary" style="background-color: #FF9933;">Pop hover effect</div>
-                  </div>
-                </div>
-              </div>
-            <div>
-          </div>
-
-        </div>
-
-<!-- Page body -->
-        <div class="page-body">
-          <div class="container-xl">
-<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-
-            <div class="row row-deck row-cards">
-              <div class="col-md-2">
-                <a href="#" class="card card-link">
-                  <div class="card-body" style="background-color: #FF9933;">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-category" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                      <path d="M4 4h6v6h-6z"></path>
-                      <path d="M14 4h6v6h-6z"></path>
-                      <path d="M4 14h6v6h-6z"></path>
-                      <path d="M17 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
-                    </svg> 
-                  test01
-                  </div>
-                </a>
-              </div>
-              <div class="col-md-2">
-                <a href="#" class="card card-link">
-                  <div class="card-body" style="background-color: #FF9933;">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-world" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                      <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path>
-                      <path d="M3.6 9h16.8"></path>
-                      <path d="M3.6 15h16.8"></path>
-                      <path d="M11.5 3a17 17 0 0 0 0 18"></path>
-                      <path d="M12.5 3a17 17 0 0 1 0 18"></path>
-                    </svg>  
-                  test02
-                  </div>
-                </a>
-              </div>
-              <div class="col-md-2">
-                <a href="#" class="card card-link">
-                  <div class="card-body" style="background-color: #FF9933;">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-coin-rupee" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                      <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
-                      <path d="M15 8h-6h1a3 3 0 0 1 0 6h-1l3 3"></path>
-                      <path d="M9 11h6"></path>
-                    </svg>
-                  test03
-                  </div>
-                </a>
-              </div>
-              <div class="col-md-2">
-                <a href="#" class="card card-link">
-                  <div class="card-body" style="background-color: #FF9933;">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit-circle" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                      <path d="M12 15l8.385 -8.415a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3z"></path>
-                      <path d="M16 5l3 3"></path>
-                      <path d="M9 7.07a7 7 0 0 0 1 13.93a7 7 0 0 0 6.929 -6"></path>
-                    </svg>
-                  test04
-                  </div>
-                </a>
-              </div>
-              <div class="col-md-2">
-                <a href="#" class="card card-link">
-                  <div class="card-body" style="background-color: #FF9933;">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit-circle" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                      <path d="M12 15l8.385 -8.415a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3z"></path>
-                      <path d="M16 5l3 3"></path>
-                      <path d="M9 7.07a7 7 0 0 0 1 13.93a7 7 0 0 0 6.929 -6"></path>
-                    </svg>
-                  test05
-                  </div>
-                </a>
-              </div>
-              <div class="col-md-2">
-                <a href="#" class="card card-link">
-                  <div class="card-body" style="background-color: #FF9933;">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit-circle" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                      <path d="M12 15l8.385 -8.415a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3z"></path>
-                      <path d="M16 5l3 3"></path>
-                      <path d="M9 7.07a7 7 0 0 0 1 13.93a7 7 0 0 0 6.929 -6"></path>
-                    </svg>
-                  test06
-                  </div>
-                </a>
-              </div>
-
-            </div>
-            <div>&nbsp;</div>
-
-
-            <div class="row row-deck row-cards">
-              <div class="col-md-6">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="d-flex align-items-center">
-                      <div class="subheader">test01</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="d-flex align-items-center">
-                      <div class="subheader">test02</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div>&nbsp;</div>
-
-            <div class="row row-deck row-cards">
-              <div class="col-md-3">
-                <div class="card">
-                  <iframe style="width: 100%; height: 115px;" 
-                          src="https://www.youtube.com/embed/culwztQvugw?si=JKRFlEP3gaX0_ZCy" 
-                          title="YouTube video player" 
-                          frameborder="0" 
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                          allowfullscreen></iframe>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="card">
-                  <iframe style="width: 100%; height: 115px;" 
-                          src="https://www.youtube.com/embed/CmFWe9fG-xo?si=IWd4DG98sz7U7cWL" 
-                          title="YouTube video player" 
-                          frameborder="0" 
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                          allowfullscreen></iframe>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="card">
-                  <iframe style="width: 100%; height: 115px;" 
-                          src="https://www.youtube.com/embed/Jo8Km-wQdjs?si=hgowMMGRJG7Xh6u2" 
-                          title="YouTube video player" 
-                          frameborder="0" 
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                          allowfullscreen></iframe>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="card">
-                  <iframe style="width: 100%; height: 115px;" 
-                          src="https://www.youtube.com/embed/4VCQKFrmrp8?si=k26Z2yN2S8hCqGxN" 
-                          title="YouTube video player" 
-                          frameborder="0" 
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                          allowfullscreen></iframe>
-                </div>
-              </div>
-            </div>
-            <div>&nbsp;</div>
-
-            <div class="row row-deck row-cards">
-              <div class="col-md-12">      
-                <div class="page-header d-print-none">
-                  <div class="container-xl">
-                    <h2 class="page-title" >
-                      Contact Us
-                    </h2>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div>&nbsp;</div>
-
-            <div class="row row-deck row-cards">
-              <div class="col-md-4">
-                <div class="row">
-                  <div class="col-md-12">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-phone-call" width="128" height="128" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                      <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
-                      <path d="M15 7a2 2 0 0 1 2 2"></path>
-                      <path d="M15 3a6 6 0 0 1 6 6"></path>
-                    </svg>
-                  </div>
-                  <div>&nbsp;</div>
-                  <div class="col-md-12">xxx</div>
-                  <div class="col-md-12">xxx</div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="row">
-                  <div class="col-md-12">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin-pin" width="128" height="128" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                      <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
-                      <path d="M12.783 21.326a2 2 0 0 1 -2.196 -.426l-4.244 -4.243a8 8 0 1 1 13.657 -5.62"></path>
-                      <path d="M21.121 20.121a3 3 0 1 0 -4.242 0c.418 .419 1.125 1.045 2.121 1.879c1.051 -.89 1.759 -1.516 2.121 -1.879z"></path>
-                      <path d="M19 18v.01"></path>
-                    </svg>
-                  </div>
-                  <div>&nbsp;</div>
-                  <div class="col-md-12">xxx</div>
-                  <div class="col-md-12">xxx</div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="row">
-                  <div class="col-md-12">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-world" width="128" height="128" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                      <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path>
-                      <path d="M3.6 9h16.8"></path>
-                      <path d="M3.6 15h16.8"></path>
-                      <path d="M11.5 3a17 17 0 0 0 0 18"></path>
-                      <path d="M12.5 3a17 17 0 0 1 0 18"></path>
-                    </svg>
-                  </div>
-                  <div>&nbsp;</div>
-                  <div class="col-md-12">xxx</div>
-                  <div class="col-md-12">xxx</div>
-                </div>
-              </div>
-            </div>
-            <div>&nbsp;</div>
-
-            <div class="row row-deck row-cards">
-              <div class="col-md-12">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3777.2224185350324!2d98.96518697519828!3d18.788238682358024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30da3a7de79258eb%3A0xc3ba2271c3e95576!2sWat%20Suan%20Dok!5e0!3m2!1sen!2sth!4v1693584464849!5m2!1sen!2sth" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-              </div>
-            </div>
-
-<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-          </div>
-        </div>
-<!-- Page body end-->
-<!--footer-->
-        <footer class="footer footer-transparent d-print-none">
-          <div class="container-xl">
-            <div class="row row-deck row-cards">
-              <div class="col-md-6">
-                <div class="row">
-                  <div class="col-md-3">
-                    <img src="dist/img/logo.png" width="80" height="80" alt="Tabler" class="" style="float: right;">
-                  </div>
-                  <div class="col-md-9">
-                    <div class="row">
-                      <div class="col-md-12">xxxxxxxxxx</div>
-                      <div class="col-md-12">xxxxxxxxxx</div>
-                      <div class="col-md-12">xxxxxxxxxx</div>
-                      <div class="col-md-12">xxxxxxxxxx</div>
-                    </div>
-                  </div>                
-                </div>
-              </div>
-              <div class="col-md-6">
-
-              </div>
-            </div>
-          </div>
-        </footer>
-<!--footer end-->
-      </div>
+      ?>
 <!--footer-->
       <footer class="d-print-none" style="background-color: #FF9933;">
         <div>&nbsp;</div>

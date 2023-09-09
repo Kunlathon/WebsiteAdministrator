@@ -19,7 +19,7 @@
     include("../../config/fnc.php");
     include("../../structure/link.php");
     $RunLink = new link_system();
-    check_login('admin_username_aba', 'login.php');
+    check_login('admin_username_lcm', 'login.php');
 ?>
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 <script type="text/javascript">
@@ -204,7 +204,7 @@
 
 													<?php
 													if ($classroom!="") {
-														if((check_session("admin_status_aba") == '1') || (check_session("admin_status_aba") == '4') || (check_session("admin_status_aba") == '5')){
+														if((check_session("admin_status_lcm") == '1') || (check_session("admin_status_lcm") == '4') || (check_session("admin_status_lcm") == '5')){
 													?>
 
 													<tr>
@@ -279,7 +279,7 @@
 																<i class="fa fa-file-text-o"></i> </a>-->	
 
 														<?php
-														if((check_session("admin_status_aba") == '1') || (check_session("admin_status_aba") == '4') || (check_session("admin_status_aba") == '5')){
+														if((check_session("admin_status_lcm") == '1') || (check_session("admin_status_lcm") == '4') || (check_session("admin_status_lcm") == '5')){
 														?>
 
                                                         <div><a  href="<?php echo $RunLink->Call_Link_System();?>/document/grade_report<?php echo $check_grade;?>_4.php?id=<?php echo $row['student_id'];?>&classroom=<?php echo $classroom;?>&check_grade=<?php echo $check_grade;?>&check_term=<?php echo $check_term;?>" title="ผลการเรียน" class="badge badge-danger p-1" target="_blank"><i class="icon-printer4"></i></a></div>

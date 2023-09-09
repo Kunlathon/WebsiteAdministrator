@@ -22,7 +22,7 @@
         Header("Location:../index.php");
         die();
     }else{
-        if((check_session("admin_status_aba") == '1') || (check_session("admin_status_aba") == '2') || (check_session("admin_status_aba") == '3') || (check_session("admin_status_aba") == '4') || (check_session("admin_status_aba") == '5')){ ?>
+        if((check_session("admin_status_lcm") == '1') || (check_session("admin_status_lcm") == '2') || (check_session("admin_status_lcm") == '3') || (check_session("admin_status_lcm") == '4') || (check_session("admin_status_lcm") == '5')){ ?>
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
     <div class="page-header page-header-light">
         <div class="breadcrumb-line breadcrumb-line-light header-elements-lg-inline">
@@ -60,7 +60,7 @@
     $cid=filter_input(INPUT_POST,'cid');
     $pay=filter_input(INPUT_POST,'pay');
     $pid=filter_input(INPUT_POST,'pid');
-    $aid = check_session("admin_id_aba");
+    $aid = check_session("admin_id_lcm");
     $update_date = date('Y-m-d H:i:s');
     $grade_txt=filter_input(INPUT_POST,'grade_txt');
 
@@ -593,7 +593,7 @@
                             //$payment_score3 = $row['payment_score3'];
                             //$payment_score4 = $row['payment_score4'];
         
-                            $admin_key = check_session("admin_id_aba");
+                            $admin_key = check_session("admin_id_lcm");
                             $update_time = date('Y-m-d H:i:s');
         
                             $sqlPAY = "SELECT *,MAX(payment_student_id) AS ID FROM tb_payment_student";

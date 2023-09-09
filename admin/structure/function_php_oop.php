@@ -16,7 +16,7 @@ if ((preg_match("/function_php_oop.php/", $_SERVER['PHP_SELF']))) {
 	Header("Location: ../index.php");
 	die();
 } else {
-	check_login('admin_username_aba', 'login.php');
+	check_login('admin_username_lcm', 'login.php');
 	//-------------------------------------------------------------------	
 	//strtotime	
 	class strtotime_date{

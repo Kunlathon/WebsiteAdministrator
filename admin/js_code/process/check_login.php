@@ -10,7 +10,7 @@
 <?php
 include '../../config/connect.ini.php';
 include '../../config/fnc.php';
-//check_login('admin_username_aba','login.php');
+//check_login('admin_username_lcm','login.php');
 
 //$user_username = stripslashes($_POST['username']);
 //$user_password = stripslashes($_POST['password']);

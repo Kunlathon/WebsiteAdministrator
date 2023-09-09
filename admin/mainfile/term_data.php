@@ -17,7 +17,7 @@ if ((preg_match("/term_data.php/", $_SERVER['PHP_SELF']))) {
     Header("Location: ../index.php");
     die();
 } else {
-    if ((check_session("admin_status_aba") == '1') || (check_session("admin_status_aba") == '2') || (check_session("admin_status_aba") == '3') || (check_session("admin_status_aba") == '4') || (check_session("admin_status_aba") == '5')) { ?>
+    if ((check_session("admin_status_lcm") == '1') || (check_session("admin_status_lcm") == '2') || (check_session("admin_status_lcm") == '3') || (check_session("admin_status_lcm") == '4') || (check_session("admin_status_lcm") == '5')) { ?>
 
         <?php @$list = filter_input(INPUT_GET, 'list'); ?>
 
@@ -165,7 +165,7 @@ if ((preg_match("/term_data.php/", $_SERVER['PHP_SELF']))) {
                                                             </th>
                                                             <?php
                                                             if ($check_grade == '1') {
-                                                                if ((check_session("admin_username_aba")) == "snaper" || (check_session("admin_username_aba") == "krusoh")) {
+                                                                if ((check_session("admin_username_lcm")) == "snaper" || (check_session("admin_username_lcm") == "krusoh")) {
                                                             ?>
                                                                     <th>
                                                                         <div>สำเนา</div>
@@ -226,7 +226,7 @@ if ((preg_match("/term_data.php/", $_SERVER['PHP_SELF']))) {
                                                                 <?php
                                                                 if ($check_grade == '1') {
 
-                                                                    if ((check_session("admin_username_aba")) == "snaper" || (check_session("admin_username_aba") == "krusoh")) {
+                                                                    if ((check_session("admin_username_lcm")) == "snaper" || (check_session("admin_username_lcm") == "krusoh")) {
                                                                 ?>
                                                                         <td align="center">
                                                                             <a href="ajax/get_copycourse_data11.php?id=<?php echo $row['term_id']; ?>&check_grade=<?php echo $check_grade; ?>" data-toggle="modal" data-id="<?php echo $row['term_id']; ?>" data-target="#CopyCoursedata" class="btn btn-sm yellow-gold">

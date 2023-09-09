@@ -20,12 +20,12 @@ header("Content-Type: text/html;charset=UTF-8");
 
 include("../../config/connect.ini.php");
 include("../../config/fnc.php");
-check_login('admin_username_aba', 'login.php');
+check_login('admin_username_lcm', 'login.php');
 
 ?>
 
 <?php
-$aid = check_session("admin_id_aba");
+$aid = check_session("admin_id_lcm");
 $update_date = date('Y-m-d H:i:s');
 $update = date("Y-m-d H:i:s");
 $action = filter_input(INPUT_POST, 'action');

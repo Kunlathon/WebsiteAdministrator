@@ -22,7 +22,7 @@
         Header("Location: ../index.php");
         die();
     }else{
-        if((check_session("admin_status_aba") == '1') || (check_session("admin_status_aba") == '2') || (check_session("admin_status_aba") == '3') || (check_session("admin_status_aba") == '4') || (check_session("admin_status_aba") == '5')){ ?>
+        if((check_session("admin_status_lcm") == '1') || (check_session("admin_status_lcm") == '2') || (check_session("admin_status_lcm") == '3') || (check_session("admin_status_lcm") == '4') || (check_session("admin_status_lcm") == '5')){ ?>
 
 
 <?php
@@ -1354,7 +1354,7 @@
 </form>
                                                                                                                 </li>
     <?php
-            if((check_session("admin_status_aba") == '1')){ ?>
+            if((check_session("admin_status_lcm") == '1')){ ?>
                                                                                                                 <li class="nav-item">
 <form name="gcdp_delete<?php echo $row['course_detail_id']; ?>" id="gcdp_delete<?php echo $row['course_detail_id']; ?>" accept-charset="utf-8">
                                                                                                                         <button type="button" name="delete_course_detail<?php echo $row['course_detail_id']; ?>" data-toggle="modal" data-target="#modal_course_detail_success_Delete<?php echo $row['course_detail_id']; ?>" class="btn btn-outline-danger btn-sm" data-popup="tooltip" title="ลบ" data-placement="bottom"><i class="icon-bin"></i></button>
@@ -1852,7 +1852,7 @@
 </form>
                                                                             </li>
     <?php
-            if((check_session("admin_status_aba") == '1')){ ?>
+            if((check_session("admin_status_lcm") == '1')){ ?>
                                                                             <li class="nav-item">
 <form name="delete_<?php echo $row['course_id']; ?>" id="delete_<?php echo $row['course_id']; ?>">
                                                                         <button type="button" name="delete_<?php echo $row['course_id']; ?>" data-toggle="modal" data-target="#modal_theme_success_Delete<?php echo $row['course_id']; ?>" class="btn btn-outline-danger btn-sm" data-popup="tooltip" title="ลบ" data-placement="bottom"><i class="icon-bin"></i></button>

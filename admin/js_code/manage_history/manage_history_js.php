@@ -22,7 +22,7 @@
 
 //Data: datatables_extension_buttons_html5.js
 
-    check_login('admin_username_aba','login.php');
+    check_login('admin_username_lcm','login.php');
 
 ?>
 

@@ -19,7 +19,7 @@
         Header("Location: ../index.php");
         die();
     }else{
-        if((check_session("admin_status_aba")=='1') or (check_session("admin_status_aba") == '2') or (check_session("admin_status_aba") == '3') or (check_session("admin_status_aba") == '4') or (check_session("admin_status_aba") == '5')){ ?>
+        if((check_session("admin_status_lcm")=='1') or (check_session("admin_status_lcm") == '2') or (check_session("admin_status_lcm") == '3') or (check_session("admin_status_lcm") == '4') or (check_session("admin_status_lcm") == '5')){ ?>
 
     <div class="page-header page-header-light">
         <div class="breadcrumb-line breadcrumb-line-light header-elements-lg-inline">

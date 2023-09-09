@@ -16,7 +16,7 @@ if ((preg_match("/user_menu.php/", $_SERVER['PHP_SELF']))) {
 	Header("Location: ../index.php");
 	die();
 } else { ?>
-<?php check_login('admin_username_aba', 'login.php'); ?>
+<?php check_login('admin_username_lcm', 'login.php'); ?>
 	<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 	<div class="sidebar-section sidebar-user my-1">
 		<div class="sidebar-section-body">
@@ -26,14 +26,14 @@ if ((preg_match("/user_menu.php/", $_SERVER['PHP_SELF']))) {
 				</a>
 
 				<?php
-					$admin_name_aba = check_session("admin_name_aba");
-					$admin_status_aba = check_session("admin_status_aba");
+					$admin_name_lcm = check_session("admin_name_lcm");
+					$admin_status_lcm = check_session("admin_status_lcm");
 				?>
 
 				<div class="media-body">
-					<div class="font-weight-semibold"><?php echo $admin_name_aba;?></div>
+					<div class="font-weight-semibold"><?php echo $admin_name_lcm;?></div>
 					<div class="font-size-sm line-height-sm opacity-50">
-					<?php echo admin_status($admin_status_aba);?>
+					<?php echo admin_status($admin_status_lcm);?>
 					</div>
 				</div>
 
