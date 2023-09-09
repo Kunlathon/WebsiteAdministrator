@@ -82,9 +82,9 @@
 	          <div class="row">
                 <div class="col-<?php echo $grid; ?>-4">
                 <div class="btn-group">
-                        <button type="button" onclick="location.href='<?php echo $RunLink->Call_Link_System();?>/?modules=manage_vision'" class="btn btn-outline-success btn-sm" value="">แก้ไข (TH)</button>&nbsp;&nbsp;
-                        <button type="button" onclick="location.href='<?php echo $RunLink->Call_Link_System();?>/?modules=manage_vision_cn'"  class="btn btn-outline-success btn-sm" value="">แก้ไข (EN)</button>&nbsp;&nbsp;
-                        <button type="button" onclick="location.href='<?php echo $RunLink->Call_Link_System();?>/?modules=manage_vision_en'" class="btn btn-outline-success btn-sm" value="">แก้ไข (CN)</button>
+                        <button type="button" onclick="location.href='<?php echo $RunLink->Call_Link_System();?>/?modules=manage_vision'" class="btn btn-success btn-sm" value="">แก้ไข (TH)</button>&nbsp;&nbsp;
+                        <button type="button" onclick="location.href='<?php echo $RunLink->Call_Link_System();?>/?modules=manage_vision_en'"  class="btn btn-outline-success btn-sm" value="">แก้ไข (EN)</button>&nbsp;&nbsp;
+                        <button type="button" onclick="location.href='<?php echo $RunLink->Call_Link_System();?>/?modules=manage_vision_cn'" class="btn btn-outline-success btn-sm" value="">แก้ไข (CN)</button>
                     </div>
                 </div>
                 <div class="col-<?php echo $grid; ?>-4"></div>

@@ -190,14 +190,21 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 		include("js_code/assessment_show/assessment_show_js.php");
 	}elseif(($modules=="image_slide")){
 		include("js_code/image_slide/image_slide_js.php");
+//----------------------------------------------------------------------------------------
 	}elseif(($modules=="manage_history")){
 		include("js_code/manage_history/manage_history_js.php");
 	}elseif(($modules=="manage_history_en")){
 		include("js_code/manage_history_en/manage_history_en_js.php");
 	}elseif(($modules=="manage_history_cn")){
 		include("js_code/manage_history_cn/manage_history_cn_js.php");
+//----------------------------------------------------------------------------------------		
 	}elseif(($modules=="manage_vision")){
 		include("js_code/manage_vision/manage_vision_js.php");
+	}elseif(($modules=="manage_vision_en")){
+		include("js_code/manage_vision_en/manage_vision_en_js.php");
+	}elseif(($modules=="manage_vision_cn")){
+		include("js_code/manage_vision_cn/manage_vision_cn_js.php");
+//----------------------------------------------------------------------------------------	
 	}elseif(($modules=="manage_strategic_plan")){
 		include("js_code/manage_strategic_plan/manage_strategic_plan_js.php");
 	}elseif(($modules=="manage_director")){
@@ -528,6 +535,7 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 						case "image_slide":
 							include $load;
 							break;
+//----------------------------------------------------------------------------------------
 						case "manage_history":
 							include $load;
 							break;
@@ -537,9 +545,17 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 						case "manage_history_cn":
 							include $load;
 							break;
+//----------------------------------------------------------------------------------------
 						case "manage_vision":
 							include $load;
 							break;
+						case "manage_vision_en":
+							include $load;
+							break;
+						case "manage_vision_cn":
+							include $load;
+							break;
+//----------------------------------------------------------------------------------------
 						case "manage_strategic_plan":
 							include $load;
 							break;
