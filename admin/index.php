@@ -192,6 +192,20 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 		include("js_code/image_slide/image_slide_js.php");
 	}elseif(($modules=="manage_history")){
 		include("js_code/manage_history/manage_history_js.php");
+	}elseif(($modules=="manage_vision")){
+		include("js_code/manage_vision/manage_vision_js.php");
+	}elseif(($modules=="manage_strategic_plan")){
+		include("js_code/manage_strategic_plan/manage_strategic_plan_js.php");
+	}elseif(($modules=="manage_director")){
+		include("js_code/manage_director/manage_director_js.php");
+	}elseif(($modules=="manage_organization")){
+		include("js_code/manage_organization/manage_organization_js.php");
+	}elseif(($modules=="manage_executive")){
+		include("js_code/manage_executive/manage_executive_js.php");
+	}elseif(($modules=="manage_contact")){
+		include("js_code/manage_contact/manage_contact_js.php");
+	}elseif(($modules=="manage_map")){
+		include("js_code/manage_map/manage_map_js.php");
 	}else{ ?>
 		<!-- Theme JS files -->
 		<script src="<?php echo $RunLink->Call_Link_System(); ?>/template/global_assets/js/plugins/forms/inputs/typeahead/handlebars.min.js"></script>
@@ -512,7 +526,28 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 							break;
 						case "manage_history";
 							include $load;
-							break;						
+							break;		
+						case "manage_vision":
+							include $load;
+							break;
+						case "manage_strategic_plan":
+							include $load;
+							break;
+						case "manage_director":
+							include $load;
+							break;
+						case "manage_organization":
+							include $load;
+							break;
+						case "manage_executive":
+							include $load;
+							break;
+						case "manage_contact":
+							include $load;
+							break;
+						case "manage_map":
+							include $load;
+							break;
 							// ----- Non ----- //
 
 						case "term_data":
@@ -533,7 +568,6 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 						case "check_subject":
 							include $load;
 							break;
-
 							//-------------------
 						case "dashboard":
 							include $load;

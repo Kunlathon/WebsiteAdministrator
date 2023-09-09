@@ -56,13 +56,13 @@ if ((preg_match("/main_navigation.php/", $_SERVER['PHP_SELF']))) {
 
             <ul class="nav nav-group-sub" data-submenu-title="Layouts">
                 <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_history" class="nav-link ">ประวัติศูนย์ภาษา</a></li>
-                <li class="nav-item"><a href="#" class="nav-link ">ปณิธาน & วิสัยทัศน์ & พันธกิจ & วัตถุประสงค์</a></li>
-                <li class="nav-item"><a href="#" class="nav-link ">แผนยุทธศาสตร์ & เป้าประสงค์</a></li>
-                <li class="nav-item"><a href="#" class="nav-link ">สารจากผู้บริหาร</a></li>
-                <li class="nav-item"><a href="#" class="nav-link ">โครงสร้างองค์กร และคณะกรรมการ</a></li>
-                <li class="nav-item"><a href="#" class="nav-link ">คณะผู้บริหาร</a></li>
-                <li class="nav-item"><a href="#" class="nav-link ">ติดต่อเรา</a></li>
-                <li class="nav-item"><a href="#" class="nav-link ">แผนที่</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_vision" class="nav-link ">ปณิธาน & วิสัยทัศน์ & พันธกิจ & วัตถุประสงค์</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_strategic_plan" class="nav-link ">แผนยุทธศาสตร์ & เป้าประสงค์</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_director" class="nav-link ">สารจากผู้บริหาร</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_organization" class="nav-link ">โครงสร้างองค์กร และคณะกรรมการ</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_executive" class="nav-link ">คณะผู้บริหาร</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_contact" class="nav-link ">ติดต่อเรา</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_map" class="nav-link ">แผนที่</a></li>
             </ul>
         </li>
 

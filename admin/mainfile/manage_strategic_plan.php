@@ -14,7 +14,7 @@
     error_reporting(E_ALL ^ E_NOTICE);
     ini_set('display_errors', 'On'); // Open Error , PHP Code
 
-    if((preg_match("/manage_history.php/", $_SERVER['PHP_SELF']))){
+    if((preg_match("/manage_strategic_plan.php/", $_SERVER['PHP_SELF']))){
         Header("Location: ../index.php");
         die();
     }else{
@@ -52,7 +52,7 @@
             }
         }*/
         $manage="edit";
-        $information_key=1;
+        $information_key=3;
             if(($manage=="edit")){ 
                 $sql = "SELECT `information_id`,`information_topic`,`information_detail`,`information_image` 
                         FROM `tb_information` 
@@ -75,7 +75,7 @@
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
     <div class="row">
         <div class="col-<?php echo $grid;?>-12">
-            <h4>ข้อมูลประวัติศูนย์ภาษา</h4>
+            <h4>ข้อมูลแผนยุทธศาสตร์ & เป้าหมาย</h4>
         </div>
     </div>
 
@@ -83,13 +83,13 @@
         <div class="col-<?php echo $grid;?>-12">
             <div class="card border border-purple">
                 <div class="card-header header-elements-inline bg-info text-white">
-                    <div class="col-<?php echo $grid;?>-6">ฟอร์มแก้ไขข้อมูลประวัติศูนย์ภาษา</div>
+                    <div class="col-<?php echo $grid;?>-6">ฟอร์มแก้ไขข้อมูลแผนยุทธศาสตร์ & เป้าหมาย</div>
                     <div class="col-<?php echo $grid;?>-6">
                         <table align="right">
                             <tr>
                                 <td>
                                     <div>
-<form name="manage_history_form_show" id="manage_history_form_show" accept-charset="uft-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_history">
+<form name="manage_strategic_plan_form_show" id="manage_strategic_plan_form_show" accept-charset="uft-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_strategic_plan">
                                             <input type="hidden" name="manage" id="manage" value="show">
                                             <button type="submit" name="sub_isfs" id="sub_isfs" class="btn btn-secondary btn-sm" style="align: right;"><i class="icon-list-unordered"></i> รายการ</button>
 </form>
@@ -101,7 +101,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-<form name="form_edit" id="form_edit" accept-charset="utf-8" action="<?php echo $RunLink->Call_Link_System();?>/js_code/manage_history/manage_history_process.php" method="post" enctype="multipart/form-data">
+<form name="form_edit" id="form_edit" accept-charset="utf-8" action="<?php echo $RunLink->Call_Link_System();?>/js_code/manage_strategic_plan/manage_strategic_plan_process.php" method="post" enctype="multipart/form-data">
 
                     <div class="row">
                         <div class="col-<?php echo $grid;?>-12">

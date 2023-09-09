@@ -83,5 +83,5 @@
 //update db end
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             }
-        exit("<script>window.location='../../?modules=manage_history';</script>");
+        exit("<script>window.location='../../?modules=manage_strategic_plan';</script>");
     }else{}
