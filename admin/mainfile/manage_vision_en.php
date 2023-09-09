@@ -14,7 +14,7 @@
     error_reporting(E_ALL ^ E_NOTICE);
     ini_set('display_errors', 'On'); // Open Error , PHP Code
 
-    if((preg_match("/manage_director.php/", $_SERVER['PHP_SELF']))){
+    if((preg_match("/manage_vision.php/", $_SERVER['PHP_SELF']))){
         Header("Location: ../index.php");
         die();
     }else{
@@ -52,7 +52,7 @@
             }
         }*/
         $manage="edit";
-        $information_key=4;
+        $information_key=2;
             if(($manage=="edit")){ 
                 $sql = "SELECT `information_id`,`information_topic`,`information_detail`,`information_image` 
                         FROM `tb_information` 
@@ -75,7 +75,7 @@
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
     <div class="row">
         <div class="col-<?php echo $grid;?>-12">
-            <h4>ข้อมูลสารจากผู้บริหาร (TH)</h4>
+            <h4>ข้อมูลปณิธาน & วิสัยทัศน์ & พันธกิจ & วัตถุประสงค์ (EN)</h4>
         </div>
     </div>
 
@@ -95,13 +95,13 @@
         <div class="col-<?php echo $grid;?>-12">
             <div class="card border border-purple">
                 <div class="card-header header-elements-inline bg-info text-white">
-                    <div class="col-<?php echo $grid;?>-6">ฟอร์มแก้ไขข้อมูลสารจากผู้บริหาร (TH)</div>
+                    <div class="col-<?php echo $grid;?>-6">ฟอร์มแก้ไขข้อมูลปณิธาน & วิสัยทัศน์ & พันธกิจ & วัตถุประสงค์ (EN)</div>
                     <div class="col-<?php echo $grid;?>-6">
                         <table align="right">
                             <tr>
                                 <td>
                                     <div>
-<form name="manage_director_form_show" id="manage_director_form_show" accept-charset="uft-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_director">
+<form name="manage_vision_form_show" id="manage_vision_form_show" accept-charset="uft-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_vision">
                                             <input type="hidden" name="manage" id="manage" value="show">
                                             <button type="submit" name="sub_isfs" id="sub_isfs" class="btn btn-secondary btn-sm" style="align: right;"><i class="icon-list-unordered"></i> รายการ</button>
 </form>
@@ -113,7 +113,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-<form name="form_edit" id="form_edit" accept-charset="utf-8" action="<?php echo $RunLink->Call_Link_System();?>/js_code/manage_director/manage_director_process.php" method="post" enctype="multipart/form-data">
+<form name="form_edit" id="form_edit" accept-charset="utf-8" action="<?php echo $RunLink->Call_Link_System();?>/js_code/manage_vision/manage_vision_process.php" method="post" enctype="multipart/form-data">
 
                     <div class="row">
                         <div class="col-<?php echo $grid;?>-12">

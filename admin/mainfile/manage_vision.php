@@ -75,15 +75,27 @@
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
     <div class="row">
         <div class="col-<?php echo $grid;?>-12">
-            <h4>ข้อมูลปณิธาน & วิสัยทัศน์ & พันธกิจ & วัตถุประสงค์</h4>
+            <h4>ข้อมูลปณิธาน & วิสัยทัศน์ & พันธกิจ & วัตถุประสงค์ (TH)</h4>
         </div>
     </div>
+
+	          <div class="row">
+                <div class="col-<?php echo $grid; ?>-4">
+                <div class="btn-group">
+                        <button type="button" onclick="location.href='<?php echo $RunLink->Call_Link_System();?>/?modules=manage_vision'" class="btn btn-outline-success btn-sm" value="">แก้ไข (TH)</button>&nbsp;&nbsp;
+                        <button type="button" onclick="location.href='<?php echo $RunLink->Call_Link_System();?>/?modules=manage_vision_cn'"  class="btn btn-outline-success btn-sm" value="">แก้ไข (EN)</button>&nbsp;&nbsp;
+                        <button type="button" onclick="location.href='<?php echo $RunLink->Call_Link_System();?>/?modules=manage_vision_en'" class="btn btn-outline-success btn-sm" value="">แก้ไข (CN)</button>
+                    </div>
+                </div>
+                <div class="col-<?php echo $grid; ?>-4"></div>
+                <div class="col-<?php echo $grid; ?>-4"></div>
+			</div><br>
 
     <div class="row">
         <div class="col-<?php echo $grid;?>-12">
             <div class="card border border-purple">
                 <div class="card-header header-elements-inline bg-info text-white">
-                    <div class="col-<?php echo $grid;?>-6">ฟอร์มแก้ไขข้อมูลปณิธาน & วิสัยทัศน์ & พันธกิจ & วัตถุประสงค์</div>
+                    <div class="col-<?php echo $grid;?>-6">ฟอร์มแก้ไขข้อมูลปณิธาน & วิสัยทัศน์ & พันธกิจ & วัตถุประสงค์ (TH)</div>
                     <div class="col-<?php echo $grid;?>-6">
                         <table align="right">
                             <tr>
@@ -123,6 +135,29 @@
                     </div>
 
                     <div class="row">
+                        <div class="col-<?php echo $grid;?>-6">
+    <?php
+            if(($information_image!=null)){ ?>
+
+				<fieldset class="mb-3">
+        <?php
+                if(file_exists("../dist/information/".$information_image)){ ?>
+                            <div><img src="../dist/information/<?php echo $information_image;?>" class="img-thumbnail" alt="<?php echo $information_image;?>" style="width:152px; height:168px;"></div>
+        <?php   }else{ ?>
+                            <div><img src="../dist/information/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:152px; height:168px;"></div>
+        <?php   } ?>
+
+                            </fieldset>
+
+    <?php   }else{ ?>
+                            <fieldset class="mb-3">
+                                <div><img src="../dist/information/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:152px; height:168px;"></div>
+                            </fieldset>
+    <?php   } ?>
+                        </div>
+                    </div>
+
+					<div class="row">
                         <div class="col-<?php echo $grid;?>-12">
                             <div class="card-header">
                                 <h5 class="card-title">ภาพ</h5>
@@ -138,27 +173,7 @@
                                     </div>
                                 </div>
                             </fieldset>
-                        </div>
-                        <div class="col-<?php echo $grid;?>-6">
-    <?php
-            if(($information_image!=null)){ ?>
-
-                            <fieldset class="mb-3">
-        <?php
-                if(file_exists("../dist/information/".$information_image)){ ?>
-                            <div><img src="../../dist/information/<?php echo $information_image;?>" class="img-thumbnail" alt="<?php echo $information_image;?>" style="width:304px; height:236px;"></div>
-        <?php   }else{ ?>
-                            <div><img src="../../dist/information/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:304px; height:236px;"></div>
-        <?php   } ?>
-
-                            </fieldset>
-
-    <?php   }else{ ?>
-                            <fieldset class="mb-3">
-                                <div><img src="../../dist/information/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:304px; height:236px;"></div>
-                            </fieldset>
-    <?php   } ?>
-                        </div>
+                        </div>                        
                     </div>
 
                     <div class="row">

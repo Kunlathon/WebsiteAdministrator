@@ -75,7 +75,7 @@
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
     <div class="row">
         <div class="col-<?php echo $grid;?>-12">
-            <h4>ข้อมูลสารจากผู้บริหาร (TH)</h4>
+            <h4>ข้อมูลสารจากผู้บริหาร (CN)</h4>
         </div>
     </div>
 
@@ -95,7 +95,7 @@
         <div class="col-<?php echo $grid;?>-12">
             <div class="card border border-purple">
                 <div class="card-header header-elements-inline bg-info text-white">
-                    <div class="col-<?php echo $grid;?>-6">ฟอร์มแก้ไขข้อมูลสารจากผู้บริหาร (TH)</div>
+                    <div class="col-<?php echo $grid;?>-6">ฟอร์มแก้ไขข้อมูลสารจากผู้บริหาร (CN)</div>
                     <div class="col-<?php echo $grid;?>-6">
                         <table align="right">
                             <tr>

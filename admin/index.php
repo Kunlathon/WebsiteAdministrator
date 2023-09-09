@@ -192,6 +192,10 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 		include("js_code/image_slide/image_slide_js.php");
 	}elseif(($modules=="manage_history")){
 		include("js_code/manage_history/manage_history_js.php");
+	}elseif(($modules=="manage_history_en")){
+		include("js_code/manage_history_en/manage_history_en_js.php");
+	}elseif(($modules=="manage_history_cn")){
+		include("js_code/manage_history_cn/manage_history_cn_js.php");
 	}elseif(($modules=="manage_vision")){
 		include("js_code/manage_vision/manage_vision_js.php");
 	}elseif(($modules=="manage_strategic_plan")){
@@ -524,9 +528,15 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 						case "image_slide":
 							include $load;
 							break;
-						case "manage_history";
+						case "manage_history":
 							include $load;
-							break;		
+							break;
+						case "manage_history_en":
+							include $load;
+							break;
+						case "manage_history_cn":
+							include $load;
+							break;
 						case "manage_vision":
 							include $load;
 							break;
