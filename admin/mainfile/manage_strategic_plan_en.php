@@ -157,7 +157,7 @@
                         </div>
                     </div>
 
-					<div class="row">
+					<!--<div class="row">
                         <div class="col-<?php echo $grid;?>-12">
                             <div class="card-header">
                                 <h5 class="card-title">ภาพ</h5>
@@ -169,12 +169,12 @@
                             <fieldset class="mb-3">
                                 <div class="form-group row">
                                     <div class="col-<?php echo $grid;?>-12">
-                                        <input type="file" name="information_image" id="information_image" class="form-control"  placeholder="ภาพ">
+                                        <input type="file" name="information_image" id="information_image" class="form-control"  placeholder="ภาพ" readonly="readonly">
                                     </div>
                                 </div>
                             </fieldset>
                         </div>                        
-                    </div>
+                    </div>-->
 
                     <div class="row">
                         <div class="col-<?php echo $grid;?>-12">
