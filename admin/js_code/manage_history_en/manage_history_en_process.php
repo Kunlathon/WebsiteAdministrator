@@ -24,8 +24,8 @@
 
     if(($action=="edit")){
 
-        $information_topic=filter_input(INPUT_POST, 'information_topic');
-        $information_detail=filter_input(INPUT_POST, 'information_detail');
+        $information_topic_en=filter_input(INPUT_POST, 'information_topic_en');
+        $information_detail_en=filter_input(INPUT_POST, 'information_detail_en');
         $information_key=filter_input(INPUT_POST,'information_key');  
 
             if(isset($_POST["copy_image"])){
@@ -59,8 +59,8 @@
 //up image end
 //update db         
                 $Data = array(
-                    "information_topic"=>$information_topic,
-                    "information_detail"=>$information_detail,
+                    "information_topic_en_en"=>$information_topic_en,
+                    "information_detail_en_en"=>$information_detail_en,
                     "information_image"=>$information_image_new_name,
                     "post_date"=>$update_date,
                     "update_date"=>$update_date,
@@ -73,8 +73,8 @@
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //update db         
                 $Data = array(
-                    "information_topic"=>$information_topic,
-                    "information_detail"=>$information_detail,
+                    "information_topic_en_en"=>$information_topic_en,
+                    "information_detail_en_en"=>$information_detail_en,
                     "post_date"=>$update_date,
                     "update_date"=>$update_date,
                     "information_status"=>'1'
@@ -83,5 +83,5 @@
 //update db end
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             }
-        exit("<script>window.location='../../?modules=manage_history';</script>");
+        exit("<script>window.location='../../?modules=manage_history_en';</script>");
     }else{}

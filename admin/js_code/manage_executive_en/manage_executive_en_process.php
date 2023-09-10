@@ -24,8 +24,8 @@
 
     if(($action=="edit")){
 
-        $information_topic_cn=filter_input(INPUT_POST, 'information_topic_cn');
-        $information_detail_cn=filter_input(INPUT_POST, 'information_detail_cn');
+        $information_topic_en=filter_input(INPUT_POST, 'information_topic_en');
+        $information_detail_en=filter_input(INPUT_POST, 'information_detail_en');
         $information_key=filter_input(INPUT_POST,'information_key');  
 
             if(isset($_POST["copy_image"])){
@@ -59,8 +59,8 @@
 //up image end
 //update db         
                 $Data = array(
-                    "information_topic_cn_cn"=>$information_topic_cn,
-                    "information_detail_cn_cn"=>$information_detail_cn,
+                    "information_topic_en_en"=>$information_topic_en,
+                    "information_detail_en_en"=>$information_detail_en,
                     "information_image"=>$information_image_new_name,
                     "post_date"=>$update_date,
                     "update_date"=>$update_date,
@@ -73,8 +73,8 @@
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //update db         
                 $Data = array(
-                    "information_topic_cn_cn"=>$information_topic_cn,
-                    "information_detail_cn_cn"=>$information_detail_cn,
+                    "information_topic_en_en"=>$information_topic_en,
+                    "information_detail_en_en"=>$information_detail_en,
                     "post_date"=>$update_date,
                     "update_date"=>$update_date,
                     "information_status"=>'1'
@@ -83,5 +83,5 @@
 //update db end
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             }
-        exit("<script>window.location='../../?modules=manage_history_cn';</script>");
+        exit("<script>window.location='../../?modules=manage_executive_en';</script>");
     }else{}

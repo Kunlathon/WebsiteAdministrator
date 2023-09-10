@@ -83,5 +83,5 @@
 //update db end
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             }
-        exit("<script>window.location='../../?modules=manage_history_cn';</script>");
+        exit("<script>window.location='../../?modules=manage_contact_cn';</script>");
     }else{}

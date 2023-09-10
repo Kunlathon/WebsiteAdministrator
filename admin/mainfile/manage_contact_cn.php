@@ -54,19 +54,19 @@
         $manage="edit";
         $information_key=7;
             if(($manage=="edit")){ 
-                $sql = "SELECT `information_id`,`information_topic`,`information_detail`,`information_image` 
+                $sql = "SELECT `information_id`,`information_topic_cn`,`information_detail_cn`,`information_image` 
                         FROM `tb_information` 
                         WHERE `information_id`='{$information_key}';";
                 $list = result_array($sql);
                 foreach ($list as $key => $row){
                     if((is_array($row) && count($row))){
-                        $information_topic=$row["information_topic"];
-                        $information_detail=$row["information_detail"];
+                        $information_topic_cn=$row["information_topic_cn"];
+                        $information_detail_cn=$row["information_detail_cn"];
                         $information_image=$row["information_image"];
                         $information_id=$row["information_id"];
                     }else{
-                        $information_topic=null;
-                        $information_detail=null;
+                        $information_topic_cn=null;
+                        $information_detail_cn=null;
                         $information_image=null;
                         $information_id=null;
                     }
@@ -82,9 +82,9 @@
 	          <div class="row">
                 <div class="col-<?php echo $grid; ?>-4">
                 <div class="btn-group">
-                        <button type="button" name="edit_th" id="edit_th" class="btn btn-outline-success btn-sm" value="">แก้ไข (TH)</button>&nbsp;&nbsp;
-                        <button type="button" name="edit_en" id="edit_en" class="btn btn-outline-success btn-sm" value="">แก้ไข (EN)</button>&nbsp;&nbsp;
-                        <button type="button" name="edit_cn" id="edit_cn" class="btn btn-outline-success btn-sm" value="">แก้ไข (CN)</button>
+                        <button type="button" onclick="location.href='<?php echo $RunLink->Call_Link_System();?>/?modules=manage_contact'" class="btn btn-outline-success btn-sm" value="">แก้ไข (TH)</button>&nbsp;&nbsp;
+                        <button type="button" onclick="location.href='<?php echo $RunLink->Call_Link_System();?>/?modules=manage_contact_en'" class="btn btn-outline-success btn-sm" value="">แก้ไข (EN)</button>&nbsp;&nbsp;
+                        <button type="button" onclick="location.href='<?php echo $RunLink->Call_Link_System();?>/?modules=manage_contact_cn'" class="btn btn-success btn-sm" value="">แก้ไข (CN)</button>
                     </div>
                 </div>
                 <div class="col-<?php echo $grid; ?>-4"></div>
@@ -101,7 +101,7 @@
                             <tr>
                                 <td>
                                     <div>
-<form name="manage_contact_form_show" id="manage_contact_form_show" accept-charset="uft-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_contact">
+<form name="manage_contact_form_show" id="manage_contact_form_show" accept-charset="uft-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_contact_cn">
                                             <input type="hidden" name="manage" id="manage" value="show">
                                             <button type="submit" name="sub_isfs" id="sub_isfs" class="btn btn-secondary btn-sm" style="align: right;"><i class="icon-list-unordered"></i> รายการ</button>
 </form>
@@ -113,7 +113,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-<form name="form_edit" id="form_edit" accept-charset="utf-8" action="<?php echo $RunLink->Call_Link_System();?>/js_code/manage_contact/manage_contact_process.php" method="post" enctype="multipart/form-data">
+<form name="form_edit" id="form_edit" accept-charset="utf-8" action="<?php echo $RunLink->Call_Link_System();?>/js_code/manage_contact_cn/manage_contact_cn_process.php" method="post" enctype="multipart/form-data">
 
                     <div class="row">
                         <div class="col-<?php echo $grid;?>-12">
@@ -127,7 +127,7 @@
                             <fieldset class="mb-3">
                                 <div class="form-group row">
                                     <div class="col-<?php echo $grid;?>-12">
-                                        <input type="text" name="information_topic" id="information_topic" class="form-control" value="<?php echo $information_topic;?>" placeholder="หัวข้อเรื่อง" required="required">
+                                        <input type="text" name="information_topic_cn" id="information_topic_cn" class="form-control" value="<?php echo $information_topic_cn;?>" placeholder="หัวข้อเรื่อง" required="required">
                                     </div>
                                 </div>
                             </fieldset>
@@ -188,8 +188,8 @@
                             <fieldset class="mb-3">
                                 <div class="form-group row">
                                     <div class="col-<?php echo $grid;?>-12">
-                                        <textarea name="information_detail" id="editor-full" rows="4" cols="4" required="required">
-                                            <?php echo $information_detail;?>
+                                        <textarea name="information_detail_cn" id="editor-full" rows="4" cols="4" required="required">
+                                            <?php echo $information_detail_cn;?>
                                         </textarea>
                                     </div>
                                 </div>

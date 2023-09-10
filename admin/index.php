@@ -207,16 +207,46 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 //----------------------------------------------------------------------------------------	
 	}elseif(($modules=="manage_strategic_plan")){
 		include("js_code/manage_strategic_plan/manage_strategic_plan_js.php");
+	}elseif(($modules=="manage_strategic_plan_en")){
+		include("js_code/manage_strategic_plan_en/manage_strategic_plan_en_js.php");
+	}elseif(($modules=="manage_strategic_plan_cn")){
+		include("js_code/manage_strategic_plan_cn/manage_strategic_plan_cn_js.php");
+//----------------------------------------------------------------------------------------		
 	}elseif(($modules=="manage_director")){
 		include("js_code/manage_director/manage_director_js.php");
+	}elseif(($modules=="manage_director_en")){
+		include("js_code/manage_director_en/manage_director_en_js.php");
+	}elseif(($modules=="manage_director_cn")){
+		include("js_code/manage_director_cn/manage_director_cn_js.php");
+//----------------------------------------------------------------------------------------		
 	}elseif(($modules=="manage_organization")){
 		include("js_code/manage_organization/manage_organization_js.php");
+	}elseif(($modules=="manage_organization_en")){
+		include("js_code/manage_organization_en/manage_organization_en_js.php");
+	}elseif(($modules=="manage_organization_cn")){
+		include("js_code/manage_organization_cn/manage_organization_cn_js.php");
+//----------------------------------------------------------------------------------------		
 	}elseif(($modules=="manage_executive")){
 		include("js_code/manage_executive/manage_executive_js.php");
+	}elseif(($modules=="manage_executive_en")){
+		include("js_code/manage_executive_en/manage_executive_en_js.php");
+	}elseif(($modules=="manage_executive_cn")){
+		include("js_code/manage_executive_cn/manage_executive_cn_js.php");
+//----------------------------------------------------------------------------------------
 	}elseif(($modules=="manage_contact")){
 		include("js_code/manage_contact/manage_contact_js.php");
+	}elseif(($modules=="manage_contact_en")){
+		include("js_code/manage_contact_en/manage_contact_en_js.php");
+	}elseif(($modules=="manage_contact_cn")){
+		include("js_code/manage_contact_cn/manage_contact_cn_js.php");
+//----------------------------------------------------------------------------------------		
 	}elseif(($modules=="manage_map")){
 		include("js_code/manage_map/manage_map_js.php");
+	}elseif(($modules=="manage_map_en")){
+		include("js_code/manage_map_en/manage_map_en_js.php");
+	}elseif(($modules=="manage_map_cn")){
+		include("js_code/manage_map_cn/manage_map_cn_js.php");
+//----------------------------------------------------------------------------------------
 	}else{ ?>
 		<!-- Theme JS files -->
 		<script src="<?php echo $RunLink->Call_Link_System(); ?>/template/global_assets/js/plugins/forms/inputs/typeahead/handlebars.min.js"></script>
@@ -559,23 +589,63 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 						case "manage_strategic_plan":
 							include $load;
 							break;
+						case "manage_strategic_plan_en":
+							include $load;
+							break;
+						case "manage_strategic_plan_cn":
+							include $load;
+							break;
+//---------------------------------------------------------------------------------------
 						case "manage_director":
 							include $load;
 							break;
+						case "manage_director_en":
+							include $load;
+							break;
+						case "manage_director_cn":
+							include $load;
+							break;
+//---------------------------------------------------------------------------------------
 						case "manage_organization":
 							include $load;
 							break;
+						case "manage_organization_en":
+							include $load;
+							break;
+						case "manage_organization_cn":
+							include $load;
+							break;
+//---------------------------------------------------------------------------------------
 						case "manage_executive":
 							include $load;
 							break;
+						case "manage_executive_en":
+							include $load;
+							break;
+						case "manage_executive_cn":
+							include $load;
+							break;
+//---------------------------------------------------------------------------------------
 						case "manage_contact":
 							include $load;
 							break;
+						case "manage_contact_en":
+							include $load;
+							break;
+						case "manage_contact_cn":
+							include $load;
+							break;
+//---------------------------------------------------------------------------------------
 						case "manage_map":
 							include $load;
 							break;
+						case "manage_map_en":
+							include $load;
+							break;
+						case "manage_map_cn":
+							include $load;
+							break;
 							// ----- Non ----- //
-
 						case "term_data":
 							include $load;
 							break;
