@@ -59,8 +59,8 @@
 //up image end
 //update db         
                 $Data = array(
-                    "information_topic_en_en"=>$information_topic_en,
-                    "information_detail_en_en"=>$information_detail_en,
+                    "information_topic_en"=>$information_topic_en,
+                    "information_detail_en"=>$information_detail_en,
                     "information_image"=>$information_image_new_name,
                     "post_date"=>$update_date,
                     "update_date"=>$update_date,
@@ -73,8 +73,8 @@
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //update db         
                 $Data = array(
-                    "information_topic_en_en"=>$information_topic_en,
-                    "information_detail_en_en"=>$information_detail_en,
+                    "information_topic_en"=>$information_topic_en,
+                    "information_detail_en"=>$information_detail_en,
                     "post_date"=>$update_date,
                     "update_date"=>$update_date,
                     "information_status"=>'1'

@@ -59,8 +59,8 @@
 //up image end
 //update db         
                 $Data = array(
-                    "information_topic_cn_cn"=>$information_topic_cn,
-                    "information_detail_cn_cn"=>$information_detail_cn,
+                    "information_topic_cn"=>$information_topic_cn,
+                    "information_detail_cn"=>$information_detail_cn,
                     "information_image"=>$information_image_new_name,
                     "post_date"=>$update_date,
                     "update_date"=>$update_date,
