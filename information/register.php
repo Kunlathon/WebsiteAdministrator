@@ -42,7 +42,7 @@
                             <div class="row g-5">
                               <label class="col-form-label col-md-2" style="font-size: 16px;">รหัสนักศึกษา</label>                              
                               <div class="col-md-10">
-                                <input type="text" class="form-control" name="" id="" placeholder="รหัสนักศึกษา" style="font-size: 16px;">
+                                <input type="text" class="form-control" name="register_id" id="register_id" placeholder="รหัสนักศึกษา" style="font-size: 16px;">
                               </div>
                             </div>
                           </div>
@@ -51,7 +51,9 @@
                             <div class="row g-5">
                               <label class="col-form-label col-md-2 required" style="font-size: 16px;">เลขประจำตัวประชาชน หรือ Passport No</label>                              
                               <div class="col-md-10">
-                                <input type="text" class="form-control" name="" id="" placeholder="เลขประจำตัวประชาชน หรือ Passport No" style="font-size: 16px;" required="required">
+                                <div id="register_idcard_null">
+                                <input type="text" class="form-control" name="register_idcard" id="register_idcard" placeholder="เลขประจำตัวประชาชน หรือ Passport No" style="font-size: 16px;" required="required">
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -60,7 +62,7 @@
                             <div class="row g-5">
                               <label class="col-form-label col-md-2" style="font-size: 16px;">คำนำหน้า</label>                              
                               <div class="col-md-10">
-                                <select type="text" name="" id="" class="form-select" id="select-users" value="">
+                                <select type="text" name="prefix_id" id="prefix_id" class="form-select" id="select-users" value="">
                                   <option value="">คำนำหน้า</option>
                                   <option value="1">นาย</option>
                                   <option value="2">นาง</option>
@@ -74,7 +76,7 @@
                             <div class="row g-5">
                               <label class="col-form-label col-md-2" style="font-size: 16px;">ชื่อ</label>                              
                               <div class="col-md-10">
-                                <input type="text" class="form-control" name="" id="" placeholder="ชื่อ" style="font-size: 16px;">
+                                <input type="text" class="form-control" name="register_name" id="register_name" placeholder="ชื่อ" style="font-size: 16px;">
                               </div>
                             </div>
                           </div>
@@ -83,7 +85,7 @@
                             <div class="row g-5">
                               <label class="col-form-label col-md-2" style="font-size: 16px;">นามสกุล</label>                              
                               <div class="col-md-10">
-                                <input type="text" class="form-control" name="" id="" placeholder="นามสกุล" style="font-size: 16px;">
+                                <input type="text" class="form-control" name="register_surname" id="register_surname" placeholder="นามสกุล" style="font-size: 16px;">
                               </div>
                             </div>
                           </div>
@@ -94,17 +96,17 @@
                               <div class="col-md-10">
                                 <div class="row row-cards">
                                   <div class="col-md-3">
-                                    <select name="user[day]" id="" class="form-select">
+                                    <select name="register_day" id="register_day" class="form-select">
                                       <option value="">Day</option>
-                                      <option value="1" >1</option>
-                                      <option value="2" >2</option>
-                                      <option value="3" >3</option>
-                                      <option value="4" >4</option>
-                                      <option value="5" >5</option>
-                                      <option value="6" >6</option>
-                                      <option value="7" >7</option>
-                                      <option value="8" >8</option>
-                                      <option value="9" >9</option>
+                                      <option value="01" >1</option>
+                                      <option value="02" >2</option>
+                                      <option value="03" >3</option>
+                                      <option value="04" >4</option>
+                                      <option value="05" >5</option>
+                                      <option value="06" >6</option>
+                                      <option value="07" >7</option>
+                                      <option value="08" >8</option>
+                                      <option value="09" >9</option>
                                       <option value="10" >10</option>
                                       <option value="11" >11</option>
                                       <option value="12" >12</option>
@@ -130,24 +132,24 @@
                                     </select>
                                   </div>
                                   <div class="col-md-3">
-                                    <select name="user[month]" id="" class="form-select">
+                                    <select name="register_month" id="register_month" class="form-select">
                                       <option value="">Month</option>
-                                      <option value="1">January</option>
-                                      <option value="2">February</option>
-                                      <option value="3">March</option>
-                                      <option value="4">April</option>
-                                      <option value="5">May</option>
-                                      <option value="6">June</option>
-                                      <option value="7">July</option>
-                                      <option value="8">August</option>
-                                      <option value="9">September</option>
+                                      <option value="01">January</option>
+                                      <option value="02">February</option>
+                                      <option value="03">March</option>
+                                      <option value="04">April</option>
+                                      <option value="05">May</option>
+                                      <option value="06">June</option>
+                                      <option value="07">July</option>
+                                      <option value="08">August</option>
+                                      <option value="09">September</option>
                                       <option value="10">October</option>
                                       <option value="11">November</option>
                                       <option value="12">December</option>
                                     </select>
                                   </div>
                                   <div class="col-md-3">
-                                    <select name="user[year]" id="" class="form-select">
+                                    <select name="register_year" id="register_year" class="form-select">
                                       <option value="">Year</option>
                                       <option value="2014" >2014</option>
                                       <option value="2013" >2013</option>
@@ -279,14 +281,16 @@
                               <div class="col-md-12">
                                 <div class="card-footer text-end" style="margin: 0 auto; text-align: center;">
                                   <center>
-                                    <button type="submit" name="" id="" class="btn btn-success">ลงทะเบียน</button>
+                                    <button type="button" name="but_form_register" id="but_form_register" class="btn btn-success">ลงทะเบียน</button>
                                     <button type="button" name="" id="" class="btn btn-danger">ยกเลิก</button>
                                   </center>
                                 </div>
                               </div>
                             </div>
                           </div>
-
+<!--==============================================================================================-->
+                          <div id="RunRegister"></div>                          
+<!--==============================================================================================-->
                         </div>
 </form>
                       </div>
@@ -300,3 +304,63 @@
         </div>
 <!-- Page body end-->
 
+<!--js code-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('#but_form_register').on('click',function(){
+        var register_id=$("#register_id").val();
+        var register_idcard=$("#register_idcard").val();
+        var prefix_id=$("#prefix_id").val();
+        var register_name=$("#register_name").val();
+        var register_surname=$("#register_surname").val();
+        var register_day=$("#register_day").val();
+        var register_month=$("#register_month").val();
+        var register_year=$("#register_year").val();
+        var null_idcard="yes";
+        var birth_day="0000-00-00";
+          if(register_idcard==""){
+            document.getElementById("register_idcard_null").innerHTML=
+            '<input type="text" class="form-control is-invalid" name="register_idcard" id="register_idcard" placeholder="เลขประจำตัวประชาชน หรือ Passport No" style="font-size: 16px;" required="required" value="'+register_idcard+'">'
+            +'<div class="invalid-feedback">กรุณา กรอกข้อมูล</div>';
+            null_idcard="yes";
+          }else{
+            document.getElementById("register_idcard_null").innerHTML=
+            '<input type="text" class="form-control is-valid mb-2" name="register_idcard" id="register_idcard" placeholder="เลขประจำตัวประชาชน หรือ Passport No" style="font-size: 16px;" required="required" value="'+register_idcard+'">';
+            null_idcard="no";
+          }
+//test null : if it's null will not working
+            if(null_idcard=="no"){
+//set form date Ex : 2008-03-27  
+              if(register_day=="" && register_month=="" && register_year==""){
+                birth_day="0000-00-00";
+              }else if(register_day=="" || register_month=="" || register_year==""){
+                birth_day="0000-00-00";
+              }else{
+                birth_day=register_year+'-'+register_month+'-'+register_day;
+              }
+//set form date Ex : 2008-03-27 end
+
+              $.post("proccess/register_proccess.php",{
+                  register_id:register_id,
+                  register_idcard:register_idcard,
+                  prefix_id:prefix_id,
+                  register_name:register_name,
+                  register_surname:register_surname,
+                  birth_day:birth_day
+              },function(run_register){
+                  var txt_run_register=run_register;
+                      txt_run_register=txt_run_register.trim();
+                        if(txt_run_register===""){
+
+                        }else if(txt_run_register==="it_error"){
+                          document.getElementById("RunRegister").innerHTML=txt_run_register;
+                        }else{}
+
+              })
+
+            }else{}
+      })
+    })
+  </script>
+<!--js code end-->
