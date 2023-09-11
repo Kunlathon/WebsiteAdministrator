@@ -18,6 +18,62 @@ if ((preg_match("/function_php_oop.php/", $_SERVER['PHP_SELF']))) {
 } else {
 	check_login('admin_username_lcm', 'login.php');
 	//-------------------------------------------------------------------
+	//Open and OFF System
+	class SetTime{ 
+        public $STS_Type,$STS_TimeStart,$STS_TimeEnd;
+        public $SetTimeStart_txt,$SetTimeEnd_txt;
+        function __construct($STS_Type,$STS_TimeStart,$STS_TimeEnd){
+            $this->STS_Type=$STS_Type;
+            $this->STS_TimeStart=$STS_TimeStart;
+            $this->STS_TimeEnd=$STS_TimeEnd;
+    //---------------------------------------------------------------------------
+            $SetTimeStart_txt="no_time";
+            $SetTimeEnd_txt="no_time";
+            $SetTimeServer=date("Y-m-d H:i:s");
+    //---------------------------------------------------------------------------
+                if(($this->STS_Type=="run_time")){
+                    $date_start=date("Y-m-d H:i:s",strtotime($this->STS_TimeStart));
+                    $date_end=date("Y-m-d H:i:s",strtotime($this->STS_TimeEnd));
+                }else{
+                    $date_start="-";
+                    $date_end="-";
+                }
+    //Time zone
+                if(($date_start=="-" and $date_end=="-")){
+                    $SetTimeStart_txt="no_time";
+                    $SetTimeEnd_txt="no_time";
+                }elseif(($date_start=="-" or $date_end=="-")){
+                    $SetTimeStart_txt="no_time";
+                    $SetTimeEnd_txt="no_time";
+                }else{
+                    $key_date_start=strtotime($date_start);
+                    $key_date_end=strtotime($date_end);
+                    $key_SetTimeServer=strtotime($SetTimeServer);
+    //test_time_start
+                    if(($key_SetTimeServer>=$key_date_start)){
+                        $SetTimeStart_txt="time_off";
+                    }else{
+                        $SetTimeStart_txt="time_on";
+                    }
+    //test_time_start end
+    //test_time_end
+                    if(($key_SetTimeServer>=$key_date_end)){
+                        $SetTimeEnd_txt="time_on";
+                    }else{
+                        $SetTimeEnd_txt="time_off";
+                    }
+    //test_time_end end
+                }
+    //Time zone end
+            $this->SetTimeStart_txt=$SetTimeStart_txt;
+            $this->SetTimeEnd_txt=$SetTimeEnd_txt;
+        }function TxtTimeStart(){
+            return $this->SetTimeStart_txt;
+        }function TxtTimeEnd(){
+            return $this->SetTimeEnd_txt;
+        }
+    }
+	//Open and OFF System end
 	//print_status
 		class PrintStatus{
 			public $PS_Txt;
