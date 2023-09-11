@@ -17,7 +17,32 @@ if ((preg_match("/function_php_oop.php/", $_SERVER['PHP_SELF']))) {
 	die();
 } else {
 	check_login('admin_username_lcm', 'login.php');
-	//-------------------------------------------------------------------	
+	//-------------------------------------------------------------------
+	//print_status
+		class PrintStatus{
+			public $PS_Txt;
+			public $ps_key;
+			function __construct($PS_Txt){
+				$this->PS_Txt=$PS_Txt;
+				$ps_key=0;
+					if(($this->PS_Txt=="Approved" or $this->PS_Txt=="ปกติ")){
+						$ps_key=1;
+					}elseif(($this->PS_Txt=="ลาออก")){
+						$ps_key=2;
+					}elseif(($this->PS_Txt=="จบการศึกษา")){
+						$ps_key=3;
+					}elseif(($this->PS_Txt=="ลาพัก")){
+						$ps_key=4;
+					} else{
+						$ps_key=0;
+					}
+				$this->ps_key=$ps_key;
+			}function StatusKey(){
+				return $this->ps_key;
+			}
+		}
+	//print_status end
+
 	//strtotime	
 	class strtotime_date{
 		public $txt_date;

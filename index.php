@@ -258,10 +258,10 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
                       </span>
                     </a>
                     <div class="dropdown-menu">
-                      <a class="dropdown-item" href="">
+                      <a class="dropdown-item" href="?modules=register">
                         รับสมัครออนไลน์
                       </a>
-                      <a class="dropdown-item" href="">
+                      <a class="dropdown-item" href="?modules=verify_registration">
                         ค้นหาข้อมูลผู้สมัคร
                       </a>
                     </div>
@@ -351,6 +351,10 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
 		  include("information/map.php");
 	  } else if($modules=="contactus") {
 		  include("information/contactus.php");
+	  } else if($modules=="register") {
+		  include("information/register.php");
+	  } else if($modules=="verify_registration") {
+		  include("information/verify_registration.php");
 	  } else {
 		  include("information/mainfile.php");
 	  }
