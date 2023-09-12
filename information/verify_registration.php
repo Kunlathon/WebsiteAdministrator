@@ -1,12 +1,6 @@
 <!-- Page body -->
         <div class="page-body">
           <div class="container-xl">
-
-		  <?php
-                    $sqlStr = "SELECT * FROM tb_information WHERE information_id='5' AND information_status='1'";
-                    $rowStr= row_array($sqlStr);
-			?>
-
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
             <div class="row row-cards">
               <div class="col-md-12">

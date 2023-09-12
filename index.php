@@ -98,6 +98,12 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
         height: 100%;
       }
     </style>
+<!--css code-->
+	<?php
+			if(($modules=="gallery_image")){ ?>
+				<link rel="stylesheet" href="./dist/img/gallery/grid-gallery.css">
+	<?php	}else{} ?>
+<!--css code end-->
 
     <!---->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
@@ -355,6 +361,8 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
 		  include("information/register.php");
 	  } else if($modules=="verify_registration") {
 		  include("information/verify_registration.php");
+	  }elseif(($modules=="gallery_image")){
+		  include("information/gallery_image.php");
 	  } else {
 		  include("information/mainfile.php");
 	  }
