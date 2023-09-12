@@ -8,11 +8,19 @@
 			?>
 
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-
             <div class="row row-cards">
               <div class="col-md-12">
                 <div class="page-body">
                   <div class="container-xl">
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                    <div class="row row-cards">
+                      <div class="col-md-12">
+<!--==============================================================================================-->
+                        <div id="RunRegister"></div>                          
+<!--==============================================================================================-->
+                      </div>
+                    </div>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
                     <div class="row row-cards">
                       <div class="col-md-12">
 <form name="form_register" action="#" method="post" class="card" charset="utf-8">
@@ -288,9 +296,6 @@
                               </div>
                             </div>
                           </div>
-<!--==============================================================================================-->
-                          <div id="RunRegister"></div>                          
-<!--==============================================================================================-->
                         </div>
 </form>
                       </div>
@@ -351,11 +356,43 @@
               },function(run_register){
                   var txt_run_register=run_register;
                       txt_run_register=txt_run_register.trim();
-                        if(txt_run_register===""){
-
+                        if(txt_run_register==="no_error"){
+                          document.getElementById("RunRegister").innerHTML=
+                            '<div class="alert alert-success" role="alert">'
+                          + ' <div class="d-flex">'
+                          + '   <div>'
+                          + '     <svg xmlns="http://www.w3.org/2000/svg" class="icon alert-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l5 5l10 -10" /></svg>'
+                          + '   </div>'
+                          + '   <div>'
+                          + '     <h4 class="alert-title">ลงทะเบียนสำเร็จ</h4>'
+                          + '   </div>'
+                          + ' </div>'
+                          + '</div>';
                         }else if(txt_run_register==="it_error"){
-                          document.getElementById("RunRegister").innerHTML=txt_run_register;
-                        }else{}
+                          document.getElementById("RunRegister").innerHTML=
+                            '<div class="alert alert-danger" role="alert">'
+                          + ' <div class="d-flex">'
+                          + '   <div>'
+                          + '     <svg xmlns="http://www.w3.org/2000/svg" class="icon alert-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M12 8v4" /><path d="M12 16h.01" /></svg>'
+                          + '   </div>'
+                          + '   <div>'
+                          + '     <h4 class="alert-title">ลงทะเบียนไม่สำเร็จ</h4>'
+                          + '   </div>'
+                          + ' </div>'
+                          + '</div>';
+                        }else{
+                          document.getElementById("RunRegister").innerHTML=
+                            '<div class="alert alert-warning" role="alert">'
+                          + ' <div class="d-flex">'
+                          + '   <div>'
+                          + '     <svg xmlns="http://www.w3.org/2000/svg" class="icon alert-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.24 3.957l-8.422 14.06a1.989 1.989 0 0 0 1.7 2.983h16.845a1.989 1.989 0 0 0 1.7 -2.983l-8.423 -14.06a1.989 1.989 0 0 0 -3.4 0z" /><path d="M12 9v4" /><path d="M12 17h.01" /></svg>'
+                          + '   </div>'
+                          + '   <div>'
+                          + '     <h4 class="alert-title">พบข้อผิดพลาดไม่สามารถลงทะเบียนได้</h4>'
+                          + '   </div>'
+                          + ' </div>'
+                          + '</div>';                          
+                        }
 
               })
 
@@ -364,3 +401,5 @@
     })
   </script>
 <!--js code end-->
+
+   

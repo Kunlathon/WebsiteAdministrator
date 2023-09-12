@@ -15,14 +15,50 @@ include("../config/fnc.php");
 ?>
 
 <?php
+
     $register_id=filter_input(INPUT_POST,'register_id');
     $register_idcard=filter_input(INPUT_POST,'register_idcard');
     $prefix_id=filter_input(INPUT_POST,'prefix_id');
     $register_name=filter_input(INPUT_POST,'register_name');
     $register_surname=filter_input(INPUT_POST,'register_surname');
-    $birth_day=filter_input(INPUT_POST,'birth_day');
+//-------------------------------------------------------------------------------------
+        if(($_POST["birth_day"]=="0000-00-00")){
+            $birth_day="";
+        }else{
+            $birth_day=filter_input(INPUT_POST,'birth_day');
+        }
+//-------------------------------------------------------------------------------------
+    $time_update=date("Y-m-d H:i:s");
+    function fnc_count($register_idcard){
+        $s = "SELECT * FROM `tb_register` WHERE `register_idcard`='{$register_idcard}'";
+        $q = row_array($s);
+    
+        return is_array($q) ? "0" : "1";
+    }
 
-    echo "it_error";
+    $check = fnc_count($register_idcard);
+    
+    if(($check)){
+        $register_data = array(
+            "register_id" => $register_id,
+            "register_idcard" =>$register_idcard,
+            "prefix_id" =>$prefix_id,
+            "register_name" =>$register_name,
+            "register_surname" =>$register_surname,
+            "register_name_eng" =>$register_name,	
+            "register_surname_eng" =>$register_surname,
+            "birth_day" =>$birth_day,
+            "register_update" =>$time_update,	
+            "register_status" =>'1'
+        );
+        insert("tb_register", $register_data);
+        echo "no_error";
+    }else{
+        echo "it_error";
+    }
+    
+
+    
    
 
 ?>
