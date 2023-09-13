@@ -73,11 +73,11 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <!---->    
     <!-- CSS files -->
-    <link href="./dist/css/tabler.min.css?1685973381" rel="stylesheet"/>
-    <link href="./dist/css/tabler-flags.min.css?1685973381" rel="stylesheet"/>
-    <link href="./dist/css/tabler-payments.min.css?1685973381" rel="stylesheet"/>
-    <link href="./dist/css/tabler-vendors.min.css?1685973381" rel="stylesheet"/>
-    <link href="./dist/css/demo.min.css?1685973381" rel="stylesheet"/>
+    <link href="dist/css/tabler.min.css?1685973381" rel="stylesheet"/>
+    <link href="dist/css/tabler-flags.min.css?1685973381" rel="stylesheet"/>
+    <link href="dist/css/tabler-payments.min.css?1685973381" rel="stylesheet"/>
+    <link href="dist/css/tabler-vendors.min.css?1685973381" rel="stylesheet"/>
+    <link href="dist/css/demo.min.css?1685973381" rel="stylesheet"/>
 
 
 
@@ -107,7 +107,7 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
 
   </head>
   <body class="col-md-12">
-    <script src="./dist/js/demo-theme.min.js?1685973381"></script>
+    <script src="dist/js/demo-theme.min.js?1685973381"></script>
     <div class="page">
 <!-- Navbar -->
 <!--no head lock-->
@@ -315,7 +315,7 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
                 </ul>
 
                 <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
-                  <form action="./" method="get" autocomplete="off" novalidate>
+                  <form action="" method="get" autocomplete="off" novalidate>
                     <div class="input-icon">
                       <span class="input-icon-addon">
                         <!-- Download SVG icon from http://tabler-icons.io/i/search -->

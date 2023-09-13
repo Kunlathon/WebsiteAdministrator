@@ -100,14 +100,24 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-12">
-                    <div class="card-body card card-link card-link-pop btn-secondary" style="background-color: #FF9933;">Test1</div>
+                  <div class="col-md-6">
+                    <div class="form-imagecheck mb-2">             
+                      <span class="form-imagecheck">
+                        <img src="./static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach" class="form-image">
+                      </span>
+                    </div>
                   </div>
+                  <div class="col-md-6">
+                    <div class="form-imagecheck mb-2">             
+                      <span class="form-imagecheck">
+                        <img src="./static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach" class="form-image">
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">              
                   <div class="col-md-12">
-                    <div class="card-body card card-link card-link-pop btn-secondary" style="background-color: #FF9933;">Test2</div>
-                  </div>                  
-                  <div class="col-md-12">
-                    <div class="card-body card card-link card-link-pop btn-secondary" style="background-color: #FF9933;">Test3</div>
+                    <div class="card-body card card-link card-link-pop btn-secondary" style="background-color: #FF9933;">รูปทั้งหมด</div>
                   </div>
                 </div>
               </div>
