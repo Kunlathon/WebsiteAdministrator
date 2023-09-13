@@ -356,7 +356,9 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
 		  include("information/verify_registration.php");
 	  }elseif(($modules=="gallery_image")){
 		  include("information/gallery_image.php");
-	  } else {
+	  }elseif(($modules=="gallery_all")){
+			include("information/gallery_all.php");
+	  }else{
 		  include("information/mainfile.php");
 	  }
 
