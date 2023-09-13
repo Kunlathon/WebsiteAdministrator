@@ -1,7 +1,9 @@
-
-    <link rel="stylesheet" href="dist/img/gallery/baguetteBox.min.css" />
+<!--css code-->
+    <link rel="stylesheet" href="dist/img/gallery/baguetteBox.min.css">
+    <link rel="stylesheet" href="dist/img/gallery/grid-gallery.css">
+<!--css code end-->
 <!-- Page body -->
-<div class="page-body">
+        <div class="page-body">
           <div class="container-xl">
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
             <div class="row row-cards">
