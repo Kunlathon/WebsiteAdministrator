@@ -50,56 +50,56 @@
                                 <div class="row g-3">
 
                                     <div class="col-md-4 item">
-                                        <a class="lightbox" href="/dist/img/gallery/test_gallery/image1.jpg">
-                                            <img class="img-fluid image scale-on-hover" src="/dist/img/gallery/test_gallery/image1.jpg">
+                                        <a class="lightbox" href="/languagecenter/dist/img/gallery/test_gallery/image1.jpg">
+                                            <img class="img-fluid image scale-on-hover" src="/languagecenter/dist/img/gallery/test_gallery/image1.jpg">
                                         </a>
                                     </div>
 
                                     <div class="col-md-4 item">
-                                        <a class="lightbox" href="/dist/img/gallery/test_gallery/image2.jpg">
-                                            <img class="img-fluid image scale-on-hover" src="/dist/img/gallery/test_gallery/image2.jpg">
+                                        <a class="lightbox" href="/languagecenter/dist/img/gallery/test_gallery/image2.jpg">
+                                            <img class="img-fluid image scale-on-hover" src="/languagecenter/dist/img/gallery/test_gallery/image2.jpg">
                                         </a>
                                     </div>
 
                                     <div class="col-md-4 item">
-                                        <a class="lightbox" href="/dist/img/gallery/test_gallery/image3.jpg">
-                                            <img class="img-fluid image scale-on-hover" src="/dist/img/gallery/test_gallery/image3.jpg">
+                                        <a class="lightbox" href="/languagecenter/dist/img/gallery/test_gallery/image3.jpg">
+                                            <img class="img-fluid image scale-on-hover" src="/languagecenter/dist/img/gallery/test_gallery/image3.jpg">
                                         </a>
                                     </div>
 
                                     <div class="col-md-4 item">
-                                        <a class="lightbox" href="/dist/img/gallery/test_gallery/image4.jpg">
-                                            <img class="img-fluid image scale-on-hover" src="/dist/img/gallery/test_gallery/image4.jpg">
+                                        <a class="lightbox" href="/languagecenter/dist/img/gallery/test_gallery/image4.jpg">
+                                            <img class="img-fluid image scale-on-hover" src="/languagecenter/dist/img/gallery/test_gallery/image4.jpg">
                                         </a>
                                     </div>
 
                                     <div class="col-md-4 item">
-                                        <a class="lightbox" href="/dist/img/gallery/test_gallery/image5.jpg">
-                                            <img class="img-fluid image scale-on-hover" src="/dist/img/gallery/test_gallery/image5.jpg">
+                                        <a class="lightbox" href="/languagecenter/dist/img/gallery/test_gallery/image5.jpg">
+                                            <img class="img-fluid image scale-on-hover" src="/languagecenter/dist/img/gallery/test_gallery/image5.jpg">
                                         </a>
                                     </div>
 
                                     <div class="col-md-4 item">
-                                        <a class="lightbox" href="/dist/img/gallery/test_gallery/image6.jpg">
-                                            <img class="img-fluid image scale-on-hover" src="/dist/img/gallery/test_gallery/image6.jpg">
+                                        <a class="lightbox" href="/languagecenter/dist/img/gallery/test_gallery/image6.jpg">
+                                            <img class="img-fluid image scale-on-hover" src="/languagecenter/dist/img/gallery/test_gallery/image6.jpg">
                                         </a>
                                     </div>
 
                                     <div class="col-md-4 item">
-                                        <a class="lightbox" href="/dist/img/gallery/test_gallery/image7.jpg">
-                                            <img class="img-fluid image scale-on-hover" src="/dist/img/gallery/test_gallery/image7.jpg">
+                                        <a class="lightbox" href="/languagecenter/dist/img/gallery/test_gallery/image7.jpg">
+                                            <img class="img-fluid image scale-on-hover" src="/languagecenter/dist/img/gallery/test_gallery/image7.jpg">
                                         </a>
                                     </div>
 
                                     <div class="col-md-4 item">
-                                        <a class="lightbox" href="/dist/img/gallery/test_gallery/image8.jpg">
-                                            <img class="img-fluid image scale-on-hover" src="/dist/img/gallery/test_gallery/image8.jpg">
+                                        <a class="lightbox" href="/languagecenter/dist/img/gallery/test_gallery/image8.jpg">
+                                            <img class="img-fluid image scale-on-hover" src="/languagecenter/dist/img/gallery/test_gallery/image8.jpg">
                                         </a>
                                     </div>
 
                                     <div class="col-md-4 item">
-                                        <a class="lightbox" href="/dist/img/gallery/test_gallery/image9.jpg">
-                                            <img class="img-fluid image scale-on-hover" src="/dist/img/gallery/test_gallery/image9.jpg">
+                                        <a class="lightbox" href="/languagecenter/dist/img/gallery/test_gallery/image9.jpg">
+                                            <img class="img-fluid image scale-on-hover" src="/languagecenter/dist/img/gallery/test_gallery/image9.jpg">
                                         </a>
                                     </div>
 

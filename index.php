@@ -73,11 +73,11 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <!---->    
     <!-- CSS files -->
-    <link href="dist/css/tabler.min.css?1685973381" rel="stylesheet"/>
-    <link href="dist/css/tabler-flags.min.css?1685973381" rel="stylesheet"/>
-    <link href="dist/css/tabler-payments.min.css?1685973381" rel="stylesheet"/>
-    <link href="dist/css/tabler-vendors.min.css?1685973381" rel="stylesheet"/>
-    <link href="dist/css/demo.min.css?1685973381" rel="stylesheet"/>
+    <link href="./dist/css/tabler.min.css?1685973381" rel="stylesheet"/>
+    <link href="./dist/css/tabler-flags.min.css?1685973381" rel="stylesheet"/>
+    <link href="./dist/css/tabler-payments.min.css?1685973381" rel="stylesheet"/>
+    <link href="./dist/css/tabler-vendors.min.css?1685973381" rel="stylesheet"/>
+    <link href="./dist/css/demo.min.css?1685973381" rel="stylesheet"/>
 
 
 
@@ -107,7 +107,7 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
 
   </head>
   <body class="col-md-12">
-    <script src="dist/js/demo-theme.min.js?1685973381"></script>
+    <script src="./dist/js/demo-theme.min.js?1685973381"></script>
     <div class="page">
 <!-- Navbar -->
 <!--no head lock-->
@@ -297,6 +297,24 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
                   </li>
 
 				 <li class="nav-item false">
+                    <a class="nav-link" href="index.php" >
+                      <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
+						<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-world" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						   <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path>
+						   <path d="M3.6 9h16.8"></path>
+						   <path d="M3.6 15h16.8"></path>
+						   <path d="M11.5 3a17 17 0 0 0 0 18"></path>
+						   <path d="M12.5 3a17 17 0 0 1 0 18"></path>
+						</svg>
+                      </span>
+                      <span class="nav-link-title">
+                        ดาวน์โหลด
+                      </span>
+                    </a>
+                  </li>
+
+				 <li class="nav-item false">
                     <a class="nav-link" href="?modules=contactus" >
                       <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
 						<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-phone-call" width="128" height="128" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -314,17 +332,6 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
 
                 </ul>
 
-                <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
-                  <form action="" method="get" autocomplete="off" novalidate>
-                    <div class="input-icon">
-                      <span class="input-icon-addon">
-                        <!-- Download SVG icon from http://tabler-icons.io/i/search -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
-                      </span>
-                      <input type="text" value="" class="form-control" placeholder="Search…" aria-label="Search in website">
-                    </div>
-                  </form>
-                </div>
               </div>
             </div>
           </div>
