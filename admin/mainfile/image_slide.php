@@ -366,8 +366,18 @@
                                                 <div class="col-<?php echo $grid; ?>-10">
                                                     <select class="form-control select" name="slide_status" id="slide_status" data-placeholder="เลือกสถานะ..." required="required">
                                                         <optgroup label="สถานะ">
+            <?php
+                      if(($slide_status=="1")){  ?>
+                                                            <option value="1" selected="selected">แสดง</option>
+                                                            <option value="0">ไม่แสดง</option>
+            <?php     }elseif(($slide_status=="0")){   ?>
+                                                            <option value="1">แสดง</option>
+                                                            <option value="0" selected="selected">ไม่แสดง</option>
+            <?php     }else{  ?>
                                                             <option value="1">แสดง</option>
                                                             <option value="0">ไม่แสดง</option>
+            <?php     } ?>
+
                                                         </optgroup>
                                                     </select>
                                                 <div>
