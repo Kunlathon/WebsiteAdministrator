@@ -94,13 +94,10 @@
                         <div>#</div>
                     </th>
                     <th>
-                        <div>หัวข้อเรื่อง</div>
-                    </th>
-                    <th>
                         <div>ภาพ</div>
                     </th>
                     <th>
-                        <div>สิงค์</div>
+                        <div>หัวข้อเรื่อง</div>
                     </th>
                     <th>
                         <div>วันที่ลง</div>
@@ -131,13 +128,11 @@
     ?>
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
                 <tr>
-                    <td align="center">
+                    <td align="center" style="vertical-align: text-top;" class="align-top">
                         <div><?php echo $slide_row["slide_id"];?></div>
                     </td>
-                    <td>
-                        <div><?php echo $slide_row["slide_topic"];?></div>
-                    </td>
-                    <td align="center">
+
+                    <td align="center" style="vertical-align: text-top;" class="align-top">
     <?php
             if((isset($slideimg_name))){
                 if(file_exists("../../../dist/img/slides/".$slideimg_name)){ ?>
@@ -150,32 +145,34 @@
     <?php   } ?>
 
                     </td>
-                    <td>
-                        <div><?php echo $slide_row["slide_link"];?></div>
+
+                    <td style="vertical-align: text-top;" class="align-top">
+                        <div><?php echo $slide_row["slide_topic"];?></div>
                     </td>
-                    <td align="center">
+
+                    <td align="center" style="vertical-align: text-top;" class="align-top">
     <?php
             if((isset($slide_row["slide_post_date"]))){
-                if((($slide_row["slide_post_date"]))!="0000-00-00 00:00:00"){ 
+                if((($slide_row["slide_post_date"]!="0000-00-00 00:00:00" OR $slide_row["slide_post_date"]!=null))){ 
                     $print_post_date=new strto_datetime("datetime_th",$slide_row["slide_post_date"]);
     ?>
-                        <div><?php echo $print_post_date->print_datetime();?></div>
+                        <div><span class="badge badge-warning"><?php echo $print_post_date->print_datetime();?></span></div>
     <?php       }else{}
             }else{}
     ?>
                     </td>
-                    <td align="center">
+                    <td align="center" style="vertical-align: text-top;" class="align-top">
     <?php
             if((isset($slide_row["slide_update_date"]))){
-                if((($slide_row["slide_update_date"]))!="0000-00-00 00:00:00"){ 
+                if((($slide_row["slide_update_date"]!="0000-00-00 00:00:00" OR $slide_row["slide_update_date"]!=""))){ 
                     $print_update_date=new strto_datetime("datetime_th",$slide_row["slide_update_date"]);                
     ?>
-                        <div><?php echo $print_update_date->print_datetime();?></div>
+                        <div><span class="badge badge-warning"><?php echo $print_update_date->print_datetime();?></span></div>
     <?php       }else{}
             }else{}
     ?>
                     </td>
-                    <td align="center">
+                    <td align="center" style="vertical-align: text-top;" class="align-top">
                         <div>
     <?php
             if(($slide_row["slide_status"]==0)){ ?>
@@ -185,7 +182,7 @@
     <?php   }else{} ?>
                         </div>
                     </td>
-                    <td align="center">
+                    <td align="center" style="vertical-align: text-top;" class="align-top">
                         <div align="center">
                             <ul class="nav justify-content-center">
                                 <li class="nav-item">

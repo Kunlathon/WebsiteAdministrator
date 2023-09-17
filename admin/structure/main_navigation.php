@@ -69,6 +69,19 @@ if ((preg_match("/main_navigation.php/", $_SERVER['PHP_SELF']))) {
         </li>
 
         <li class="nav-item nav-item-submenu">
+            <a href="#" class="nav-link"><i class="icon-city"></i> <span>จัดการหน้าข่าวสาร</span></a>
+
+            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_news" class="nav-link ">ข่าวสารทั้งหมด</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=announcemen_news" class="nav-link ">ข่าวประกาศ</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=press_release_news" class="nav-link ">ข่าวประชาสัมพันธ์</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=procurement_news" class="nav-link ">ข่าวจัดชื้อจัดจ้าง</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=job_recruitment_news" class="nav-link ">ข่าวรับสมัครงาน</a></li>
+
+            </ul>
+        </li>
+
+        <li class="nav-item nav-item-submenu">
             <a href="#" class="nav-link"><i class="icon-graduation2"></i> <span>จัดการหลักสูตร</span></a>
 
             <ul class="nav nav-group-sub" data-submenu-title="Layouts">

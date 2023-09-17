@@ -62,6 +62,16 @@
 <script src="<?php echo $RunLink->Call_Link_System();?>/template/global_assets/js/plugins/notifications/jgrowl.min.js"></script>
 
 <script src="<?php echo $RunLink->Call_Link_System();?>/template/global_assets/js/plugins/editors/summernote/summernote.min.js"></script>
+
+<script src="<?php echo $RunLink->Call_Link_System();?>/template/global_assets/js/plugins/forms/selects/select2.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $('.select').select2({
+            minimumResultsForSearch: Infinity
+        });
+    })
+</script>
 	
 <!--Show Data All-->
     <script>
@@ -125,6 +135,7 @@
                         var videos_topic=$("#videos_topic").val();
                         var videos_youtube=$("#videos_youtube").val();
                         var videos_detail=$("#videos_detail").val();
+                        var videos_status=$("#videos_status").val();
 
                             if(action==="add"){
 
@@ -144,7 +155,8 @@
                                     action:action,
                                     videos_topic:videos_topic,
                                     videos_youtube:videos_youtube,
-                                    videos_detail:videos_detail
+                                    videos_detail:videos_detail,
+                                    videos_status:videos_status
                                 },function(process_up){
                                     var test_process=process_up;
                                         if(test_process.trim()==="no_error"){
@@ -246,6 +258,7 @@
                         var videos_topic=$("#videos_topic").val();
                         var videos_youtube=$("#videos_youtube").val();
                         var videos_detail=$("#videos_detail").val();
+                        var videos_status=$("#videos_status").val();
 
                             if(action==="edit"){
 
@@ -266,7 +279,8 @@
                                     videos_id:videos_id,
                                     videos_topic:videos_topic,
                                     videos_youtube:videos_youtube,
-                                    videos_detail:videos_detail
+                                    videos_detail:videos_detail,
+                                    videos_status:videos_status
                                 },function(process_up){
                                     var test_process=process_up;
                                         if(test_process.trim()==="no_error"){

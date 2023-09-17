@@ -121,6 +121,14 @@
                 }else{
                     $newsimg_name=null;
                 }
+
+                $NewsCategorySql="SELECT `news_category_name` 
+                                  FROM `tb_news_category` 
+                                  WHERE`news_category_id`='{$news_row["news_category_id"]}';";
+                $NewsCategoryList=result_array($NewsCategorySql);
+                foreach($NewsCategoryList as $key=>$NewCategoryRow){
+                    $news_category=$NewCategoryRow["news_category_name"];
+                }
     ?>
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
                 <tr>
@@ -156,16 +164,40 @@
                     </td>
 
                     <td align="center" style="width: 5%; vertical-align: text-top;" class="align-top">
-                        <div></div>
+   
+    <?php
+        if(($news_row["news_post_date"]!=null or $news_row["news_post_date"]!="0000-00-00 00:00:00")){
+            $copy_news_post_time=new strto_datetime("datetime_th",$news_row["news_post_date"]); 
+            $print_post_time=$copy_news_post_time->print_datetime();
+        }else{
+            $print_post_time=null;
+        }
+    ?>
+                        <div><span class="badge badge-warning"><?php echo $print_post_time;?></span></div>
+
                     </td>
 
                     <td align="center" style="width: 5%; vertical-align: text-top;" class="align-top">
-                        <div></div>
+    <?php
+        if(($news_row["news_update_date"]!=null or $news_row["news_update_date"]!="0000-00-00 00:00:00")){
+            $copy_news_update_time=new strto_datetime("datetime_th",$news_row["news_update_date"]); 
+            $print_update_time=$copy_news_update_time->print_datetime();
+        }else{
+            $print_update_time=null;
+        }
+    ?>
+                        <div><span class="badge badge-warning"><?php echo $print_update_time;?></span></div>
+
                     </td>
 
                     <td align="center" style="width: 5%; vertical-align: text-top;" class="align-top">
 
-  
+                        <div>
+    <?php
+            if(($news_category!=null)){ ?>
+                            <span class="badge badge-info"><?php echo $news_category?></span>
+    <?php    }else{} ?>
+                        </div>
 
                         <div>
     <?php
@@ -175,6 +207,7 @@
                             <span class="badge badge-success">แสดง</span>
     <?php   }else{} ?>
                         </div>
+
                     </td>
                     <td align="center" style="width: 5%; vertical-align: text-top;" class="align-top">
                         <div align="center">

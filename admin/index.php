@@ -251,6 +251,14 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 		include("js_code/manage_video/manage_video_js.php");
 	}elseif(($modules=="manage_news")){
 		include("js_code/manage_news/manage_news_js.php");
+	}elseif(($modules=="announcemen_news")){
+		include("js_code/announcemen_news/announcemen_news_js.php");
+	}elseif(($modules=="press_release_news")){
+		include("js_code/press_release_news/press_release_news_js.php");
+	}elseif(($modules=="procurement_news")){
+		include("js_code/procurement_news/procurement_news_js.php");
+	}elseif(($modules=="job_recruitment_news")){
+		include("js_code/job_recruitment_news/job_recruitment_news_js.php");
 	}else{ ?>
 		<!-- Theme JS files -->
 		<script src="<?php echo $RunLink->Call_Link_System(); ?>/template/global_assets/js/plugins/forms/inputs/typeahead/handlebars.min.js"></script>
@@ -569,7 +577,20 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 						case "image_slide":
 							include $load;
 							break;
+//----------------------------------------------------------------------------------------	
 						case "manage_news":
+							include $load;
+							break;
+						case "announcemen_news":
+							include $load;
+							break;
+						case "press_release_news":
+							include $load;
+							break;
+						case "procurement_news":
+							include $load;
+							break;
+						case "job_recruitment_news":
 							include $load;
 							break;
 //----------------------------------------------------------------------------------------

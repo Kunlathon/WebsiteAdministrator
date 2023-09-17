@@ -127,6 +127,22 @@
                         </div>
 
                         <div class="row">
+                            <div class="col-<?php echo $grid;?>-12">
+                                <fieldset class="mb-3">
+                                    <div class="form-group row">
+                                        <label class="col-form-label col-<?php echo $grid; ?>-2">สถานะวิดีโอ</label>
+                                        <div class="col-<?php echo $grid; ?>-10">
+                                            <select name="videos_status" id="videos_status"  class="form-control select" required="required" data-fouc>
+                                                <option value="1">แสดง</option>
+                                                <option value="0">ไม่แสดง</option>
+										    </select> 
+                                        <div>
+                                    </div>
+                                </fieldset>                        
+                            </div>
+                        </div>
+
+                        <div class="row">
                             <div class="col-<?php echo $grid; ?>-12">
                                 <fieldset class="mb-3">
                                     <button type="button" name="sub_up" id="sub_up" class="btn btn-info">บันทึก</button>&nbsp;
@@ -168,11 +184,16 @@
                                 $videos_topic=$video_row["videos_topic"];
                                 $videos_youtube=$video_row["videos_youtube"];
                                 $videos_detail=$video_row["videos_detail"];
+                                $videos_status=$video_row["videos_status"];
+
+                                $videos_post_date=$video_row["videos_post_date"];
+                                $videos_update_date=$video_row["videos_update_date"];
                             }else{
                                 $videos_id=null;
                                 $videos_topic=null;
                                 $videos_youtube=null;
                                 $videos_detail=null;
+                                $videos_status=null;
                             }
                         }
                         
@@ -242,6 +263,32 @@
                                         <div>
                                     </div>
                                 </fieldset>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-<?php echo $grid;?>-12">
+                                <fieldset class="mb-3">
+                                    <div class="form-group row">
+                                        <label class="col-form-label col-<?php echo $grid; ?>-2">สถานะวิดีโอ</label>
+                                        <div class="col-<?php echo $grid; ?>-10">
+                                            <select name="videos_status" id="videos_status" class="form-control select" required="required" data-fouc>
+        <?php
+                if(($videos_status==1)){ ?>
+                                                <option value="1" selected="selected">แสดง</option>
+                                                <option value="0">ไม่แสดง</option>
+        <?php   }elseif(($videos_status==0)){ ?>
+                                                <option value="1">แสดง</option>
+                                                <option value="0" selected="selected">ไม่แสดง</option>
+        <?php   }else{ ?>
+                                                <option value="1">แสดง</option>
+                                                <option value="0">ไม่แสดง</option>
+        <?php   } ?>
+
+										    </select> 
+                                        <div>
+                                    </div>
+                                </fieldset>                        
                             </div>
                         </div>
 

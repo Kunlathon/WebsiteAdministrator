@@ -91,10 +91,10 @@
             <thead>
                 <tr align="center">
                     <th>
-                        <div>วิดีโอ</div>
+                        <div>ข่าว</div>
                     </th>
                     <th>
-                        <div>เนื้อหาวิดีโอ</div>
+                        <div>เนื้อหาข่าว</div>
                     </th>
                     <th>
                         <div>วันที่อัพโหลด</div>
@@ -103,6 +103,7 @@
                         <div>วันที่แก้ไข</div>
                     </th>
                     <th>
+                        <div>ประเภทข่าว / </div>    
                         <div>สถานะ</div>
                     </th>
                     <th>
@@ -112,86 +113,114 @@
             </thead>
             <tbody>
     <?php
-            $video_sql = "SELECT * FROM `tb_videos`  ORDER BY `videos_id` DESC";
-            $video_list = result_array($video_sql);
-            foreach ($video_list as $key => $video_row) { 
-                if((isset($video_row["video_image"]))){
-                    $videoimg_name=$video_row["video_image"];
+            $news_sql = "SELECT * FROM `tb_news` WHERE `news_category_id`='1' ORDER BY `news_id` DESC";
+            $news_list = result_array($news_sql);
+            foreach ($news_list as $key => $news_row) { 
+                if((isset($news_row["news_image0"]))){
+                    $newsimg_name=$news_row["news_image0"];
                 }else{
-                    $videoimg_name=null;
+                    $newsimg_name=null;
+                }
+
+                $NewsCategorySql="SELECT `news_category_name` 
+                                  FROM `tb_news_category` 
+                                  WHERE`news_category_id`='{$news_row["news_category_id"]}';";
+                $NewsCategoryList=result_array($NewsCategorySql);
+                foreach($NewsCategoryList as $key=>$NewCategoryRow){
+                    $news_category=$NewCategoryRow["news_category_name"];
                 }
     ?>
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
                 <tr>
-                    <td style="width: 45%; vertical-align: text-top;" class="align-top">
+                    <td style="width: 40%; vertical-align: text-top;" class="align-top">
                         <div>
                             <div class="card">
 
 								<div class="card-body">
-									<div class="embed-responsive embed-responsive-16by9">
-                                        <?php echo $video_row["videos_youtube"];?>
-									</div>
+									
+    <?php
+            if((($newsimg_name!=null))){
+                if(file_exists("../../../dist/img/news/".$newsimg_name)){ ?>
+                        <div><img src="../dist/img/news/<?php echo $newsimg_name;?>" class="img-thumbnail" alt="<?php echo $newsimg_name;?>" style="width:304px; height:236px;"></div>
+    <?php       }else{ ?>
+                        <div><img src="../dist/img/news/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:304px; height:236px;"></div>
+    <?php       }
+            }else{ ?>
+                        <div><img src="../dist/img/news/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:304px; height:236px;"></div>
+    <?php   } ?>
+									
 								</div>            
 
 								<div class="card-header">
-									<div><?php echo $video_row["videos_topic"];?></div>
+									<div><?php echo $news_row["news_topic"];?></div>
 								</div>
 
 							</div>
                         </div>
                     </td>
 
-                    <td align="center" style="width: 35%; vertical-align: text-top;" class="align-top">
-                        <div><?php echo $video_row["videos_detail"];?></div>
+                    <td align="center" style="width: 40%; vertical-align: text-top;" class="align-top">
+                        <div><?php echo $news_row["news_detail_1"];?></div>
                     </td>
 
                     <td align="center" style="width: 5%; vertical-align: text-top;" class="align-top">
+   
     <?php
-        if(($video_row["videos_post_date"]!=null or $video_row["videos_post_date"]!="0000-00-00 00:00:00")){ 
-            $copy_videos_post_date=new strto_datetime("datetime_th",$video_row["videos_post_date"]);
-            $print_post_date=$copy_videos_post_date->print_datetime();
+        if(($news_row["news_post_date"]!=null or $news_row["news_post_date"]!="0000-00-00 00:00:00")){
+            $copy_news_post_time=new strto_datetime("datetime_th",$news_row["news_post_date"]); 
+            $print_post_time=$copy_news_post_time->print_datetime();
         }else{
-            $print_post_date=null;
+            $print_post_time=null;
         }
     ?>
-                        <div><span class="badge badge-warning"><?php echo $print_post_date;?></span></div>
+                        <div><span class="badge badge-warning"><?php echo $print_post_time;?></span></div>
+
                     </td>
 
                     <td align="center" style="width: 5%; vertical-align: text-top;" class="align-top">
     <?php
-        if(($video_row["videos_update_date"]!=null or $video_row["videos_update_date"]!="0000-00-00 00:00:00")){ 
-            $copy_videos_update_date=new strto_datetime("datetime_th",$video_row["videos_update_date"]);
-            $print_update_date=$copy_videos_update_date->print_datetime();
+        if(($news_row["news_update_date"]!=null or $news_row["news_update_date"]!="0000-00-00 00:00:00")){
+            $copy_news_update_time=new strto_datetime("datetime_th",$news_row["news_update_date"]); 
+            $print_update_time=$copy_news_update_time->print_datetime();
         }else{
-            $print_update_date=null;
+            $print_update_time=null;
         }
-    ?>    
-                    
-                        <div><span class="badge badge-warning"><?php echo $print_update_date;?></span></div>
+    ?>
+                        <div><span class="badge badge-warning"><?php echo $print_update_time;?></span></div>
+
                     </td>
 
                     <td align="center" style="width: 5%; vertical-align: text-top;" class="align-top">
+
                         <div>
     <?php
-            if(($video_row["videos_status"]==0)){ ?>
+            if(($news_category!=null)){ ?>
+                            <span class="badge badge-info"><?php echo $news_category?></span>
+    <?php    }else{} ?>
+                        </div>
+
+                        <div>
+    <?php
+            if(($news_row["news_status"]==0)){ ?>
                             <span class="badge badge-danger">ไม่แสดง</span>
-    <?php   }elseif(($video_row["videos_status"]==1)){ ?>
+    <?php   }elseif(($news_row["news_status"]==1)){ ?>
                             <span class="badge badge-success">แสดง</span>
     <?php   }else{} ?>
                         </div>
+
                     </td>
                     <td align="center" style="width: 5%; vertical-align: text-top;" class="align-top">
                         <div align="center">
                             <ul class="nav justify-content-center">
                                 <li class="nav-item">
-<form name="video_update<?php echo $video_row["videos_id"];?>" accept-charset="utf-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_video">
+<form name="news_update<?php echo $news_row["news_id"];?>" accept-charset="utf-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=announcemen_news">
     <input type="hidden" name="manage" value="edit"> 
-    <input type="hidden" name="videos_id" value="<?php echo $video_row["videos_id"];?>">
-    <button type="submit" name="button_<?php echo $video_row["videos_id"];?>" class="btn btn-outline-secondary btn-sm" data-popup="tooltip" title="แก้ไข" data-placement="bottom"><i class="icon-pen"></i></button>
+    <input type="hidden" name="news_id" value="<?php echo $news_row["news_id"];?>">
+    <button type="submit" name="button_<?php echo $news_row["news_id"];?>" class="btn btn-outline-secondary btn-sm" data-popup="tooltip" title="แก้ไข" data-placement="bottom"><i class="icon-pen"></i></button>
 </form>
                                 </li>
                                 <li class="nav-item">
-                                    <button type="button" name="Delete_Student_Data" id="delete_video_<?php echo $video_row["videos_id"];?>" class="btn btn-outline-danger btn-sm" data-popup="tooltip" title="ลบ" data-placement="bottom"><i class="icon-bin"></i></button>
+                                    <button type="button" name="delete_news_<?php echo $news_row["news_id"];?>" id="delete_news_<?php echo $news_row["news_id"];?>" class="btn btn-outline-danger btn-sm" data-popup="tooltip" title="ลบ" data-placement="bottom"><i class="icon-bin"></i></button>
                                 </li>
                             </ul>
                         </div>
@@ -205,18 +234,18 @@
 
 
     <?php
-        $video_sql="SELECT * FROM `tb_videos`  ORDER BY `videos_id` DESC";
-        $video_list = result_array($video_sql);
+        $news_sql="SELECT * FROM `tb_news`  WHERE `news_category_id`='1' ORDER BY `news_id` DESC";
+        $news_list = result_array($news_sql);
         
-        foreach ($video_list as $key => $video_row) { 
-            if((is_array($video_row) && count($video_row))){ ?>
+        foreach ($news_list as $key => $news_row) { 
+            if((is_array($news_row) && count($news_row))){ ?>
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
     <script>
         $(document).ready(function(){
-            var videos_id="<?php echo $video_row["videos_id"];?>";
+            var news_id="<?php echo $news_row["news_id"];?>";
             var action="delete";
             var action_error="error";
-            var videos_id_error="error";
+            var news_id_error="error";
 // Defaults
             var swalInitDeteleImageData = swal.mixin({
                 buttonsStyling: false,
@@ -229,7 +258,7 @@
             });
 // Defaults End
 
-            $('#delete_video_<?php echo $video_row["videos_id"];?>').on('click', function() {
+            $('#delete_news_<?php echo $news_row["news_id"];?>').on('click', function() {
                 swalInitDeteleImageData.fire({
                     title: 'ต้องการลบข้อมูลหรือไม่',
                     //text: "You won't be able to revert this!",
@@ -256,20 +285,20 @@
                             action_error="no_error";
                         }
 
-                        if(videos_id==""){
+                        if(news_id==""){
                             swalInitDeteleImageData.fire({
                                 title: 'คีย์ว่าง ไม่สามารถดำเนินการลบได้',
                                 icon: 'error'
                             });
-                            videos_id_error="error";
+                            news_id_error="error";
                         }else{
-                            videos_id_error="no_error";
+                            news_id_error="no_error";
                         }
 
-                        if(action_error=="no_error" && videos_id_error=="no_error"){
-                            $.post("<?php echo $RunLink->Call_Link_System();?>/js_code/manage_video/manage_video_process.php",{
+                        if(action_error=="no_error" && news_id_error=="no_error"){
+                            $.post("<?php echo $RunLink->Call_Link_System();?>/js_code/announcemen_news/announcemen_news_process.php",{
                                 action:action,
-                                videos_id:videos_id
+                                news_id:news_id
                             },function(process_delete){
                                 var process_delete = process_delete.trim();
                                 if (process_delete === "no_error"){
@@ -298,7 +327,7 @@
                                             }
                                         }).then(function(result) {
                                             if (result.dismiss === Swal.DismissReason.timer) {
-                                                document.location = "<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_video";
+                                                document.location = "<?php echo $RunLink->Call_Link_System(); ?>/?modules=announcemen_news";
                                             } else {}
                                         });
 

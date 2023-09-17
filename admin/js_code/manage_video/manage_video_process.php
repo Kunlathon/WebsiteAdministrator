@@ -26,6 +26,7 @@
         $videos_topic= filter_input(INPUT_POST, 'videos_topic');
         $videos_youtube= filter_input(INPUT_POST, 'videos_youtube');
         $videos_detail= filter_input(INPUT_POST, 'videos_detail');
+        $videos_status= filter_input(INPUT_POST, 'videos_status');
 
         $manage_video_Data = array(
      
@@ -34,7 +35,7 @@
             "videos_detail" => $videos_detail,
             "videos_post_date	" => $update_date,
             "videos_update_date" => $update_date,
-            "videos_status" => '1'
+            "videos_status" => $videos_status
 
         );
         insert("tb_videos", $manage_video_Data); 
@@ -47,6 +48,7 @@
         $videos_topic= filter_input(INPUT_POST, 'videos_topic');
         $videos_youtube= filter_input(INPUT_POST, 'videos_youtube');
         $videos_detail= filter_input(INPUT_POST, 'videos_detail');
+        $videos_status= filter_input(INPUT_POST, 'videos_status');
 
         $manage_video_Data = array(
 
@@ -55,7 +57,7 @@
             "videos_detail" => $videos_detail,
             "videos_post_date	" => $update_date,
             "videos_update_date" => $update_date,
-            "videos_status" => '1'
+            "videos_status" => $videos_status
 
         );
         update("tb_videos", $manage_video_Data, "videos_id  = '{$videos_id}'"); 
