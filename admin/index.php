@@ -93,101 +93,29 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 	} elseif (($modules == "profile")) {
 		include("js_code/profile/profile_js.php");
 	} elseif (($modules == "changepass")) {
-		include("js_code/changepass/changepass_js.php");
-	} elseif (($modules == "subject_type_data")) {
-		include("js_code/subject_type_data/subject_type_data_js.php");
-	} elseif (($modules == "subject_data")) {
-		include("js_code/subject_data/subject_data_js.php");
-	} elseif (($modules == "subject_level_data")) {
-		include("js_code/subject_level_data/subject_level_data_js.php");
+		include("js_code/changepass/changepass_js.php");	
 	} elseif (($modules == "student_data")) {
 		include("js_code/student_data/student_data_js.php");
 	} elseif (($modules == "term_data")) {
 		include("js_code/term_data/term_data_js.php");
-	} elseif (($modules == "grade_data")) {
-		include("js_code/grade_data/grade_data_js.php");
 	} elseif (($modules == "course_data")) {
 		include("js_code/course_data/course_data_js.php");
 	} elseif (($modules == "classroom_data")) {
-		include("js_code/classroom_data/classroom_data_js.php");
-	} elseif (($modules == "teacher_all")) {
-		include("js_code/teacher_all/teacher_all_js.php");
-	} elseif (($modules == "teacher_data3")) {
-		include("js_code/teacher_data3/teacher_data3_js.php");
-	} elseif (($modules == "teacher_data1")) {
-		include("js_code/teacher_data1/teacher_data1_js.php");
-	} elseif (($modules == "teacher_data2")) {
-		include("js_code/teacher_data2/teacher_data2_js.php");
-	} elseif (($modules == "person_data")) {
-		include("js_code/person_data/person_data_js.php");
+		include("js_code/classroom_data/classroom_data_js.php");	
 	} elseif (($modules == "user_data")) {
-		include("js_code/user_data/user_data_js.php");
-	} elseif (($modules == "student_data1")) {
-		include("js_code/student_data1/student_data1_js.php");
-	} elseif (($modules == "student_data2")) {
-		include("js_code/student_data2/student_data2_js.php");
-	} elseif (($modules == "student_data3")) {
-		include("js_code/student_data3/student_data3_js.php");
+		include("js_code/user_data/user_data_js.php");	
 	} elseif (($modules == "user_data2")) {
-		include("js_code/user_data2/user_data2_js.php");
-	} elseif (($modules == "assessment_classroom")) {
-		include("js_code/assessment_classroom/assessment_classroom_js.php");
-	} elseif (($modules == "assessment_classroom_show")) {
-		include("js_code/assessment_classroom_show/assessment_classroom_show_js.php");
-	} elseif (($modules == "student_success")) {
-		include("js_code/student_success/student_success_js.php");
-	} elseif (($modules == "student_alumni")) {
-		include("js_code/student_alumni/student_alumni_js.php");
-	} elseif (($modules == "student_resign")) {
-		include("js_code/student_resign/student_resign_js.php");
-	} elseif (($modules == "student_drop")) {
-		include("js_code/student_drop/student_drop_js.php");
+		include("js_code/user_data2/user_data2_js.php");	
 	} elseif (($modules == "check_payment")) {
 		include("js_code/check_payment/check_payment_js.php");
 	} elseif (($modules == "payment_show")) {
 		include("js_code/payment_show/payment_show_js.php");
-	} elseif (($modules == "grade_classroom_data")) {
-		include("js_code/grade_classroom_data/grade_classroom_data_js.php");
-	} elseif (($modules == "teach_data")) {
-		include("js_code/teach_data/teach_data_js.php");
-	} elseif (($modules == "check_subject")) {
-		include("js_code/check_subject/check_subject_js.php");
 	}elseif(($modules=="manage_payment")){
 		include("js_code/manage_payment/manage_payment_js.php");
-	}elseif(($modules=="report_score")){
-		include("js_code/report_score/report_score_js.php");
-	}elseif(($modules=="assessment_data")){
-		include("js_code/assessment_data/assessment_data_js.php");
-	}elseif(($modules=="assessment_data_th")){
-		include("js_code/assessment_data_th/assessment_data_th_js.php");
-	}elseif(($modules=="character_data")){
-		include("js_code/character_data/character_data_js.php");
-	}elseif(($modules=="activity_data")){
-		include("js_code/activity_data/activity_data_js.php");
-	}elseif(($modules=="teach_show_detail")){
-		include("js_code/teach_show_detail/teach_show_detail_js.php");
-	}elseif(($modules=="subject_teach_detail")){
-		include("js_code/subject_teach_detail/subject_teach_detail_js.php");
 	}elseif(($modules=="course_show_class")){
 		include("js_code/course_show_class/course_show_class_js.php");
 	}elseif(($modules=="course_manage")){
-		include("js_code/course_manage/course_manage_js.php");
-	}elseif(($modules=="report_achievement_edu")){
-		include("js_code/report_achievement_edu/report_achievement_edu_js.php");
-	}elseif(($modules=="report_achievement_update")){
-		include("js_code/report_achievement_update/report_achievement_update_js.php");
-	}elseif(($modules=="report_score_back")){
-		include("js_code/report_score_back/report_score_back_js.php");
-	}elseif(($modules=="report_score_double")){
-		include("js_code/report_score_double/report_score_double_js.php");
-	}elseif(($modules=="report_assessment")){
-		include("js_code/report_assessment/report_assessment_js.php");
-	}elseif(($modules=="character_show")){
-		include("js_code/character_show/character_show_js.php");
-	}elseif(($modules=="assessment_th_show")){
-		include("js_code/assessment_th_show/assessment_th_show_js.php");
-	}elseif(($modules=="assessment_show")){
-		include("js_code/assessment_show/assessment_show_js.php");
+		include("js_code/course_manage/course_manage_js.php");	
 	}elseif(($modules=="image_slide")){
 		include("js_code/image_slide/image_slide_js.php");
 //----------------------------------------------------------------------------------------
@@ -259,6 +187,8 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 		include("js_code/procurement_news/procurement_news_js.php");
 	}elseif(($modules=="job_recruitment_news")){
 		include("js_code/job_recruitment_news/job_recruitment_news_js.php");
+	}elseif(($modules=="picture_album")){
+		include("js_code/picture_album/picture_album_js.php");
 	}else{ ?>
 		<!-- Theme JS files -->
 		<script src="<?php echo $RunLink->Call_Link_System(); ?>/template/global_assets/js/plugins/forms/inputs/typeahead/handlebars.min.js"></script>
@@ -408,55 +338,16 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 							break;
 						case "changepass":
 							include $load;
-							break;
-						case "subject_data":
-							include $load;
-							break;
-						case "subject_type_data":
-							include $load;
-							break;
-						case "subject_level_data":
-							include $load;
-							break;
+							break;						
 						case "student_data":
 							include $load;
-							break;
-						case "teacher_all":
-							include $load;
-							break;
-						case "teacher_data1":
-							include $load;
-							break;
-						case "teacher_data2":
-							include $load;
-							break;
-						case "teacher_data3":
-							include $load;
-							break;
-						case "person_data":
-							include $load;
-							break;
+							break;						
 						case "user_data":
 							include $load;
-							break;
-						case "student_data1":
-							include $load;
-							break;
-						case "student_data2":
-							include $load;
-							break;
-						case "student_data3":
-							include $load;
-							break;
+							break;						
 						case "user_data2";
 							include $load;
-							break;
-						case "assessment_classroom":
-							include $load;
-							break;
-						case "assessment_classroom_show":
-							include $load;
-							break;
+							break;						
 						case "student_success":
 							include $load;
 							break;
@@ -468,112 +359,13 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 							break;
 						case "student_drop":
 							include $load;
-							break;
-						case "check_payment":
-							include $load;
-							break;
-						case "payment_show":
-							include $load;
-							break;
-						case "grade_classroom_data":
-							include $load;
-							break;
-						case "manage_payment":
-							include $load;
-							break;
-						case "report_score":
-							include $load;
-							break;
-						case "assessment_data":
-							include $load;
-							break;
-						case "assessment_data_th":
-							include $load;
-							break;
-						case "character_data":
-							include $load;
-							break;
-						case "activity_data":
-							include $load;
-							break;
-						case "report_score_show2":
-							include $load;
-							break;
-						case "report_score_show2_2":
-							include $load;
-							break;
-						case "report_score_show2_F":
-							include $load;
-							break;
-						case "report_score_show2_G":
-							include $load;
-							break;
-						case "report_score_show3":
-							include $load;
-							break;
-						case "report_score_show3_2":
-							include $load;
-							break;		
-						case "report_score_show3_F":
-							include $load;
-							break;
-						case "report_score_show3_G":
-							include $load;
-							break;
-						case "report_score_show1":
-							include $load;
-							break;
-						case "report_score_show1_F_mix":
-							include $load;
 							break;						
-						case "report_score_show1_2":
-							include $load;
-							break;
-						case "report_score_show1_F":
-							include $load;
-							break;
-						case "report_score_show1_1":
-							include $load;
-							break;
-						case "report_score_show1_G":
-							include $load;
-							break;
-						case "teach_show_detail":
-							include $load;
-							break;
-						case "subject_teach_detail":
-							include $load;
-							break;
 						case "course_show_class":
 							include $load;
 							break;
 						case "course_manage":
 							include $load;
-							break;
-						case "report_achievement_edu":
-							include $load;
-							break;
-						case "report_achievement_update":
-							include $load;
-							break;
-						case "report_score_back":
-							include $load;
-							break;
-						case "report_score_double":
-							include $load;
-							break;
-						case "report_assessment":
-							include $load;
-							break;
-						case "character_show":
-							include $load;
-							break;
-						case "assessment_th_show":
-							include $load;
-							break;
-						case "assessment_show":
-							include $load;
-							break;
+							break;						
 						case "image_slide":
 							include $load;
 							break;
@@ -676,23 +468,14 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 						case "manage_video":
 							include $load;
 							break;
+						case "picture_album";
+							include $load;
+							break;
 							// ----- Non ----- //
 						case "term_data":
 							include $load;
 							break;
-						case "grade_data":
-							include $load;
-							break;
 						case "course_data":
-							include $load;
-							break;
-						case "classroom_data":
-							include $load;
-							break;
-						case "teach_data":
-							include $load;
-							break;
-						case "check_subject":
 							include $load;
 							break;
 							//-------------------
