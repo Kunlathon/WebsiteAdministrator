@@ -23,6 +23,7 @@
     $action = filter_input(INPUT_POST, 'action');
 
         if(($action=="add")){
+
             $FolderName="albun".$image_date;
             $gallery_name=filter_input(INPUT_POST, 'gallery_name');
             $gallery_topic=filter_input(INPUT_POST, 'gallery_topic');
@@ -109,6 +110,67 @@
 
                 }else{}
             exit("<script>window.location='../../?modules=picture_album';</script>");
+        }elseif(($action=="edit")){
+
+        
+            $gallery_name=filter_input(INPUT_POST, 'gallery_name');
+            $gallery_topic=filter_input(INPUT_POST, 'gallery_topic');
+            $FolderName=filter_input(INPUT_POST, 'gallery_folder');
+            $gallery_id=filter_input(INPUT_POST, 'gallery_id');
+            $gallery_status=filter_input(INPUT_POST, 'gallery_status');
+
+                if(isset($gallery_name,$gallery_topic)){
+
+                    //gallery_thumbnail
+
+                    if(($_FILES["gallery_thumbnail"]["name"]!=null)){
+
+                        $copy_gallery=filter_input(INPUT_POST, 'copy_gallery');
+
+                        $link_album="../../../dist/img/gallery/".$FolderName."/".$copy_gallery;
+                        $delete_album=unlink($link_album);
+
+                        $gallery_thumbnail_nameNew=$image_date."_gl";
+                        $gallery_thumbnail_name = $_FILES["gallery_thumbnail"]["name"];
+                        $gallery_thumbnail_type = $_FILES["gallery_thumbnail"]["type"];
+
+                        //new file Name
+                        $imgFile = explode('.', $gallery_thumbnail_name);
+                        $fileType = $imgFile[count($imgFile) - 1];
+                        //new file Name end
+
+                        $gallery_thumbnail_new_name = $gallery_thumbnail_nameNew.".".$fileType;
+                        $gallery_thumbnail_tmp = $_FILES["gallery_thumbnail"]["tmp_name"];
+                        $gallery_thumbnail_size = $_FILES["gallery_thumbnail"]["size"];
+
+                        move_uploaded_file($gallery_thumbnail_tmp, '../../../dist/img/gallery/'.$FolderName.'/'. $gallery_thumbnail_new_name);
+                        //up image end
+
+                    }else{
+                        $gallery_thumbnail_new_name=null;
+                    }
+
+                    //gallery_thumbnail end
+
+                    if(($gallery_thumbnail_new_name!=null)){
+
+                        $gallery_Data = array("gallery_name"=>$gallery_name,
+                                              "gallery_topic"=>$gallery_topic,
+                                              "gallery_thumbnail"=>$gallery_thumbnail_new_name,
+                                              "gallery_status"=>$gallery_status);
+                        update("tb_gallery", $gallery_Data, "gallery_id = '{$gallery_id}'");
+                        exit("<script>window.location='../../?modules=picture_album';</script>");
+                    }else{
+
+                        $gallery_Data = array("gallery_name"=>$gallery_name,
+                                              "gallery_topic"=>$gallery_topic,
+                                              "gallery_status"=>$gallery_status);
+                        update("tb_gallery", $gallery_Data, "gallery_id = '{$gallery_id}'");
+                        exit("<script>window.location='../../?modules=picture_album';</script>");
+                    }
+
+                }else{}
+
         }elseif(($action=="delete")){
 
             $picture_album_id=filter_input(INPUT_POST, 'picture_album_id');

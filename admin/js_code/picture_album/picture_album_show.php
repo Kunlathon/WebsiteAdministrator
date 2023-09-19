@@ -91,10 +91,10 @@
             <thead>
                 <tr align="center">
                     <th>
-                        <div>ข่าว</div>
+                        <div>รูปกิจกรรม</div>
                     </th>
                     <th>
-                        <div>เนื้อหาข่าว</div>
+                        <div>เนื้อหากิจกรรม</div>
                     </th>
                     <th>
                         <div>สถานะ</div>
@@ -147,7 +147,7 @@
     ?>
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
                 <tr>
-                    <td style="width: 40%; vertical-align: text-top;" class="align-top">
+                    <td style="width: 30%; vertical-align: text-top;" class="align-top">
                         <div>
                             <div class="card">
 
@@ -156,7 +156,17 @@
     <?php
             if((($picture_albumimg_name!=null))){
                 if(file_exists("../../../dist/img/gallery/".$gallery_folder."/".$picture_albumimg_name)){ ?>
-                        <div><img src="../dist/img/gallery/<?php echo $gallery_folder;?>/<?php echo $picture_albumimg_name;?>" class="img-thumbnail" alt="<?php echo $picture_albumimg_name;?>" style="width:304px; height:236px;"></div>
+                        
+                        <div>
+<form name="form_picture<?php echo $gallery_id;?>" id="form_picture<?php echo $gallery_id;?>" accept-charset="utf-8" action="<?php echo $RunLink->Call_Link_System();?>/" method="post" enctype="multipart/form-data">
+    <input type="image" name="but_picture<?php echo $gallery_id;?>" id="but_picture<?php echo $gallery_id;?>" class="img-thumbnail" style="width:304px; height:236px;" src="../dist/img/gallery/<?php echo $gallery_folder;?>/<?php echo $picture_albumimg_name;?>" border="0" title="<?php echo $picture_albumimg_name;?>">
+    <input type="hidden" name="action" id="action" value="picture">
+    <input type="hidden" name="gallery_id" id="gallery_id" value="<?php echo $gallery_id;?>">
+</form>
+                        </div>
+
+
+
     <?php       }else{ ?>
                         <div><img src="../dist/img/gallery/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:304px; height:236px;"></div>
     <?php       }
@@ -178,7 +188,7 @@
                         <div><?php echo $gallery_topic;?></div>
                     </td>
 
-                    <td align="center" style="width: 5%; vertical-align: text-top;" class="align-top">
+                    <td align="center" style="width: 10%; vertical-align: text-top;" class="align-top">
 
                         <div>
     <?php
@@ -190,11 +200,11 @@
                         </div>
 
                     </td>
-                    <td align="center" style="width: 5%; vertical-align: text-top;" class="align-top">
+                    <td align="center" style="width: 10%; vertical-align: text-top;" class="align-top">
                         <div align="center">
                             <ul class="nav justify-content-center">
                                 <li class="nav-item">
-<form name="picture_album_update<?php echo  $gallery_id;?>" accept-charset="utf-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_picture_album">
+<form name="picture_album_update<?php echo  $gallery_id;?>" accept-charset="utf-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=picture_album">
     <input type="hidden" name="manage" value="edit"> 
     <input type="hidden" name="picture_album_id" value="<?php echo  $gallery_id;?>">
     <button type="submit" name="button_<?php echo  $gallery_id;?>" class="btn btn-outline-secondary btn-sm" data-popup="tooltip" title="แก้ไข" data-placement="bottom"><i class="icon-pen"></i></button>
