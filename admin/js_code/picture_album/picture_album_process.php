@@ -72,6 +72,7 @@
                                                     "gallery_name"=>$gallery_name,
                                                     "gallery_topic"=>$gallery_topic,
                                                     "gallery_thumbnail"=>$gallery_thumbnail_new_name,
+                                                    "gallery_folder"=>$FolderName,
                                                     "gallery_status"=>$gallery_status);
                         insert("tb_gallery", $Picture_Album_Data); 
 
@@ -108,6 +109,50 @@
 
                 }else{}
             exit("<script>window.location='../../?modules=picture_album';</script>");
+        }elseif(($action=="delete")){
+
+            $picture_album_id=filter_input(INPUT_POST, 'picture_album_id');
+            $gallery_folder=filter_input(INPUT_POST, 'gallery_folder');
+            
+            $gallery_sql = "SELECT `gallery_thumbnail` FROM `tb_gallery`  WHERE `gallery_id`='{$picture_album_id}'";
+            $gallery_list = result_array($gallery_sql);
+            foreach ($gallery_list as $key => $gallery_row) { 
+
+                $link_album="../../../dist/img/gallery/".$gallery_folder."/".$gallery_row["gallery_thumbnail"];
+                $delete_album=unlink($link_album);
+
+            }
+           
+            $picture_sql = "SELECT `picture_name` FROM `tb_picture`  WHERE `gallery_id`='{$picture_album_id}'";
+            $picture_list = result_array($picture_sql);
+            foreach ($picture_list as $key => $picture_row) { 
+
+                $link_album="../../../dist/img/gallery/".$gallery_folder."/".$picture_row["picture_name"];
+                $delete_album=unlink($link_album);     
+
+            }
+           
+           
+            $link_album="../../../dist/img/gallery/".$gallery_folder;
+            $delete_album=rmdir($link_album);    
+
+
+                if(($delete_album)){
+
+                    $gallery_table = "tb_gallery";
+                    $gallery_ff = "gallery_id";
+                    delete($gallery_table, "{$gallery_ff} = '{$picture_album_id}'");
+
+                    $picture_table = "tb_picture";
+                    $picture_ff = "gallery_id";
+                    delete($picture_table, "{$picture_ff} = '{$picture_album_id}'");
+
+                    echo "no_error";
+
+                }else{
+                    echo "it_error";
+                }
+
         }else{
 
 

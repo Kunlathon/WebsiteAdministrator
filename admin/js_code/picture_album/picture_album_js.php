@@ -203,3 +203,23 @@
 
     })
 </script>
+
+<!--Show Data All-->
+<script>
+        $(document).ready(function(){
+            var run_show=$("#run_show").val();
+                if(run_show==="show"){
+                    $.post("<?php echo $RunLink->Call_Link_System();?>/js_code/picture_album/picture_album_show.php",{
+                        run_show:run_show
+                    },function(RunShow){
+                        if(RunShow!=""){
+                            $("#Run_Show_All").html(RunShow);
+                        }else{}
+                    })
+                }else{
+                    document.getElementById("Run_Show_All").innerHTML=
+                    '<span style="font-weight: bold; color:red;">ไม่สามารถดำเนินการได้</span>';
+                }
+        })
+    </script>
+<!--Show Date All End-->

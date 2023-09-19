@@ -130,7 +130,7 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
                     <div class="col-lg-auto ms-lg-auto">
                       <img src="dist/img/icon-th-removal.png" alt="TH" style="background-color: #FF9933;" width="32" height="32">
                       <img src="dist/img/icon-en-removal.png" alt="EN" style="background-color: #FF9933;" width="32" height="32">
-                      <img src="dist/img/icon-cn-removal.png" alt="CN" style="background-color: #FF9933;" width="32" height="32">
+                      <!--<img src="dist/img/icon-cn-removal.png" alt="CN" style="background-color: #FF9933;" width="32" height="32">-->
                       <!--<span class="flag flag-country-th" style="border-radius: 50%;"></span>-->
                       <!--<span class="flag flag-country-us" style="border-radius: 50%;"></span>-->
                     </div>
