@@ -228,11 +228,13 @@
         </div>
  <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->       
         <input type="hidden" name="run_show" id="run_show" value="show">
+        <input type="hidden" name="run_gallery_key" id="run_gallery_key" value="-">
+        <input type="hidden" name="run_gallery_folder" id="run_gallery_" value="-">
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
         <?php    }elseif(($manage=="edit")){ 
 
-                    if((isset($_POST["picture_album_id"]))){
-                        $picture_album_id=filter_input(INPUT_POST,'picture_album_id');  
+                    if((isset($_POST["gallery_key"]))){
+                        $picture_album_id=filter_input(INPUT_POST,'gallery_key');  
                         $gallery_sql = "SELECT * FROM `tb_gallery`  WHERE `gallery_id`='{$picture_album_id}'";
                         $gallery_list = result_array($gallery_sql);
                         foreach ($gallery_list as $key => $gallery_row) { 
@@ -484,7 +486,20 @@
 
             ?>
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-        <?php    }elseif(($manage=="picture")){ ?>
+        <?php    }elseif(($manage=="picture")){
+
+                $gallery_key=filter_input(INPUT_POST,'gallery_id');
+
+                $gallery_sql = "SELECT * FROM `tb_gallery`  WHERE `gallery_id`='{$gallery_key}'";
+                $gallery_list = result_array($gallery_sql);
+                foreach ($gallery_list as $key => $gallery_row) { 
+                    $gallery_name=$gallery_row["gallery_name"];
+                    $gallery_topic=$gallery_row["gallery_topic"];
+                    $gallery_id=$gallery_row["gallery_id"];
+                    $gallery_folder=$gallery_row["gallery_folder"];
+                }
+
+            ?>
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
             <div class="row">
                 <div class="col-<?php echo $grid;?>-12">
@@ -492,6 +507,56 @@
                 </div>
             </div>
             
+            <div class="row">
+            <div class="col-<?php echo $grid;?>-12">
+                <div class="card border border-purple">
+                    <div class="card-header header-elements-inline bg-info text-white">
+                        <div class="col-<?php echo $grid;?>-6">ชื่อกิจกรรม : <?php echo $gallery_name;?></div>
+                        <div class="col-<?php echo $grid;?>-6">
+                            <table align="right">
+                                <tr>
+                                    <td>
+                                        <div>
+<form name="form_picture_album_show" id="form_picture_album_show" accept-charset="uft-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=picture_album">
+                                            <input type="hidden" name="manage" id="manage" value="show">
+                                            <button type="submit" name="sub_mvs" id="sub_mvs" class="btn btn-secondary btn-sm" style="align: right;"><i class="icon-list-unordered"></i> รายการ</button>
+</form>
+
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+<form name="form_picture_album_add" id="form_picture_album_add" accept-charset="utf-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=picture_album">
+                                            <input type="hidden" name="manage" id="manage" value="add">
+                                            <button type="submit" name="sub_mva" id="sub_mva"  class="btn btn-secondary btn-sm" style="align: right;"><i class="icon-plus3"></i> เพิ่มข้อมูลข่าว</button>
+</form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>                  
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-<?php echo $grid;?>-12">
+                                    <?php echo $gallery_topic;?>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-<?php echo $grid; ?>-12">
+                                <div id="Run_Show_All"><i class="icon-spinner2 spinner"></i> <span>กำลังโหลดข้อมูล... </span></div>
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="run_show" id="run_show" value="show_album">
+        <input type="hidden" name="run_gallery_key" id="run_gallery_key" value="<?php echo $gallery_id;?>">
+        <input type="hidden" name="run_gallery_folder" id="run_gallery_folder" value="<?php echo $gallery_folder;?>">
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
         <?php    }else{ ?>
 

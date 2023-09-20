@@ -214,9 +214,23 @@
 <script>
         $(document).ready(function(){
             var run_show=$("#run_show").val();
+            var run_gallery_key=$("#run_gallery_key").val();
+            var run_gallery_folder=$("#run_gallery_folder").val();
                 if(run_show==="show"){
                     $.post("<?php echo $RunLink->Call_Link_System();?>/js_code/picture_album/picture_album_show.php",{
-                        run_show:run_show
+                        run_show:run_show,
+                        run_gallery_key:run_gallery_key,
+                        run_gallery_folder:run_gallery_folder
+                    },function(RunShow){
+                        if(RunShow!=""){
+                            $("#Run_Show_All").html(RunShow);
+                        }else{}
+                    })
+                }else if(run_show==="show_album"){
+                    $.post("<?php echo $RunLink->Call_Link_System();?>/js_code/picture_album/picture_album_show_picture.php",{
+                        run_show:run_show,
+                        run_gallery_key:run_gallery_key,
+                        run_gallery_folder:run_gallery_folder
                     },function(RunShow){
                         if(RunShow!=""){
                             $("#Run_Show_All").html(RunShow);

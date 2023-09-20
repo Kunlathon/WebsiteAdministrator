@@ -49,7 +49,7 @@ if ((preg_match("/main_navigation.php/", $_SERVER['PHP_SELF']))) {
             <ul class="nav nav-group-sub" data-submenu-title="Layouts">
                 <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=image_slide" class="nav-link ">ภาพสไลด์</a></li>
                 <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_video" class="nav-link ">youtube</a></li>
-                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=#" class="nav-link ">ภาพกิจกรรม</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=picture_album" class="nav-link ">ภาพกิจกรรม</a></li>
             </ul>
         </li>
 

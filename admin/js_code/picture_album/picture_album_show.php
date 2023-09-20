@@ -158,9 +158,9 @@
                 if(file_exists("../../../dist/img/gallery/".$gallery_folder."/".$picture_albumimg_name)){ ?>
                         
                         <div>
-<form name="form_picture<?php echo $gallery_id;?>" id="form_picture<?php echo $gallery_id;?>" accept-charset="utf-8" action="<?php echo $RunLink->Call_Link_System();?>/" method="post" enctype="multipart/form-data">
+<form name="form_picture<?php echo $gallery_id;?>" id="form_picture<?php echo $gallery_id;?>" accept-charset="utf-8" action="<?php echo $RunLink->Call_Link_System();?>/?modules=picture_album" method="post" enctype="multipart/form-data">
     <input type="image" name="but_picture<?php echo $gallery_id;?>" id="but_picture<?php echo $gallery_id;?>" class="img-thumbnail" style="width:304px; height:236px;" src="../dist/img/gallery/<?php echo $gallery_folder;?>/<?php echo $picture_albumimg_name;?>" border="0" title="<?php echo $picture_albumimg_name;?>">
-    <input type="hidden" name="action" id="action" value="picture">
+    <input type="hidden" name="manage" id="manage" value="picture"> 
     <input type="hidden" name="gallery_id" id="gallery_id" value="<?php echo $gallery_id;?>">
 </form>
                         </div>
@@ -206,7 +206,7 @@
                                 <li class="nav-item">
 <form name="picture_album_update<?php echo  $gallery_id;?>" accept-charset="utf-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=picture_album">
     <input type="hidden" name="manage" value="edit"> 
-    <input type="hidden" name="picture_album_id" value="<?php echo  $gallery_id;?>">
+    <input type="hidden" name="gallery_key" value="<?php echo  $gallery_id;?>">
     <button type="submit" name="button_<?php echo  $gallery_id;?>" class="btn btn-outline-secondary btn-sm" data-popup="tooltip" title="แก้ไข" data-placement="bottom"><i class="icon-pen"></i></button>
 </form>
                                 </li>
