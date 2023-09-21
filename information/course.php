@@ -23,7 +23,7 @@
                                         <div class="container-xl">
                                           <div class="row g-2 alogn-items-center">
                                             <div col-md-12>
-                                              <div class="page-title" style="font-size: 20px;">ข่าวประกาศทั้งหมด</div>
+                                              <div class="page-title" style="font-size: 20px;">หลักสูตรทั้งหมด</div>
                                             </div>
                                           </div>
                                         </div>

@@ -27,7 +27,7 @@
                                         <div class="container-xl">
                                           <div class="row g-2 alogn-items-center">
                                             <div col-md-12>
-                                              <div class="page-title" style="font-size: 20px;">GRID GALLERY</div>
+                                              <div class="page-title" style="font-size: 20px;">รูปภาพกิจกรรมทั้งหมด</div>
                                             </div>
                                           </div>
                                         </div>
