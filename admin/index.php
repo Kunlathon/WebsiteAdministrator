@@ -189,6 +189,10 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 		include("js_code/job_recruitment_news/job_recruitment_news_js.php");
 	}elseif(($modules=="picture_album")){
 		include("js_code/picture_album/picture_album_js.php");
+	}elseif(($modules=="document")){
+		include("js_code/document/document_js.php");
+	}elseif(($modules=="document_category")){
+		include("js_code/document_category/document_category_js.php");
 	}else{ ?>
 		<!-- Theme JS files -->
 		<script src="<?php echo $RunLink->Call_Link_System(); ?>/template/global_assets/js/plugins/forms/inputs/typeahead/handlebars.min.js"></script>
@@ -469,6 +473,12 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 							include $load;
 							break;
 						case "picture_album";
+							include $load;
+							break;
+						case "document":
+							include $load;
+							break;
+						case "document_category":
 							include $load;
 							break;
 							// ----- Non ----- //

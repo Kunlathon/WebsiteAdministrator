@@ -27,9 +27,9 @@ if ((preg_match("/manage_director.php/", $_SERVER['PHP_SELF']))) {
                         <a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=dashboard" class="breadcrumb-item">
                             <i class="icon-home2 mr-2"></i> หน้าแรก</a>
 
-                        <a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_history" class="breadcrumb-item"> ประวัติศูนย์ภาษา< (CN)/a>
+                        <a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_director_cn" class="breadcrumb-item"> สารจากผู้บริหาร (CN)</a>
 
-                        <a href="#" class="breadcrumb-item"> รายละเอียดประวัติศูนย์ภาษา (CN)</a>
+                        <a href="#" class="breadcrumb-item"> รายละเอียดสารจากผู้บริหาร (CN)</a>
 
                     </div>
                     <a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=dashboard" class="header-elements-toggle text-body d-lg-none"><i class="icon-more"></i></a>

@@ -75,8 +75,8 @@
                 
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
                         <div class="col-<?php echo $grid;?>-4 item">
-                            <a class="lightbox" href="../../../dist/img/gallery/<?php echo $gallery_folder;?>/<?php echo $picture_row["picture_name"];?>">
-                                <img class="img-fluid image scale-on-hover" style="width:304px; height:236px;" src="../../../dist/img/gallery/<?php echo $gallery_folder;?>/<?php echo $picture_row["picture_name"];?>">
+                            <a class="lightbox" href="../../../languagecenter/dist/img/gallery/<?php echo $gallery_folder;?>/<?php echo $picture_row["picture_name"];?>">
+                                <img class="img-fluid image scale-on-hover" style="width:304px; height:236px;" src="../../../languagecenter/dist/img/gallery/<?php echo $gallery_folder;?>/<?php echo $picture_row["picture_name"];?>">
                             </a>
                         </div>
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->    

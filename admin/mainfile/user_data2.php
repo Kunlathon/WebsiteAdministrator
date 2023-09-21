@@ -630,7 +630,7 @@ if ((preg_match("/user_data2.php/", $_SERVER['PHP_SELF']))) {
                                                         <thead>
                                                             <tr align="center">
                                                                 <th align="center">
-                                                                    <div>ลำดับ</div>
+                                                                    <div>#</div>
                                                                 </th>
                                                                 <th>
                                                                     <div>ชื่อ - สกุล</div>

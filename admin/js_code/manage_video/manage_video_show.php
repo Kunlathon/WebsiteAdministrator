@@ -77,7 +77,7 @@
             }],
             "paging"       :    true,
             "lengthChange" :    false,
-            "searching"    :    false,
+            "searching"    :    true,
             "ordering"     :    false,
             "info"         :    true,
             "autowidth"    :    false
@@ -87,9 +87,12 @@
 </script>
 
 <div class="table-responsive">
-        <table class="table table-bordered" id="datatable-button-html5-columns-STD" style="width: 100%;">
+        <table class="table table-bordered" id="datatable-button-html5-columns-STD">
             <thead>
                 <tr align="center">
+                    <th>
+                        <div>#</div>
+                    </th>
                     <th>
                         <div>วิดีโอ</div>
                     </th>
@@ -97,10 +100,7 @@
                         <div>เนื้อหาวิดีโอ</div>
                     </th>
                     <th>
-                        <div>วันที่อัพโหลด</div>
-                    </th>
-                    <th>
-                        <div>วันที่แก้ไข</div>
+                        <div>วันที่</div>
                     </th>
                     <th>
                         <div>สถานะ</div>
@@ -123,6 +123,9 @@
     ?>
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
                 <tr>
+                    <td align="center" style="vertical-align: text-top;" class="align-top">
+                        <div><?php echo $key+1;?></div>
+                    </td>
                     <td style="width: 45%; vertical-align: text-top;" class="align-top">
                         <div>
                             <div class="card">
@@ -154,10 +157,10 @@
             $print_post_date=null;
         }
     ?>
-                        <div><span class="badge badge-warning"><?php echo $print_post_date;?></span></div>
-                    </td>
+                        <div>วันที่ลง&nbsp;:&nbsp;<span class="badge badge-primary"><?php echo $print_post_date;?></span></div>
 
-                    <td align="center" style="width: 5%; vertical-align: text-top;" class="align-top">
+						<br>
+
     <?php
         if(($video_row["videos_update_date"]!=null or $video_row["videos_update_date"]!="0000-00-00 00:00:00")){ 
             $copy_videos_update_date=new strto_datetime("datetime_th",$video_row["videos_update_date"]);
@@ -167,7 +170,7 @@
         }
     ?>    
                     
-                        <div><span class="badge badge-warning"><?php echo $print_update_date;?></span></div>
+                        <div>วันที่ปรับปรุง&nbsp;:&nbsp;<span class="badge badge-warning"><?php echo $print_update_date;?></span></div>
                     </td>
 
                     <td align="center" style="width: 5%; vertical-align: text-top;" class="align-top">

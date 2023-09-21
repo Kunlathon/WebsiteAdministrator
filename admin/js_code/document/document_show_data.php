@@ -86,21 +86,51 @@
     })
 </script>
 
+<?php
+    if(($_POST["category_key"]!=null)){
+
+        $category_key=filter_input(INPUT_POST,'category_key');  
+
+        $DocumentCategorySql="SELECT *
+                      FROM `tb_document_category` 
+                      WHERE `document_category_id`='{$category_key}';";
+        $DocumentCategoryList=result_array($DocumentCategorySql);
+
+        foreach($DocumentCategoryList as $key=>$DocumentCategoryRow){
+            if((is_array($DocumentCategoryRow) && count($DocumentCategoryRow))){
+                $txt_document_category_id=$DocumentCategoryRow["document_category_id"];
+                $txt_document_category_name=$DocumentCategoryRow["document_category_name"];
+                $txt_document_category_name_en=$DocumentCategoryRow["document_category_name_en"];
+                $txt_document_category_name_cn=$DocumentCategoryRow["document_category_name_cn"];
+            }else{
+                $txt_document_category_id=null;
+                $txt_document_category_name=null;
+                $txt_document_category_name_en=null;
+                $txt_document_category_name_cn=null;
+            }
+        }
+
+    }else{}
+?>
+
 <div class="table-responsive">
-        <table class="table table-bordered" id="datatable-button-html5-columns-STD">
+        <table class="table table-bordered" id="datatable-button-html5-columns-STD" style="width: 100%;">
             <thead>
                 <tr align="center">
                     <th>
-                        <div>#</div>
+                        <div>ลำดับ</div>
                     </th>
                     <th>
-                        <div>รูปกิจกรรม</div>
+                        <div>เอกสาร</div>
                     </th>
                     <th>
-                        <div>เนื้อหากิจกรรม</div>
+                        <div>ประเภท</div>
                     </th>
                     <th>
-                        <div>สถานะ</div>
+                        <div>ไฟส์</div>
+                    </th>
+                    <th>
+                        <div>วันที่</div>    
                     </th>
                     <th>
                         <div>จัดการ</div>
@@ -108,116 +138,86 @@
                 </tr>
             </thead>
             <tbody>
-    <?php
-            $picture_album_sql = "SELECT * FROM `tb_gallery`  ORDER BY `gallery_id` DESC";
-            $picture_album_list = result_array($picture_album_sql);
-            foreach ($picture_album_list as $key => $picture_album_row) { 
-                if((isset($picture_album_row["gallery_thumbnail"]))){
-                    $gallery_id=$picture_album_row["gallery_id"];
-                }else{
-                    $gallery_id=null;
-                }
-                if((isset($picture_album_row["gallery_name"]))){
-                    $gallery_name=$picture_album_row["gallery_name"];
-                }else{
-                    $gallery_name=null;
-                }
-                if((isset($picture_album_row["gallery_topic"]))){
-                    $gallery_topic=$picture_album_row["gallery_topic"];
-                }else{
-                    $gallery_topic=null;
-                }
-                if((isset($picture_album_row["gallery_thumbnail"]))){
-                    $picture_albumimg_name=$picture_album_row["gallery_thumbnail"];
-                }else{
-                    $picture_albumimg_name=null;
-                }
-                if((isset($picture_album_row["gallery_folder"]))){
-                    $gallery_folder=$picture_album_row["gallery_folder"];
-                }else{
-                    $gallery_folder=null;
-                }
-                if((isset($picture_album_row["gallery_preview"]))){
-                    $gallery_preview=$picture_album_row["gallery_preview"];
-                }else{
-                    $gallery_preview=null;
-                }
-                if((isset($picture_album_row["gallery_status"]))){
-                    $gallery_status=$picture_album_row["gallery_status"];
-                }else{
-                    $gallery_status=null;
-                }
+    <?php   
+            $count=0;
+            $document_sql = "SELECT * FROM `tb_document` WHERE `document_category_id`='{$txt_document_category_id}' ORDER BY `document_id` DESC";
+            $document_list = result_array($document_sql);
+            foreach ($document_list as $key => $document_row) { 
+                $count=$count+1;
     ?>
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
                 <tr>
-                    <td align="center" style="vertical-align: text-top;" class="align-top">
-                        <div><?php echo $key+1;?></div>
+                    <td align="center" style=" vertical-align: text-top;" class="align-top">
+                        <div><?php echo $count;?></div>
                     </td>
-                    <td style="width: 30%; vertical-align: text-top;" class="align-top">
+
+                    <td style=" vertical-align: text-top;" class="align-top">
+                        <div><?php echo $document_row["document_topic"];?></div>
+                    </td>
+
+                    <td align="center" style=" vertical-align: text-top;" class="align-top">
+
                         <div>
-                            <div class="card">
+                            <span class="badge badge-info"><?php echo $txt_document_category_name;?></span>
 
-								<div class="card-body">
-									
-    <?php
-            if((($picture_albumimg_name!=null))){
-                if(file_exists("../../../dist/img/gallery/".$gallery_folder."/".$picture_albumimg_name)){ ?>
-                        
-                        <div>
-<form name="form_picture<?php echo $gallery_id;?>" id="form_picture<?php echo $gallery_id;?>" accept-charset="utf-8" action="<?php echo $RunLink->Call_Link_System();?>/?modules=picture_album" method="post" enctype="multipart/form-data">
-    <input type="image" name="but_picture<?php echo $gallery_id;?>" id="but_picture<?php echo $gallery_id;?>" class="img-thumbnail" style="width:304px; height:236px;" src="../dist/img/gallery/<?php echo $gallery_folder;?>/<?php echo $picture_albumimg_name;?>" border="0" title="<?php echo $picture_albumimg_name;?>">
-    <input type="hidden" name="manage" id="manage" value="picture"> 
-    <input type="hidden" name="gallery_id" id="gallery_id" value="<?php echo $gallery_id;?>">
-</form>
                         </div>
-
-
-
-    <?php       }else{ ?>
-                        <div><img src="../dist/img/gallery/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:304px; height:236px;"></div>
-    <?php       }
-            }else{ ?>
-                        <div><img src="../dist/img/gallery/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:304px; height:236px;"></div>
-    <?php   } ?>
-									
-								</div>            
-
-								<div class="card-header">
-									<div><?php echo  $gallery_name;?></div>
-								</div>
-
-							</div>
-                        </div>
-                    </td>
-
-                    <td align="center" style="width: 40%; vertical-align: text-top;" class="align-top">
-                        <div><?php echo $gallery_topic;?></div>
-                    </td>
-
-                    <td align="center" style="width: 10%; vertical-align: text-top;" class="align-top">
 
                         <div>
     <?php
-            if(($gallery_status==0)){ ?>
+            if(($document_row["document_status"]==0)){ ?>
                             <span class="badge badge-danger">ไม่แสดง</span>
-    <?php   }elseif(($gallery_status==1)){ ?>
+    <?php   }elseif(($document_row["document_status"]==1)){ ?>
                             <span class="badge badge-success">แสดง</span>
     <?php   }else{} ?>
                         </div>
 
                     </td>
-                    <td align="center" style="width: 10%; vertical-align: text-top;" class="align-top">
+
+                    <td align="center" style=" vertical-align: text-top;" class="align-top">
+                        <div>
+                            <ul class="nav justify-content-center">
+                                <li class="nav-item">
+                                    <a href="../../../dist/document/<?php echo $document_row["document_file"];?>" target="_blank" ><button type="button"  class="btn btn-outline-info btn-sm" data-popup="tooltip" title="Document TH" data-placement="bottom"><i class="icon-folder-download2"></i></button></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../../dist/document/<?php echo $document_row["document_file_en"];?>" target="_blank" ><button type="button"  class="btn btn-outline-info btn-sm" data-popup="tooltip" title="Document EH" data-placement="bottom"><i class="icon-folder-download2"></i></button></a>                             
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../../dist/document/<?php echo $document_row["document_file_cn"];?>" target="_blank" ><button type="button"  class="btn btn-outline-info btn-sm" data-popup="tooltip" title="Document CH" data-placement="bottom"><i class="icon-folder-download2"></i></button></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+
+
+
+                    <td align="center" style=" vertical-align: text-top;" class="align-top">
+    <?php
+        if(($document_row["document_update_date"]!=null or $document_row["document_update_date"]!="0000-00-00 00:00:00")){
+            $copy_document_update_time=new strto_datetime("datetime_th",$document_row["document_update_date"]); 
+            $print_update_time=$copy_document_update_time->print_datetime();
+        }else{
+            $print_update_time=null;
+        }
+    ?>
+                        <div><span class="badge badge-warning"><?php echo $print_update_time;?></span></div>
+
+                    </td>
+
+                    <td align="center" style=" vertical-align: text-top;" class="align-top">
                         <div align="center">
                             <ul class="nav justify-content-center">
                                 <li class="nav-item">
-<form name="picture_album_update<?php echo  $gallery_id;?>" accept-charset="utf-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=picture_album">
+<form name="document_update<?php echo $document_row["document_id"];?>" accept-charset="utf-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=document">
     <input type="hidden" name="manage" value="edit"> 
-    <input type="hidden" name="gallery_key" value="<?php echo  $gallery_id;?>">
-    <button type="submit" name="button_<?php echo  $gallery_id;?>" class="btn btn-outline-secondary btn-sm" data-popup="tooltip" title="แก้ไข" data-placement="bottom"><i class="icon-pen"></i></button>
+    <input type="hidden" name="category_key" value="<?php echo $document_row["document_category_id"];?>">
+    <input type="hidden" name="document_key" value="<?php echo $document_row["document_id"];?>">
+    <input type="hidden" name="document_status" value="<?php echo $document_row["document_status"];?>">
+    <button type="submit" name="button_<?php echo $document_row["document_id"];?>" class="btn btn-outline-secondary btn-sm" data-popup="tooltip" title="แก้ไข" data-placement="bottom"><i class="icon-pen"></i></button>
 </form>
                                 </li>
                                 <li class="nav-item">
-                                    <button type="button" name="delete_picture_album_<?php echo  $gallery_id;?>" id="delete_picture_album_<?php echo  $gallery_id;?>" class="btn btn-outline-danger btn-sm" data-popup="tooltip" title="ลบ" data-placement="bottom"><i class="icon-bin"></i></button>
+                                    <button type="button" name="delete_document_<?php echo $document_row["document_id"];?>" id="delete_document_<?php echo $document_row["document_id"];?>" class="btn btn-outline-danger btn-sm" data-popup="tooltip" title="ลบ" data-placement="bottom"><i class="icon-bin"></i></button>
                                 </li>
                             </ul>
                         </div>
@@ -231,31 +231,22 @@
 
 
     <?php
-        $picture_album_sql="SELECT * FROM `tb_gallery`  ORDER BY `gallery_id` DESC";
-        $picture_album_list = result_array($picture_album_sql);
+        $document_sql="SELECT * FROM `tb_document` WHERE `document_category_id`='{$txt_document_category_id}' ORDER BY `document_id` DESC";
+        $document_list = result_array($document_sql);
         
-        foreach ($picture_album_list as $key => $picture_album_row) { 
-            if((is_array($picture_album_row) && count($picture_album_row))){
-
-                if((isset($picture_album_row["gallery_id"]))){
-                    $gallery_id=$picture_album_row["gallery_id"];
-                }else{
-                    $gallery_id=null;
-                }
-                if((isset($picture_album_row["gallery_folder"]))){
-                    $gallery_folder=$picture_album_row["gallery_folder"];
-                }else{
-                    $gallery_folder=null;
-                }
-                ?>
+        foreach ($document_list as $key => $document_row) { 
+            if((is_array($document_row) && count($document_row))){ ?>
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
     <script>
         $(document).ready(function(){
-            var picture_album_id="<?php echo  $gallery_id;?>";
+            var document_id="<?php echo $document_row["document_id"];?>";
+            var copy_file_nameTh="<?php echo $document_row["document_file"];?>";
+            var copy_file_nameEn="<?php echo $document_row["document_file_en"];?>";
+            var copy_file_nameCn="<?php echo $document_row["document_file_cn"];?>";
+
             var action="delete";
-            var gallery_folder="<?php echo $gallery_folder;?>";
             var action_error="error";
-            var picture_album_id_error="error";
+            var document_id_error="error";
 // Defaults
             var swalInitDeteleImageData = swal.mixin({
                 buttonsStyling: false,
@@ -268,7 +259,7 @@
             });
 // Defaults End
 
-            $('#delete_picture_album_<?php echo  $gallery_id;?>').on('click', function() {
+            $('#delete_document_<?php echo $document_row["document_id"];?>').on('click', function() {
                 swalInitDeteleImageData.fire({
                     title: 'ต้องการลบข้อมูลหรือไม่',
                     //text: "You won't be able to revert this!",
@@ -295,21 +286,23 @@
                             action_error="no_error";
                         }
 
-                        if(picture_album_id==""){
+                        if(document_id==""){
                             swalInitDeteleImageData.fire({
                                 title: 'คีย์ว่าง ไม่สามารถดำเนินการลบได้',
                                 icon: 'error'
                             });
-                            picture_album_id_error="error";
+                            document_id_error="error";
                         }else{
-                            picture_album_id_error="no_error";
+                            document_id_error="no_error";
                         }
 
-                        if(action_error=="no_error" && picture_album_id_error=="no_error"){
-                            $.post("<?php echo $RunLink->Call_Link_System();?>/js_code/picture_album/picture_album_process.php",{
+                        if(action_error=="no_error" && document_id_error=="no_error"){
+                            $.post("<?php echo $RunLink->Call_Link_System();?>/js_code/document/document_process.php",{
                                 action:action,
-                                gallery_folder:gallery_folder,
-                                picture_album_id:picture_album_id
+                                document_id:document_id,
+                                copy_file_nameTh:copy_file_nameTh,
+                                copy_file_nameEn:copy_file_nameEn,
+                                copy_file_nameCn:copy_file_nameCn
                             },function(process_delete){
                                 var process_delete = process_delete.trim();
                                 if (process_delete === "no_error"){
@@ -338,7 +331,7 @@
                                             }
                                         }).then(function(result) {
                                             if (result.dismiss === Swal.DismissReason.timer) {
-                                                document.location = "<?php echo $RunLink->Call_Link_System(); ?>/?modules=picture_album";
+                                                document.location = "<?php echo $RunLink->Call_Link_System(); ?>/?modules=document";
                                             } else {}
                                         });
 

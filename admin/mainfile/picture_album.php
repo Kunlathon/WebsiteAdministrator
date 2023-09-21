@@ -27,9 +27,9 @@
                         <a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=dashboard" class="breadcrumb-item">
                             <i class="icon-home2 mr-2"></i> หน้าแรก</a>
 
-                        <a href="#" class="breadcrumb-item"> จัดการการชำระเงิน</a>
+                        <a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=picture_album" class="breadcrumb-item"> รูปกิจกรรม</a>
 
-                        <a href="#" class="breadcrumb-item"> ข้อมูลภาคเรียน</a>
+                        <a href="#" class="breadcrumb-item"> รายละเอียดรูปกิจกรรม</a>
 
                     </div>
                     <a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=dashboard" class="header-elements-toggle text-body d-lg-none"><i class="icon-more"></i></a>
@@ -65,7 +65,7 @@
                 <div class="col-<?php echo $grid;?>-12">
                     <div class="card border border-purple">
                         <div class="card-header header-elements-inline bg-info text-white">
-                            <div class="col-<?php echo $grid;?>-6">ฟอร์มเพิ่มข้อมูลวิดีโอ</div>
+                            <div class="col-<?php echo $grid;?>-6">ฟอร์มเพิ่มข้อมูลรูปกิจกรรม</div>
                             <div class="col-<?php echo $grid;?>-6">
                                 <table align="right">
                                     <tr>
@@ -206,7 +206,7 @@
                                         <div>
 <form name="form_picture_album_add" id="form_picture_album_add" accept-charset="utf-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=picture_album">
                                             <input type="hidden" name="manage" id="manage" value="add">
-                                            <button type="submit" name="sub_mva" id="sub_mva"  class="btn btn-secondary btn-sm" style="align: right;"><i class="icon-plus3"></i> เพิ่มข้อมูลข่าว</button>
+                                            <button type="submit" name="sub_mva" id="sub_mva"  class="btn btn-secondary btn-sm" style="align: right;"><i class="icon-plus3"></i> เพิ่มข้อมูลรูปกิจกรรม</button>
 </form>
                                         </div>
                                     </td>
@@ -259,7 +259,7 @@
                 <div class="col-<?php echo $grid;?>-12">
                     <div class="card border border-purple">
                         <div class="card-header header-elements-inline bg-info text-white">
-                            <div class="col-<?php echo $grid;?>-6">ฟอร์มแก้ไขข้อมูลวิดีโอ</div>
+                            <div class="col-<?php echo $grid;?>-6">ฟอร์มแก้ไขข้อมูลรูปกิจกรรม</div>
                             <div class="col-<?php echo $grid;?>-6">
                                 <table align="right">
                                     <tr>
@@ -452,8 +452,18 @@
                                             <label class="col-form-label col-<?php echo $grid; ?>-2">สถานะรูปกิจกรรม</label>
                                             <div class="col-<?php echo $grid; ?>-10">
                                                 <select name="gallery_status" id="gallery_status"  class="form-control select" required="required" data-fouc>
-                                                    <option value="1">แสดง</option>
-                                                    <option value="0">ไม่แสดง</option>
+
+                                                                <?php
+                                                                if (($gallery_status == 1)) { ?>
+                                                                    <option value="1" selected="selected">แสดง</option>
+                                                                    <option value="0">ไม่แสดง</option>
+                                                                <?php   } elseif (($gallery_status == 0)) { ?>
+                                                                    <option value="1">แสดง</option>
+                                                                    <option value="0" selected="selected">ไม่แสดง</option>
+                                                                <?php   } else { ?>
+                                                                    <option value="1">แสดง</option>
+                                                                    <option value="0">ไม่แสดง</option>
+                                                                <?php   } ?>
                                                 </select> 
                                             <div>
                                         </div>
@@ -528,7 +538,7 @@
                                         <div>
 <form name="form_picture_album_add" id="form_picture_album_add" accept-charset="utf-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=picture_album">
                                             <input type="hidden" name="manage" id="manage" value="add">
-                                            <button type="submit" name="sub_mva" id="sub_mva"  class="btn btn-secondary btn-sm" style="align: right;"><i class="icon-plus3"></i> เพิ่มข้อมูลข่าว</button>
+                                            <button type="submit" name="sub_mva" id="sub_mva"  class="btn btn-secondary btn-sm" style="align: right;"><i class="icon-plus3"></i> เพิ่มข้อมูลรูปกิจกรรม</button>
 </form>
                                         </div>
                                     </td>

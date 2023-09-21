@@ -26,10 +26,15 @@
         $videos_topic= filter_input(INPUT_POST, 'videos_topic');
         $videos_youtube= filter_input(INPUT_POST, 'videos_youtube');
         $videos_detail= filter_input(INPUT_POST, 'videos_detail');
-        $videos_status= filter_input(INPUT_POST, 'videos_status');
+        $videos_status= filter_input(INPUT_POST, 'videos_status');	
 
-        $manage_video_Data = array(
-     
+		$sqlVid = "SELECT *,MAX(videos_id) AS ID FROM tb_videos";
+		$tcrVid = row_array($sqlVid);
+
+		$VID_ID = $tcrVid['ID'] + 1;
+
+        $manage_video_Data = array(     
+            "videos_id" => $VID_ID,     
             "videos_topic" => $videos_topic,
             "videos_youtube" => $videos_youtube,
             "videos_detail" => $videos_detail,
@@ -51,7 +56,6 @@
         $videos_status= filter_input(INPUT_POST, 'videos_status');
 
         $manage_video_Data = array(
-
             "videos_topic" => $videos_topic,
             "videos_youtube" => $videos_youtube,
             "videos_detail" => $videos_detail,

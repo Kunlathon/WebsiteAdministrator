@@ -77,7 +77,7 @@
             }],
             "paging"       :    true,
             "lengthChange" :    false,
-            "searching"    :    false,
+            "searching"    :    true,
             "ordering"     :    false,
             "info"         :    true,
             "autowidth"    :    false
@@ -100,10 +100,7 @@
                         <div>หัวข้อเรื่อง</div>
                     </th>
                     <th>
-                        <div>วันที่ลง</div>
-                    </th>
-                    <th>
-                        <div>วันที่แก้ไข</div>
+                        <div>วันที่</div>
                     </th>
                     <th>
                         <div>สถานะ</div>
@@ -129,7 +126,7 @@
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
                 <tr>
                     <td align="center" style="vertical-align: text-top;" class="align-top">
-                        <div><?php echo $slide_row["slide_id"];?></div>
+                        <div><?php echo $key+1;?></div>
                     </td>
 
                     <td align="center" style="vertical-align: text-top;" class="align-top">
@@ -151,46 +148,48 @@
                     </td>
 
                     <td align="center" style="vertical-align: text-top;" class="align-top">
-    <?php
-            if((isset($slide_row["slide_post_date"]))){
-                if((($slide_row["slide_post_date"]!="0000-00-00 00:00:00" OR $slide_row["slide_post_date"]!=null))){ 
-                    $print_post_date=new strto_datetime("datetime_th",$slide_row["slide_post_date"]);
-    ?>
-                        <div><span class="badge badge-warning"><?php echo $print_post_date->print_datetime();?></span></div>
-    <?php       }else{}
-            }else{}
-    ?>
-                    </td>
-                    <td align="center" style="vertical-align: text-top;" class="align-top">
-    <?php
-            if((isset($slide_row["slide_update_date"]))){
-                if((($slide_row["slide_update_date"]!="0000-00-00 00:00:00" OR $slide_row["slide_update_date"]!=""))){ 
-                    $print_update_date=new strto_datetime("datetime_th",$slide_row["slide_update_date"]);                
-    ?>
-                        <div><span class="badge badge-warning"><?php echo $print_update_date->print_datetime();?></span></div>
-    <?php       }else{}
-            }else{}
-    ?>
+					วันที่ลง&nbsp;:&nbsp;
+					<?php
+							if((isset($slide_row["slide_post_date"]))){
+								if((($slide_row["slide_post_date"]!="0000-00-00 00:00:00" OR $slide_row["slide_post_date"]!=null))){ 
+									$print_post_date=new strto_datetime("datetime_th",$slide_row["slide_post_date"]);
+					?>
+										<div><span class="badge badge-primary"><?php echo $print_post_date->print_datetime();?></span></div>
+					<?php       }else{}
+							}else{}
+					?>
+					<br>
+					วันที่ปรับปรุง&nbsp;:&nbsp;
+
+					<?php
+							if((isset($slide_row["slide_update_date"]))){
+								if((($slide_row["slide_update_date"]!="0000-00-00 00:00:00" OR $slide_row["slide_update_date"]!=""))){ 
+									$print_update_date=new strto_datetime("datetime_th",$slide_row["slide_update_date"]);                
+					?>
+										<div><span class="badge badge-warning"><?php echo $print_update_date->print_datetime();?></span></div>
+					<?php       }else{}
+							}else{}
+					?>
                     </td>
                     <td align="center" style="vertical-align: text-top;" class="align-top">
                         <div>
-    <?php
-            if(($slide_row["slide_status"]==0)){ ?>
-                            <span class="badge badge-danger">ไม่แสดง</span>
-    <?php   }elseif(($slide_row["slide_status"]==1)){ ?>
-                            <span class="badge badge-success">แสดง</span>
-    <?php   }else{} ?>
+					<?php
+							if(($slide_row["slide_status"]==0)){ ?>
+											<span class="badge badge-danger">ไม่แสดง</span>
+					<?php   }elseif(($slide_row["slide_status"]==1)){ ?>
+											<span class="badge badge-success">แสดง</span>
+					<?php   }else{} ?>
                         </div>
                     </td>
                     <td align="center" style="vertical-align: text-top;" class="align-top">
                         <div align="center">
                             <ul class="nav justify-content-center">
                                 <li class="nav-item">
-<form name="slide_update<?php echo $slide_row["slide_id"];?>" accept-charset="utf-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=image_slide">
-    <input type="hidden" name="manage" value="edit"> 
-    <input type="hidden" name="slide_id" value="<?php echo $slide_row["slide_id"];?>">
-    <button type="submit" name="button_<?php echo $slide_row["slide_id"];?>" class="btn btn-outline-secondary btn-sm" data-popup="tooltip" title="แก้ไข" data-placement="bottom"><i class="icon-pen"></i></button>
-</form>
+									<form name="slide_update<?php echo $slide_row["slide_id"];?>" accept-charset="utf-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=image_slide">
+										<input type="hidden" name="manage" value="edit"> 
+										<input type="hidden" name="slide_id" value="<?php echo $slide_row["slide_id"];?>">
+										<button type="submit" name="button_<?php echo $slide_row["slide_id"];?>" class="btn btn-outline-secondary btn-sm" data-popup="tooltip" title="แก้ไข" data-placement="bottom"><i class="icon-pen"></i></button>
+									</form>
                                 </li>
                                 <li class="nav-item">
                                     <button type="button" name="Delete_Student_Data" id="delete_slide_<?php echo $slide_row["slide_id"];?>" class="btn btn-outline-danger btn-sm" data-popup="tooltip" title="ลบ" data-placement="bottom"><i class="icon-bin"></i></button>

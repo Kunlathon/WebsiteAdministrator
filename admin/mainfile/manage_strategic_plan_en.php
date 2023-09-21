@@ -27,9 +27,9 @@ if ((preg_match("/manage_strategic_plan.php/", $_SERVER['PHP_SELF']))) {
                         <a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=dashboard" class="breadcrumb-item">
                             <i class="icon-home2 mr-2"></i> หน้าแรก</a>
 
-                        <a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_history" class="breadcrumb-item"> ประวัติศูนย์ภาษา</a>
+                        <a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_strategic_plan_en" class="breadcrumb-item"> แผนยุทธศาสตร์ & เป้าหมาย (EN)</a>
 
-                        <a href="#" class="breadcrumb-item"> รายละเอียดประวัติศูนย์ภาษา</a>
+                        <a href="#" class="breadcrumb-item"> รายละเอียดแผนยุทธศาสตร์ & เป้าหมาย (EN)</a>
 
                     </div>
                     <a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=dashboard" class="header-elements-toggle text-body d-lg-none"><i class="icon-more"></i></a>

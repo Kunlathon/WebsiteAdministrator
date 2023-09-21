@@ -23,6 +23,11 @@
     $action = filter_input(INPUT_POST, 'action');
         if(($action=="add")){
 
+			$sqlSli = "SELECT *,MAX(slide_id) AS ID FROM tb_slide";
+			$tcrSli = row_array($sqlSli);
+
+			$SLI_ID = $tcrSli['ID'] + 1;
+
             $slide_topic=filter_input(INPUT_POST, 'slide_topic');//*
             $slide_link=filter_input(INPUT_POST, 'slide_link');
             $slide_status=filter_input(INPUT_POST, 'slide_status');//*
@@ -47,7 +52,7 @@
 //add
             if(($slide_link!=null)){
                 $Appimage_slide_Data = array(
-                    //"slide_id" => NULL,
+                    "slide_id" => $SLI_ID,
                     "slide_topic" => $slide_topic,
                     "slide_image" => $slide_new_name,
                     "slide_link" => $slide_link,
@@ -57,8 +62,8 @@
                 );
                 insert("tb_slide", $Appimage_slide_Data); 
             }else{
-                $Appimage_slide_Data = array(
-                    //"slide_id" => NULL,
+                $Appimage_slide_Data = array(                    
+                    "slide_id" => $SLI_ID,
                     "slide_topic" => $slide_topic,
                     "slide_image" => $slide_new_name,
                     //"slide_link" => NULL,

@@ -226,21 +226,21 @@ if ((preg_match("/manage_video.php/", $_SERVER['PHP_SELF']))) {
 
                                     <form name="form_edit" id="form_edit" accept-charset="utf-8" action="#" method="post" enctype="multipart/form-data">
 
-                                        <div class="row">
-                                            <div class="col-<?php echo $grid; ?>-12">
-                                                <fieldset class="mb-3">
-                                                    <div id="videos_topic-null">
-                                                        <div class="form-group row">
-                                                            <label class="col-form-label col-<?php echo $grid; ?>-2">หัวข้อเรื่อง</label>
-                                                            <div class="col-<?php echo $grid; ?>-10">
-                                                                <input type="text" name="videos_topic" id="videos_topic" class="form-control" value="<?php echo $videos_topic; ?>" placeholder="หัวข้อเรื่อง" required="required" maxlength="100">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </fieldset>
-                                            </div>
-                                        </div>
-
+										 <div class="row">
+											<div class="col-<?php echo $grid; ?>-12">
+												<fieldset class="mb-3">
+													<div id="videos_topic-null">
+														<div class="form-group row">
+															<label class="col-form-label col-<?php echo $grid; ?>-2">หัวข้อเรื่อง</label>
+															<div class="col-<?php echo $grid; ?>-10">
+																<input type="text" name="videos_topic" id="videos_topic" class="form-control" value="<?php echo $videos_topic;?>" placeholder="หัวข้อเรื่อง" required="required" maxlength="100">
+																<div>
+																</div>
+															</div>
+												</fieldset>
+											</div>
+										</div>
+									
                                         <div class="row">
                                             <div class="col-<?php echo $grid; ?>-12">
                                                 <fieldset class="mb-3">
