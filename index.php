@@ -377,7 +377,13 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
 			include("information/course.php");
 	  }elseif(($modules=="download")){
 			include("information/download.php");
-	  }else{
+	  }elseif(($modules=="request_card")){
+      include("information/request_card.php");
+    }elseif(($modules=="request_certified")){
+      include("information/request_certified.php");
+    }elseif(($modules=="request_card_list")){
+      include("information/request_card_list.php");
+    }else{
 		  include("information/mainfile.php");
 	  }
 
