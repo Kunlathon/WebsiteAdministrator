@@ -378,13 +378,15 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
 	  }elseif(($modules=="download")){
 			include("information/download.php");
 	  }elseif(($modules=="request_card")){
-      include("information/request_card.php");
-    }elseif(($modules=="request_certified")){
-      include("information/request_certified.php");
-    }elseif(($modules=="request_card_list")){
-      include("information/request_card_list.php");
+			include("information/request_card.php");
+	  }elseif(($modules=="request_certified")){
+			include("information/request_certified.php");
+	  }elseif(($modules=="request_card_list")){ 
+			include("information/request_card_list.php");
+	  }elseif(($modules=="request_certified_list")){
+      include("information/request_certified_list.php");
     }else{
-		  include("information/mainfile.php");
+		  	include("information/mainfile.php");
 	  }
 
       ?>

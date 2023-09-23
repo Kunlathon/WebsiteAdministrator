@@ -109,7 +109,7 @@
             } 
 
             
-            $department_Sql="SELECT `department_name`, FROM `tb_department` WHERE `department_id`='{$request_Row["user_department"]}'";
+            $department_Sql="SELECT `department_name` FROM `tb_department` WHERE `department_id`='{$request_Row["user_department"]}'";
             $department_List=result_array($department_Sql);
             foreach($department_List as $key=>$department_Row){   
                 if((is_array($department_Row) and count($department_Row))){
