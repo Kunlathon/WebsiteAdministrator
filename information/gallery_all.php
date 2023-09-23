@@ -12,6 +12,9 @@
                   <div class="container-xl">
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 
+		<?php 
+		    $keyword = isset($_REQUEST['keyword']) ? $_REQUEST['keyword'] : '';
+		?>
 
 
                     <div class="row">
@@ -26,8 +29,11 @@
                                       <div class="page-header d=print-none">
                                         <div class="container-xl">
                                           <div class="row g-2 alogn-items-center">
-                                            <div col-md-12>
+                                            <div class="col-md-6">
                                               <div class="page-title" style="font-size: 20px;">รูปภาพกิจกรรมทั้งหมด</div>
+                                            </div>
+											<div class="col-md-6" align="right">
+                                              <div class="page-title" style="font-size: 20px;"><button type="submit" class="btn search-button"><i class="fa fa-search"></i></button></div>
                                             </div>
                                           </div>
                                         </div>
@@ -51,71 +57,68 @@
                                         
                                         <div class="row row-cards alogn-items-center">
 
+										 <?php
+											  $keyword = isset($_REQUEST['keyword']) ? $_REQUEST['keyword'] : '';
+
+											  $perpage = 9;
+
+											  if (isset($_GET['page'])) {
+												$page = $_GET['page'];
+											  } else {
+												$page = 1;
+											  }
+
+											  $start = ($page - 1) * $perpage;
+
+											  $sql = "SELECT * FROM tb_gallery WHERE (gallery_name LIKE '%$keyword%' OR gallery_name_en LIKE '%$keyword%' OR gallery_name_cn LIKE '%$keyword%') AND gallery_status = '1' ORDER BY gallery_id DESC LIMIT {$start} , {$perpage}";
+											  //echo $sql;
+											  $row = result_array($sql);
+
+											  foreach ($row as $key => $_item){ 
+										?>
+
                                             <div class="col-md-4">
                                                 <div class="card card-sm alogn-items-center">
-                                                    <a href="?modules=gallery_image" class="d-block"><img src="./static/photos/group-of-people-sightseeing-in-the-city.jpg" class="card-img-top"></a>
+                                                    <a href="?modules=gallery_image&id=<?php echo $_item['gallery_id'];?>" class="d-block">
+													<img src="uploads/gallery/<?php echo $_item['gallery_folder'];?>/<?php echo $_item['gallery_thumbnail'];?>" alt="<?php echo $_item['gallery_name'];?>" class="card-img-top"></a>
                                                     <div class="card-body">
                                                         <div class="d-flex align-items-center">
-                                                            <div>รูปกิจกรรมที่ 1</div>
+                                                            <div><?php echo $_item['gallery_name'];?></div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-4">
-                                                <div class="card card-sm alogn-items-center">
-                                                    <a href="?modules=gallery_image" class="d-block"><img src="./static/photos/color-palette-guide-sample-colors-catalog-.jpg" class="card-img-top"></a>
-                                                    <div class="card-body">
-                                                        <div class="d-flex align-items-center">
-                                                            <div>รูปกิจกรรมที่ 2</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+										<?php
+										  }
 
-                                            <div class="col-md-4">
-                                                <div class="card card-sm alogn-items-center">
-                                                    <a href="?modules=gallery_image" class="d-block"><img src="./static/photos/finances-us-dollars-and-bitcoins-currency-money-2.jpg" class="card-img-top"></a>
-                                                    <div class="card-body">
-                                                        <div class="d-flex align-items-center">
-                                                            <div>รูปกิจกรรมที่ 3</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+										  $sqlPage = "SELECT * , COUNT(gallery_id) AS COUNT FROM tb_gallery WHERE (gallery_name LIKE '%$keyword%' OR gallery_name_en LIKE '%$keyword%' OR gallery_name_cn LIKE '%$keyword%') AND gallery_status = '1' ORDER BY gallery_id";
+										  $rowPage = row_array($sqlPage);
+										  $total_record = $rowPage['COUNT'];
+										  $total_page = ceil($total_record / $perpage);
 
-                                            <div class="col-md-4">
-                                                <div class="card card-sm alogn-items-center">
-                                                    <a href="?modules=gallery_image" class="d-block"><img src="./static/photos/group-of-people-sightseeing-in-the-city.jpg" class="card-img-top"></a>
-                                                    <div class="card-body">
-                                                        <div class="d-flex align-items-center">
-                                                            <div>รูปกิจกรรมที่ 4</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+										  ?>
 
-                                            <div class="col-md-4">
-                                                <div class="card card-sm alogn-items-center">
-                                                    <a href="?modules=gallery_image" class="d-block"><img src="./static/photos/color-palette-guide-sample-colors-catalog-.jpg" class="card-img-top"></a>
-                                                    <div class="card-body">
-                                                        <div class="d-flex align-items-center">
-                                                            <div>รูปกิจกรรมที่ 5</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+										  <div class="col-md-12">
+											<nav>
+											  <ul class="pagination theme-colored">
+												<li> <a aria-label="Previous" href="?modules=gallery_all&keyword=<?php echo $keyword; ?>&page=1"> <span aria-hidden="true">«</span> </a> </li>
+												<?php
+												for ($i = 1; $i <= $total_page; $i++) {
 
-                                            <div class="col-md-4">
-                                                <div class="card card-sm alogn-items-center">
-                                                    <a href="?modules=gallery_image" class="d-block"><img src="./static/photos/finances-us-dollars-and-bitcoins-currency-money-2.jpg" class="card-img-top"></a>
-                                                    <div class="card-body">
-                                                        <div class="d-flex align-items-center">
-                                                            <div>รูปกิจกรรมที่ 6</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+												  if ($i == $page) {
+													$active = "active";
+												  } else {
+													$active = "";
+												  }
+
+												?>
+												  <li class="<?php echo $active; ?>"><a href="?modules=gallery_all&keyword=<?php echo $keyword; ?>&page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+												<?php } ?>
+												<li> <a aria-label="Next" href="?modules=gallery_all&keyword=<?php echo $keyword; ?>&page=<?php echo $total_page; ?>"> <span aria-hidden="true">»</span> </a> </li>
+											  </ul>
+											</nav>
+										  </div>
 
                                         </div>
 

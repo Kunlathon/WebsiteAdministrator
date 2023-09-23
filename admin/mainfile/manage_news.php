@@ -601,7 +601,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
 
                                                         <?php
                                                         if ((($news_image0 != null))) {
-                                                            if (file_exists("../dist/img/news/" . $news_image0)) { ?> '../dist/img/news/<?php echo $news_image0; ?>'
+                                                            if (file_exists("../uploads/news/" . $news_image0)) { ?> '../uploads/news/<?php echo $news_image0; ?>'
                                                         <?php       } else {
                                                             }
                                                         } else {
@@ -613,7 +613,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
 
                                                         <?php
                                                         if ((($news_image0 != null))) {
-                                                            if (file_exists("../dist/img/news/" . $news_image0)) { ?> {
+                                                            if (file_exists("../uploads/news/" . $news_image0)) { ?> {
                                                                     caption: '<?php echo $news_image0; ?>',
                                                                     size: 800000,
                                                                     key: 1,
@@ -741,10 +741,10 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
 
                                                         <?php
                                                         if (($news_image1_1 != null)) {
-                                                            if (file_exists("../dist/img/news/" . $news_image1_1)) { ?>
+                                                            if (file_exists("../uploads/news/" . $news_image1_1)) { ?>
 
 
-                                                                '../dist/img/news/<?php echo $news_image1_1; ?>'
+                                                                '../uploads/news/<?php echo $news_image1_1; ?>'
 
 
                                                         <?php       } else {
@@ -758,7 +758,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
 
                                                         <?php
                                                         if ((isset($news_image1_1))) {
-                                                            if (file_exists("../dist/img/news/" . $news_image1_1)) { ?>
+                                                            if (file_exists("../uploads/news/" . $news_image1_1)) { ?>
 
                                                                 {
                                                                     caption: '<?php echo $news_image1_1; ?>',
@@ -880,10 +880,10 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
 
                                                         <?php
                                                         if ((($news_image1_2 != null))) {
-                                                            if (file_exists("../dist/img/news/" . $news_image1_2)) { ?>
+                                                            if (file_exists("../uploads/news/" . $news_image1_2)) { ?>
 
 
-                                                                '../dist/img/news/<?php echo $news_image1_2; ?>'
+                                                                '../uploads/news/<?php echo $news_image1_2; ?>'
 
 
                                                         <?php       } else {
@@ -897,7 +897,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
 
                                                         <?php
                                                         if ((($news_image1_2 != null))) {
-                                                            if (file_exists("../dist/img/news/" . $news_image1_2)) { ?>
+                                                            if (file_exists("../uploads/news/" . $news_image1_2)) { ?>
 
 
                                                                 {
@@ -1033,10 +1033,10 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
 
                                                         <?php
                                                         if ((($news_image2_1 != null))) {
-                                                            if (file_exists("../dist/img/news/" . $news_image2_1)) { ?>
+                                                            if (file_exists("../uploads/news/" . $news_image2_1)) { ?>
 
 
-                                                                '../dist/img/news/<?php echo $news_image2_1; ?>'
+                                                                '../uploads/news/<?php echo $news_image2_1; ?>'
 
 
                                                         <?php       } else {
@@ -1050,7 +1050,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
 
                                                         <?php
                                                         if ((($news_image2_1 != null))) {
-                                                            if (file_exists("../dist/img/news/" . $news_image2_1)) { ?>
+                                                            if (file_exists("../uploads/news/" . $news_image2_1)) { ?>
 
 
                                                                 {
@@ -1174,10 +1174,10 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                         <?php
                                                         if ((($news_image2_2 != null))) {
 
-                                                            if (file_exists("../dist/img/news/" . $news_image2_2)) { ?>
+                                                            if (file_exists("../uploads/news/" . $news_image2_2)) { ?>
 
 
-                                                                '../dist/img/news/<?php echo $news_image2_2; ?>'
+                                                                '../uploads/news/<?php echo $news_image2_2; ?>'
 
 
                                                         <?php       } else {
@@ -1192,7 +1192,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                         <?php
                                                         if ((($news_image2_2 != null))) {
 
-                                                            if (file_exists("../dist/img/news/" . $news_image2_2)) { ?>
+                                                            if (file_exists("../uploads/news/" . $news_image2_2)) { ?>
 
 
                                                                 {
@@ -1328,10 +1328,10 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
 
                                                         <?php
                                                         if ((($news_image3_1 != null))) {
-                                                            if (file_exists("../dist/img/news/" . $news_image3_1)) { ?>
+                                                            if (file_exists("../uploads/news/" . $news_image3_1)) { ?>
 
 
-                                                                '../dist/img/news/<?php echo $news_image3_1; ?>'
+                                                                '../uploads/news/<?php echo $news_image3_1; ?>'
 
 
                                                         <?php       } else {
@@ -1344,7 +1344,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                     initialPreviewConfig: [
                                                         <?php
                                                         if ((($news_image3_1 != null))) {
-                                                            if (file_exists("../dist/img/news/" . $news_image3_1)) { ?>
+                                                            if (file_exists("../uploads/news/" . $news_image3_1)) { ?>
 
 
                                                                 {
@@ -1467,10 +1467,10 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
 
                                                         <?php
                                                         if ((($news_image3_2 != null))) {
-                                                            if (file_exists("../dist/img/news/" . $news_image3_2)) { ?>
+                                                            if (file_exists("../uploads/news/" . $news_image3_2)) { ?>
 
 
-                                                                '../dist/img/news/<?php echo $news_image3_2; ?>'
+                                                                '../uploads/news/<?php echo $news_image3_2; ?>'
 
 
                                                         <?php       } else {
@@ -1484,7 +1484,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
 
                                                         <?php
                                                         if ((($news_image3_2 != null))) {
-                                                            if (file_exists("../dist/img/news/" . $news_image3_2)) { ?>
+                                                            if (file_exists("../uploads/news/" . $news_image3_2)) { ?>
 
 
                                                                 {
@@ -1620,10 +1620,10 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
 
                                                         <?php
                                                         if ((($news_image4_1 != null))) {
-                                                            if (file_exists("../dist/img/news/" . $news_image4_1)) { ?>
+                                                            if (file_exists("../uploads/news/" . $news_image4_1)) { ?>
 
 
-                                                                '../dist/img/news/<?php echo $news_image4_1; ?>'
+                                                                '../uploads/news/<?php echo $news_image4_1; ?>'
 
 
                                                         <?php       } else {
@@ -1637,7 +1637,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
 
                                                         <?php
                                                         if ((($news_image4_1 != null))) {
-                                                            if (file_exists("../dist/img/news/" . $news_image4_1)) { ?>
+                                                            if (file_exists("../uploads/news/" . $news_image4_1)) { ?>
 
 
                                                                 {
@@ -1760,10 +1760,10 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
 
                                                         <?php
                                                         if ((($news_image4_2 != null))) {
-                                                            if (file_exists("../dist/img/news/" . $news_image4_2)) { ?>
+                                                            if (file_exists("../uploads/news/" . $news_image4_2)) { ?>
 
 
-                                                                '../dist/img/news/<?php echo $news_image4_2; ?>'
+                                                                '../uploads/news/<?php echo $news_image4_2; ?>'
 
 
                                                         <?php       } else {
@@ -1777,7 +1777,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
 
                                                         <?php
                                                         if ((($news_image4_2 != null))) {
-                                                            if (file_exists("../dist/img/news/" . $news_image4_2)) { ?>
+                                                            if (file_exists("../uploads/news/" . $news_image4_2)) { ?>
 
 
                                                                 {
@@ -1911,10 +1911,10 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
 
                                                         <?php
                                                         if ((($news_image5_1 != null))) {
-                                                            if (file_exists("../dist/img/news/" . $news_image5_1)) { ?>
+                                                            if (file_exists("../uploads/news/" . $news_image5_1)) { ?>
 
 
-                                                                '../dist/img/news/<?php echo $news_image5_1; ?>'
+                                                                '../uploads/news/<?php echo $news_image5_1; ?>'
 
 
                                                         <?php       } else {
@@ -1929,7 +1929,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
 
                                                         <?php
                                                         if ((($news_image5_1 != null))) {
-                                                            if (file_exists("../dist/img/news/" . $news_image5_1)) { ?>
+                                                            if (file_exists("../uploads/news/" . $news_image5_1)) { ?>
 
 
                                                                 {
@@ -2050,10 +2050,10 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
 
                                                         <?php
                                                         if ((($news_image5_2 != null))) {
-                                                            if (file_exists("../dist/img/news/" . $news_image5_2)) { ?>
+                                                            if (file_exists("../uploads/news/" . $news_image5_2)) { ?>
 
 
-                                                                '../dist/img/news/<?php echo $news_image5_2; ?>'
+                                                                '../uploads/news/<?php echo $news_image5_2; ?>'
 
 
                                                         <?php       } else {
@@ -2067,7 +2067,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
 
                                                         <?php
                                                         if ((($news_image5_2 != null))) {
-                                                            if (file_exists("../dist/img/news/" . $news_image5_2)) { ?>
+                                                            if (file_exists("../uploads/news/" . $news_image5_2)) { ?>
 
 
                                                                 {

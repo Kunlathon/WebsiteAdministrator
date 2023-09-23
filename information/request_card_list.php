@@ -81,10 +81,7 @@
                                                                         <thead>
                                                                             <tr>
                                                                                 <th><div>ลำดับ (No.)</div></th>
-                                                                                <th><div>รหัสนิสิต (Student ID)</div></th>
                                                                                 <th><div>รายชื่อ (Name-Surname)</div></th>
-                                                                                <th><div>คณะ (Faculty)</div></th>
-                                                                                <th><div>สาขา (Major)</div></th>
                                                                                 <th><div>สถานะ (Status)</div></th>
                                                                             </tr>
                                                                         </thead>
@@ -98,41 +95,19 @@
             $myname=$request_Row["user_name"]." ".$request_Row["user_surname"];
 
            
-            $faculty_Sql="SELECT `faculty_name` FROM `tb_faculty` WHERE `faculty_id` ='{$request_Row["user_faculty"]}'";
-            $faculty_List=result_array($faculty_Sql);
-            foreach($faculty_List as $key=>$faculty_Row){   
-                if((is_array($faculty_Row) and count($faculty_Row))){
-                    $faculty_name=$faculty_Row["faculty_name"];
-                }else{
-                    $faculty_name="-";
-                }                                            
-            } 
 
-            
-            $department_Sql="SELECT `department_name` FROM `tb_department` WHERE `department_id`='{$request_Row["user_department"]}'";
-            $department_List=result_array($department_Sql);
-            foreach($department_List as $key=>$department_Row){   
-                if((is_array($department_Row) and count($department_Row))){
-                    $department_name=$department_Row["department_name"];
-                }else{
-                    $department_name="-";
-                }                             
-            } 
 
             ?>
 
                                                                             <tr>
                                                                                 <td><div><?php echo $requset_count;?></div></td>
-                                                                                <td><div><?php echo $request_Row["user_student_id"];?></div></td>
                                                                                 <td><div><?php echo $myname;?></div></td>
-                                                                                <td><div><?php echo $faculty_name;?></div></td>
-                                                                                <td><div><?php echo $department_name;?></div></td>
                                                                                 <td>
             <?php
                     if(($request_Row["user_status"]=="1")){    ?>
-                                                                                    <div class="btn btn-warning btn-xs">กำลังดำเนินการ</div>
+                                                                                    <span class="badge bg-orange-lt">กำลังดำเนินการ</span>
             <?php    }elseif(($request_Row["user_status"]=="2")){  ?>
-                                                                                    <div class="btn btn-success btn-xs">ดำเนินเรียบร้อย</div>
+                                                                                    <span class="badge bg-teal-lt" >ดำเนินเรียบร้อย</span>
             <?php    }else{}    ?>
                                                                                     
                                                                                 </td>

@@ -393,10 +393,10 @@
 
                                                         <?php
                                                         if ((($gallery_thumbnail != null))) {
-                                                            if (file_exists("../dist/img/gallery/".$gallery_folder."/".$gallery_thumbnail)) { ?>
+                                                            if (file_exists("../uploads/gallery/".$gallery_folder."/".$gallery_thumbnail)) { ?>
 
 
-                                                                '../dist/img/gallery/<?php echo $gallery_folder;?>/<?php echo $gallery_thumbnail; ?>'
+                                                                '../uploads/gallery/<?php echo $gallery_folder;?>/<?php echo $gallery_thumbnail; ?>'
 
 
                                                         <?php       } else {
@@ -410,7 +410,7 @@
 
                                                         <?php
                                                         if ((($gallery_thumbnail != null))) {
-                                                            if (file_exists("../dist/img/gallery/".$gallery_folder."/".$gallery_thumbnail)) { ?>
+                                                            if (file_exists("../uploads/gallery/".$gallery_folder."/".$gallery_thumbnail)) { ?>
 
 
                                                                 {

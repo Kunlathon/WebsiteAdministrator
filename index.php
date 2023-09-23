@@ -31,7 +31,7 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>ศูนย์ภาษา มหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย วิทยาเขตเชียงใหม่</title>
-    <script defer data-api="/stats/api/event" data-domain="preview.tabler.io" src="/stats/js/script.js"></script>
+    <script defer data-api="/stats/api/event" data-domain="lc.cmru.ac.th" src="/stats/js/script.js"></script>
     <meta name="msapplication-TileColor" content=""/>
     <meta name="theme-color" content=""/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
@@ -42,15 +42,12 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
     <link rel="icon" href="dist/img/favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="dist/img/favicon.ico" type="image/x-icon"/>
     <meta name="description" content="ศูนย์ภาษา มหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย วิทยาเขตเชียงใหม่"/>
-    <meta name="canonical" content="https://preview.tabler.io/layout-navbar-sticky.html">
 
-    <meta property="og:image" content="https://preview.tabler.io/static/og.png">
     <meta property="og:image:width" content="1280">
     <meta property="og:image:height" content="640">
     <meta property="og:site_name" content="ศูนย์ภาษา มหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย วิทยาเขตเชียงใหม่">
     <meta property="og:type" content="object">
     <meta property="og:title" content="ศูนย์ภาษา มหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย วิทยาเขตเชียงใหม่">
-    <meta property="og:url" content="https://preview.tabler.io/static/og.png">
     <meta property="og:description" content="ศูนย์ภาษา มหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย วิทยาเขตเชียงใหม่">
 
 <?php 
@@ -61,9 +58,9 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
     //$rowTravel = row_array($sqlTravel);
 ?>
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="<?php echo $rowTravel['travel_topic']; ?>"/>
-	<meta property="og:description" content="<?php echo $rowTravel['travel_topic']; ?>" />
-	<meta property="og:image" content="https://www.phothitech.net/languagecenter/Uploads/travel/<?php echo $rowTravel['travel_image0']; ?>" />
+	<meta property="og:title" content="<?php echo $rowTravel['news_topic']; ?>"/>
+	<meta property="og:description" content="<?php echo $rowTravel['news_topic']; ?>" />
+	<meta property="og:image" content="https://www.phothitech.net/languagecenter/uploads/news/<?php echo $rowTravel['news_image0']; ?>" />
 
 <?php 
 	}
@@ -73,11 +70,11 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <!---->    
     <!-- CSS files -->
-    <link href="./dist/css/tabler.min.css?1685973381" rel="stylesheet"/>
-    <link href="./dist/css/tabler-flags.min.css?1685973381" rel="stylesheet"/>
-    <link href="./dist/css/tabler-payments.min.css?1685973381" rel="stylesheet"/>
-    <link href="./dist/css/tabler-vendors.min.css?1685973381" rel="stylesheet"/>
-    <link href="./dist/css/demo.min.css?1685973381" rel="stylesheet"/>
+    <link href="dist/css/tabler.min.css?1685973381" rel="stylesheet"/>
+    <link href="dist/css/tabler-flags.min.css?1685973381" rel="stylesheet"/>
+    <link href="dist/css/tabler-payments.min.css?1685973381" rel="stylesheet"/>
+    <link href="dist/css/tabler-vendors.min.css?1685973381" rel="stylesheet"/>
+    <link href="dist/css/demo.min.css?1685973381" rel="stylesheet"/>
 
 
 
@@ -107,7 +104,8 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
 
   </head>
   <body class="col-md-12">
-    <script src="./dist/js/demo-theme.min.js?1685973381"></script>
+
+    <script src="dist/js/demo-theme.min.js?1685973381"></script>
     <div class="page">
 <!-- Navbar -->
 <!--no head lock-->
@@ -128,8 +126,8 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
               <div class="d-none d-md-flex">
                 <div class="row text-center align-items-center flex-row-reverse">
                     <div class="col-lg-auto ms-lg-auto">
-                      <img src="dist/img/icon-th-removal.png" alt="TH" style="background-color: #FF9933;" width="32" height="32">
-                      <img src="dist/img/icon-en-removal.png" alt="EN" style="background-color: #FF9933;" width="32" height="32">
+                       <a href="index.php"><img src="dist/img/icon-th-removal.png" alt="TH" style="background-color: #FF9933;" width="32" height="32"></a>
+                       <a href="en/index.php"><img src="dist/img/icon-en-removal.png" alt="EN" style="background-color: #FF9933;" width="32" height="32"></a>
                       <!--<img src="dist/img/icon-cn-removal.png" alt="CN" style="background-color: #FF9933;" width="32" height="32">-->
                       <!--<span class="flag flag-country-th" style="border-radius: 50%;"></span>-->
                       <!--<span class="flag flag-country-us" style="border-radius: 50%;"></span>-->
@@ -222,8 +220,8 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
                     </div>
                   </li>
 
-				 <li class="nav-item false">
-                    <a class="nav-link" href="?modules=course" >
+				  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="index.php" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
                       <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
 						<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 						   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -236,8 +234,15 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
                         หลักสูตร
                       </span>
                     </a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="?modules=course">
+                        หลักสูตร
+                      </a>
+                      <a class="dropdown-item" href="?modules=teacher">
+                        อาจารย์ผู้สอน
+                      </a>
+                    </div>
                   </li>
-
 				  				  
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="index.php" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
@@ -260,6 +265,9 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
                       <a class="dropdown-item" href="?modules=register">
                         รับสมัครออนไลน์
                       </a>
+                      <a class="dropdown-item" href="?modules=announce_list">
+                        ประกาศรายชื่อ
+                      </a>					  
                       <a class="dropdown-item" href="?modules=verify_registration">
                         ค้นหาข้อมูลผู้สมัคร
                       </a>
@@ -383,9 +391,15 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
 			include("information/request_certified.php");
 	  }elseif(($modules=="request_card_list")){ 
 			include("information/request_card_list.php");
-	  }elseif(($modules=="request_certified_list")){
-      include("information/request_certified_list.php");
-    }else{
+	  }elseif(($modules=="request_certified_list")){ 
+			include("information/request_certified_list.php");
+	  }elseif(($modules=="teacher")){ 
+			include("information/teacher.php");
+	  }elseif(($modules=="videos")){ 
+			include("information/videos.php");
+	  }elseif(($modules=="announce_list")){ 
+			include("information/announce_list.php");
+	  }else{
 		  	include("information/mainfile.php");
 	  }
 
@@ -402,7 +416,7 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
 					<?php
 						$now_year = date('Y');
 					?>
-                      Copyright <a href="admin/index.php">&copy;</a> 2023 - <?php echo $now_year;?> ศูนย์ภาษา มหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย วิทยาเขตเชียงใหม่. All rights reserved.<br><br>
+                      Copyright <a href="admin2/index.php" target="_blank">&copy;</a> 2023 - <?php echo $now_year;?> ศูนย์ภาษา มหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย วิทยาเขตเชียงใหม่. All rights reserved.<br><br>
                   </ul>
                 </div>
               </div>
@@ -415,14 +429,24 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
     </div>
 <!---->
 <!---->
+    <?php
+            if(($modules=="register")){ ?>
+<!-- Libs JS -->
+    <script src="dist/libs/nouislider/dist/nouislider.min.js?1685973381" defer></script>
+    <script src="dist/libs/litepicker/dist/litepicker.js?1685973381" defer></script>
+    <script src="dist/libs/tom-select/dist/js/tom-select.base.min.js?1685973381" defer></script>
+<!-- Tabler Core -->
+    <?php   }else{  ?>
 <!-- Libs JS -->
     <script src="dist/libs/apexcharts/dist/apexcharts.min.js?1685973381" defer></script>
     <script src="dist/libs/jsvectormap/dist/js/jsvectormap.min.js?1685973381" defer></script>
     <script src="dist/libs/jsvectormap/dist/maps/world.js?1685973381" defer></script>
     <script src="dist/libs/jsvectormap/dist/maps/world-merc.js?1685973381" defer></script>
 <!-- Tabler Core -->
+    <?php  } ?>
+
+
     <script src="dist/js/tabler.min.js?1685973381" defer></script>
-    <script src="dist/js/demo.min.js?1685973381" defer></script>
-   
+    <script src="dist/js/demo.min.js?1685973381" defer></script>   
   </body>
 </html>

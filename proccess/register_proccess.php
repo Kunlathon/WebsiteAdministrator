@@ -12,53 +12,168 @@
 include("../config/connect.ini.php");
 include("../config/fnc.php");
 
+    $Date=date("Y-m-d");
+    $DateTime=date("Y-m-d H:i:s");
+    $Dateimg=date("YmdHis");
+
+    $title_t=filter_input(INPUT_POST,'title_t');
+    $title_e=filter_input(INPUT_POST,'title_e');
+    $fname=filter_input(INPUT_POST,'fname');
+    $bname=filter_input(INPUT_POST,'bname');
+    $sname=filter_input(INPUT_POST,'sname');
+
+        if(($_POST["a_day"]!=null and $_POST["a_month"]!=null and $_POST["a_year"]!=null)){
+            $a_day=filter_input(INPUT_POST,'a_day');
+            $a_month=filter_input(INPUT_POST,'a_month');
+            $a_year=filter_input(INPUT_POST,'a_year');
+            $bdate=$a_year."-".$a_month."-".$a_day;
+        }else{
+            $bdate='';
+        }
+
+        if(($_POST["b_day"]!=null and $_POST["b_month"]!=null and $_POST["b_year"]!=null)){
+            $b_day=filter_input(INPUT_POST,'a_year'); 
+            $b_month=filter_input(INPUT_POST,'a_year'); 
+            $b_year=filter_input(INPUT_POST,'a_year');
+            $odate=$b_year."-".$b_month."-".$b_day;
+        }else{
+            $odate='';
+        }
+   
+    $tel=filter_input(INPUT_POST,'tel');
+    $email=filter_input(INPUT_POST,'email');
+    $race=filter_input(INPUT_POST,'race');
+    $nationality=filter_input(INPUT_POST,'nationality');
+    $religion=filter_input(INPUT_POST,'religion');
+    $idcard=filter_input(INPUT_POST,'idcard');
+    $height=filter_input(INPUT_POST,'height');
+    $weight=filter_input(INPUT_POST,'weight');
+
+    //img1=filter_input(INPUT_POST,'sname');
+
+    $fathername=filter_input(INPUT_POST,'fathername');
+    $father_occupation=filter_input(INPUT_POST,'father_occupation');
+    $father_idcard=filter_input(INPUT_POST,'father_idcard');
+    $mother_idcard=filter_input(INPUT_POST,'mother_idcard');
+    $mothername=filter_input(INPUT_POST,'mothername');
+    $mother_occupation=filter_input(INPUT_POST,'mother_occupation');
+    $address2=filter_input(INPUT_POST,'address2');
+    $moo2=filter_input(INPUT_POST,'moo2');
+    $soi2=filter_input(INPUT_POST,'soi2');
+    $road2=filter_input(INPUT_POST,'road2');
+    $subdistrict2=filter_input(INPUT_POST,'subdistrict2');
+    $district2=filter_input(INPUT_POST,'district2');
+    $province2=filter_input(INPUT_POST,'province2');
+    $citycode2=filter_input(INPUT_POST,'citycode2');
+
+    $course_id=filter_input(INPUT_POST,'course');
+
+    
+        if(isset($_FILES["img1"]["name"])){
+
+            $register_nameNew=$Dateimg."_register";
+            $register_name = $_FILES["img1"]["name"];
+            $register_type = $_FILES["img1"]["type"];
+
+            //new file Name
+            $imgFile = explode('.', $register_name);
+            $fileType = $imgFile[count($imgFile) - 1];
+            //new file Name end
+
+            $register_new_name = $register_nameNew.".".$fileType;
+            $register_tmp = $_FILES["img1"]["tmp_name"];
+            $register_size = $_FILES["img1"]["size"];
+
+            move_uploaded_file($register_tmp, '../uploads/student/' . $register_new_name);
+            //up image end
+            
+            $register_data = array(
+                "user_idcard"=>$idcard,
+                "user_pic"=>$register_new_name,
+                "user_prefix_th"=>$title_t,
+                "user_prefix_en"=>$title_e,
+                "user_name"=>$fname,
+                "user_name_buddhist"=>$bname,
+                "user_surname"=>$sname,
+                "user_birthday"=>$bdate,
+                "user_ordination"=>$odate,
+                "user_address_no"=>$address2,
+                "user_address_moo"=>$moo2,
+                "user_address_soi"=>$soi2,
+                "user_address_road"=>$road2,
+                "user_address_subdistrict"=>$subdistrict2,
+                "user_address_district"=>$district2,
+                "user_address_province"=>$province2,
+                "user_address_citycode"=>$citycode2,
+                "user_tel"=>$tel,
+                "user_email"=>$email,
+                "user_height"=>$height,
+                "user_weight"=>$weight,
+                "user_race"=>$race,
+                "user_nationality"=>$nationality,
+                "user_religion"=>$religion,
+                "user_father_idcard"=>$father_idcard,
+                "user_father_occupation"=>$father_occupation,
+                "user_fathername"=>$fathername,
+                "user_mother_idcard"=>$mother_idcard,
+                "user_mothername"=>$mothername,
+                "user_mother_occupation"=>$mother_occupation,
+                "course_id"=>$course_id,
+                "user_date"=>$Date,
+                "user_update"=>$Date,
+                "user_lastlogin"=>$DateTime,
+                "user_status"=>'1'
+
+            );
+            insert("tb_register", $register_data);
+
+        }else{
+
+            $register_data = array(
+                "user_idcard"=>$idcard,
+                "user_prefix_th"=>$title_t,
+                "user_prefix_en"=>$title_e,
+                "user_name"=>$fname,
+                "user_name_buddhist"=>$bname,
+                "user_surname"=>$sname,
+                "user_birthday"=>$bdate,
+                "user_ordination"=>$odate,
+                "user_address_no"=>$address2,
+                "user_address_moo"=>$moo2,
+                "user_address_soi"=>$soi2,
+                "user_address_road"=>$road2,
+                "user_address_subdistrict"=>$subdistrict2,
+                "user_address_district"=>$district2,
+                "user_address_province"=>$province2,
+                "user_address_citycode"=>$citycode2,
+                "user_tel"=>$tel,
+                "user_email"=>$email,
+                "user_height"=>$height,
+                "user_weight"=>$weight,
+                "user_race"=>$race,
+                "user_nationality"=>$nationality,
+                "user_religion"=>$religion,
+                "user_father_idcard"=>$father_idcard,
+                "user_father_occupation"=>$father_occupation,
+                "user_fathername"=>$fathername,
+                "user_mother_idcard"=>$mother_idcard,
+                "user_mothername"=>$mothername,
+                "user_mother_occupation"=>$mother_occupation,
+                "course_id"=>$course_id,
+                "user_date"=>$Date,
+                "user_update"=>$Date,
+                "user_lastlogin"=>$DateTime,
+                "user_status"=>'1'
+
+            );
+            insert("tb_register", $register_data);
+
+        }
+
+
 ?>
 
-<?php
-
-    $register_id=filter_input(INPUT_POST,'register_id');
-    $register_idcard=filter_input(INPUT_POST,'register_idcard');
-    $prefix_id=filter_input(INPUT_POST,'prefix_id');
-    $register_name=filter_input(INPUT_POST,'register_name');
-    $register_surname=filter_input(INPUT_POST,'register_surname');
-//-------------------------------------------------------------------------------------
-        if(($_POST["birth_day"]=="0000-00-00")){
-            $birth_day="";
-        }else{
-            $birth_day=filter_input(INPUT_POST,'birth_day');
-        }
-//-------------------------------------------------------------------------------------
-    $time_update=date("Y-m-d H:i:s");
-    function fnc_count($register_idcard){
-        $s = "SELECT * FROM `tb_register` WHERE `register_idcard`='{$register_idcard}'";
-        $q = row_array($s);
-    
-        return is_array($q) ? "0" : "1";
-    }
-
-    $check = fnc_count($register_idcard);
-    
-    if(($check)){
-        $register_data = array(
-            "register_id" => $register_id,
-            "register_idcard" =>$register_idcard,
-            "prefix_id" =>$prefix_id,
-            "register_name" =>$register_name,
-            "register_surname" =>$register_surname,
-            "register_name_eng" =>$register_name,	
-            "register_surname_eng" =>$register_surname,
-            "birth_day" =>$birth_day,
-            "register_update" =>$time_update,	
-            "register_status" =>'1'
-        );
-        insert("tb_register", $register_data);
-        echo "no_error";
-    }else{
-        echo "it_error";
-    }
-    
 
     
    
 
-?>

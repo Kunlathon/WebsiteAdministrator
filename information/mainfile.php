@@ -41,13 +41,13 @@
 						if ($i==0){
                    ?>
                     <div class="carousel-item active">
-                      <img src="dist/img/slides/<?php echo $rowSli['slide_image']; ?>" alt="<?php echo $rowSli['slide_topic']; ?>" style="width: 100%; height: 400px;">
+                      <img src="uploads/slides/<?php echo $rowSli['slide_image']; ?>" alt="<?php echo $rowSli['slide_topic']; ?>" style="width: 100%; height: 400px;">
                     </div>
 					<?php 
 						} else {
 					?>
                     <div class="carousel-item">
-                      <img src="dist/img/slides/<?php echo $rowSli['slide_image']; ?>" alt="<?php echo $rowSli['slide_topic']; ?>" style="width: 100%; height: 400px;">
+                      <img src="uploads/slides/<?php echo $rowSli['slide_image']; ?>" alt="<?php echo $rowSli['slide_topic']; ?>" style="width: 100%; height: 400px;">
                     </div>
 				
                     <?php 
@@ -71,30 +71,14 @@
                   <div class="col-md-6">
                     <div class="form-imagecheck mb-2">             
                       <span class="form-imagecheck" onclick="location.href='?modules=gallery_image'">
-                        <img src="./static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach" class="form-image">
+                        <img src="static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach" class="form-image">
                       </span>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-imagecheck mb-2">             
                       <span class="form-imagecheck" onclick="location.href='?modules=gallery_image'">
-                        <img src="./static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach" class="form-image">
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-imagecheck mb-2">             
-                      <span class="form-imagecheck" onclick="location.href='?modules=gallery_image'">
-                        <img src="./static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach" class="form-image">
-                      </span>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-imagecheck mb-2">             
-                      <span class="form-imagecheck" onclick="location.href='?modules=gallery_image'">
-                        <img src="./static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach" class="form-image">
+                        <img src="static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach" class="form-image">
                       </span>
                     </div>
                   </div>
@@ -103,14 +87,30 @@
                   <div class="col-md-6">
                     <div class="form-imagecheck mb-2">             
                       <span class="form-imagecheck" onclick="location.href='?modules=gallery_image'">
-                        <img src="./static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach" class="form-image">
+                        <img src="static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach" class="form-image">
                       </span>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-imagecheck mb-2">             
                       <span class="form-imagecheck" onclick="location.href='?modules=gallery_image'">
-                        <img src="./static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach" class="form-image">
+                        <img src="static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach" class="form-image">
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-imagecheck mb-2">             
+                      <span class="form-imagecheck" onclick="location.href='?modules=gallery_image'">
+                        <img src="static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach" class="form-image">
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-imagecheck mb-2">             
+                      <span class="form-imagecheck" onclick="location.href='?modules=gallery_image'">
+                        <img src="static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach" class="form-image">
                       </span>
                     </div>
                   </div>
@@ -133,13 +133,23 @@
           <div class="container-xl">
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 
-			<div class="row row-deck row-cards">
+			<div class="row row-deck row-cards">           
+
+              <div class="col-md-12">      
+                <div class="page-header d-print-none">
+                  <div class="container-xl">
+                    <h2 class="page-title" >
+                      <a href="?modules=teacher">อาจารย์ผู้สอน</a>
+                    </h2>
+                  </div>
+                </div>
+              </div>
 
               <div class="col-md-4">
                 <div class="card">
                   <div class="card-body">
                     <div class="d-flex align-items-center">
-                      <div class="subheader">test01</div>
+                      <div class="subheader">ทดสอบ01</div>
                     </div>
                   </div>
                 </div>
@@ -149,7 +159,7 @@
                 <div class="card">
                   <div class="card-body">
                     <div class="d-flex align-items-center">
-                      <div class="subheader">test02</div>
+                      <div class="subheader">ทดสอบ02</div>
                     </div>
                   </div>
                 </div>
@@ -159,16 +169,25 @@
                 <div class="card">
                   <div class="card-body">
                     <div class="d-flex align-items-center">
-                      <div class="subheader">test03</div>
+                      <div class="subheader">ทดสอบ03</div>
                     </div>
                   </div>
                 </div>
               </div>
 
             </div>
-            <div>&nbsp;</div>
 
             <div class="row row-deck row-cards">
+			
+              <div class="col-md-12">      
+                <div class="page-header d-print-none">
+                  <div class="container-xl">
+                    <h2 class="page-title" >
+                      <a href="?modules=videos">วีดีโอ</a>
+                    </h2>
+                  </div>
+                </div>
+              </div>
 
 			<?php
 				$sqlVid = "SELECT * FROM tb_videos WHERE videos_status='1' ORDER BY videos_id DESC LIMIT 4";
@@ -188,20 +207,18 @@
 			?>
 
             </div>
-            <div>&nbsp;</div>
 
             <div class="row row-deck row-cards">
               <div class="col-md-12">      
                 <div class="page-header d-print-none">
                   <div class="container-xl">
                     <h2 class="page-title" >
-                      Contact Us
+                     <a href="?modules=contactus">ติดต่อเรา</a>
                     </h2>
                   </div>
                 </div>
               </div>
             </div>
-            <div>&nbsp;</div>
 
             <div class="row row-deck row-cards">
               <div class="col-md-4">
@@ -215,8 +232,9 @@
                     </svg>
                   </div>
                   <div>&nbsp;</div>
-                  <div class="col-md-12">xxx</div>
-                  <div class="col-md-12">xxx</div>
+                  <div class="col-md-12">Tel: 053 278967, 270451</div>
+                  <div class="col-md-12">Mobile: 087 185 7373</div>
+                  <div class="col-md-12">Fax: 053 270 452</div>
                 </div>
               </div>
               <div class="col-md-4">
@@ -231,8 +249,7 @@
                     </svg>
                   </div>
                   <div>&nbsp;</div>
-                  <div class="col-md-12">xxx</div>
-                  <div class="col-md-12">xxx</div>
+                  <div class="col-md-12">มหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย วิทยาเขตเชียงใหม่ 139 ถ.สุเทพ ต.สุเทพ อ.เมือง จ.เชียงใหม่ 50200</div>
                 </div>
               </div>
               <div class="col-md-4">
@@ -248,8 +265,8 @@
                     </svg>
                   </div>
                   <div>&nbsp;</div>
-                  <div class="col-md-12">xxx</div>
-                  <div class="col-md-12">xxx</div>
+                  <div class="col-md-12">Website:lc.mcu.ac.th</div>
+                  <div class="col-md-12">Email:cm@mcu.ac.th</div>
                 </div>
               </div>
             </div>

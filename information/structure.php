@@ -15,12 +15,12 @@
 
                   <div class="col-12 markdown">
 
-                    <h1><?php echo $rowStr['information_topic'];?></h1>
+                    <center><h1><?php echo $rowStr['information_topic'];?></h1></center>
 
 					 <?php
 						if($rowStr['information_image']==""){ ?>
 					<?php   } else { ?>
-                            <p><div align="center"><img src="dist/information/<?php echo $rowStr['information_image'];?>" class="img-thumbnail" alt="<?php echo $rowStr['information_topic'];?>" style="width:595px; height:394px;"></div></p>
+                            <p><div align="center"><img src="uploads/information/<?php echo $rowStr['information_image'];?>" class="img-thumbnail" alt="<?php echo $rowStr['information_topic'];?>" style="width:595px; height:394px;"></div></p>
                             
 					<?php   } ?>
 

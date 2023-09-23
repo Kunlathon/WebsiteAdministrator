@@ -478,14 +478,14 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 						case "document":
 							include $load;
 							break;
-						case "document_category":
-							include $load;
-							break;
 							// ----- Non ----- //
 						case "term_data":
 							include $load;
 							break;
 						case "course_data":
+							include $load;
+							break;
+						case "document_category":
 							include $load;
 							break;
 							//-------------------
