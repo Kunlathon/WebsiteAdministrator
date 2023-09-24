@@ -41,15 +41,16 @@
                                                                 <div class="row g-2 alogn-items-center">
                                                                     <div class="col-md-8">
                                                                         <div class="form-group">
-                                                                            <label>กรอกข้อมูลเพื่อค้นหา (Search)</label>
-                                                                            <input name="" id="" type="text" class="form-control" required="required" placeholder="กรอกข้อมูลเพื่อค้นหา (Search)">
+                                                                            <div id="text_key-null">
+                                                                            <input name="text_key"  id="text_key" type="text" class="form-control" required="required" placeholder="กรอกข้อมูลเพื่อค้นหา (Search)">
+                                                                            </div>
                                                                         </div>                                                                        
                                                                     </div>
                                                                     <div class="col-md-4">
                                                                         <div class="card-footer text-end" style="margin: 0 auto; text-align: center;">
                                                                         <center>
-                                                                            <button type="submit" name="" id="" class="btn btn-success">คันหา</button>
-                                                                            <button type="button" name="" id="" class="btn btn-danger">ยกเลิก</button>
+                                                                            <button type="button" name="but_clink" id="but_clink" class="btn btn-success">คันหา</button>
+                                                                            <button type="button" name="but_delete" id="but_delete" class="btn btn-danger" value="but_delete">ยกเลิก</button>
                                                                         </center>
                                                                         </div>
                                                                     </div>
@@ -74,6 +75,8 @@
                                                                 <h3 class="card-title">รายการข้อมูล</h3>
                                                             </div>
                                                             <div class="card-body">
+
+<div id="Run_List">
 
                                                                 <div class="table-responsive">
                                                                
@@ -118,7 +121,9 @@
                                                                         </tbody>
                                                                 </table>
 
-                                                                </div>
+                                                              </div>
+
+</div>
 
                                                             </div>
                                                         </div>
@@ -143,4 +148,53 @@
 
     </div>
 </div>
-          
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $("#but_delete").on("click",function(){
+            var but_delete=$("#but_delete").val();
+                if(but_delete==="but_delete"){
+                    document.location="?modules=request_card_list";
+                }else{}
+        })
+    })
+</script>
+
+<script>
+    $(document).ready(function(){
+        $("#but_clink").on("click",function(){
+            var text_key=$("#text_key").val();
+                if(text_key!==""){
+                    if(text_key.length>=101){
+                        document.getElementById("text_key-null").innerHTML=
+                        '<input type="text" name="text_key" id="text_key" value="'+text_key+'" class="form-control is-invalid">'
+                        +'<div class="invalid-feedback">จำนวนตัวอักษรจำกัดไม่เกิน 100 ตัวอักษร</div>';
+                    }else{
+                        $.post("proccess/register_card_show.php",{
+                            text_key:text_key
+                        },function(RunList){
+                            if(RunList!==""){
+                                $("#Run_List").html(RunList);
+                                document.getElementById("text_key-null").innerHTML=
+                                '<input type="text" name="text_key" id="text_key" value="'+text_key+'" class="form-control">'
+                                +'<div class="invalid-feedback"></div>';
+                            }else{
+                                document.getElementById("Run_List").innerHTML=
+                                '<div class="row">'
+                                +'  <div class="alert alert-warning" role="alert">'
+                                +'      เกิดข้อผิดพลาดไม่สามารถดำเนินการได้'
+                                +'  </div>'
+                                +'</div>';
+                            }
+                        })
+                    }
+                }else{
+                    document.getElementById("text_key-null").innerHTML=
+                        '<input type="text" name="text_key" id="text_key" value="'+text_key+'" class="form-control is-invalid">'
+                        +'<div class="invalid-feedback">กรุณาพิมพ์ เพื่อค้นหา</div>';
+                }
+        })
+    })
+</script>
+

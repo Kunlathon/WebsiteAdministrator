@@ -70,13 +70,13 @@
 
                 $picture_sql = "SELECT `picture_name` FROM `tb_picture`  WHERE `gallery_id`='{$gallery_key}'";
                 $picture_list = result_array($picture_sql);
-                //$link_album="../../../uploads/gallery/".$gallery_folder."/".$picture_row["picture_name"];
+                //$link_album="../uploads/gallery/".$gallery_folder."/".$picture_row["picture_name"];
                 foreach ($picture_list as $key => $picture_row) {   ?>
                 
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
                         <div class="col-<?php echo $grid;?>-4 item">
-                            <a class="lightbox" href="../../../languagecenter/uploads/gallery/<?php echo $gallery_folder;?>/<?php echo $picture_row["picture_name"];?>">
-                                <img class="img-fluid image scale-on-hover" style="width:304px; height:236px;" src="../../../languagecenter/uploads/gallery/<?php echo $gallery_folder;?>/<?php echo $picture_row["picture_name"];?>">
+                            <a class="lightbox" href="../uploads/gallery/<?php echo $gallery_folder;?>/<?php echo $picture_row["picture_name"];?>">
+                                <img class="img-fluid image scale-on-hover" style="width:304px; height:236px;" src="../uploads/gallery/<?php echo $gallery_folder;?>/<?php echo $picture_row["picture_name"];?>">
                             </a>
                         </div>
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->    
