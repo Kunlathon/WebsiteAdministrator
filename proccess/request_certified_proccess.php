@@ -29,6 +29,8 @@ include("../config/fnc.php");
     $user_idcard=filter_input(INPUT_POST,'user_idcard');
     $user_student_id=filter_input(INPUT_POST,'user_student_id');
 
+    $user_certified=filter_input(INPUT_POST,'user_certified');
+
 
     $request_certifed_data = array(
 
@@ -45,6 +47,7 @@ include("../config/fnc.php");
         "user_date"=>$date,
         "user_update"=>$date,
         "user_lastlogin"=>$datetime,
+        "user_certified"=>$user_certified,
         "user_status"=>'1'
 
     );

@@ -66,59 +66,36 @@
                 </div>
 				<!--Create a Carousel End-->
               </div>
+
               <div class="col-md-3">
+
                 <div class="row">
+
+			<?php
+				$sqlGal = "SELECT * FROM tb_gallery WHERE gallery_status='1' ORDER BY gallery_id DESC LIMIT 6";
+                $listGal = result_array($sqlGal);
+
+                foreach ($listGal as $key => $rowGal) {
+            ?>
+
                   <div class="col-md-6">
                     <div class="form-imagecheck mb-2">             
-                      <span class="form-imagecheck" onclick="location.href='?modules=gallery_image'">
-                        <img src="../static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach" class="form-image">
+                      <span class="form-imagecheck" onclick="location.href='?modules=gallery_image&id=<?php echo $rowGal['gallery_id'];?>'">
+                        <img src="../uploads/gallery/<?php echo $rowGal['gallery_folder'];?>/<?php echo $rowGal['gallery_thumbnail'];?>" alt="<?php echo $rowGal['gallery_name'];?>" class="form-image" title="<?php echo $rowGal['gallery_name'];?>">
                       </span>
                     </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="form-imagecheck mb-2">             
-                      <span class="form-imagecheck" onclick="location.href='?modules=gallery_image'">
-                        <img src="../static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach" class="form-image">
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-imagecheck mb-2">             
-                      <span class="form-imagecheck" onclick="location.href='?modules=gallery_image'">
-                        <img src="../static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach" class="form-image">
-                      </span>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-imagecheck mb-2">             
-                      <span class="form-imagecheck" onclick="location.href='?modules=gallery_image'">
-                        <img src="../static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach" class="form-image">
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-imagecheck mb-2">             
-                      <span class="form-imagecheck" onclick="location.href='?modules=gallery_image'">
-                        <img src="../static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach" class="form-image">
-                      </span>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-imagecheck mb-2">             
-                      <span class="form-imagecheck" onclick="location.href='?modules=gallery_image'">
-                        <img src="../static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach" class="form-image">
-                      </span>
-                    </div>
-                  </div>
-                </div>
+  
+			<?php 
+				} 
+			?>
+
+                </div>    
+
                 <div class="row">              
                   <div class="col-md-12">
 					<a class="card card-link" href="?modules=gallery_all">
-						<div class="card-body card card-link card-link-pop btn-secondary" style="background-color: #FF9933;">รูปภาพกิจกรรมทั้งหมด</div>
+						<div class="card-body card card-link card-link-pop btn-secondary" style="background-color: #FF9933;">Album</div>
 					</a>
                   </div>
                 </div>
@@ -145,35 +122,34 @@
                 </div>
               </div>    
 
-              <div class="col-md-4">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="d-flex align-items-center">
-                      <div class="subheader">test01</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+             <?php
+				$sqlTea = "SELECT * FROM tb_teacher WHERE teacher_status='1' ORDER BY RAND() LIMIT 6";
+                $listTea = result_array($sqlTea);
+
+                foreach ($listTea as $key => $rowTea) {
+            ?>
+
 
               <div class="col-md-4">
                 <div class="card">
                   <div class="card-body">
-                    <div class="d-flex align-items-center">
-                      <div class="subheader">test02</div>
-                    </div>
+						<a href="../uploads/teacher/<?php echo $rowTea['teacher_file'];?>" class="d-block" target="_blank">
+						<img src="../uploads/teacher/<?php echo $rowTea['teacher_picture'];?>" alt="<?php echo $rowTea['teacher_name'];?>" class="card-img-top"></a>
+						<div class="card-body">
+							<div class="d-flex align-items-center">
+								<div><?php echo $rowTea['teacher_name'];?></div>
+                            </div>
+						</div>
                   </div>
                 </div>
               </div>
 
-              <div class="col-md-4">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="d-flex align-items-center">
-                      <div class="subheader">test03</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
+  
+			<?php 
+				} 
+			?>
+
 
             </div>
 

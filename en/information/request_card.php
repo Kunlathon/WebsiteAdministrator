@@ -19,7 +19,7 @@
                                                         <div class="page-header d=print-none">
                                                             <div class="container-xl">
                                                                 <div class="row g-2 alogn-items-center">
-                                                                    <div col-md-12>
+                                                                    <div class="col-md-12">
                                                                         <div class="page-title" style="font-size: 20px;">คำร้องขอบัตรประจำตัวนิสิต (REQUEST FOR STUDENT CARD)</div>
                                                                     </div>
                                                                 </div>
@@ -285,15 +285,15 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <div class="form-group">
+                                                        <!--<div class="form-group">
                                                             <label >ชั้นปีที่ (Studying in)</label>
                                                             <input name="user_study" id="user_study" type="text" class="form-control" placeholder="ชั้นปีที่ (Studying in)">
-                                                        </div>
+                                                        </div>-->
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div class="mb-3">
+                                            <!--<div class="mb-3">
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
@@ -326,9 +326,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div>-->
 
-                                            <div class="mb-3">
+                                            <!--<div class="mb-3">
                                                 <div class="row g-5">
                                                     <div class="col-md-4">
                                                         <div class="checkbox">
@@ -346,7 +346,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div>-->
                                    
                                             <div class="mb-3">
                                                 <div class="row g-5">
@@ -388,9 +388,11 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <div class="checkbox">
-                                                                <label><input type="checkbox" name="" id="" value=""> ขอมีบัตรครั้งแรก (Get the Card for the First Time)</label>
-                                                            </div> 
+                                                            <label class="form-check">
+                                                                <input class="form-check-input" name="user_new_card" id="user_new_card" type="checkbox" value="1">
+                                                                <span class="form-check-label">ขอมีบัตรครั้งแรก (Get the Card for the First Time)</span>
+                                                            </label>
+
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -404,11 +406,11 @@
                                             <div class="mb-3">
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <div class="checkbox">
-                                                                <label><input type="checkbox" name="" id="" value=""> บัตรหาย (Lost Card)</label>
-                                                            </div> 
-                                                        </div>
+                                                            <label class="form-check">
+                                                                <input class="form-check-input" name="user_lost_card" id="user_lost_card" type="checkbox" value="1">
+                                                                <span class="form-check-label">บัตรหาย (Lost Card)</span>
+                                                            </label>
+         
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="alert alert-success" role="alert">
@@ -421,11 +423,11 @@
                                             <div class="mb-3">
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <div class="checkbox">
-                                                                <label><input type="checkbox" name="" id="" value=""> บัตรชำรุด (Defective Card)</label>
-                                                            </div> 
-                                                        </div>
+                                                            <label class="form-check">
+                                                                <input class="form-check-input" name="user_defective_card" id="user_defective_card" type="checkbox" value="1">
+                                                                <span class="form-check-label">บัตรชำรุด (Defective Card)</span>
+                                                            </label>
+
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="alert alert-success" role="alert">
@@ -438,11 +440,11 @@
                                             <div class="mb-3">
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <div class="checkbox">
-                                                                <label><input type="checkbox" name="" id="" value=""> บัตรหมดอายุ (Expired Card)</label>
-                                                            </div> 
-                                                        </div>
+                                                            <label class="form-check">
+                                                                <input class="form-check-input" name="user_expired_card" id="user_expired_card" type="checkbox" value="1">
+                                                                <span class="form-check-label">บัตรหมดอายุ (Expired Card)</span>
+                                                            </label>
+
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="alert alert-success" role="alert">
@@ -455,11 +457,11 @@
                                             <div class="mb-3">
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <div class="checkbox">
-                                                                <label><input type="checkbox" name="" id="" value=""> เปลี่ยนชื่อ / นามสกุลใหม่ (Change New Name/Surname)</label>
-                                                            </div> 
-                                                        </div>
+                                                            <label class="form-check">
+                                                                <input class="form-check-input" name="user_change_name" id="user_change_name" type="checkbox" value="1">
+                                                                <span class="form-check-label"> เปลี่ยนชื่อ / นามสกุลใหม่ (Change New Name/Surname)</span>
+                                                            </label>
+
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="alert alert-success" role="alert">
@@ -473,7 +475,7 @@
                                     </div>
 
 
-                                    <div class="card">
+                                    <!--<div class="card">
                                         <div class="card-status-top bg-green"></div>
                                         <div class="card-header">
                                             <div class="card-title" style="font-size: 18px;">
@@ -516,7 +518,53 @@ For collect, use and disclose my personal information for the purpose of request
 
                                             </div>
                                         </div>
+                                    </div>-->
+
+                                    <div class="card">
+                                        <div class="card-status-top bg-green"></div>
+                                        <div class="card-header">
+                                            <div class="card-title" style="font-size: 18px;">
+                                                <div></div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body p-0">
+                                            <div class="card-body">
+
+                                                <div class="row g-5">
+                                                    <div class="col-md-12">
+                                                        <div class="alert alert-warning" role="alert" style="color: red;">
+                                                            
+                                                    *** ข้าพเจ้ายินยอมให้ข้อมูลแก่ มหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย วิทยาเขตเชียงใหม่
+จะเก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้าสำหรับการใช้ในการขอบัตรประจำตัวนิสิตเท่านั้น ***
+*** I agree to provide information to Mahachulalongkornrajavidyalaya University Chiang Mai Campus.
+For collect, use and disclose my personal information for the purpose of requesting for student card only. ***                                                           
+                                                         
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row ">
+                                                    <div class="col-md-6" >
+                                                        <div class="form-group"></div>
+                                                    </div>
+                                                    <div class="col-md-6" >
+                                                        <div class="form-group">
+                                                            <div class="input-group mb-2">
+                                                                <label class="form-check">
+                                                                    <div id="check_register-null">
+                                                                    <input class="form-check-input" name="check_register" id="check_register" type="checkbox" value="1" required="required">
+                                                                    <span class="form-check-label">ยอมรับเงื่อนไข</span>
+                                                                    </div>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>  
+                                                </div>
+
+                                            </div>
+                                        </div>
                                     </div>
+
 
                                     <div class="card">
                                         <div class="mb-3">

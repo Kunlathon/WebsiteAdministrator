@@ -131,6 +131,7 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
                       <!--<img src="../dist/img/icon-cn-removal.png" alt="CN" style="background-color: #FF9933;" width="32" height="32">-->
                       <!--<span class="flag flag-country-th" style="border-radius: 50%;"></span>-->
                       <!--<span class="flag flag-country-us" style="border-radius: 50%;"></span>-->
+					  <a href="https://www.facebook.com/profile.php?id=100063538752096" target="_blank"><img src="../dist/img/facebook-1.png" alt="Facebook" style="background-color: #FF9933;" width="40" height="40"></a>
                     </div>
                 </div>
               </div>
@@ -393,11 +394,19 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
 			include("information/request_certified.php");
 	  }elseif(($modules=="request_card_list")){ 
 			include("information/request_card_list.php");
+	  }elseif(($modules=="request_certified_list")){ 
+			include("information/request_certified_list.php");
 	  }elseif(($modules=="teacher")){ 
 			include("information/teacher.php");
 	  }elseif(($modules=="videos")){ 
 			include("information/videos.php");
-	  }else{
+	  }elseif(($modules=="announce_list")){ 
+			include("information/announce_list.php");
+	  }elseif(($modules=="register_detail")){ 
+			include("information/register_detail.php");
+	  }elseif(($modules=="register_edit")){
+	 		include("information/register_edit.php");
+	   }else{
 		  	include("information/mainfile.php");
 	  }
 

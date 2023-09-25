@@ -1,3 +1,15 @@
+<?php
+    if((isset($_GET["id"]))){
+        $course_key=filter_input(INPUT_GET,'id');
+    }else{
+        if((isset($_POST["id"]))){
+            $course_key=filter_input(INPUT_POST,'id');
+        }else{
+            $course_key=null;
+        }
+    }
+?>
+
 <div class="page-body">
     <div class="container-xl">
 
@@ -662,7 +674,7 @@
                                         <div class="card-status-top bg-blue"></div>
                                         <div class="card-header">
                                             <div class="card-title" style="font-size: 18px;">
-                                                <div>เลือกเรียนหลักสูตร (Select your Progran)</div>
+                                                <div>เลือกเรียนหลักสูตร (Select your Course)</div>
                                             </div>
                                         </div>
                                         <div class="card-body">
@@ -671,14 +683,22 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
                                                         <label class="form-check">
-                                                            <select  class="form-select" placeholder="เลือกเรียนหลักสูตร (Select your Progran)" name="course" id="course" required="required">
-                                                                <option value="">เลือกเรียนหลักสูตร (Select your Progran)</option>
-
+                                                            <select  class="form-select" placeholder="เลือกเรียนหลักสูตร (Select your Course)" name="course" id="course" required="required">
+                                                                <option value="">เลือกเรียนหลักสูตร (Select your Course)</option>
+                                                                
     <?php
             $course_Sql="SELECT `course_id`,`course_name`,`course_name_en` FROM `tb_course`  ORDER BY `course_id` ASC";
             $course_List=result_array($course_Sql);
-            foreach($course_List as $key=>$course_Row){   ?>
-                                                                <option value="<?php echo $course_Row["course_id"];?>"><?php echo $course_Row["course_name"];?> (<?php echo $course_Row["course_name_en"];?>)</option>     
+            foreach($course_List as $key=>$course_Row){  
+                
+                if(($course_key==$course_Row["course_id"])){
+                    $selected_course='selected="selected"';
+                }else{
+                    $selected_course=null;
+                }
+                
+                ?>
+                                                                <option value="<?php echo $course_Row["course_id"];?>" <?php echo $selected_course;?> ><?php echo $course_Row["course_name"];?> (<?php echo $course_Row["course_name_en"];?>)</option>     
     <?php    } ?>
 
                                                             </select>
@@ -722,22 +742,22 @@ For collect, use and disclose my personal information for the purpose of request
                                                     </div>
                                                 </div>
 
-                                                <div class="row g-5">
+                                                <div class="row ">
                                                     <div class="col-md-6" >
                                                         <div class="form-group"></div>
                                                     </div>
                                                     <div class="col-md-6" >
                                                         <div class="form-group">
-                                                        <div class="input-group mb-2">
-                                                            <label class="form-check">
-                                                                <div id="check_register-null">
-                                                                <input class="form-check-input" name="check_register" id="check_register" type="checkbox" value="1" required="required">
-                                                                <span class="form-check-label">ยอมรับเงื่อนไข</span>
-                                                                </div>
-                                                            </label>
+                                                            <div class="input-group mb-2">
+                                                                <label class="form-check">
+                                                                    <div id="check_register-null">
+                                                                    <input class="form-check-input" name="check_register" id="check_register" type="checkbox" value="1" required="required">
+                                                                    <span class="form-check-label">ยอมรับเงื่อนไข</span>
+                                                                    </div>
+                                                                </label>
+                                                            </div>
                                                         </div>
-                                                    </div>
-  
+                                                    </div>  
                                                 </div>
 
                                             </div>

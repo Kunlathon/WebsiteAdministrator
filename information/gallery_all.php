@@ -34,17 +34,21 @@
                                                 <div class="page-title" style="font-size: 20px;">รูปภาพกิจกรรมทั้งหมด</div>
                                               </div>
                                             </div>
+
                                             <div class="col-md-6" align="right">
-                                              <div class="row g-2">
+											<form name="keyword" action="?modules=gallery_all" method="post">
+                                              <div class="row g-2">											  
                                                 <div class="col">
-                                                  <input type="text" name="" id="" class="form-control" placeholder="Search for…">
+                                                  <input type="text" name="keyword" id="" class="form-control" placeholder="Search for…">											
                                                 </div>
                                                 <div class="col-auto">
-                                                  <button type="button" name="" id="" class="btn btn-icon" aria-label="Button" >
+                                                  <button type="submit" name="" id="" class="btn btn-icon" aria-label="Button" >
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
                                                   </button>
-                                                </div>
+                                                </div>			
+
                                               </div>
+											  </form>
                                             </div>
                                           </div>
                                         </div>
@@ -69,7 +73,6 @@
                                         <div class="row row-cards alogn-items-center">
 
 										 <?php
-											  $keyword = isset($_REQUEST['keyword']) ? $_REQUEST['keyword'] : '';
 
 											  $perpage = 9;
 
@@ -112,9 +115,15 @@
 
 										  <div class="col-md-12">
 											<nav>
-											  <ul class="pagination theme-colored">
-												<li> <a aria-label="Previous" href="?modules=gallery_all&keyword=<?php echo $keyword; ?>&page=1"> <span aria-hidden="true">«</span> </a> </li>
-												<?php
+											<ul class="pagination ">
+											  <li class="page-item disabled">
+												<a class="page-link" href="?modules=gallery_all&keyword=<?php echo $keyword; ?>&page=1" tabindex="-1" aria-disabled="true">
+												  <!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
+												  <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg>
+												  prev
+												</a>
+											  </li>
+											  <?php
 												for ($i = 1; $i <= $total_page; $i++) {
 
 												  if ($i == $page) {
@@ -124,10 +133,17 @@
 												  }
 
 												?>
-												  <li class="<?php echo $active; ?>"><a href="?modules=gallery_all&keyword=<?php echo $keyword; ?>&page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+												  <li class="page-item <?php echo $active; ?>"><a class="page-link" href="?modules=gallery_all&keyword=<?php echo $keyword; ?>&page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
 												<?php } ?>
-												<li> <a aria-label="Next" href="?modules=gallery_all&keyword=<?php echo $keyword; ?>&page=<?php echo $total_page; ?>"> <span aria-hidden="true">»</span> </a> </li>
-											  </ul>
+
+											  <li class="page-item">
+												<a class="page-link" href="?modules=gallery_all&keyword=<?php echo $keyword; ?>&page=<?php echo $total_page; ?>">
+												  next <!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
+												  <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+												</a>
+											  </li>
+											</ul>
+
 											</nav>
 										  </div>
 
@@ -149,28 +165,6 @@
           </div>
         </div>
 <!-- Page body end-->
-
-
-                    <ul class="pagination ">
-                      <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
-                          <!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
-                          <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg>
-                          prev
-                        </a>
-                      </li>
-                      <li class="page-item"><a class="page-link" href="#">1</a></li>
-                      <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">4</a></li>
-                      <li class="page-item"><a class="page-link" href="#">5</a></li>
-                      <li class="page-item">
-                        <a class="page-link" href="#">
-                          next <!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
-                          <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
-                        </a>
-                      </li>
-                    </ul>
 
 
 <!--js code-->

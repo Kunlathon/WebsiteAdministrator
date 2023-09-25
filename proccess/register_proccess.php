@@ -126,7 +126,7 @@ include("../config/fnc.php");
 
             );
             insert("tb_register", $register_data);
-
+            echo "<meta charset='utf-8'/><script>alert('ลงทะเบียนเรียนสำเร็จ');location.href='?modules=register';</script>";
         }else{
 
             $register_data = array(
@@ -167,8 +167,9 @@ include("../config/fnc.php");
 
             );
             insert("tb_register", $register_data);
-
+            echo "<meta charset='utf-8'/><script>alert('ลงทะเบียนเรียนสำเร็จ');location.href='?modules=register';</script>";
         }
+
 
 
 ?>

@@ -19,7 +19,7 @@
                                                         <div class="page-header d=print-none">
                                                             <div class="container-xl">
                                                                 <div class="row g-2 alogn-items-center">
-                                                                    <div col-md-12>
+                                                                    <div class="col-md-12">
                                                                         <div class="page-title" style="font-size: 20px;">รายงานการยื่นเรื่องขอเอกสารรับรอง ()</div>
                                                                     </div>
                                                                 </div>
@@ -41,15 +41,16 @@
                                                                 <div class="row g-2 alogn-items-center">
                                                                     <div class="col-md-8">
                                                                         <div class="form-group">
-                                                                            <label>กรอกข้อมูลเพื่อค้นหา (Search)</label>
-                                                                            <input name="" id="" type="text" class="form-control" required="required" placeholder="กรอกข้อมูลเพื่อค้นหา (Search)">
+                                                                            <div id="text_key-null">
+                                                                            <input name="text_key"  id="text_key" type="text" class="form-control" required="required" placeholder="กรอกข้อมูลเพื่อค้นหา (Search)">
+                                                                            </div>
                                                                         </div>                                                                        
                                                                     </div>
                                                                     <div class="col-md-4">
                                                                         <div class="card-footer text-end" style="margin: 0 auto; text-align: center;">
                                                                         <center>
-                                                                            <button type="submit" name="" id="" class="btn btn-success">คันหา</button>
-                                                                            <button type="button" name="" id="" class="btn btn-danger">ยกเลิก</button>
+                                                                            <button type="button" name="but_clink" id="but_clink" class="btn btn-success">คันหา</button>
+                                                                            <button type="button" name="but_delete" id="but_delete" class="btn btn-danger" value="but_delete">ยกเลิก</button>
                                                                         </center>
                                                                         </div>
                                                                     </div>
@@ -74,17 +75,14 @@
                                                                 <h3 class="card-title">รายการข้อมูล</h3>
                                                             </div>
                                                             <div class="card-body">
-
+<div id="Run_List">
                                                                 <div class="table-responsive">
                                                                
                                                                     <table class="table table-bordered">
                                                                         <thead>
                                                                             <tr>
                                                                                 <th><div>ลำดับ (No.)</div></th>
-                                                                                <th><div>รหัสนิสิต (Student ID)</div></th>
                                                                                 <th><div>รายชื่อ (Name-Surname)</div></th>
-                                                                                <th><div>คณะ (Faculty)</div></th>
-                                                                                <th><div>สาขา (Major)</div></th>
                                                                                 <th><div>สถานะ (Status)</div></th>
                                                                             </tr>
                                                                         </thead>
@@ -98,41 +96,18 @@
             $myname=$request_Row["user_name"]." ".$request_Row["user_surname"];
 
            
-            $faculty_Sql="SELECT `faculty_name` FROM `tb_faculty` WHERE `faculty_id` ='{$request_Row["user_faculty"]}'";
-            $faculty_List=result_array($faculty_Sql);
-            foreach($faculty_List as $key=>$faculty_Row){   
-                if((is_array($faculty_Row) and count($faculty_Row))){
-                    $faculty_name=$faculty_Row["faculty_name"];
-                }else{
-                    $faculty_name="-";
-                }                                            
-            } 
-
-            
-            $department_Sql="SELECT `department_name` FROM `tb_department` WHERE `department_id`='{$request_Row["user_department"]}'";
-            $department_List=result_array($department_Sql);
-            foreach($department_List as $key=>$department_Row){   
-                if((is_array($department_Row) and count($department_Row))){
-                    $department_name=$department_Row["department_name"];
-                }else{
-                    $department_name="-";
-                }                             
-            } 
 
             ?>
 
                                                                             <tr>
                                                                                 <td><div><?php echo $requset_count;?></div></td>
-                                                                                <td><div><?php echo $request_Row["user_student_id"];?></div></td>
                                                                                 <td><div><?php echo $myname;?></div></td>
-                                                                                <td><div><?php echo $faculty_name;?></div></td>
-                                                                                <td><div><?php echo $department_name;?></div></td>
                                                                                 <td>
             <?php
                     if(($request_Row["user_status"]=="1")){    ?>
-                                                                                    <div class="btn btn-warning btn-xs">กำลังดำเนินการ</div>
+                                                                                    <span class="badge bg-orange-lt">กำลังดำเนินการ</span>
             <?php    }elseif(($request_Row["user_status"]=="2")){  ?>
-                                                                                    <div class="btn btn-success btn-xs">ดำเนินเรียบร้อย</div>
+                                                                                    <span class="badge bg-teal-lt" >ดำเนินเรียบร้อย</span>
             <?php    }else{}    ?>
                                                                                     
                                                                                 </td>
@@ -144,7 +119,7 @@
                                                                 </table>
 
                                                                 </div>
-
+</div>
                                                             </div>
                                                         </div>
 
@@ -169,3 +144,53 @@
     </div>
 </div>
           
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $("#but_delete").on("click",function(){
+            var but_delete=$("#but_delete").val();
+                if(but_delete==="but_delete"){
+                    document.location="?modules=request_certified_list";
+                }else{}
+        })
+    })
+</script>
+
+<script>
+    $(document).ready(function(){
+        $("#but_clink").on("click",function(){
+            var text_key=$("#text_key").val();
+                if(text_key!==""){
+                    if(text_key.length>=101){
+                        document.getElementById("text_key-null").innerHTML=
+                        '<input type="text" name="text_key" id="text_key" value="'+text_key+'" class="form-control is-invalid">'
+                        +'<div class="invalid-feedback">จำนวนตัวอักษรจำกัดไม่เกิน 100 ตัวอักษร</div>';
+                    }else{
+                        $.post("proccess/request_certifed_show.php",{
+                            text_key:text_key
+                        },function(RunList){
+                            if(RunList!==""){
+                                $("#Run_List").html(RunList);
+                                document.getElementById("text_key-null").innerHTML=
+                                '<input type="text" name="text_key" id="text_key" value="'+text_key+'" class="form-control">'
+                                +'<div class="invalid-feedback"></div>';
+                            }else{
+                                document.getElementById("Run_List").innerHTML=
+                                '<div class="row">'
+                                +'  <div class="alert alert-warning" role="alert">'
+                                +'      เกิดข้อผิดพลาดไม่สามารถดำเนินการได้'
+                                +'  </div>'
+                                +'</div>';
+                            }
+                        })
+                    }
+                }else{
+                    document.getElementById("text_key-null").innerHTML=
+                        '<input type="text" name="text_key" id="text_key" value="'+text_key+'" class="form-control is-invalid">'
+                        +'<div class="invalid-feedback">กรุณาพิมพ์ เพื่อค้นหา</div>';
+                }
+        })
+    })
+</script>
+

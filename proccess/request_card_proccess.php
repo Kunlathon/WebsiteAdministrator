@@ -33,6 +33,12 @@ include("../config/fnc.php");
     $user_idcard=filter_input(INPUT_POST,'user_idcard');
     $user_student_id=filter_input(INPUT_POST,'user_student_id');
 
+    $user_new_card=filter_input(INPUT_POST,'user_new_card');
+    $user_lost_card=filter_input(INPUT_POST,'user_lost_card');
+    $user_defective_card=filter_input(INPUT_POST,'user_defective_card');
+    $user_expired_card=filter_input(INPUT_POST,'user_expired_card');
+    $user_change_name=filter_input(INPUT_POST,'user_change_name');
+
 
     $student_card_data = array(
 
@@ -50,6 +56,11 @@ include("../config/fnc.php");
         "user_date"=>$date,
         "user_update"=>$date,
         "user_lastlogin"=>$datetime,
+        "user_new_card"=>$user_new_card,
+        "user_lost_card"=>$user_lost_card,
+        "user_defective_card"=>$user_defective_card,
+        "user_expired_card"=>$user_expired_card,
+        "user_change_name"=>$user_change_name,
         "user_status"=>'1'
 
     );

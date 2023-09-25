@@ -1,6 +1,6 @@
 <!--css code-->
-    <link rel="stylesheet" href="dist/img/gallery/baguetteBox.min.css">
-    <link rel="stylesheet" href="dist/img/gallery/grid-gallery.css">
+    <link rel="stylesheet" href="../dist/img/gallery/baguetteBox.min.css">
+    <link rel="stylesheet" href="../dist/img/gallery/grid-gallery.css">
 <!--css code end-->
 <!-- Page body -->
         <div class="page-body">
@@ -11,7 +11,13 @@
                 <div class="page-body">
                   <div class="container-xl">
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+		<?php 
+		    $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : '';
 
+			$sql = "SELECT * FROM tb_gallery a INNER JOIN tb_picture b ON a.gallery_id=b.gallery_id WHERE a.gallery_id='$id ' AND a.gallery_status = '1' ORDER BY b.picture_id ASC";
+			//echo $sql;
+			$row = row_array($sql);
+		?>
                     <div class="row">
                       <div class="col-md-12">
                         <div class="card-body">
@@ -24,8 +30,8 @@
                                       <div class="page-header d=print-none">
                                         <div class="container-xl">
                                           <div class="row g-2 alogn-items-center">
-                                            <div col-md-12>
-                                              <div class="page-title" style="font-size: 20px;">GRID GALLERY</div>
+                                            <div class="col-md-12">
+                                              <div class="page-title" style="font-size: 20px;"><?php echo $row['gallery_name'];?></div>
                                             </div>
                                           </div>
                                         </div>
@@ -48,60 +54,21 @@
                           <section class="gallery-block grid-gallery">
                             <div class="mb-1">
                                 <div class="row g-3">
+								<?php
+									$sqlGal = "SELECT * FROM tb_gallery a INNER JOIN tb_picture b ON a.gallery_id=b.gallery_id WHERE a.gallery_id='$id ' AND a.gallery_status = '1' ORDER BY b.picture_id ASC";
+									//echo $sqlGal;
+									$rowGal = result_array($sqlGal);
+
+									foreach ($rowGal as $key => $_itemGal){ 
+								?>
 
                                     <div class="col-md-4 item">
-                                        <a class="lightbox" href="/languagecenter/dist/img/gallery/test_gallery/image1.jpg">
-                                            <img class="img-fluid image scale-on-hover" src="/languagecenter/dist/img/gallery/test_gallery/image1.jpg">
+                                        <a class="lightbox" href="../uploads/gallery/<?php echo $_itemGal['gallery_folder'];?>/<?php echo $_itemGal['picture_name'];?>">
+                                            <img class="img-fluid image scale-on-hover" src="../uploads/gallery/<?php echo $_itemGal['gallery_folder'];?>/<?php echo $_itemGal['picture_name'];?>">
                                         </a>
                                     </div>
 
-                                    <div class="col-md-4 item">
-                                        <a class="lightbox" href="/languagecenter/dist/img/gallery/test_gallery/image2.jpg">
-                                            <img class="img-fluid image scale-on-hover" src="/languagecenter/dist/img/gallery/test_gallery/image2.jpg">
-                                        </a>
-                                    </div>
-
-                                    <div class="col-md-4 item">
-                                        <a class="lightbox" href="/languagecenter/dist/img/gallery/test_gallery/image3.jpg">
-                                            <img class="img-fluid image scale-on-hover" src="/languagecenter/dist/img/gallery/test_gallery/image3.jpg">
-                                        </a>
-                                    </div>
-
-                                    <div class="col-md-4 item">
-                                        <a class="lightbox" href="/languagecenter/dist/img/gallery/test_gallery/image4.jpg">
-                                            <img class="img-fluid image scale-on-hover" src="/languagecenter/dist/img/gallery/test_gallery/image4.jpg">
-                                        </a>
-                                    </div>
-
-                                    <div class="col-md-4 item">
-                                        <a class="lightbox" href="/languagecenter/dist/img/gallery/test_gallery/image5.jpg">
-                                            <img class="img-fluid image scale-on-hover" src="/languagecenter/dist/img/gallery/test_gallery/image5.jpg">
-                                        </a>
-                                    </div>
-
-                                    <div class="col-md-4 item">
-                                        <a class="lightbox" href="/languagecenter/dist/img/gallery/test_gallery/image6.jpg">
-                                            <img class="img-fluid image scale-on-hover" src="/languagecenter/dist/img/gallery/test_gallery/image6.jpg">
-                                        </a>
-                                    </div>
-
-                                    <div class="col-md-4 item">
-                                        <a class="lightbox" href="/languagecenter/dist/img/gallery/test_gallery/image7.jpg">
-                                            <img class="img-fluid image scale-on-hover" src="/languagecenter/dist/img/gallery/test_gallery/image7.jpg">
-                                        </a>
-                                    </div>
-
-                                    <div class="col-md-4 item">
-                                        <a class="lightbox" href="/languagecenter/dist/img/gallery/test_gallery/image8.jpg">
-                                            <img class="img-fluid image scale-on-hover" src="/languagecenter/dist/img/gallery/test_gallery/image8.jpg">
-                                        </a>
-                                    </div>
-
-                                    <div class="col-md-4 item">
-                                        <a class="lightbox" href="/languagecenter/dist/img/gallery/test_gallery/image9.jpg">
-                                            <img class="img-fluid image scale-on-hover" src="/languagecenter/dist/img/gallery/test_gallery/image9.jpg">
-                                        </a>
-                                    </div>
+								<?php } ?>
 
                                 </div>
                             </div>
@@ -122,7 +89,7 @@
 
 <!--js code-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="dist/img/gallery/baguetteBox.min.js"></script>
+    <script src="../dist/img/gallery/baguetteBox.min.js"></script>
     <script>
         baguetteBox.run('.grid-gallery', { animation: 'slideIn'});
     </script>
