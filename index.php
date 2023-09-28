@@ -401,7 +401,11 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
 			include("information/videos.php");
 	  }elseif(($modules=="announce_list")){ 
 			include("information/announce_list.php");
-	  }else{
+	  }elseif(($modules=="register_detail")){ 
+			include("information/register_detail.php");
+	  }elseif(($modules=="register_edit")){
+	 		include("information/register_edit.php");
+	   }else{
 		  	include("information/mainfile.php");
 	  }
 

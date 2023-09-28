@@ -21,7 +21,7 @@
                                       <div class="container-xl">
                                         <div class="row g-2 alogn-items-center">
                                           <div col-md-12>
-                                            <div class="page-title" style="font-size: 20px;">ค้นหาข้อมูลผู้สมัคร</div>
+                                            <div class="page-title" style="font-size: 20px;">ค้นหาข้อมูลผู้สมัคร (Search for Applicant Information)</div>
                                           </div>
                                         </div>
                                       </div>
@@ -32,23 +32,25 @@
                             </div>                            
                           </div>
 
+
+
                           <div class="mb-3">
                             <div class="row g-5">
-                              <label class="col-form-label col-md-2 required" style="font-size: 16px;">เลขประจำตัวประชาชน หรือ Passport No</label>                              
-                              <div class="col-md-10">
-                                <input type="text" class="form-control" name="idcard" id="idcard" placeholder="เลขประจำตัวประชาชน หรือ Passport No" style="font-size: 16px;" required="required">
+                              <label class="col-form-label col-md-4" style="font-size: 16px;">ชื่อ - สนามสกุล/ Name as passport <font style="color: red;">*</font></label>                              
+                              <div class="col-md-8">
+                                <input type="text" class="form-control" name="student_name" id="student_name" placeholder="ชื่อ - สนามสกุล/ Name as passport" maxlength="100" minlength="5" style="font-size: 16px;" required="required">
                               </div>
                             </div>
                           </div>
 
                           <div class="mb-3">
                             <div class="row g-5">
-                              <label class="col-form-label col-md-2" style="font-size: 16px;">รหัสนิสิต</label>                              
-                              <div class="col-md-10">
-                                <input type="text" class="form-control" name="student_id" id="student_id" placeholder="รหัสนิสิต" style="font-size: 16px;" required="required">
+                              <label class="col-form-label col-md-4" style="font-size: 16px;">เลขประจำตัวประชาชน หรือ Passport No <font style="color: red;">*</font></label>                              
+                              <div class="col-md-8">
+                                <input type="text" class="form-control" name="idcard" id="idcard" placeholder="เลขประจำตัวประชาชน หรือ Passport No" maxlength="100" minlength="5" style="font-size: 16px;" required="required">
                               </div>
                             </div>
-                          </div>
+                          </div>                
 
                           <div class="mb-3">
                             <div class="row g-5">                        

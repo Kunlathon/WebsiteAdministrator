@@ -304,13 +304,16 @@ if ((preg_match("/profile.php/", $_SERVER['PHP_SELF']))) {
                                     <div class="col-<?php echo $grid; ?>-4">
 
                                         <div class="card-img-actions">
-                                            
+
                         <?php
-                                if(($row['admin_img']==null or $row['admin_img']=='0' or $row['admin_img']=='-')){ ?>
-                                    <img class="card-img-top img-fluid mx-auto d-block" style="width: 50%;" src="https://www.abaacademic.com/web2023/admin/images/aba.jpg" class="img-thumbnail">
-                        <?php   }else{ ?>
+                                 $copy_Link_System=$RunLink->Call_Link_System();
+                                 if((file_exists($copy_Link_System."/uploads/profile_picture/".$row['admin_img']))){ ?>
+                                    <img class="card-img-top img-fluid mx-auto d-block" style="width: 50%;" src="<?php echo $RunLink->Call_Link_System();?>/uploads/profile_picture/no_picture.jpg" class="img-thumbnail">
+                        <?php    }else{ ?>
                                     <img class="card-img-top img-fluid mx-auto d-block" style="width: 50%;" src="<?php echo $RunLink->Call_Link_System();?>/uploads/profile_picture/<?php echo $row['admin_img'];?>" class="img-thumbnail">
-                        <?php   }  ?>                                          
+                        <?php    }  ?>
+                                            
+                                    
                                         </div>
 
                                     </div>

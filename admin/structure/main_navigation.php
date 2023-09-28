@@ -44,16 +44,6 @@ if ((preg_match("/main_navigation.php/", $_SERVER['PHP_SELF']))) {
         </li>
 
         <li class="nav-item nav-item-submenu">
-            <a href="#" class="nav-link"><i class="icon-puzzle2"></i> <span>ข้อมูลพื้นฐาน</span></a>
-
-            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=image_slide" class="nav-link ">ภาพสไลด์</a></li>
-                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_video" class="nav-link ">youtube</a></li>
-                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=picture_album" class="nav-link ">ภาพกิจกรรม</a></li>
-            </ul>
-        </li>
-
-        <li class="nav-item nav-item-submenu">
             <a href="#" class="nav-link"><i class="icon-design"></i> <span>จัดการหน้าเว็บไซต์</span></a>
 
             <ul class="nav nav-group-sub" data-submenu-title="Layouts">
@@ -69,69 +59,77 @@ if ((preg_match("/main_navigation.php/", $_SERVER['PHP_SELF']))) {
         </li>
 
         <li class="nav-item nav-item-submenu">
-            <a href="#" class="nav-link"><i class="icon-list-unordered"></i> <span>จัดการหน้าข่าวสาร</span></a>
+            <a href="#" class="nav-link"><i class="icon-puzzle2"></i> <span>ข้อมูลประชาสัมพันธ์</span></a>
 
             <ul class="nav nav-group-sub" data-submenu-title="Layouts">
                 <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_news" class="nav-link ">ข่าวสารทั้งหมด</a></li>
-                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=announcemen_news" class="nav-link ">ข่าวประกาศ</a></li>
-                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=press_release_news" class="nav-link ">ข่าวประชาสัมพันธ์</a></li>
-                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=procurement_news" class="nav-link ">ข่าวจัดชื้อจัดจ้าง</a></li>
-                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=job_recruitment_news" class="nav-link ">ข่าวรับสมัครงาน</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=#" class="nav-link ">ข้อมูลเว็บไชต์</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=image_slide" class="nav-link ">ภาพสไลด์</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=picture_album" class="nav-link ">ภาพกิจกรรม</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_video" class="nav-link ">วิดีโอ</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=document" class="nav-link ">เอกสารดาวน์โหลด</a></li>
 
             </ul>
         </li>
 
         <li class="nav-item nav-item-submenu">
-            <a href="#" class="nav-link"><i class="icon-graduation2"></i> <span>จัดการหลักสูตร</span></a>
+            <a href="#" class="nav-link"><i class="icon-puzzle2"></i> <span>หลักสูตร</span></a>
 
             <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=classroom_data" class="nav-link ">จัดหลักสูตร</a></li>
-                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=course_data" class="nav-link">หลักสูตรหลัก</a></li>
-                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=term_data" class="nav-link">ภาคเรียน</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=" class="nav-link ">จัดหลักสูตร</a></li>
             </ul>
         </li>
 
         <li class="nav-item nav-item-submenu">
-            <a href="#" class="nav-link"><i class="icon-reading"></i> <span>ข้อมูลนิสิต</span></a>
+            <a href="#" class="nav-link"><i class="icon-puzzle2"></i> <span>ข้อมูลการสมัครเรียน</span></a>
 
             <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=student_data" class="nav-link ">รายชื่อนิสิต</a></li>                
-                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=student_success" class="nav-link">สำเร็จการศึกษา</a></li>
-                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=student_alumni" class="nav-link">ศิษย์เก่า</a></li>
-                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=student_resign" class="nav-link">ลาออก</a></li>
-                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=student_drop" class="nav-link">ลาพัก</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=" class="nav-link ">ข้อมูลการสมัครเรียน</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=" class="nav-link ">นิสิตที่ผ่านการสมัคร</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=" class="nav-link ">นิสิตที่ไม่ผ่านการสมัคร</a></li>
             </ul>
         </li>
 
         <li class="nav-item nav-item-submenu">
-            <a href="#" class="nav-link"><i class="icon-stack2"></i> <span>บริการออนไลน์</span></a>
+            <a href="#" class="nav-link"><i class="icon-puzzle2"></i> <span>บริการออนไลน์</span></a>
 
             <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-				<li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=request_card" class="nav-link ">ยื่นเอกสารขอบัตร</a></li>  
-                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=request_card_list" class="nav-link">รายการผู้ขอเอกสารขอบัตร</a></li>
-				<li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=request_certified" class="nav-link">ยื่นเรื่องขอเอกสารรับรอง</a></li>
-				<li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=request_certified_list" class="nav-link">รายการผู้ขอเอกสารรับรอง</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=" class="nav-link ">ยื่นเอกสารขอบัตร</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=" class="nav-link ">รายชื่อผู้ขอเอกสารขอบัตร</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=" class="nav-link ">ยื่นเรื่องขอเอกสารรับรอง</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=" class="nav-link ">รายชื่อผู้ขอเอกสารรับรอง</a></li>
             </ul>
         </li>
 
         <li class="nav-item nav-item-submenu">
-            <a href="#" class="nav-link"><i class="icon-sphere"></i> <span>เอกสารดาวน์โหลด</span></a>
+            <a href="#" class="nav-link"><i class="icon-puzzle2"></i> <span>ข้อมูลนิสิต</span></a>
 
             <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=document" class="nav-link ">เอกสาร</a></li>
-                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=document_category" class="nav-link">ประเภท</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=" class="nav-link ">อาจารย์</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=" class="nav-link ">ผู้ใช้งานระบบ</a></li>
             </ul>
         </li>
 
         <li class="nav-item nav-item-submenu">
-            <a href="#" class="nav-link"><i class="icon-people"></i> <span>ข้อมูลผู้ใช้งาน</span></a>
+            <a href="#" class="nav-link"><i class="icon-puzzle2"></i> <span>ตั้งค่า</span></a>
 
             <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=user_data" class="nav-link">ผู้ใช้งาน</a></li>
-                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=user_data2" class="nav-link">ผู้ใช้งาน (ออกแล้ว)</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=" class="nav-link ">ภาคเรียน</a></li>
             </ul>
         </li>
 
+        <li class="nav-item nav-item-submenu">
+            <a href="#" class="nav-link"><i class="icon-puzzle2"></i> <span>จัดการผู้ใช้</span></a>
+
+            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=" class="nav-link ">อาจารย์</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=" class="nav-link ">ผู้ใช้งานระบบ</a></li>
+            </ul>
+        </li>
+
+        <li class="nav-item nav-item-submenu">
+            <a href="#" class="nav-link"><i class="icon-puzzle2"></i> <span>ออกจากระแบบ</span></a>
+        </li>
 
         <!-- /main -->
 

@@ -11,9 +11,9 @@
 
 
     $idcard=filter_input(INPUT_POST,'idcard');
-    $student_id=filter_input(INPUT_POST,'student_id');
+    $student_name=filter_input(INPUT_POST,'student_name');
 
-    $verify_sql="SELECT * FROM `tb_register` WHERE `user_student_no`='{$student_id}' AND `user_idcard`='{$idcard}'";
+    $verify_sql="SELECT * FROM `tb_student` WHERE `user_name` LIKE '%{$student_name}%' AND `user_idcard`='{$idcard}'";
     $verify_rs=result_array($verify_sql);
     foreach($verify_rs as $key=>$verify_row){
 
@@ -706,16 +706,8 @@
     <?php
             $course_Sql="SELECT `course_id`,`course_name`,`course_name_en` FROM `tb_course`  ORDER BY `course_id` ASC";
             $course_List=result_array($course_Sql);
-            foreach($course_List as $key=>$course_Row){  
-                
-                if(($course_key==$course_Row["course_id"])){
-                    $selected_course='selected="selected"';
-                }else{
-                    $selected_course=null;
-                }
-                
-                ?>
-                                                                <option value="<?php echo $course_Row["course_id"];?>" <?php echo $selected_course;?> ><?php echo $course_Row["course_name"];?> (<?php echo $course_Row["course_name_en"];?>)</option>     
+            foreach($course_List as $key=>$course_Row){  ?>
+                                                                <option value="<?php echo $course_Row["course_id"];?>" ><?php echo $course_Row["course_name"];?> (<?php echo $course_Row["course_name_en"];?>)</option>     
     <?php    } ?>
 
                                                             </select>

@@ -9,14 +9,32 @@
         }
     }*/
 
-    $idcard=filter_input(INPUT_POST,'idcard');
-    $student_id=filter_input(INPUT_POST,'student_id');
+    //$idcard=filter_input(INPUT_POST,'idcard');
+    //$student_name=filter_input(INPUT_POST,'student_name');
 
-    $verify_sql="SELECT * FROM `tb_register` WHERE `user_student_no`='{$student_id}' AND `user_idcard`='{$idcard}'";
+
+    if(($_REQUEST["idcard"]!=null)){
+        $idcard=$_REQUEST["idcard"];
+    }else{
+         $idcard=null;
+    }
+
+    if(($_REQUEST["student_name"]!=null)){
+        $student_name=$_REQUEST["student_name"];
+    }else{
+         $student_name=null;
+    }
+
+
+    $verify_sql="SELECT * FROM `tb_student` WHERE `user_idcard`='{$idcard}' AND (`user_name` LIKE '%$student_name%' OR `user_surname` LIKE '%$student_name%')";
+	//echo "$verify_sql";
     $verify_rs=result_array($verify_sql);
     foreach($verify_rs as $key=>$verify_row){
 
-            if(((is_array($verify_row) && count($verify_row)))){ ?>
+            if(((is_array($verify_row) && count($verify_row)))){ 
+                
+                
+                ?>
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 
    
@@ -58,7 +76,7 @@
                                                                         </div>
                                                                     </div>
     <input type="hidden" name="idcard" id="idcard" value="<?php echo $idcard;?>">
-    <input type="hidden" name="student_id" id="student_id" value="<?php echo $student_id;?>">
+    <input type="hidden" name="student_name" id="student_name" value="<?php echo $student_name;?>">
 </form>                                                                   
 
                                                                 </div>
@@ -76,6 +94,23 @@
                                             <div class="card-title" style="font-size: 18px;" >ข้อมูลส่วนตัว (Personal Information) </div>
                                         </div>
                                         <div class="card-body">
+
+                                            <div class="mb-3">
+                                                <div class="row g-5">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+        <?php
+                if (isset($verify_row["user_pic"])) { 
+		?>
+                                                            <div><img src="uploads/student/<?php echo  $verify_row["user_pic"]; ?>" class="img-thumbnail" alt="<?php echo  $verify_row["user_pic"]; ?>" style="width:152px; height:168px;"></div>
+        <?php   } else { ?>
+                                                            <div><img src="uploads/student/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:152px; height:168px;"></div>
+        <?php   } ?>
+                                                        </div>
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
 
                                             <div class="mb-3">
                                                 <div class="row g-5">
@@ -701,7 +736,7 @@
                                         <div class="card-status-top bg-blue"></div>
                                         <div class="card-header">
                                             <div class="card-title" style="font-size: 18px;">
-                                                <div>ประกาศรายชื่อผู้สมัคร</div>
+                                                <div>เรียนหลักสูตร</div>
                                             </div>
                                         </div>
                                         <div class="card-body">
@@ -716,14 +751,14 @@
                                                                     <thead>
                                                                         <tr>
                                                                             <th><div>ลำดับ (No.)</div></th>
-                                                                            <th><div>รายชื่อ (Name-Surname)</div></th>
+                                                                            <!--<th><div>รายชื่อ (Name-Surname)</div></th>-->
                                                                             <th><div>หลักสูตร (Course)</div></th>
                                                                             <th><div>สถานะ (Status)</div></th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
     <?php
-    $annouuce_Sql="SELECT * FROM `tb_register`";
+    $annouuce_Sql="SELECT * FROM `tb_register` WHERE user_idcard='{$verify_row['user_idcard']}'";
     $annouuce_Rs=result_array($annouuce_Sql);
     $requset_count=0;
     foreach($annouuce_Rs as $key=>$annouuce_Row){ 
@@ -749,7 +784,7 @@
                                                                         <tr>
                                                                             <td><div><?php echo $requset_count;?></div></td>
 
-                                                                            <td><div><?php echo $myname;?></div></td>
+                                                                            <!--<td><div><?php echo $myname;?></div></td>-->
 
                                                                             <td><div><?php echo $txt_course_name;?></div></td>
 
@@ -785,7 +820,7 @@
                                         <div class="card-status-top bg-blue"></div>
                                         <div class="card-header">
                                             <div class="card-title" style="font-size: 18px;">
-                                                <div>รายงานการขอบัตรนิสิต (REQUEST FOR STUDENT CARD REPORT)</div>
+                                                <div>การขอบัตรนิสิต (REQUEST FOR STUDENT CARD)</div>
                                             </div>
                                         </div>
                                         <div class="card-body">
@@ -807,7 +842,7 @@
                                                                    </thead>
                                                                    <tbody>
 <?php
-   $request_Sql="SELECT * FROM `tb_student_card`";
+   $request_Sql="SELECT * FROM `tb_student_card` WHERE user_idcard='{$verify_row['user_idcard']}'";
    $request_Rs=result_array($request_Sql);
    $requset_count=0;
    foreach($request_Rs as $key=>$request_Row){ 
@@ -854,7 +889,7 @@
                                         <div class="card-status-top bg-blue"></div>
                                         <div class="card-header">
                                             <div class="card-title" style="font-size: 18px;">
-                                                <div>รายงานการยื่นเรื่องขอเอกสารรับรอง ()</div>
+                                                <div>ขอเอกสารรับรอง ()</div>
                                             </div>
                                         </div>
                                         <div class="card-body">
@@ -875,7 +910,7 @@
                                                                    </thead>
                                                                    <tbody>
 <?php
-   $request_Sql="SELECT * FROM `tb_certified`";
+   $request_Sql="SELECT * FROM `tb_certified` WHERE user_idcard='{$verify_row['user_idcard']}'";
    $request_Rs=result_array($request_Sql);
    $requset_count=0;
    foreach($request_Rs as $key=>$request_Row){ 

@@ -113,14 +113,7 @@
 
 																					} else {
 																					?>
-																						<a href="uploads/document/<?php echo $request_Row['document_file']; ?>" target="_blank"><span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
-																						<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-																						   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-																						   <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
-																						   <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
-																						   <path d="M9 15l2 2l4 -4"></path>
-																						</svg>
-																					  </span></a>
+																						<a href="uploads/document/<?php echo $request_Row['document_file']; ?>" target="_blank"><img src="dist/img/download-png-blue.png" alt="<?php echo $document_name;?>" class="card-img-top" style="width:100px;height:40px;"></a>
 
 																					<?php
 																					}

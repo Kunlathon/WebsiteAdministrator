@@ -10,9 +10,9 @@
     }*/
 
     $idcard=filter_input(INPUT_POST,'idcard');
-    $student_id=filter_input(INPUT_POST,'student_id');
+    $student_name=filter_input(INPUT_POST,'student_name');
 
-    $verify_sql="SELECT * FROM `tb_register` WHERE `user_student_no`='{$student_id}' AND `user_idcard`='{$idcard}'";
+    $verify_sql="SELECT * FROM `tb_student` WHERE `user_name` LIKE '%{$student_name}%' AND `user_idcard`='{$idcard}'";
     $verify_rs=result_array($verify_sql);
     foreach($verify_rs as $key=>$verify_row){
 
@@ -58,7 +58,7 @@
                                                                         </div>
                                                                     </div>
     <input type="hidden" name="idcard" id="idcard" value="<?php echo $idcard;?>">
-    <input type="hidden" name="student_id" id="student_id" value="<?php echo $student_id;?>">
+    <input type="hidden" name="student_name" id="student_name" value="<?php echo $student_name;?>">
 </form>                                                                   
 
                                                                 </div>

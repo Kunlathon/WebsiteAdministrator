@@ -16,6 +16,13 @@ include("../config/fnc.php");
     $DateTime=date("Y-m-d H:i:s");
     $Dateimg=date("YmdHis");
 
+    $student_key=filter_input(INPUT_POST,'student_key');
+
+    $idcard=filter_input(INPUT_POST,'idcard');
+
+    $student_name=filter_input(INPUT_POST,'student_name');
+
+
     $title_t=filter_input(INPUT_POST,'title_t');
     $title_e=filter_input(INPUT_POST,'title_e');
     $fname=filter_input(INPUT_POST,'fname');
@@ -118,55 +125,14 @@ include("../config/fnc.php");
                 "user_mother_idcard"=>$mother_idcard,
                 "user_mothername"=>$mothername,
                 "user_mother_occupation"=>$mother_occupation,
-                "course_id"=>$course_id,
                 "user_date"=>$Date,
                 "user_update"=>$Date,
                 "user_lastlogin"=>$DateTime,
                 "user_status"=>'1'
 
             );
-            insert("tb_register", $register_data);
-
-            $student_data = array(
-                "user_idcard"=>$idcard,
-                "user_pic"=>$register_new_name,
-                "user_prefix_th"=>$title_t,
-                "user_prefix_en"=>$title_e,
-                "user_name"=>$fname,
-                "user_name_buddhist"=>$bname,
-                "user_surname"=>$sname,
-                "user_birthday"=>$bdate,
-                "user_ordination"=>$odate,
-                "user_address_no"=>$address2,
-                "user_address_moo"=>$moo2,
-                "user_address_soi"=>$soi2,
-                "user_address_road"=>$road2,
-                "user_address_subdistrict"=>$subdistrict2,
-                "user_address_district"=>$district2,
-                "user_address_province"=>$province2,
-                "user_address_citycode"=>$citycode2,
-                "user_tel"=>$tel,
-                "user_email"=>$email,
-                "user_height"=>$height,
-                "user_weight"=>$weight,
-                "user_race"=>$race,
-                "user_nationality"=>$nationality,
-                "user_religion"=>$religion,
-                "user_father_idcard"=>$father_idcard,
-                "user_father_occupation"=>$father_occupation,
-                "user_fathername"=>$fathername,
-                "user_mother_idcard"=>$mother_idcard,
-                "user_mothername"=>$mothername,
-                "user_mother_occupation"=>$mother_occupation,
-                "user_date"=>$Date,
-                "user_update"=>$Date,
-                "user_lastlogin"=>$DateTime,
-                "user_status"=>'1'
-
-            );
-            insert("tb_student", $student_data);
-
-            echo "<meta charset='utf-8'/><script>alert('ลงทะเบียนเรียนสำเร็จ');location.href='../?modules=announce_list';</script>";
+            update("tb_student", $register_data , "user_studentid  = '$student_key'");
+            echo "<meta charset='utf-8'/><script>alert('แก้ไขข้อมูลสำเร็จ');location.href='../?modules=register_detail&idcard=$idcard&student_name=$student_name';</script>";
         }else{
 
             $register_data = array(
@@ -199,54 +165,14 @@ include("../config/fnc.php");
                 "user_mother_idcard"=>$mother_idcard,
                 "user_mothername"=>$mothername,
                 "user_mother_occupation"=>$mother_occupation,
-                "course_id"=>$course_id,
                 "user_date"=>$Date,
                 "user_update"=>$Date,
                 "user_lastlogin"=>$DateTime,
                 "user_status"=>'1'
 
             );
-            insert("tb_register", $register_data);
-
-            $student_data = array(
-                "user_idcard"=>$idcard,
-                "user_prefix_th"=>$title_t,
-                "user_prefix_en"=>$title_e,
-                "user_name"=>$fname,
-                "user_name_buddhist"=>$bname,
-                "user_surname"=>$sname,
-                "user_birthday"=>$bdate,
-                "user_ordination"=>$odate,
-                "user_address_no"=>$address2,
-                "user_address_moo"=>$moo2,
-                "user_address_soi"=>$soi2,
-                "user_address_road"=>$road2,
-                "user_address_subdistrict"=>$subdistrict2,
-                "user_address_district"=>$district2,
-                "user_address_province"=>$province2,
-                "user_address_citycode"=>$citycode2,
-                "user_tel"=>$tel,
-                "user_email"=>$email,
-                "user_height"=>$height,
-                "user_weight"=>$weight,
-                "user_race"=>$race,
-                "user_nationality"=>$nationality,
-                "user_religion"=>$religion,
-                "user_father_idcard"=>$father_idcard,
-                "user_father_occupation"=>$father_occupation,
-                "user_fathername"=>$fathername,
-                "user_mother_idcard"=>$mother_idcard,
-                "user_mothername"=>$mothername,
-                "user_mother_occupation"=>$mother_occupation,
-                "user_date"=>$Date,
-                "user_update"=>$Date,
-                "user_lastlogin"=>$DateTime,
-                "user_status"=>'1'
-
-            );
-            insert("tb_student", $student_data);
-
-            echo "<meta charset='utf-8'/><script>alert('ลงทะเบียนเรียนสำเร็จ');location.href='../?modules=announce_list';</script>";
+            update("tb_student", $register_data , "user_studentid  = '$student_key'");
+            echo "<meta charset='utf-8'/><script>alert('แก้ไขข้อมูลสำเร็จ');location.href='../?modules=register_detail&idcard=$idcard&student_name=$student_name';</script>";
         }
 
 
