@@ -1,29 +1,47 @@
 <?php
-//Develop By Arnon Manomuang
-//พัฒนาเว็บไซต์โดย นายอานนท์ มะโนเมือง
-//Tel 0631146517 , 0946164461
-//โทร 0631146517 , 0946164461
-//Email: manomuang@hotmail.com , manomuang11@gmail.com , manomuang@gmail.com
+    //Develop By Arnon Manomuang
+    //พัฒนาเว็บไซต์โดย นายอานนท์ มะโนเมือง
+    //Tel 0631146517 , 0946164461
+    //โทร 0631146517 , 0946164461
+    //Email: manomuang@hotmail.com , manomuang11@gmail.com , manomuang@gmail.com
 
-//Develop By Kunlathon Saowakhon
-//พัฒนาเว็บไซต์โดย นายกุลธร เสาวคนธ์
-//Tel 0932670639
-//โทร 0932670639
-//Email: mpamese.pc2001@gmail.com , missing_yrc2014@hotmail.com	
-?>
+    //Develop By Kunlathon Saowakhon
+    //พัฒนาเว็บไซต์โดย นายกุลธร เสาวคนธ์
+    //Tel 0932670639
+    //โทร 0932670639
+    //Email: mpamese.pc2001@gmail.com , missing_yrc2014@hotmail.com
 
-<?php include '../../config/connect.ini.php'; ?>
-<?php include '../../config/fnc.php'; ?>
+    include("../../config/connect.ini.php");
+    include("../../config/fnc.php");
+    check_login('admin_username_lcm', 'login.php');
 
-<?php check_login('admin_username_lcm', 'login.php'); ?>
-
-<?php
     $aid = check_session("admin_id_lcm");
     $update = date('Y-m-d H:i:s');
+    $now_date = date('Y-m-d');
     $action = filter_input(INPUT_POST, 'action');
 
-        if(($action=="change_picture")){
+        if(($action=="edit")){
+           
+            $idcard = filter_input(INPUT_POST, 'idcard');
+            $firstname = filter_input(INPUT_POST, 'firstname');
+            $lastname = filter_input(INPUT_POST, 'lastname');
+            $address = filter_input(INPUT_POST, 'address');
+            $tel = filter_input(INPUT_POST, 'tel');
+            $email = filter_input(INPUT_POST, 'email');
 
+            $data = array(
+                "admin_idcard" => $idcard,
+                "admin_name" => $firstname,
+                "admin_lastname" => $lastname,
+                "admin_address" => $address,
+                "admin_tel" => $tel,
+                "admin_email" => $email,
+                "admin_update" => $now_date
+            );
+
+            update("tb_admin", $data, "admin_id = '{$aid}'");
+
+        }elseif(($action=="edit_image")){
 
             $profile_name=date('YmdHis')."_profile";
       
@@ -46,8 +64,8 @@
             );
             update("tb_admin", $data,"admin_id = {$aid}");
 
-            exit("<script>window.location='../../?modules=profile&manage=change_picture';</script>");
+            exit("<script>window.location='../../?modules=profile';</script>");
 
         }else{}
-
+    
 ?>

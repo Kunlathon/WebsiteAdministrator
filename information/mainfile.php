@@ -208,9 +208,9 @@
                     </svg>
                   </div>
                   <div>&nbsp;</div>
-                  <div class="col-md-12">Tel : 053 278967, 270451</div>
-                  <div class="col-md-12">Mobile : 087 185 7373</div>
-                  <div class="col-md-12">Fax : 053 270 452</div>
+                  <div class="col-md-12">Tel : 053 278967, ต่อ 210</div>
+                  <div class="col-md-12">Mobile : 0902748585</div>
+                  <div class="col-md-12">Line : 0902748585</div>
                 </div>
               </div>
               <div class="col-md-4">
@@ -241,8 +241,8 @@
                     </svg>
                   </div>
                   <div>&nbsp;</div>
-                  <div class="col-md-12">Website : lc.mcu.ac.th</div>
-                  <div class="col-md-12">Email : cm@mcu.ac.th</div>
+                  <div class="col-md-12">Website :</div>
+                  <div class="col-md-12">Email : languagemcu123@gmail.com</div>
                 </div>
               </div>
             </div>

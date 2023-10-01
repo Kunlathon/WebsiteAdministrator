@@ -1,70 +1,115 @@
 <?php
-//Develop By Arnon Manomuang
-//พัฒนาเว็บไซต์โดย นายอานนท์ มะโนเมือง
-//Tel 0631146517 , 0946164461
-//โทร 0631146517 , 0946164461
-//Email: manomuang@hotmail.com , manomuang11@gmail.com , manomuang@gmail.com
+    //Develop By Arnon Manomuang
+    //พัฒนาเว็บไซต์โดย นายอานนท์ มะโนเมือง
+    //Tel 0631146517 , 0946164461
+    //โทร 0631146517 , 0946164461
+    //Email: manomuang@hotmail.com , manomuang11@gmail.com , manomuang@gmail.com
 
-//Develop By Kunlathon Saowakhon
-//พัฒนาเว็บไซต์โดย นายกุลธร เสาวคนธ์
-//Tel 0932670639
-//โทร 0932670639
-//Email: mpamese.pc2001@gmail.com , missing_yrc2014@hotmail.com	
-//$RunLink->Call_Link_System();
+    //Develop By Kunlathon Saowakhon
+    //พัฒนาเว็บไซต์โดย นายกุลธร เสาวคนธ์
+    //Tel 0932670639
+    //โทร 0932670639
+    //Email: mpamese.pc2001@gmail.com , missing_yrc2014@hotmail.com	
+    //$RunLink->Call_Link_System();
 
-//OFF File Js
-//sweet_alert.min.js
-//select2.min.js
-//bootstrap_multiselect.js
-//OFF File Js end
-
+    //OFF File Js
+    //sweet_alert.min.js
+    //select2.min.js
+    //bootstrap_multiselect.js
+    //OFF File Js end
+    header('Content-Type: text/html; charset=UTF-8');
+    check_login('admin_username_lcm', 'login.php'); 
 ?>
-<?php check_login('admin_username_lcm', 'login.php'); ?>
 
-<script
-    src="<?php echo $RunLink->Call_Link_System();?>/template/global_assets/js/plugins/extensions/jquery_ui/interactions.min.js">
-</script>
-
+<script src="<?php echo $RunLink->Call_Link_System();?>/template/global_assets/js/plugins/extensions/jquery_ui/interactions.min.js"></script>
 
 <script src="<?php echo $RunLink->Call_Link_System();?>/template/global_assets/js/plugins/uploaders/fileinput/plugins/sortable.min.js"></script>
 <script src="<?php echo $RunLink->Call_Link_System();?>/template/global_assets/js/plugins/uploaders/fileinput/fileinput.min.js"></script>
 
-
 <script>
-var Select2Selects = function() {
-    var _componentSelect2 = function() {
-        if (!$().select2) {
-            console.warn('Warning - select2.min.js is not loaded.');
-            return;
-        } else {
-            // Select with search
-            $('.select-search').select2();
-        }
-    };
-    return {
-        init: function() {
-            _componentSelect2();
-        }
-    }
-}();
-
-// Initialize module
-// ------------------------------
-
-document.addEventListener('DOMContentLoaded', function() {
-    Select2Selects.init();
-});
+    $(document).ready(function(){
+        $('.select-search').select2();
+    })
 </script>
 
-
-
+<!--file up image-->
 <script>
-	var SA_UpdataProfile = function () {
-            var _componentSA_UpdataProfile = function() {
-                if (typeof swal == 'undefined') {
-                    console.warn('Warning - sweet_alert.min.js is not loaded.');
-                    return;
-                }
+    $(document).ready(function(){
+
+        // Modal template
+        var modalTemplate = '<div class="modal-dialog modal-lg" role="document">\n' +
+            '  <div class="modal-content">\n' +
+            '    <div class="modal-header align-items-center">\n' +
+            '      <h6 class="modal-title">{heading} <small><span class="kv-zoom-title"></span></small></h6>\n' +
+            '      <div class="kv-zoom-actions btn-group">{toggleheader}{fullscreen}{borderless}{close}</div>\n' +
+            '    </div>\n' +
+            '    <div class="modal-body">\n' +
+            '      <div class="floating-buttons btn-group"></div>\n' +
+            '      <div class="kv-zoom-body file-zoom-content"></div>\n' + '{prev} {next}\n' +
+            '    </div>\n' +
+            '  </div>\n' +
+            '</div>\n';
+
+        // Buttons inside zoom modal
+        var previewZoomButtonClasses = {
+            toggleheader: 'btn btn-light btn-icon btn-header-toggle btn-sm',
+            fullscreen: 'btn btn-light btn-icon btn-sm',
+            borderless: 'btn btn-light btn-icon btn-sm',
+            close: 'btn btn-light btn-icon btn-sm'
+        };
+
+        // Icons inside zoom modal classes
+        var previewZoomButtonIcons = {
+            prev: $('html').attr('dir') == 'rtl' ? '<i class="icon-arrow-right32"></i>' : '<i class="icon-arrow-left32"></i>',
+            next: $('html').attr('dir') == 'rtl' ? '<i class="icon-arrow-left32"></i>' : '<i class="icon-arrow-right32"></i>',
+            toggleheader: '<i class="icon-menu-open"></i>',
+            fullscreen: '<i class="icon-screen-full"></i>',
+            borderless: '<i class="icon-alignment-unalign"></i>',
+            close: '<i class="icon-cross2 font-size-base"></i>'
+        };
+
+        // File actions
+        var fileActionSettings = {
+            zoomClass: '',
+            zoomIcon: '<i class="icon-zoomin3"></i>',
+            dragClass: 'p-2',
+            dragIcon: '<i class="icon-three-bars"></i>',
+            removeClass: '',
+            removeErrorClass: 'text-danger',
+            removeIcon: '<i class="icon-bin"></i>',
+            indicatorNew: '<i class="icon-file-plus text-success"></i>',
+            indicatorSuccess: '<i class="icon-checkmark3 file-icon-large text-success"></i>',
+            indicatorError: '<i class="icon-cross2 text-danger"></i>',
+            indicatorLoading: '<i class="icon-spinner2 spinner text-muted"></i>'
+        };
+
+        $('.ChangePicture').fileinput({
+            browseLabel: 'Browse',
+            browseIcon: '<i class="icon-file-plus mr-2"></i>',
+            uploadIcon: '<i class="icon-file-upload2 mr-2"></i>',
+            removeIcon: '<i class="icon-cross2 font-size-base mr-2"></i>',
+            layoutTemplates: {
+                icon: '<i class="icon-file-check"></i>',
+                modal: modalTemplate
+            },
+            initialCaption: "No file selected",
+            previewZoomButtonClasses: previewZoomButtonClasses,
+            previewZoomButtonIcons: previewZoomButtonIcons,
+            fileActionSettings: fileActionSettings,
+            maxFileSize: 500,
+            maxFileCount: 1,
+            allowedFileExtensions: ["JPG","jpg","PNG","png"]
+
+        });
+
+    })
+</script>
+<!--file up excel image-->
+
+<!--Edit-->
+<script>
+    $(document).ready(function(){
+
 // Defaults
                 var swalInitUpdataProfile = swal.mixin({
                     buttonsStyling: false,
@@ -75,11 +120,9 @@ document.addEventListener('DOMContentLoaded', function() {
                             input: 'form-control'
                         }
                 });
-// Defaults End
+// Defaults End        
 
-//--------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------
-		$('#Edit_Profile').on('click', function() {
+        $('#Edit_Profile').on('click', function() {
             swalInitUpdataProfile.fire({
                 title: 'ต้องการบันทึกข้อมูลที่แก้ไขหรือไม่',
                 //text: "You won't be able to revert this!",
@@ -153,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             '<span class="invalid-feedback">อีเมล์ไม่ถูกต้อง</span>';
                         }else{
                             
-                            $.post("<?php echo $RunLink->Call_Link_System();?>/?modules=profile&manage=process",{
+                            $.post("<?php echo $RunLink->Call_Link_System();?>/js_code/profile/profile_process.php",{
                                 action:action,
                                 firstname:firstname,
                                 lastname:lastname,
@@ -197,144 +240,43 @@ document.addEventListener('DOMContentLoaded', function() {
 
                         }
                 }else if(result.dismiss === swal.DismissReason.cancel) {
-
                     //swalInitLogout.fire(
                         //'Cancelled',
                         //'Your imaginary file is safe :)',
                         //'error'
                     //);
-                }else{
-//--------------------------------------------------------------------------------------					
-				}
+                }else{}
+
             });
         });
-//--------------------------------------------------------------------------------------
-            };
-//--------------------------------------------------------------------------------------
-        return {
-            initComponentsUpdataProfile: function() {
-                _componentSA_UpdataProfile();
-            }
-        }
-    }();
-// Initialize module
-// ------------------------------
-    document.addEventListener('DOMContentLoaded', function() {
-        SA_UpdataProfile.initComponentsUpdataProfile();
-    });
+
+    })
 </script>
-
-
-
-
-
+<!--Edit End-->
 
 <script>
-$(document).ready(function() {
-    $('#profile_read').on('click', function() {
-        var profile_read = $("#profile_read").val();
-        if (profile_read == "show") {
-            document.location ="<?php echo $RunLink->Call_Link_System();?>/?modules=profile&manage=show";
-        } else {}
-    })
-})
+     $(document).ready(function(){
+// Defaults
+                var swalInitUpdataProfile = swal.mixin({
+                    buttonsStyling: false,
+                        customClass: {
+                            confirmButton: 'btn btn-primary',
+                            cancelButton: 'btn btn-light',
+                            denyButton: 'btn btn-light',
+                            input: 'form-control'
+                        }
+                });
+// Defaults End  
 
-$(document).ready(function() {
-    $('#profile_update').on('click', function() {
-        var profile_update = $("#profile_update").val();
-        if (profile_update == "edit") {
-            document.location ="<?php echo $RunLink->Call_Link_System();?>/?modules=profile&manage=edit";
-        } else {}
-    })
-})
-
-$(document).ready(function() {
-    $('#profile_img').on('click', function() {
-        var profile_img=$("#profile_img").val();
-        if(profile_img =="change_picture" ){
-            document.location ="<?php echo $RunLink->Call_Link_System();?>/?modules=profile&manage=change_picture";
-        }else{}
-    })
-})
-
-$(document).ready(function() {
-    $('#update_cancel').on('click', function() {
-        document.location ="<?php echo $RunLink->Call_Link_System();?>/?modules=profile&manage=update";
-    })
-})
-
+        $("#form_change_picture").on("submit",function(){
+            event.preventDefault();
+            var change_picture=$("#change_picture").val();
+                if(change_picture===""){
+                    document.getElementById("change_picture-null").innerHTML='<span><code>อัพโหลดไม่สำเร็จ</code></span>';
+                }else{
+                    document.getElementById("change_picture-null").innerHTML='<span></span>';
+                    this.submit();
+                }
+        })
+     })
 </script>
-
-<!--file up excel-->
-<script>
-    $(document).ready(function(){
-
-        // Modal template
-        var modalTemplate = '<div class="modal-dialog modal-lg" role="document">\n' +
-            '  <div class="modal-content">\n' +
-            '    <div class="modal-header align-items-center">\n' +
-            '      <h6 class="modal-title">{heading} <small><span class="kv-zoom-title"></span></small></h6>\n' +
-            '      <div class="kv-zoom-actions btn-group">{toggleheader}{fullscreen}{borderless}{close}</div>\n' +
-            '    </div>\n' +
-            '    <div class="modal-body">\n' +
-            '      <div class="floating-buttons btn-group"></div>\n' +
-            '      <div class="kv-zoom-body file-zoom-content"></div>\n' + '{prev} {next}\n' +
-            '    </div>\n' +
-            '  </div>\n' +
-            '</div>\n';
-
-        // Buttons inside zoom modal
-        var previewZoomButtonClasses = {
-            toggleheader: 'btn btn-light btn-icon btn-header-toggle btn-sm',
-            fullscreen: 'btn btn-light btn-icon btn-sm',
-            borderless: 'btn btn-light btn-icon btn-sm',
-            close: 'btn btn-light btn-icon btn-sm'
-        };
-
-        // Icons inside zoom modal classes
-        var previewZoomButtonIcons = {
-            prev: $('html').attr('dir') == 'rtl' ? '<i class="icon-arrow-right32"></i>' : '<i class="icon-arrow-left32"></i>',
-            next: $('html').attr('dir') == 'rtl' ? '<i class="icon-arrow-left32"></i>' : '<i class="icon-arrow-right32"></i>',
-            toggleheader: '<i class="icon-menu-open"></i>',
-            fullscreen: '<i class="icon-screen-full"></i>',
-            borderless: '<i class="icon-alignment-unalign"></i>',
-            close: '<i class="icon-cross2 font-size-base"></i>'
-        };
-
-        // File actions
-        var fileActionSettings = {
-            zoomClass: '',
-            zoomIcon: '<i class="icon-zoomin3"></i>',
-            dragClass: 'p-2',
-            dragIcon: '<i class="icon-three-bars"></i>',
-            removeClass: '',
-            removeErrorClass: 'text-danger',
-            removeIcon: '<i class="icon-bin"></i>',
-            indicatorNew: '<i class="icon-file-plus text-success"></i>',
-            indicatorSuccess: '<i class="icon-checkmark3 file-icon-large text-success"></i>',
-            indicatorError: '<i class="icon-cross2 text-danger"></i>',
-            indicatorLoading: '<i class="icon-spinner2 spinner text-muted"></i>'
-        };
-
-        $('.ChangePicture').fileinput({
-            browseLabel: 'Browse',
-            browseIcon: '<i class="icon-file-plus mr-2"></i>',
-            uploadIcon: '<i class="icon-file-upload2 mr-2"></i>',
-            removeIcon: '<i class="icon-cross2 font-size-base mr-2"></i>',
-            layoutTemplates: {
-                icon: '<i class="icon-file-check"></i>',
-                modal: modalTemplate
-            },
-            initialCaption: "No file selected",
-            previewZoomButtonClasses: previewZoomButtonClasses,
-            previewZoomButtonIcons: previewZoomButtonIcons,
-            fileActionSettings: fileActionSettings,
-            maxFileSize: 100,
-            maxFileCount: 1,
-            allowedFileExtensions: ["JPG","jpg","PNG","png"]
-
-        });
-
-    })
-</script>
-<!--file up excel End-->

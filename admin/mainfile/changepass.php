@@ -71,14 +71,14 @@ if ((preg_match("/changepass.php/", $_SERVER['PHP_SELF']))) {
                                                 </fieldset>
                                             </div>
                                         </div>
-                                        <!--<div class="row">
+                                        <div class="row">
                                             <div class="col-<?php echo $grid; ?>-12">
                                                 <fieldset class="mb-3">
                                                     <div class="form-group row">
-                                                        <label class="col-form-label col-<?php echo $grid; ?>-4">ยืนยันรหัสผ่าน</label>
+                                                        <label class="col-form-label col-<?php echo $grid; ?>-4">รหัสผ่านยืนยัน</label>
                                                         <div class="col-<?php echo $grid; ?>-8">
-                                                            <div id="password2-null">
-                                                                <div class="form-group form-group-feedback form-group-feedback-left">
+                                                            <div class="form-group form-group-feedback form-group-feedback-left">
+                                                                <div id="password2-null">
                                                                     <input type="password" name="password2" id="password2" class="form-control form-control-lg" value="" required="required">
                                                                     <div class="form-control-feedback form-control-feedback-lg">
                                                                         <i class="icon-key"></i>
@@ -86,18 +86,20 @@ if ((preg_match("/changepass.php/", $_SERVER['PHP_SELF']))) {
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                    </div>
                                                 </fieldset>
                                             </div>
-                                        </div>-->
+                                        </div>
                                         <div class="row">
                                             <div class="col-<?php echo $grid; ?>-12">
                                                 <fieldset class="mb-3" style="float: right">
                                                     <button type="button" name="password_user_data" id="password_user_data" class="btn btn-info">บันทึก</button>&nbsp;
-                                                    <button type="button" name="changepass_cancel" id="changepass_cancel" class="btn btn-danger">ยกเลิก</button>
-                                                    <input type="hidden" name="admin_key" id="admin_key" value="<?php echo @$row['admin_id']; ?>">
+                                                    <button type="button" name="changepass_cancel" id="changepass_cancel" value="changepass_cancel" class="btn btn-danger">ยกเลิก</button>
+                                                    <input type="hidden" name="admin_key" id="admin_key" value="<?php echo $row['admin_id']; ?>">
                                                 </fieldset>
                                             </div>
                                         </div>
+
                                     </form>
                                 </div>
                             </div>

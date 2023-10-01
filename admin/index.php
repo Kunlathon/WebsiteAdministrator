@@ -29,8 +29,7 @@ header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 
 include("structure/link.php");
-$RunLink=new link_system(); //link from admin
-$RunLinkWeb=new link_wbe(); //link from web
+$RunLink = new link_system();
 //$RunLink->CallLink_System();
 
 $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
