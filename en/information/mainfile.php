@@ -95,7 +95,7 @@
                 <div class="row">              
                   <div class="col-md-12">
 					<a class="card card-link" href="?modules=gallery_all">
-						<div class="card-body card card-link card-link-pop btn-secondary" style="background-color: #FF9933;">Album</div>
+						<div class="card-body card card-link card-link-pop btn-secondary" style="background-color: #FF9933;">Classroom Activities</div>
 					</a>
                   </div>
                 </div>

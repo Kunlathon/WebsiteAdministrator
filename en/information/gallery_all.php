@@ -31,7 +31,7 @@
                                           <div class="row g-2 alogn-items-center">
                                             <div class="col-md-6">
                                               <div class="row g-2">
-                                                <div class="page-title" style="font-size: 20px;">Album</div>
+                                                <div class="page-title" style="font-size: 20px;">Classroom Activities</div>
                                               </div>
                                             </div>
 

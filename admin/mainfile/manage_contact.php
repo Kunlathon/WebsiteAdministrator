@@ -12,7 +12,7 @@
 //Email: mpamese.pc2001@gmail.com , missing_yrc2014@hotmail.com	
 
 error_reporting(E_ALL ^ E_NOTICE);
-ini_set('display_errors', 'On'); // Open Error , PHP Code
+//ini_set('display_errors', 'On'); // Open Error , PHP Code
 
 if ((preg_match("/manage_contact.php/", $_SERVER['PHP_SELF']))) {
     Header("Location: ../index.php");
@@ -40,7 +40,7 @@ if ((preg_match("/manage_contact.php/", $_SERVER['PHP_SELF']))) {
         <div class="content">
 
             <?php
-            /*if((isset($_POST["manage"]))){
+      /*if((isset($_POST["manage"]))){
             $manage=filter_input(INPUT_POST, 'manage');
         }else{
             if((isset($_GET["manage"]))){
@@ -132,28 +132,105 @@ if ((preg_match("/manage_contact.php/", $_SERVER['PHP_SELF']))) {
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-<?php echo $grid; ?>-6">
-                                            <?php
-                                            if (($information_image != null)) { ?>
+    <?php
+        if(($information_image != null)){
+            if(file_exists("../uploads/information/".$information_image)){ 
+                $copy_information_image=$information_image;
+            }else{
+                $copy_information_image="no-image-icon-0.jpg";
+            }
+        }else{
+            $copy_information_image="no-image-icon-0.jpg";
+        }
+    ?>
 
-                                                <fieldset class="mb-3">
-                                                    <?php
-                                                    if (file_exists("../dist/information/" . $information_image)) { ?>
-                                                        <div><img src="../dist/information/<?php echo $information_image; ?>" class="img-thumbnail" alt="<?php echo $information_image; ?>" style="width:152px; height:168px;"></div>
-                                                    <?php   } else { ?>
-                                                        <div><img src="../dist/information/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:152px; height:168px;"></div>
-                                                    <?php   } ?>
+<script>
+    $(document).ready(function(){
+        var copy_information_image="<?php echo $copy_information_image;?>";
+        // Modal template
+                var modalTemplate = '<div class="modal-dialog modal-lg" role="document">\n' +
+            '  <div class="modal-content">\n' +
+            '    <div class="modal-header align-items-center">\n' +
+            '      <h6 class="modal-title">{heading} <small><span class="kv-zoom-title"></span></small></h6>\n' +
+            '      <div class="kv-zoom-actions btn-group">{toggleheader}{fullscreen}{borderless}{close}</div>\n' +
+            '    </div>\n' +
+            '    <div class="modal-body">\n' +
+            '      <div class="floating-buttons btn-group"></div>\n' +
+            '      <div class="kv-zoom-body file-zoom-content"></div>\n' + '{prev} {next}\n' +
+            '    </div>\n' +
+            '  </div>\n' +
+            '</div>\n';
 
-                                                </fieldset>
+        // Buttons inside zoom modal
+        var previewZoomButtonClasses = {
+            toggleheader: 'btn btn-light btn-icon btn-header-toggle btn-sm',
+            fullscreen: 'btn btn-light btn-icon btn-sm',
+            borderless: 'btn btn-light btn-icon btn-sm',
+            close: 'btn btn-light btn-icon btn-sm'
+        };
 
-                                            <?php   } else { ?>
-                                                <fieldset class="mb-3">
-                                                    <div><img src="../dist/information/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:152px; height:168px;"></div>
-                                                </fieldset>
-                                            <?php   } ?>
-                                        </div>
-                                    </div>
+        // Icons inside zoom modal classes
+        var previewZoomButtonIcons = {
+            prev: $('html').attr('dir') == 'rtl' ? '<i class="icon-arrow-right32"></i>' : '<i class="icon-arrow-left32"></i>',
+            next: $('html').attr('dir') == 'rtl' ? '<i class="icon-arrow-left32"></i>' : '<i class="icon-arrow-right32"></i>',
+            toggleheader: '<i class="icon-menu-open"></i>',
+            fullscreen: '<i class="icon-screen-full"></i>',
+            borderless: '<i class="icon-alignment-unalign"></i>',
+            close: '<i class="icon-cross2 font-size-base"></i>'
+        };
+
+        // File actions
+        var fileActionSettings = {
+            zoomClass: '',
+            zoomIcon: '<i class="icon-zoomin3"></i>',
+            dragClass: 'p-2',
+            dragIcon: '<i class="icon-three-bars"></i>',
+            removeClass: '',
+            removeErrorClass: 'text-danger',
+            removeIcon: '<i class="icon-bin"></i>',
+            indicatorNew: '<i class="icon-file-plus text-success"></i>',
+            indicatorSuccess: '<i class="icon-checkmark3 file-icon-large text-success"></i>',
+            indicatorError: '<i class="icon-cross2 text-danger"></i>',
+            indicatorLoading: '<i class="icon-spinner2 spinner text-muted"></i>'
+        };
+
+        $('.file-input-custom').fileinput({
+            previewFileType: 'image',
+            browseLabel: 'เลือกรูป',
+            browseClass: 'btn btn-secondary',
+            browseIcon: '<i class="icon-image2 mr-2"></i>',
+            removeLabel: 'ลบ',
+            removeClass: 'btn btn-danger',
+            removeIcon: '<i class="icon-cancel-square mr-2"></i>',
+            uploadClass: 'btn btn-teal',
+            uploadIcon: '<i class="icon-file-upload mr-2"></i>',
+            uploadTitle:"อัปโหลดไฟล์ที่เลือก",
+            uploadLabel:"อัปโหลด",
+            layoutTemplates: {
+                icon: '<i class="icon-file-check"></i>',
+                modal: modalTemplate
+            },
+            initialPreview: [
+                '<?php echo $link_wbe->Call_Link_Wbe();?>/uploads/information/'+copy_information_image,
+            ],
+            initialPreviewConfig: [
+                {caption: copy_information_image,  key: 1, url: '{$url}', showDrag: false}
+            ],
+            initialPreviewAsData: true,
+            overwriteInitial: true,
+            initialCaption: "กรุณาเลือกภาพ",
+            mainClass: 'input-group',
+            maxFileCount: 1,
+            maxFileSize: 800,
+            allowedFileExtensions: ["jpg", "JPG", "pnp", "PNG"],
+            previewZoomButtonClasses: previewZoomButtonClasses,
+            previewZoomButtonIcons: previewZoomButtonIcons,
+            fileActionSettings: fileActionSettings
+        });
+
+
+    })
+</script>
 
                                     <div class="row">
                                         <div class="col-<?php echo $grid; ?>-12">
@@ -163,11 +240,11 @@ if ((preg_match("/manage_contact.php/", $_SERVER['PHP_SELF']))) {
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-<?php echo $grid; ?>-6">
+                                        <div class="col-<?php echo $grid; ?>-12">
                                             <fieldset class="mb-3">
                                                 <div class="form-group row">
                                                     <div class="col-<?php echo $grid; ?>-12">
-                                                        <input type="file" name="information_image" id="information_image" class="form-control" placeholder="ภาพ">
+                                                        <input type="file" name="information_image" id="information_image" class="form-control file-input-custom" data-show-upload="false" placeholder="ภาพ">
                                                     </div>
                                                 </div>
                                             </fieldset>
@@ -187,8 +264,8 @@ if ((preg_match("/manage_contact.php/", $_SERVER['PHP_SELF']))) {
                                                 <div class="form-group row">
                                                     <div class="col-<?php echo $grid; ?>-12">
                                                         <textarea name="information_detail" id="editor-full" rows="4" cols="4" required="required">
-                                            <?php echo $information_detail; ?>
-                                        </textarea>
+                                                            <?php echo $information_detail; ?>
+                                                        </textarea>
                                                     </div>
                                                 </div>
                                             </fieldset>

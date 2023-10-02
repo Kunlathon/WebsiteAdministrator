@@ -12,7 +12,7 @@
 //Email: mpamese.pc2001@gmail.com , missing_yrc2014@hotmail.com	
 
 error_reporting(E_ALL ^ E_NOTICE);
-ini_set('display_errors', 'On'); // Open Error , PHP Code
+//ini_set('display_errors', 'On'); // Open Error , PHP Code
 
 if ((preg_match("/manage_strategic_plan.php/", $_SERVER['PHP_SELF']))) {
     Header("Location: ../index.php");
@@ -155,7 +155,7 @@ if ((preg_match("/manage_strategic_plan.php/", $_SERVER['PHP_SELF']))) {
                                         </div>
                                     </div>
 
-                                    <!--<div class="row">
+                <!--<div class="row">
                         <div class="col-<?php echo $grid; ?>-12">
                             <div class="card-header">
                                 <h5 class="card-title">ภาพ</h5>

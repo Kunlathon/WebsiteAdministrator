@@ -234,15 +234,18 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
 						</svg>
                       </span>
                       <span class="nav-link-title">
-                        Course
+                        Courses
                       </span>
                     </a>
                     <div class="dropdown-menu">
                       <a class="dropdown-item" href="?modules=course">
                         Course
                       </a>
+                      <a class="dropdown-item" href="?modules=classroom">
+                        Classroom
+                      </a>
                       <a class="dropdown-item" href="?modules=teacher">
-                        Teacher
+                        Lecturers
                       </a>
                     </div>
                   </li>
@@ -266,10 +269,10 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
                     </a>
                     <div class="dropdown-menu">
                       <a class="dropdown-item" href="?modules=register">
-                        Register
+                        Registered
                       </a>
                       <a class="dropdown-item" href="?modules=announce_list">
-                        Announce
+                        Announcement
                       </a>	
                       <a class="dropdown-item" href="?modules=verify_registration">
                         Search Registration

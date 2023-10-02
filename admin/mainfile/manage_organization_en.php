@@ -12,7 +12,7 @@
 //Email: mpamese.pc2001@gmail.com , missing_yrc2014@hotmail.com	
 
 error_reporting(E_ALL ^ E_NOTICE);
-ini_set('display_errors', 'On'); // Open Error , PHP Code
+//ini_set('display_errors', 'On'); // Open Error , PHP Code
 
 if ((preg_match("/manage_organization.php/", $_SERVER['PHP_SELF']))) {
     Header("Location: ../index.php");
@@ -40,7 +40,7 @@ if ((preg_match("/manage_organization.php/", $_SERVER['PHP_SELF']))) {
         <div class="content">
 
             <?php
-            /*if((isset($_POST["manage"]))){
+      /*if((isset($_POST["manage"]))){
             $manage=filter_input(INPUT_POST, 'manage');
         }else{
             if((isset($_GET["manage"]))){

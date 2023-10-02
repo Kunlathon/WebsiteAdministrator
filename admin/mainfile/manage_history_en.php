@@ -133,7 +133,7 @@ if ((preg_match("/manage_history.php/", $_SERVER['PHP_SELF']))) {
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-<?php echo $grid; ?>-6">
+                                        <div class="col-<?php echo $grid; ?>-12">
                                             <?php
                                             if (($information_image != null)) { ?>
 
@@ -155,7 +155,7 @@ if ((preg_match("/manage_history.php/", $_SERVER['PHP_SELF']))) {
                                         </div>
                                     </div>
 
-                                    <!--<div class="row">
+                <!--<div class="row">
                         <div class="col-<?php echo $grid; ?>-12">
                             <div class="card-header">
                                 <h5 class="card-title">ภาพ</h5>
