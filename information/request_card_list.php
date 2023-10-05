@@ -72,7 +72,7 @@
                                                         <div class="card">
                                                             <div class="card-status-top bg-green"></div>
                                                             <div class="card-header">
-                                                                <h3 class="card-title">รายการข้อมูล</h3>
+                                                                <h3 class="card-title">รายการข้อมูล (Detail)</h3>
                                                             </div>
                                                             <div class="card-body">
 
@@ -108,9 +108,9 @@
                                                                                 <td>
             <?php
                     if(($request_Row["user_status"]=="1")){    ?>
-                                                                                    <span class="badge bg-orange-lt">กำลังดำเนินการ</span>
+                                                                                    <span class="badge bg-orange-lt">กำลังดำเนินการ / In Progress</span>
             <?php    }elseif(($request_Row["user_status"]=="2")){  ?>
-                                                                                    <span class="badge bg-teal-lt" >ดำเนินเรียบร้อย</span>
+                                                                                    <span class="badge bg-teal-lt" >ดำเนินเรียบร้อย / Completed</span>
             <?php    }else{}    ?>
                                                                                     
                                                                                 </td>

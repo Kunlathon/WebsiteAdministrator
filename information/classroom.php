@@ -27,12 +27,12 @@
                                           <div class="row g-2 alogn-items-center">
                                             <div class="col-md-6">
                                               <div class="row g-2">
-                                                <div class="page-title" style="font-size: 20px;">หลักสูตรทั้งหมด</div>
+                                                <div class="page-title" style="font-size: 20px;">ห้องเรียนทั้งหมด</div>
                                               </div>
                                             </div>
 
                                             <div class="col-md-6" align="right">
-											<form name="keyword" action="?modules=course" method="post">
+											<form name="keyword" action="?modules=teacher" method="post">
                                               <div class="row g-2">											  
                                                 <div class="col">
                                                   <input type="text" name="keyword" id="" class="form-control" placeholder="Search for…">											
@@ -70,7 +70,7 @@
 
 										 <?php
 
-											  $perpage = 6;
+											  $perpage = 9;
 
 											  if (isset($_GET['page'])) {
 												$page = $_GET['page'];
@@ -80,71 +80,21 @@
 
 											  $start = ($page - 1) * $perpage;
 
-											  $sql = "SELECT * FROM tb_course WHERE (course_name LIKE '%$keyword%' OR course_name_en LIKE '%$keyword%' OR course_name_cn LIKE '%$keyword%') AND course_status = '1' ORDER BY course_id DESC LIMIT {$start} , {$perpage}";
+											  $sql = "SELECT * FROM tb_teacher WHERE (teacher_name LIKE '%$keyword%' OR teacher_surname LIKE '%$keyword%' OR buddhist_name LIKE '%$keyword%') AND teacher_status = '1' ORDER BY teacher_id DESC LIMIT {$start} , {$perpage}";
 											  //echo $sql;
 											  $row = result_array($sql);
 
 											  foreach ($row as $key => $_item){ 
-
-												$sqlCouD = "SELECT * FROM tb_course_detail WHERE course_id = '{$_item['course_id']}' AND course_detail_status ='1' ORDER BY course_detail_id DESC";
-												$rowCouD = row_array($sqlCouD);
 										?>
 
                                             <div class="col-md-4">
                                                 <div class="card card-sm alogn-items-center">
-												<?php
-														if ($rowCouD['course_detail_image'] == "") {
-														?>
-															<a data-toggle="modal" data-target="#myModal<?php echo $_item['course_id'];?>" class="d-block">
-															<img src="uploads/course/no-image-icon-0.jpg" alt="<?php echo $_item['course_name'];?>" class="card-img-top" style='width:400px;height:500px;'></a>
-
-  <div class="modal fade" id="myModal<?php echo $_item['course_id'];?>" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-body">
-          <img src="uploads/course/<?php echo $rowCouD['course_detail_image'];?>" alt="<?php echo $_item['course_name'];?>" class="card-img-top" style='width:100%;'>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-														<?php
-														} else {
-														?>
-															<a data-toggle="modal" data-target="#myModal<?php echo $_item['course_id'];?>" class="d-block">
-															<img src="uploads/course/<?php echo $rowCouD['course_detail_image'];?>" alt="<?php echo $_item['course_name'];?>" class="card-img-top" style='width:400px;height:500px;'></a>
-
-
-  <div class="modal fade" id="myModal<?php echo $_item['course_id'];?>" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-body">
-          <img src="uploads/course/<?php echo $rowCouD['course_detail_image'];?>" alt="<?php echo $_item['course_name'];?>" class="card-img-top" style='width:100%;'>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-														<?php
-														}
-														?>
-                                                    
+                                                    <a href="uploads/teacher/<?php echo $_item['teacher_file'];?>" class="d-block" target="_blank">
+													<img src="uploads/teacher/<?php echo $_item['teacher_picture'];?>" alt="<?php echo $_item['teacher_name'];?>" class="card-img-top"></a>
                                                     <div class="card-body">
                                                         <div class="d-flex align-items-center">
-                                                            <div><?php echo $_item['course_name'];?></div>
-                                                        </div><br>
-                                                        <div class="row g-2">
-                                                            <center><input type="image" name="image_<?php echo $_item['course_id'];?>" id="image_<?php echo $_item['course_id'];?>" src="dist/img/register_course.png" border="0" style="width:200px; height:50px;" onclick="location.href='?modules=register&id=<?php echo $_item['course_id'];?>'"></center>                                 
+                                                            <div><?php echo $_item['teacher_name'];?></div>
                                                         </div>
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -152,7 +102,7 @@
 										<?php
 										  }
 
-										  $sqlPage = "SELECT * , COUNT(course_id) AS COUNT FROM tb_course WHERE (course_name LIKE '%$keyword%' OR course_name_en LIKE '%$keyword%' OR course_name_cn LIKE '%$keyword%') AND course_status = '1' ORDER BY course_id";
+										  $sqlPage = "SELECT * , COUNT(teacher_id) AS COUNT FROM tb_teacher WHERE (teacher_name LIKE '%$keyword%' OR teacher_surname LIKE '%$keyword%' OR buddhist_name LIKE '%$keyword%') AND teacher_status = '1' ORDER BY teacher_id";
 										  $rowPage = row_array($sqlPage);
 										  $total_record = $rowPage['COUNT'];
 										  $total_page = ceil($total_record / $perpage);
@@ -163,7 +113,7 @@
 											<nav>
 											<ul class="pagination ">
 											  <li class="page-item disabled">
-												<a class="page-link" href="?modules=course&keyword=<?php echo $keyword; ?>&page=1" tabindex="-1" aria-disabled="true">
+												<a class="page-link" href="?modules=teacher&keyword=<?php echo $keyword; ?>&page=1" tabindex="-1" aria-disabled="true">
 												  <!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
 												  <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg>
 												  prev
@@ -179,11 +129,11 @@
 												  }
 
 												?>
-												  <li class="page-item <?php echo $active; ?>"><a class="page-link" href="?modules=course&keyword=<?php echo $keyword; ?>&page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+												  <li class="page-item <?php echo $active; ?>"><a class="page-link" href="?modules=teacher&keyword=<?php echo $keyword; ?>&page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
 												<?php } ?>
 
 											  <li class="page-item">
-												<a class="page-link" href="?modules=course&keyword=<?php echo $keyword; ?>&page=<?php echo $total_page; ?>">
+												<a class="page-link" href="?modules=teacher&keyword=<?php echo $keyword; ?>&page=<?php echo $total_page; ?>">
 												  next <!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
 												  <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
 												</a>

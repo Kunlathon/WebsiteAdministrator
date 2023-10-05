@@ -30,7 +30,7 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Language Center MCU Chaing Mai Campus</title>
+    <title>Language Center Mahachulalongkornrajavidyalaya University Chiang Mai Campus</title>
     <script defer data-api="/stats/api/event" data-domain="lc.cmru.ac.th" src="/stats/js/script.js"></script>
     <meta name="msapplication-TileColor" content=""/>
     <meta name="theme-color" content=""/>
@@ -110,36 +110,55 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
 <!-- Navbar -->
 <!--no head lock-->
         <!--<header class="navbar navbar-expand-md d-print-none"  data-bs-theme="dark">-->
-        <header class="navbar navbar-expand-md d-print-none"  style="background-color: #FF9933;">
-          <div class="container-xl">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-              <a href=".">
-                <img src="../dist/img/LCM1.png" width="100%" height="32" alt="LCM" class="">
-              </a>
-             
-            </h1>
-            <div class="navbar-nav flex-row order-md-last">
-<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-              <div class="d-none d-md-flex">
-                <div class="row text-center align-items-center flex-row-reverse">
-                    <div class="col-lg-auto ms-lg-auto">
-                      <a href="../index.php"><img src="../dist/img/icon-th-removal.png" alt="TH" style="background-color: #FF9933;" width="32" height="32"></a>
-                       <a href="index.php"><img src="../dist/img/icon-en-removal.png" alt="EN" style="background-color: #FF9933;" width="32" height="32"></a>
-                      <!--<img src="../dist/img/icon-cn-removal.png" alt="CN" style="background-color: #FF9933;" width="32" height="32">-->
-                      <!--<span class="flag flag-country-th" style="border-radius: 50%;"></span>-->
-                      <!--<span class="flag flag-country-us" style="border-radius: 50%;"></span>-->
-					  <a href="https://www.facebook.com/profile.php?id=100063538752096" target="_blank"><img src="../dist/img/facebook-1.png" alt="Facebook" style="background-color: #FF9933;" width="40" height="40"></a>
-                    </div>
-                </div>
+
+
+
+      <header class="navbar navbar-expand-md d-print-none" >
+        <div class="container-xl">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+            <a href=".">
+              <img src="../dist/img/LCM1.png" width="100%" height="32" alt="LCM" class="">
+            </a>
+			<h4><font color="red">Language Center Mahachulalongkornrajavidyalaya University Chiang Mai Campus</font></h4>
+          </h1>
+          <div class="navbar-nav flex-row order-md-last">
+            <div class="nav-item d-none d-md-flex me-3">
+              <div class="btn-list">
+
+<form name="keyword" action="?modules=course" method="post">
+                  <div class="row">
+                      <div class="col">
+                          <input type="text" name="" id="" class="form-control" placeholder="Search for…">
+                      </div>
+                      <div class="col-auto">
+                          <button type="button" name="" id="" class="btn btn-icon">
+                              <!-- Download SVG icon from http://tabler-icons.io/i/search -->
+                              <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
+                          </button>
+                      </div>
+                  </div>
+</form>
+
               </div>
-<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+            </div>
+
+            <div class="nav">
+              <a href="../index.php"><img src="../dist/img/icon-th-removal.png" alt="TH"  width="32" height="32"></a>
+              <a href="index.php"><img src="../dist/img/icon-en-removal.png" alt="EN" width="32" height="32"></a>
+              <a href="https://www.facebook.com/profile.php?id=100063538752096" target="_blank"><img src="../dist/img/facebook-1.png" alt="Facebook"  width="32" height="32"></a>
             </div>
           </div>
-        </header>
+        </div>
+      </header>
+
+
+
+
 <!--no head lock End-->
+
 <!--head lock -->
       <div class="sticky-top">
         <header class="navbar-expand-md">
@@ -151,7 +170,7 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
                   <li class="nav-item active">
                     <a class="nav-link" href="index.php" >
                       <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l-2 0l9 -9l9 9l-2 0" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" style="color: #000000;" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l-2 0l9 -9l9 9l-2 0" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg>
                       </span>
                       <span class="nav-link-title">
                         Home
@@ -162,7 +181,7 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="index.php" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
                       <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" /><path d="M12 12l8 -4.5" /><path d="M12 12l0 9" /><path d="M12 12l-8 -4.5" /><path d="M16 5.25l-8 4.5" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" style="color: #000000;" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" /><path d="M12 12l8 -4.5" /><path d="M12 12l0 9" /><path d="M12 12l-8 -4.5" /><path d="M16 5.25l-8 4.5" /></svg>
                       </span>
                       <span class="nav-link-title">
                         About Us
@@ -193,7 +212,7 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="index.php" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
                       <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-						<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notes" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<svg xmlns="http://www.w3.org/2000/svg" style="color: #000000;" class="icon icon-tabler icon-tabler-notes" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 						   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
 						   <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z"></path>
 						   <path d="M9 7l6 0"></path>
@@ -226,7 +245,7 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
 				  <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="index.php" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
                       <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
-						<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<svg xmlns="http://www.w3.org/2000/svg" style="color: #000000;" class="icon icon-tabler icon-tabler-file-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 						   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
 						   <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
 						   <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
@@ -253,7 +272,7 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="index.php" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
                       <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-						<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-list-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<svg xmlns="http://www.w3.org/2000/svg" style="color: #000000;" class="icon icon-tabler icon-tabler-list-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 						   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
 						   <path d="M3.5 5.5l1.5 1.5l2.5 -2.5"></path>
 						   <path d="M3.5 11.5l1.5 1.5l2.5 -2.5"></path>
@@ -283,7 +302,7 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="index.php" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
                       <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-stack-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" style="color: #000000;" class="icon icon-tabler icon-tabler-stack-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 						   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
 						   <path d="M12 4l-8 4l8 4l8 -4l-8 -4"></path>
 						   <path d="M4 12l8 4l8 -4"></path>
@@ -313,7 +332,7 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
 				 <li class="nav-item false">
                     <a class="nav-link" href="?modules=download" >
                       <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
-						<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-world" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<svg xmlns="http://www.w3.org/2000/svg" style="color: #000000;" class="icon icon-tabler icon-tabler-world" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 						   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
 						   <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path>
 						   <path d="M3.6 9h16.8"></path>
@@ -331,7 +350,7 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
 				 <li class="nav-item false">
                     <a class="nav-link" href="?modules=contactus" >
                       <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
-						<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-phone-call" width="128" height="128" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<svg xmlns="http://www.w3.org/2000/svg" style="color: #000000;" class="icon icon-tabler icon-tabler-phone-call" width="128" height="128" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 						  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
 						  <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
 						  <path d="M15 7a2 2 0 0 1 2 2"></path>
@@ -355,7 +374,7 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
 
       <?php
 
-	  if($modules=="history") {
+	  	  if($modules=="history") {
 		  include("information/history.php");
 	  } else if($modules=="resolution") {
 		  include("information/resolution.php");
@@ -409,6 +428,10 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
 			include("information/register_detail.php");
 	  }elseif(($modules=="register_edit")){
 	 		include("information/register_edit.php");
+	  }elseif(($modules=="classroom")){
+	 		include("information/classroom.php");
+	  }elseif(($modules=="classroom_detail")){
+	 		include("information/classroom_detail.php");
 	   }else{
 		  	include("information/mainfile.php");
 	  }
@@ -426,7 +449,7 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
 					<?php
 						$now_year = date('Y');
 					?>
-                      Copyright <a href="../admin2/index.php" target="_blank">&copy;</a> 2023 - <?php echo $now_year;?> Language Center MCU Chaing Mai Campus. All rights reserved.<br><br>
+                      Copyright <a href="../admin2/index.php" target="_blank">&copy;</a> 2023 - <?php echo $now_year;?> Language Center Mahachulalongkornrajavidyalaya University Chiang Mai Campus. All rights reserved.<br><br>
                   </ul>
                 </div>
               </div>

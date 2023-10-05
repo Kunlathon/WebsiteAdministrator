@@ -20,7 +20,7 @@
                                                             <div class="container-xl">
                                                                 <div class="row g-2 alogn-items-center">
                                                                     <div col-md-12>
-                                                                        <div class="page-title" style="font-size: 20px;">คำร้องขอบัตรประจำตัวนิสิต (REQUEST FOR STUDENT CARD)</div>
+                                                                        <div class="page-title" style="font-size: 20px;">คำร้องขอบัตรประจำตัวนิสิต (Request for Student Card)</div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -48,8 +48,8 @@
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >ฉายา (Buddhist Name)</label>
-                                                            <input name="user_name_buddhist" id="user_name_buddhist" type="text" class="form-control" placeholder="ฉายา (Buddhist Name)">
+                                                            <label >ฉายา (Buddhist Name / Middle Name)</label>
+                                                            <input name="user_name_buddhist" id="user_name_buddhist" type="text" class="form-control" placeholder="ฉายา (Buddhist Name / Middle Name)">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
@@ -66,7 +66,7 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label >วันเดือนปีเกิด</label>
+                                                            <label >วันเดือนปีเกิด (Date of Birth)</label>
 
                                                                 <div class="row row-cards">
                                                                     <div class="col-md-3">
@@ -125,127 +125,17 @@
                                                                     <div class="col-md-3">
                                                                         <select name="register_year" id="register_year" class="form-select">
                                                                         <option value="">Year</option>
-                                                                        <option value="2014" >2014</option>
-                                                                        <option value="2013" >2013</option>
-                                                                        <option value="2012" >2012</option>
-                                                                        <option value="2011" >2011</option>
-                                                                        <option value="2010" >2010</option>
-                                                                        <option value="2009" >2009</option>
-                                                                        <option value="2008" >2008</option>
-                                                                        <option value="2007" >2007</option>
-                                                                        <option value="2006" >2006</option>
-                                                                        <option value="2005" >2005</option>
-                                                                        <option value="2004" >2004</option>
-                                                                        <option value="2003" >2003</option>
-                                                                        <option value="2002" >2002</option>
-                                                                        <option value="2001" >2001</option>
-                                                                        <option value="2000" >2000</option>
-                                                                        <option value="1999" >1999</option>
-                                                                        <option value="1998" >1998</option>
-                                                                        <option value="1997" >1997</option>
-                                                                        <option value="1996" >1996</option>
-                                                                        <option value="1995" >1995</option>
-                                                                        <option value="1994" >1994</option>
-                                                                        <option value="1993" >1993</option>
-                                                                        <option value="1992" >1992</option>
-                                                                        <option value="1991" >1991</option>
-                                                                        <option value="1990" >1990</option>
-                                                                        <option value="1989" >1989</option>
-                                                                        <option value="1988" >1988</option>
-                                                                        <option value="1987" >1987</option>
-                                                                        <option value="1986" >1986</option>
-                                                                        <option value="1985" >1985</option>
-                                                                        <option value="1984" >1984</option>
-                                                                        <option value="1983" >1983</option>
-                                                                        <option value="1982" >1982</option>
-                                                                        <option value="1981" >1981</option>
-                                                                        <option value="1980" >1980</option>
-                                                                        <option value="1979" >1979</option>
-                                                                        <option value="1978" >1978</option>
-                                                                        <option value="1977" >1977</option>
-                                                                        <option value="1976" >1976</option>
-                                                                        <option value="1975" >1975</option>
-                                                                        <option value="1974" >1974</option>
-                                                                        <option value="1973" >1973</option>
-                                                                        <option value="1972" >1972</option>
-                                                                        <option value="1971" >1971</option>
-                                                                        <option value="1970" >1970</option>
-                                                                        <option value="1969" >1969</option>
-                                                                        <option value="1968" >1968</option>
-                                                                        <option value="1967" >1967</option>
-                                                                        <option value="1966" >1966</option>
-                                                                        <option value="1965" >1965</option>
-                                                                        <option value="1964" >1964</option>
-                                                                        <option value="1963" >1963</option>
-                                                                        <option value="1962" >1962</option>
-                                                                        <option value="1961" >1961</option>
-                                                                        <option value="1960" >1960</option>
-                                                                        <option value="1959" >1959</option>
-                                                                        <option value="1958" >1958</option>
-                                                                        <option value="1957" >1957</option>
-                                                                        <option value="1956" >1956</option>
-                                                                        <option value="1955" >1955</option>
-                                                                        <option value="1954" >1954</option>
-                                                                        <option value="1953" >1953</option>
-                                                                        <option value="1952" >1952</option>
-                                                                        <option value="1951" >1951</option>
-                                                                        <option value="1950" >1950</option>
-                                                                        <option value="1949" >1949</option>
-                                                                        <option value="1948" >1948</option>
-                                                                        <option value="1947" >1947</option>
-                                                                        <option value="1946" >1946</option>
-                                                                        <option value="1945" >1945</option>
-                                                                        <option value="1944" >1944</option>
-                                                                        <option value="1943" >1943</option>
-                                                                        <option value="1942" >1942</option>
-                                                                        <option value="1941" >1941</option>
-                                                                        <option value="1940" >1940</option>
-                                                                        <option value="1939" >1939</option>
-                                                                        <option value="1938" >1938</option>
-                                                                        <option value="1937" >1937</option>
-                                                                        <option value="1936" >1936</option>
-                                                                        <option value="1935" >1935</option>
-                                                                        <option value="1934" >1934</option>
-                                                                        <option value="1933" >1933</option>
-                                                                        <option value="1932" >1932</option>
-                                                                        <option value="1931" >1931</option>
-                                                                        <option value="1930" >1930</option>
-                                                                        <option value="1929" >1929</option>
-                                                                        <option value="1928" >1928</option>
-                                                                        <option value="1927" >1927</option>
-                                                                        <option value="1926" >1926</option>
-                                                                        <option value="1925" >1925</option>
-                                                                        <option value="1924" >1924</option>
-                                                                        <option value="1923" >1923</option>
-                                                                        <option value="1922" >1922</option>
-                                                                        <option value="1921" >1921</option>
-                                                                        <option value="1920" >1920</option>
-                                                                        <option value="1919" >1919</option>
-                                                                        <option value="1918" >1918</option>
-                                                                        <option value="1917" >1917</option>
-                                                                        <option value="1916" >1916</option>
-                                                                        <option value="1915" >1915</option>
-                                                                        <option value="1914" >1914</option>
-                                                                        <option value="1913" >1913</option>
-                                                                        <option value="1912" >1912</option>
-                                                                        <option value="1911" >1911</option>
-                                                                        <option value="1910" >1910</option>
-                                                                        <option value="1909" >1909</option>
-                                                                        <option value="1908" >1908</option>
-                                                                        <option value="1907" >1907</option>
-                                                                        <option value="1906" >1906</option>
-                                                                        <option value="1905" >1905</option>
-                                                                        <option value="1904" >1904</option>
-                                                                        <option value="1903" >1903</option>
-                                                                        <option value="1902" >1902</option>
-                                                                        <option value="1901" >1901</option>
-                                                                        <option value="1900" >1900</option>
-                                                                        <option value="1899" >1899</option>
-                                                                        <option value="1898" >1898</option>
-                                                                        <option value="1897" >1897</option>
-                                                                        </select>
+																		<?php 
+																			$nn_year1 = date('Y');
+																			$nn_year2 = date('Y') - 80;
+
+																		?>
+																		<?php for ($yy = $nn_year1; $yy >= $nn_year2; $yy--) { ?>
+																			 <option value="<?php echo $yy; ?>"><?php echo $yy; ?></option>
+																		<?php } ?>
+																		</select>
                                                                     </div>
-                                                                </div>                                                            
+                                                                </div>                                                              
 
                                                         </div>
 
@@ -263,14 +153,14 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label >รหัสประจำตัวประชาชน (Id Card)</label>
-                                                            <input name="user_idcard" id="user_idcard" type="text" class="form-control" placeholder="รหัสประจำตัวประชาชน (Id Card)">
+                                                            <label >รหัสประจำตัวประชาชน (ID Card / Passport No.)</label>
+                                                            <input name="user_idcard" id="user_idcard" type="text" class="form-control" placeholder="รหัสประจำตัวประชาชน (ID Card / Passport No.)">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label >หมู่โลหิต (Blood)</label>
-                                                            <input name="user_blood" id="user_blood" type="text" class="form-control" placeholder="หมู่โลหิต (Blood)">
+                                                            <label >หมู่โลหิต (Blood Type)</label>
+                                                            <input name="user_blood" id="user_blood" type="text" class="form-control" placeholder="หมู่โลหิต (Blood Type)">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -280,8 +170,8 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label >รหัสประจำตัว (ID Code)</label>
-                                                            <input name="user_student_id" id="user_student_id" type="text" class="form-control" placeholder="รหัสประจำตัว (ID Code)">
+                                                            <label >รหัสประจำตัว (Student ID)</label>
+                                                            <input name="user_student_id" id="user_student_id" type="text" class="form-control" placeholder="รหัสประจำตัว (Student ID)">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -379,7 +269,7 @@
                                         <div class="card-header">
                                             <div class="card-title" style="font-size: 18px;">
                                                 <div>มีความประสงค์ขอมีบัตรประจำตัวนิสิตใหม่ เนื่องจาก</div>
-                                                    <div>(Would like to Apply for a New Student ID Card Because)</div>
+                                                    <div>(Your reason to request for Student ID)</div>
                                             </div>
                                         </div>
                                         <div class="card-body">
@@ -390,14 +280,14 @@
                                                         <div class="form-group">
                                                             <label class="form-check">
                                                                 <input class="form-check-input" name="user_new_card" id="user_new_card" type="checkbox" value="1">
-                                                                <span class="form-check-label">ขอมีบัตรครั้งแรก (Get the Card for the First Time)</span>
+                                                                <span class="form-check-label">ขอมีบัตรครั้งแรก (Request for First Student ID Card)</span>
                                                             </label>
 
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="alert alert-success" role="alert">
-                                                        (ขอมีบัตรครั้งแรก)
+                                                        (ขอมีบัตรครั้งแรก / Request for First Student ID Card)
                                                         </div>
                                                     </div>
                                                 </div>
@@ -414,7 +304,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="alert alert-success" role="alert">
-                                                        (ขอรับรองว่าทำหายจริง)
+                                                        (ขอรับรองว่าทำหายจริง / I want to certify that you really lost it.)
                                                         </div>
                                                     </div>
                                                 </div>
@@ -431,7 +321,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="alert alert-success" role="alert">
-                                                        เตรียมเอกสารบัตรประจำตัวนิสิตติดมาด้วยแล้ว
+                                                       ( เตรียมเอกสารบัตรประจำตัวนิสิตติดมาด้วยแล้ว / Prepare your student identification document.)
                                                         </div>
                                                     </div>
                                                 </div>
@@ -448,7 +338,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="alert alert-success" role="alert">
-                                                        เตรียมเอกสารบัตรประจำตัวนิสิตติดมาด้วยแล้ว
+                                                        (เตรียมเอกสารบัตรประจำตัวนิสิตติดมาด้วยแล้ว / Prepare your student identification document.)
                                                         </div>  
                                                     </div>
                                                 </div>
@@ -459,13 +349,13 @@
                                                     <div class="col-md-6">
                                                             <label class="form-check">
                                                                 <input class="form-check-input" name="user_change_name" id="user_change_name" type="checkbox" value="1">
-                                                                <span class="form-check-label"> เปลี่ยนชื่อ / นามสกุลใหม่ (Change New Name/Surname)</span>
+                                                                <span class="form-check-label"> เปลี่ยนชื่อ / นามสกุลใหม่ (Change Name/Surname)</span>
                                                             </label>
 
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="alert alert-success" role="alert">
-                                                        เตรียมเอกสารหลักฐานพร้อมบัตรประจำตัวนิสิตติดมาด้วยแล้ว
+                                                        (เตรียมเอกสารหลักฐานพร้อมบัตรประจำตัวนิสิตติดมาด้วยแล้ว / Prepare evidence documents with your student ID card attached.)
                                                         </div>  
                                                     </div>
                                                 </div>
@@ -474,6 +364,31 @@
                                         </div>
                                     </div>
 
+
+                                    <div class="card">
+                                        <div class="card-status-top bg-green"></div>
+                                        <div class="card-header">
+                                            <div class="card-title" style="font-size: 18px;">
+                                                <div>กรุณาเลือกช่วงเวลาการเรียนของคุณ / Choose your schedule perious</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card-body">
+                                            <div class="mb-3">
+                                                <div class="row g-5">
+                                                    <div class="col-md-12">
+                                                        <select name="schedule" id="schedule" class="form-select" required="required">
+                                                            <option value="">เลือกช่วงเวลาการเรียน / Choose your schedule perious</option>
+                                                            <option value="1">11 เมษายน 2566 - 15 กุมภาพันธ์ 2567 (11 April 2023 - 15 February 2024)</option>
+                                                            <option value="2">3 กรกฎาคม 2566 - 29 พฤษภาคม 2567 (3 July 2023 - 29 May 2024)</option>
+                                                            <option value="3">2 ตุลาคม 2566 - 19 สิงหาคม 2567 (2 October 2023 - 19 August 2024)</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
 
                                     <!--<div class="card">
                                         <div class="card-status-top bg-green"></div>
@@ -535,7 +450,7 @@ For collect, use and disclose my personal information for the purpose of request
                                                         <div class="alert alert-warning" role="alert" style="color: red;">
                                                             
                                                     *** ข้าพเจ้ายินยอมให้ข้อมูลแก่ มหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย วิทยาเขตเชียงใหม่
-จะเก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้าสำหรับการใช้ในการขอบัตรประจำตัวนิสิตเท่านั้น ***
+จะเก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้าสำหรับการใช้ในการขอบัตรประจำตัวนิสิตเท่านั้น ***<br>
 *** I agree to provide information to Mahachulalongkornrajavidyalaya University Chiang Mai Campus.
 For collect, use and disclose my personal information for the purpose of requesting for student card only. ***                                                           
                                                          
@@ -553,7 +468,7 @@ For collect, use and disclose my personal information for the purpose of request
                                                                 <label class="form-check">
                                                                     <div id="check_register-null">
                                                                     <input class="form-check-input" name="check_register" id="check_register" type="checkbox" value="1" required="required">
-                                                                    <span class="form-check-label">ยอมรับเงื่อนไข</span>
+                                                                    <span class="form-check-label">ยอมรับเงื่อนไข  (Agreement)</span>
                                                                     </div>
                                                                 </label>
                                                             </div>
@@ -564,6 +479,7 @@ For collect, use and disclose my personal information for the purpose of request
                                             </div>
                                         </div>
                                     </div>
+
 
 
                                     <div class="card">

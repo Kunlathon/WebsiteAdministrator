@@ -34,10 +34,10 @@
 
                           <div class="mb-3">
                             <div class="row g-5">
-                              <label class="col-form-label col-md-4 required" style="font-size: 16px;">ชื่อ - สนามสกุล/ Name as passport </label>                              
+                              <label class="col-form-label col-md-4 required" style="font-size: 16px;">รหัสประจำตัว Student ID </label>                              
                               <div class="col-md-8">
-                                <div id="student_name-null">
-                                <input type="text" class="form-control" name="student_name" id="student_name" placeholder="ชื่อ - สนามสกุล/ Name as passport" style="font-size: 16px;" >
+                                <div id="student_id-null">
+                                <input type="text" class="form-control" name="student_id" id="student_id" placeholder="รหัสประจำตัว Student ID" style="font-size: 16px;" >
                                 </div>
                               </div>
                             </div>
@@ -96,35 +96,35 @@
     $("#form_verify_registration").on('submit',function(){
       event.preventDefault();
       var int_error=0;
-      var student_name=$("#student_name").val();
+      var student_id=$("#student_id").val();
       var idcard=$("#idcard").val();
-        if(student_name===""){
-            document.getElementById("student_name-null").innerHTML
-            ='<div id="student_name-null">'
-            +'  <input type="text" class="form-control is-invalid" name="student_name" id="student_name" value="'+student_name+'" placeholder="ชื่อ - สนามสกุล/ Name as passport"  style="font-size: 16px;" >'
+        if(student_id===""){
+            document.getElementById("student_id-null").innerHTML
+            ='<div id="student_id-null">'
+            +'  <input type="text" class="form-control is-invalid" name="student_id" id="student_id" value="'+student_id+'" placeholder="รหัสประจำตัว Student ID"  style="font-size: 16px;" >'
             +'  <div></div>'
             +'</div>';
             int_error=int_error+1;
         }else{
-            if(student_name.length>=101){
-              document.getElementById("student_name-null").innerHTML
-              ='<div id="student_name-null">'
-              +'  <input type="text" class="form-control is-invalid" name="student_name" id="student_name" value="'+student_name+'" placeholder="ชื่อ - สนามสกุล/ Name as passport"  style="font-size: 16px;" >'
+            if(student_id.length>=101){
+              document.getElementById("student_id-null").innerHTML
+              ='<div id="student_id-null">'
+              +'  <input type="text" class="form-control is-invalid" name="student_id" id="student_id" value="'+student_id+'" placeholder="รหัสประจำตัว Student ID"  style="font-size: 16px;" >'
               +'  <div class="invalid-feedback">จำนวนตัวอักษรจำกัดไม่เกิน 100 ตัวอักษร</div>'
               +'</div>';
               int_error=int_error+1;
             }else{
-              if(student_name.length<=5){
-                document.getElementById("student_name-null").innerHTML
-                ='<div id="student_name-null">'
-                +'  <input type="text" class="form-control is-invalid" name="student_name" id="student_name" value="'+student_name+'" placeholder="ชื่อ - สนามสกุล/ Name as passport"  style="font-size: 16px;" >'
+              if(student_id.length<=5){
+                document.getElementById("student_id-null").innerHTML
+                ='<div id="student_id-null">'
+                +'  <input type="text" class="form-control is-invalid" name="student_id" id="student_id" value="'+student_id+'" placeholder="รหัสประจำตัว Student ID"  style="font-size: 16px;" >'
                 +'  <div class="invalid-feedback">จำนวนตัวอักษรอย่างน้อย 5 ตัวอักษรขึ้นไป</div>'
                 +'</div>';
                 int_error=int_error+1;
               }else{
-                document.getElementById("student_name-null").innerHTML
-                ='<div id="student_name-null">'
-                +'  <input type="text" class="form-control" name="student_name" id="student_name" value="'+student_name+'" placeholder="ชื่อ - สนามสกุล/ Name as passport"  style="font-size: 16px;" >'
+                document.getElementById("student_id-null").innerHTML
+                ='<div id="student_id-null">'
+                +'  <input type="text" class="form-control" name="student_id" id="student_id" value="'+student_id+'" placeholder="รหัสประจำตัว Student ID"  style="font-size: 16px;" >'
                 +'  <div></div>'
                 +'</div>';
                 int_error=int_error+0;

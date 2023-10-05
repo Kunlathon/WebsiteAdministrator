@@ -32,7 +32,7 @@
                                                             <div class="container-xl">
                                                                 <div class="row g-2 alogn-items-center">
                                                                     <div col-md-12>
-                                                                        <div class="page-title" style="font-size: 20px;">ลงทะเบียนเรียนออนไลน์</div>
+                                                                        <div class="page-title" style="font-size: 20px;">ลงทะเบียนเรียนออนไลน์ (Online Enrollment)</div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -53,12 +53,12 @@
                                             <div class="mb-3">
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
-                                                        <label>คำนำหน้าชื่อภาษาไทย</label>
-                                                        <input name="title_t" id="title_t" type="text" class="form-control"  placeholder="คำนำหน้าชื่อภาษาไทย">
+                                                        <label>คำนำหน้าชื่อภาษาไทย (Title Name in Thai)</label>
+                                                        <input name="title_t" id="title_t" type="text" class="form-control"  placeholder="คำนำหน้าชื่อภาษาไทย  (Title Name in Thai)">
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <label>คำนำหน้าชื่อภาษาอังกฤษ</label>
-                                                        <input name="title_e" id="title_e" type="text" class="form-control"  placeholder="คำนำหน้าชื่อภาษาอังกฤษ">
+                                                        <label>คำนำหน้าชื่อภาษาอังกฤษ (Title Name in English)</label>
+                                                        <input name="title_e" id="title_e" type="text" class="form-control"  placeholder="คำนำหน้าชื่อภาษาอังกฤษ  (Title Name in English)">
                                                     </div>
                                                 </div>
                                             </div>
@@ -75,8 +75,8 @@
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >ฉายา (Buddhist Name)</label>
-                                                            <input name="bname" id="bname" type="text" class="form-control" placeholder="ฉายา (Buddhist Name)">
+                                                            <label >ฉายา (Buddhist Name / Middle Name)</label>
+                                                            <input name="bname" id="bname" type="text" class="form-control" placeholder="ฉายา (Buddhist Name / Middle Name)">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
@@ -172,7 +172,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label >วัน/เดือน/ปี ที่บรรพชา/อุปสมบท (Date of Ordination)</label>
+                                                            <label >วัน/เดือน/ปี ที่บรรพชา/อุปสมบท (Date of Ordination) (Monk Only)</label>
                                                             
                                                             <div class="row row-cards">
                                                                     <div class="col-md-3">
@@ -253,8 +253,8 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label >เบอร์โทรศัพท์</label>
-                                                            <input name="tel" id="tel" type="text" class="form-control" placeholder="เบอร์โทรศัพท์">
+                                                            <label >เบอร์โทรศัพท์ (Contact No.)</label>
+                                                            <input name="tel" id="tel" type="text" class="form-control" placeholder="เบอร์โทรศัพท์ (Contact No.)">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -270,20 +270,20 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >เชื้อชาติ</label>
-                                                            <input name="race" id="race" type="text" class="form-control" placeholder="เชื้อชาติ">
+                                                            <label >เชื้อชาติ (Nationality)</label>
+                                                            <input name="race" id="race" type="text" class="form-control" placeholder="เชื้อชาติ (Nationality)">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >สัญชาติ</label>
-                                                            <input name="nationality" id="nationality" type="text" class="form-control" placeholder="สัญชาติ">
+                                                            <label >สัญชาติ (Nation)</label>
+                                                            <input name="nationality" id="nationality" type="text" class="form-control" placeholder="สัญชาติ (Nation)">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >ศาสนา</label>
-                                                            <input name="religion" id="religion" type="text" class="form-control" placeholder="ศาสนา">
+                                                            <label >ศาสนา (Religion)</label>
+                                                            <input name="religion" id="religion" type="text" class="form-control" placeholder="ศาสนา (Religion)">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -294,9 +294,9 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label >รหัสประจำตัวประชาชน / Passport No<font style="color: red;">*</font></label>
+                                                            <label >รหัสประจำตัวประชาชน (ID Card / Passport No.)<font style="color: red;">*</font></label>
                                                             <div id="idcard-null">
-                                                            <input name="idcard" id="idcard" type="text" class="form-control" placeholder="รหัสประจำตัวประชาชน" required="required">
+                                                            <input name="idcard" id="idcard" type="text" class="form-control" placeholder="รหัสประจำตัวประชาชน (ID Card / Passport No.)" required="required">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -304,14 +304,14 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label >ส่วนสูง</label>
-                                                                    <input name="height" id="height" type="text" class="form-control" placeholder="ส่วนสูง">
+                                                                    <label >ส่วนสูง (Height)</label>
+                                                                    <input name="height" id="height" type="text" class="form-control" placeholder="ส่วนสูง (Height)">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                  <label >น้ำหนัก</label>
-                                                                  <input name="weight" id="weight" type="text" class="form-control" placeholder="น้ำหนัก">
+                                                                  <label >น้ำหนัก (Weight)</label>
+                                                                  <input name="weight" id="weight" type="text" class="form-control" placeholder="น้ำหนัก (Weight)">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -323,7 +323,7 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-12">
                                                         <div class="form-group">
-                                                            <label >รูปภาพ <font style="color: red;">รูปถ่ายขนาด 1 นิ้วครึ่ง</font></label>
+                                                            <label >รูปภาพ (Photo) <font style="color: red;">รูปถ่ายขนาด 1 นิ้วครึ่ง / Photo Size 1.5 inch(300X450 px. )</font></label>
                                                             <input name="img1" id="img1" type="file" class="form-control" >
                                                         </div>
                                                     </div>
@@ -334,20 +334,20 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >ชื่อ/นามสกุลบิดา</label>
-                                                            <input name="fathername" id="fathername" type="text" class="form-control" placeholder="ชื่อ/นามสกุลบิดา">
+                                                            <label >ชื่อ/นามสกุลบิดา (Father's Name)</label>
+                                                            <input name="fathername" id="fathername" type="text" class="form-control" placeholder="ชื่อ/นามสกุลบิดา (Father's Name)">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >อาชีพ</label>
-                                                            <input name="father_occupation" id="father_occupation" type="text" class="form-control" placeholder="อาชีพ">
+                                                            <label >อาชีพ (Occupation)</label>
+                                                            <input name="father_occupation" id="father_occupation" type="text" class="form-control" placeholder="อาชีพ (Occupation)">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >รหัสประจำตัวประชาชน</label>
-                                                            <input name="father_idcard" id="father_idcard" type="text" class="form-control" placeholder="รหัสประจำตัวประชาชน">
+                                                            <label >รหัสประจำตัวประชาชน (ID Card)</label>
+                                                            <input name="father_idcard" id="father_idcard" type="text" class="form-control" placeholder="รหัสประจำตัวประชาชน (ID Card)">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -357,20 +357,20 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >ชื่อ/นามสกุลมารดา</label>
-                                                            <input name="mothername" id="mothername" type="text" class="form-control" placeholder="ชื่อ/นามสกุลมารดา">
+                                                            <label >ชื่อ/นามสกุลมารดา (Father's Name)</label>
+                                                            <input name="mothername" id="mothername" type="text" class="form-control" placeholder="ชื่อ/นามสกุลมารดา (Father's Name)">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >อาชีพ</label>
-                                                            <input name="mother_occupation" id="mother_occupation" type="text" class="form-control" placeholder="อาชีพ">
+                                                            <label >อาชีพ (Occupation)</label>
+                                                            <input name="mother_occupation" id="mother_occupation" type="text" class="form-control" placeholder="อาชีพ (Occupation)">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >รหัสประจำตัวประชาชน</label>
-                                                            <input name="mother_idcard" id="mother_idcard" type="text" class="form-control" placeholder="รหัสประจำตัวประชาชน">
+                                                            <label >รหัสประจำตัวประชาชน (ID Card)</label>
+                                                            <input name="mother_idcard" id="mother_idcard" type="text" class="form-control" placeholder="รหัสประจำตัวประชาชน (ID Card)">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -384,7 +384,7 @@
                                         <div class="card-status-top bg-red"></div>
                                         <div class="card-header">
                                             <div class="card-title" style="font-size: 18px;">
-                                                <div>ที่อยู่ที่สามารถติดต่อได้</div>
+                                                <div>ที่อยู่ที่สามารถติดต่อได้ (Present Address)</div>
                                             </div>
                                         </div>
                                         <div class="card-body">
@@ -393,26 +393,26 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label >วัด/บ้านเลขที่</label>
-                                                            <input name="address2" id="address2" type="text" class="form-control" placeholder="วัด/บ้านเลขที่">
+                                                            <label >วัด/บ้านเลขที่ (House No.)</label>
+                                                            <input name="address2" id="address2" type="text" class="form-control" placeholder="วัด/บ้านเลขที่ (House No.)">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label >หมู่ที่</label>
-                                                            <input name="moo2" id="moo2" type="text" class="form-control" placeholder="หมู่ที่">
+                                                            <label >หมู่ที่ (Section No.)</label>
+                                                            <input name="moo2" id="moo2" type="text" class="form-control" placeholder="หมู่ที่ (Section No.)">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label >ซอย</label>
-                                                            <input name="soi2" id="soi2" type="text" class="form-control" placeholder="ซอย">
+                                                            <label >ซอย (Avenue)</label>
+                                                            <input name="soi2" id="soi2" type="text" class="form-control" placeholder="ซอย (Avenue)">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label >ถนน</label>
-                                                            <input name="road2" id="road2" type="text" class="form-control" placeholder="ถนน">
+                                                            <label >ถนน (Road)</label>
+                                                            <input name="road2" id="road2" type="text" class="form-control" placeholder="ถนน (Road)">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -422,26 +422,26 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label >ตำบล/แขวง</label>
-                                                            <input name="subdistrict2" id="subdistrict2" type="text" class="form-control" placeholder="ตำบล/แขวง">
+                                                            <label >ตำบล/แขวง (Sub-District)</label>
+                                                            <input name="subdistrict2" id="subdistrict2" type="text" class="form-control" placeholder="ตำบล/แขวง (Sub-District)">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label >อำเภอ/เขต</label>
-                                                            <input name="district2" id="district2" type="text" class="form-control" placeholder="อำเภอ/เขต">
+                                                            <label >อำเภอ/เขต (District)</label>
+                                                            <input name="district2" id="district2" type="text" class="form-control" placeholder="อำเภอ/เขต (District)">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label >จังหวัด</label>
-                                                            <input name="province2" id="province2" type="text" class="form-control" placeholder="จังหวัด">
+                                                            <label >จังหวัด (Province)</label>
+                                                            <input name="province2" id="province2" type="text" class="form-control" placeholder="จังหวัด (Province)">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label >รหัสไปรษณีย์</label>
-                                                            <input name="citycode2" id="citycode2" type="text" class="form-control" placeholder="รหัสไปรษณีย์">
+                                                            <label >รหัสไปรษณีย์ (Post Code)</label>
+                                                            <input name="citycode2" id="citycode2" type="text" class="form-control" placeholder="รหัสไปรษณีย์ (Post Code)">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -461,7 +461,7 @@
 
                                             <div class="mb-3">
                                                 <div class="row g-5">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-12">
                                                         <label class="form-check">
                                                             <select  class="form-select" placeholder="เลือกเรียนหลักสูตร (Select your Course)" name="course" id="course" required="required">
                                                                 <option value="">เลือกเรียนหลักสูตร (Select your Course)</option>
@@ -485,11 +485,7 @@
                                                         </label>
                                                         <div id="course-null"></div>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <div class="alert alert-success" role="alert">
-                                                        (ขอมีบัตรครั้งแรก)
-                                                        </div>
-                                                    </div>
+
                                                 </div>
                                             </div>
 
@@ -513,10 +509,10 @@
                                                     <div class="col-md-12">
                                                         <div class="alert alert-warning" role="alert" style="color: red;">
                                                             
-                                                    *** ข้าพเจ้ายินยอมให้ข้อมูลแก่ มหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย วิทยาเขตเชียงใหม่
-จะเก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้าสำหรับการใช้ในการขอบัตรประจำตัวนิสิตเท่านั้น ***
+                                                     *** ข้าพเจ้ายินยอมให้ข้อมูลแก่ มหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย วิทยาเขตเชียงใหม่
+จะเก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้าสำหรับการใช้ในการลงทะเบียนเรียนออนไลน์เท่านั้น *** <br>
 *** I agree to provide information to Mahachulalongkornrajavidyalaya University Chiang Mai Campus.
-For collect, use and disclose my personal information for the purpose of requesting for student card only. ***                                                           
+For collect, use and disclose my personal information for Online Enrollment only. ***                                                                   
                                                          
                                                         </div>
                                                     </div>
@@ -532,7 +528,7 @@ For collect, use and disclose my personal information for the purpose of request
                                                                 <label class="form-check">
                                                                     <div id="check_register-null">
                                                                     <input class="form-check-input" name="check_register" id="check_register" type="checkbox" value="1" required="required">
-                                                                    <span class="form-check-label">ยอมรับเงื่อนไข</span>
+                                                                    <span class="form-check-label">ยอมรับเงื่อนไข (Agreement)</span>
                                                                     </div>
                                                                 </label>
                                                             </div>
@@ -553,8 +549,8 @@ For collect, use and disclose my personal information for the purpose of request
                                                 <div class="card-footer text-end" style="margin: 0 auto; text-align: center;">
                                                 <center>
                                                     <div id="but_form_register-null">
-                                                    <button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>
-                                                    <button type="button" name="" id="" class="btn btn-danger">ยกเลิก</button>
+                                                    <button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">Apply</button>
+                                                    <button type="button" name="" id="" class="btn btn-danger">Cancel</button>
                                                     </div>
                                                 </center>
                                                 </div>

@@ -20,7 +20,7 @@
                                                             <div class="container-xl">
                                                                 <div class="row g-2 alogn-items-center">
                                                                     <div class="col-md-12">
-                                                                        <div class="page-title" style="font-size: 20px;">คำร้องขอบัตรประจำตัวนิสิต (REQUEST FOR STUDENT CARD)</div>
+                                                                        <div class="page-title" style="font-size: 20px;">คำร้องขอบัตรประจำตัวนิสิต (Request for Student Card)</div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -48,8 +48,8 @@
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >ฉายา (Buddhist Name)</label>
-                                                            <input name="user_name_buddhist" id="user_name_buddhist" type="text" class="form-control" placeholder="ฉายา (Buddhist Name)">
+                                                            <label >ฉายา (Buddhist Name / Middle Name)</label>
+                                                            <input name="user_name_buddhist" id="user_name_buddhist" type="text" class="form-control" placeholder="ฉายา (Buddhist Name / Middle Name)">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
@@ -153,14 +153,14 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label >รหัสประจำตัวประชาชน (Id Card)</label>
-                                                            <input name="user_idcard" id="user_idcard" type="text" class="form-control" placeholder="รหัสประจำตัวประชาชน (Id Card)">
+                                                            <label >รหัสประจำตัวประชาชน (ID Card / Passport No.)</label>
+                                                            <input name="user_idcard" id="user_idcard" type="text" class="form-control" placeholder="รหัสประจำตัวประชาชน (ID Card / Passport No.)">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label >หมู่โลหิต (Blood)</label>
-                                                            <input name="user_blood" id="user_blood" type="text" class="form-control" placeholder="หมู่โลหิต (Blood)">
+                                                            <label >หมู่โลหิต (Blood Type)</label>
+                                                            <input name="user_blood" id="user_blood" type="text" class="form-control" placeholder="หมู่โลหิต (Blood Type)">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -170,8 +170,8 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label >รหัสประจำตัว (ID Code)</label>
-                                                            <input name="user_student_id" id="user_student_id" type="text" class="form-control" placeholder="รหัสประจำตัว (ID Code)">
+                                                            <label >รหัสประจำตัว (Student ID)</label>
+                                                            <input name="user_student_id" id="user_student_id" type="text" class="form-control" placeholder="รหัสประจำตัว (Student ID)">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -287,7 +287,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="alert alert-success" role="alert">
-                                                        (ขอมีบัตรครั้งแรก)
+                                                        (ขอมีบัตรครั้งแรก / Request for First Student ID Card)
                                                         </div>
                                                     </div>
                                                 </div>
@@ -304,7 +304,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="alert alert-success" role="alert">
-                                                        (ขอรับรองว่าทำหายจริง)
+                                                        (ขอรับรองว่าทำหายจริง / I want to certify that you really lost it.)
                                                         </div>
                                                     </div>
                                                 </div>
@@ -321,7 +321,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="alert alert-success" role="alert">
-                                                        เตรียมเอกสารบัตรประจำตัวนิสิตติดมาด้วยแล้ว
+                                                        (เตรียมเอกสารบัตรประจำตัวนิสิตติดมาด้วยแล้ว / Prepare your student identification document.)
                                                         </div>
                                                     </div>
                                                 </div>
@@ -338,7 +338,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="alert alert-success" role="alert">
-                                                        เตรียมเอกสารบัตรประจำตัวนิสิตติดมาด้วยแล้ว
+                                                        (เตรียมเอกสารบัตรประจำตัวนิสิตติดมาด้วยแล้ว / Prepare your student identification document.)
                                                         </div>  
                                                     </div>
                                                 </div>
@@ -355,7 +355,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="alert alert-success" role="alert">
-                                                        เตรียมเอกสารหลักฐานพร้อมบัตรประจำตัวนิสิตติดมาด้วยแล้ว
+                                                        (เตรียมเอกสารหลักฐานพร้อมบัตรประจำตัวนิสิตติดมาด้วยแล้ว / Prepare evidence documents with your student ID card attached.)
                                                         </div>  
                                                     </div>
                                                 </div>
@@ -379,6 +379,32 @@
                                             </div>
 
                                         </div>
+                                    </div>
+
+
+                                    <div class="card">
+                                        <div class="card-status-top bg-green"></div>
+                                        <div class="card-header">
+                                            <div class="card-title" style="font-size: 18px;">
+                                                <div>กรุณาเลือกช่วงเวลาการเรียนของคุณ / Choose your schedule perious</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card-body">
+                                            <div class="mb-3">
+                                                <div class="row g-5">
+                                                    <div class="col-md-12">
+                                                        <select name="schedule" id="schedule" class="form-select" required="required">
+                                                            <option value="">เลือกช่วงเวลาการเรียน / Choose your schedule perious</option>
+                                                            <option value="1">11 เมษายน 2566 - 15 กุมภาพันธ์ 2567 (11 April 2023 - 15 February 2024)</option>
+                                                            <option value="2">3 กรกฎาคม 2566 - 29 พฤษภาคม 2567 (3 July 2023 - 29 May 2024)</option>
+                                                            <option value="3">2 ตุลาคม 2566 - 19 สิงหาคม 2567 (2 October 2023 - 19 August 2024)</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
 
 
@@ -460,7 +486,7 @@ For collect, use and disclose my personal information for the purpose of request
                                                                 <label class="form-check">
                                                                     <div id="check_register-null">
                                                                     <input class="form-check-input" name="check_register" id="check_register" type="checkbox" value="1" required="required">
-                                                                    <span class="form-check-label">ยอมรับเงื่อนไข / Agreed</span>
+                                                                    <span class="form-check-label">ยอมรับเงื่อนไข (Agreement)</span>
                                                                     </div>
                                                                 </label>
                                                             </div>

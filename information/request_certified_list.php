@@ -20,7 +20,7 @@
                                                             <div class="container-xl">
                                                                 <div class="row g-2 alogn-items-center">
                                                                     <div col-md-12>
-                                                                        <div class="page-title" style="font-size: 20px;">รายงานการยื่นเรื่องขอเอกสารรับรอง ()</div>
+                                                                        <div class="page-title" style="font-size: 20px;">รายงานการยื่นเรื่องขอเอกสารรับรอง (Report on Reauesting a Recomendation Letter)</div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -72,7 +72,7 @@
                                                         <div class="card">
                                                             <div class="card-status-top bg-green"></div>
                                                             <div class="card-header">
-                                                                <h3 class="card-title">รายการข้อมูล</h3>
+                                                                <h3 class="card-title">รายการข้อมูล (Detail)</h3>
                                                             </div>
                                                             <div class="card-body">
 <div id="Run_List">
@@ -105,9 +105,9 @@
                                                                                 <td>
             <?php
                     if(($request_Row["user_status"]=="1")){    ?>
-                                                                                    <span class="badge bg-orange-lt">กำลังดำเนินการ</span>
+                                                                                    <span class="badge bg-orange-lt">กำลังดำเนินการ  / In Progress</span>
             <?php    }elseif(($request_Row["user_status"]=="2")){  ?>
-                                                                                    <span class="badge bg-teal-lt" >ดำเนินเรียบร้อย</span>
+                                                                                    <span class="badge bg-teal-lt" >ดำเนินเรียบร้อย / Completed</span>
             <?php    }else{}    ?>
                                                                                     
                                                                                 </td>

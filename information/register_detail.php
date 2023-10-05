@@ -10,7 +10,7 @@
     }*/
 
     //$idcard=filter_input(INPUT_POST,'idcard');
-    //$student_name=filter_input(INPUT_POST,'student_name');
+    //$student_id=filter_input(INPUT_POST,'student_id');
 
 
     if(($_REQUEST["idcard"]!=null)){
@@ -19,14 +19,14 @@
          $idcard=null;
     }
 
-    if(($_REQUEST["student_name"]!=null)){
-        $student_name=$_REQUEST["student_name"];
+    if(($_REQUEST["student_id"]!=null)){
+        $student_id=$_REQUEST["student_id"];
     }else{
-         $student_name=null;
+         $student_id=null;
     }
 
 
-    $verify_sql="SELECT * FROM `tb_student` WHERE `user_idcard`='{$idcard}' AND (`user_name` LIKE '%$student_name%' OR `user_surname` LIKE '%$student_name%')";
+    $verify_sql="SELECT * FROM `tb_student` WHERE `user_idcard`='{$idcard}' AND `user_student_no`='{$student_id}'";
 	//echo "$verify_sql";
     $verify_rs=result_array($verify_sql);
     foreach($verify_rs as $key=>$verify_row){
@@ -76,7 +76,7 @@
                                                                         </div>
                                                                     </div>
     <input type="hidden" name="idcard" id="idcard" value="<?php echo $idcard;?>">
-    <input type="hidden" name="student_name" id="student_name" value="<?php echo $student_name;?>">
+    <input type="hidden" name="student_id" id="student_id" value="<?php echo $student_id;?>">
 </form>                                                                   
 
                                                                 </div>

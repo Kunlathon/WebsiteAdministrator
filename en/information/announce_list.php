@@ -20,7 +20,7 @@
                                                             <div class="container-xl">
                                                                 <div class="row g-2 alogn-items-center">
                                                                     <div class="col-md-12">
-                                                                        <div class="page-title" style="font-size: 20px;">ประกาศรายชื่อผู้สมัคร ()</div>
+                                                                        <div class="page-title" style="font-size: 20px;">ประกาศรายชื่อผู้สมัคร (Announcement of names of applicants)</div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -49,8 +49,8 @@
                                                                     <div class="col-md-4">
                                                                         <div class="card-footer text-end" style="margin: 0 auto; text-align: center;">
                                                                         <center>
-                                                                            <button type="button" name="but_clink" id="but_clink" class="btn btn-success">คันหา</button>
-                                                                            <button type="button" name="but_delete" id="but_delete" class="btn btn-danger" value="but_delete">ยกเลิก</button>
+                                                                            <button type="button" name="but_clink" id="but_clink" class="btn btn-success">Search</button>
+                                                                            <button type="button" name="but_delete" id="but_delete" class="btn btn-danger" value="but_delete">Canceled</button>
                                                                         </center>
                                                                         </div>
                                                                     </div>
@@ -72,7 +72,7 @@
                                                         <div class="card">
                                                             <div class="card-status-top bg-green"></div>
                                                             <div class="card-header">
-                                                                <h3 class="card-title">รายการข้อมูล</h3>
+                                                                <h3 class="card-title">รายการข้อมูล (Detail)</h3>
                                                             </div>
                                                             <div class="card-body">
 <div id="Run_List">
@@ -111,9 +111,9 @@
                                                                                 <td>
             <?php
                     if(($annouuce_Row["user_status"]=="1")){    ?>
-                                                                                    <span class="badge bg-orange-lt">กำลังดำเนินการ</span>
+                                                                                    <span class="badge bg-orange-lt">กำลังดำเนินการ / In Progress</span>
             <?php    }elseif(($annouuce_Row["user_status"]=="2")){  ?>
-                                                                                    <span class="badge bg-teal-lt" >ดำเนินเรียบร้อย</span>
+                                                                                    <span class="badge bg-teal-lt" >ดำเนินเรียบร้อย / Completed</span>
             <?php    }else{}    ?>
                                                                                     
                                                                                 </td>

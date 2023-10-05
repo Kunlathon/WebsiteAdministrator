@@ -48,8 +48,8 @@
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >ฉายา (Buddhist Name)</label>
-                                                            <input name="user_name_buddhist" id="user_name_buddhist" type="text" class="form-control" placeholder="ฉายา (Buddhist Name)">
+                                                            <label >ฉายา (Buddhist Name / Middle Name))</label>
+                                                            <input name="user_name_buddhist" id="user_name_buddhist" type="text" class="form-control" placeholder="ฉายา (Buddhist Name / Middle Name))">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
@@ -153,14 +153,14 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label >รหัสประจำตัวประชาชน (Id Card)</label>
+                                                            <label >รหัสประจำตัวประชาชน (ID Card / Passport No.)</label>
                                                             <input name="user_idcard" id="user_idcard" type="text" class="form-control" placeholder="รหัสประจำตัวประชาชน (Id Card)">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label >หมู่โลหิต (Blood)</label>
-                                                            <input name="user_blood" id="user_blood" type="text" class="form-control" placeholder="หมู่โลหิต (Blood)">
+                                                            <label >หมู่โลหิต (Blood Type)</label>
+                                                            <input name="user_blood" id="user_blood" type="text" class="form-control" placeholder="หมู่โลหิต (Blood Type)">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -170,8 +170,8 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label >รหัสประจำตัว (ID Code)</label>
-                                                            <input name="user_student_id" id="user_student_id" type="text" class="form-control" placeholder="รหัสประจำตัว (ID Code)">
+                                                            <label >รหัสประจำตัว (Student ID)</label>
+                                                            <input name="user_student_id" id="user_student_id" type="text" class="form-control" placeholder="รหัสประจำตัว (Student ID)">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -265,7 +265,7 @@
                                         <div class="card-status-top bg-blue"></div>
                                         <div class="card-header">
                                             <div class="card-title" style="font-size: 18px;">
-                                                <div>มีความประสงค์ขอเอกสารรับรอง</div>
+                                                <div>มีความประสงค์ขอเอกสารรับรอง (I would like to Request a Recomendation Letter.)</div>
                                                     <div></div>
                                             </div>
                                         </div>
@@ -278,13 +278,13 @@
 
                                                             <label class="form-check">
                                                                 <input class="form-check-input" name="user_certified" id="user_certified" type="checkbox" value="1">
-                                                                <span class="form-check-label">ยื่นเรื่องคำร้อง</span>
+                                                                <span class="form-check-label">ยื่นเรื่องคำร้อง (Recomendation Letter)</span>
                                                             </label>
                                                             
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="alert alert-success" role="alert">
-                                                        ยื่นเรื่องคำร้อง
+                                                        ยื่นเรื่องคำร้อง (Recomendation Letter)
                                                         </div>  
                                                     </div>
                                                 </div>
@@ -331,7 +331,7 @@ For collect, use and disclose my personal information for the purpose of Reauest
                                                                 <label class="form-check">
                                                                     <div id="check_register-null">
                                                                     <input class="form-check-input" name="check_register" id="check_register" type="checkbox" value="1" required="required">
-                                                                    <span class="form-check-label">ยอมรับเงื่อนไข / Agreed</span>
+                                                                    <span class="form-check-label">ยอมรับเงื่อนไข (Agreement)</span>
                                                                     </div>
                                                                 </label>
                                                             </div>
