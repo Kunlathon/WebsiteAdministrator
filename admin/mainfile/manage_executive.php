@@ -213,7 +213,7 @@ if ((preg_match("/manage_executive.php/", $_SERVER['PHP_SELF']))) {
                 modal: modalTemplate
             },
             initialPreview: [
-                '<?php echo $link_wbe->Call_Link_Wbe();?>/uploads/information/'+copy_information_image,
+                '<?php echo $link_web->Call_link_web();?>/uploads/information/'+copy_information_image,
             ],
             initialPreviewConfig: [
                 {caption: copy_information_image,  key: 1, url: '{$url}', showDrag: false}

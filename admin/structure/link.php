@@ -16,7 +16,7 @@ if(preg_match("/link.php/",$_SERVER['PHP_SELF'])) {
     die();
 }else{
 
-    class link_wbe{
+    class link_web{
         public $link_txt;
         function __construct(){
             switch($_SERVER['REMOTE_ADDR']){
@@ -36,7 +36,7 @@ if(preg_match("/link.php/",$_SERVER['PHP_SELF'])) {
                     $link_txt="https://www.phothitech.net/languagecenter";
             }
             $this->link_txt=$link_txt;
-        }function Call_Link_Wbe(){
+        }function Call_link_web(){
            return $this->link_txt;
         }
     }

@@ -32,8 +32,8 @@ include("structure/link.php");
 $RunLink = new link_system();
 //$RunLink->CallLink_System();
 
-$link_wbe=new link_wbe();
-//$link_wbe->Call_Link_Wbe();
+$link_web=new link_web();
+//$link_web->Call_link_web();
 
 $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 

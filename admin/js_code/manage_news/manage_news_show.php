@@ -91,20 +91,19 @@
             <thead>
                 <tr align="center">
                     <th>
-                        <div>ข่าว</div>
+                        <div>ลำดับ</div>
                     </th>
                     <th>
-                        <div>เนื้อหาข่าว</div>
+                        <div>ภาพข่าว</div>
                     </th>
                     <th>
-                        <div>วันที่อัพโหลด</div>
+                        <div>หัวข้อข่าว</div>
                     </th>
                     <th>
-                        <div>วันที่แก้ไข</div>
+                        <div>วันที่</div>
                     </th>
                     <th>
-                        <div>ประเภทข่าว / </div>    
-                        <div>สถานะ</div>
+                        <div>ประเภทข่าว</div>
                     </th>
                     <th>
                         <div>จัดการ</div>
@@ -113,9 +112,11 @@
             </thead>
             <tbody>
     <?php
+            $count_int=0;
             $news_sql = "SELECT * FROM `tb_news`  ORDER BY `news_id` DESC";
             $news_list = result_array($news_sql);
             foreach ($news_list as $key => $news_row) { 
+                $count_int=$count_int+1;
                 if((isset($news_row["news_image0"]))){
                     $newsimg_name=$news_row["news_image0"];
                 }else{
@@ -132,35 +133,49 @@
     ?>
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
                 <tr>
-                    <td style="width: 40%; vertical-align: text-top;" class="align-top">
+                    <td style="vertical-align: text-top;" class="align-top">
+                        <div><center><?php echo $count_int;?></center></div>
+                    </td>
+                    <td style="vertical-align: text-top;" class="align-top">
                         <div>
-                            <div class="card">
-
-								<div class="card-body">
 									
     <?php
             if((($newsimg_name!=null))){
                 if(file_exists("../../../uploads/news/".$newsimg_name)){ ?>
-                        <div><img src="../uploads/news/<?php echo $newsimg_name;?>" class="img-thumbnail" alt="<?php echo $newsimg_name;?>" style="width:304px; height:236px;"></div>
+                        <div><center><img src="../uploads/news/<?php echo $newsimg_name;?>" class="img-thumbnail" alt="<?php echo $newsimg_name;?>" style="width:204px; height:136px;"></center></div>
     <?php       }else{ ?>
-                        <div><img src="../uploads/news/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:304px; height:236px;"></div>
+                        <div><center><img src="../uploads/news/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:204px; height:136px;"></center></div>
     <?php       }
             }else{ ?>
-                        <div><img src="../uploads/news/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:304px; height:236px;"></div>
+                        <div><center><img src="../uploads/news/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:204px; height:136px;"></center></div>
     <?php   } ?>
 									
-								</div>            
-
-								<div class="card-header">
-									<div><?php echo $news_row["news_topic"];?></div>
-								</div>
-
-							</div>
                         </div>
                     </td>
 
-                    <td align="center" style="width: 40%; vertical-align: text-top;" class="align-top">
-                        <div><?php echo $news_row["news_detail_1"];?></div>
+                    <td style="width: 40%; vertical-align: text-top;" class="align-top">
+                       
+    <?php
+            if((isset($news_row["news_topic"]))){   ?>
+                        <div><?php echo $news_row["news_topic"];?></div>
+    <?php   }else{  ?>
+                        
+    <?php   } ?>
+
+    <?php
+            if((isset($news_row["news_topic_en"]))){   ?>
+                        <div><?php echo $news_row["news_topic_en"];?></div>
+    <?php   }else{  ?>
+
+    <?php   } ?>
+
+    <?php
+            if((isset($news_row["news_topic_cn"]))){   ?>
+                        <div><?php echo $news_row["news_topic_cn"];?></div>
+    <?php   }else{  ?>
+
+    <?php   } ?>
+
                     </td>
 
                     <td align="center" style="width: 5%; vertical-align: text-top;" class="align-top">
@@ -174,10 +189,7 @@
         }
     ?>
                         <div><span class="badge badge-warning"><?php echo $print_post_time;?></span></div>
-
-                    </td>
-
-                    <td align="center" style="width: 5%; vertical-align: text-top;" class="align-top">
+                        
     <?php
         if(($news_row["news_update_date"]!=null or $news_row["news_update_date"]!="0000-00-00 00:00:00")){
             $copy_news_update_time=new strto_datetime("datetime_th",$news_row["news_update_date"]); 
@@ -186,7 +198,8 @@
             $print_update_time=null;
         }
     ?>
-                        <div><span class="badge badge-warning"><?php echo $print_update_time;?></span></div>
+                        <div><span class="badge badge-info"><?php echo $print_update_time;?></span></div>
+
 
                     </td>
 
@@ -209,7 +222,7 @@
                         </div>
 
                     </td>
-                    <td align="center" style="width: 5%; vertical-align: text-top;" class="align-top">
+                    <td align="center" style="width: 15%; vertical-align: text-top;" class="align-top">
                         <div align="center">
                             <ul class="nav justify-content-center">
                                 <li class="nav-item">

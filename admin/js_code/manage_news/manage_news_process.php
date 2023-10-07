@@ -739,6 +739,58 @@
 
             echo "no_error";  
 
+    }elseif(($action=="edit_en")){
+        
+        $news_id=filter_input(INPUT_POST,'news_id');
+        $news_topic_en=filter_input(INPUT_POST,'news_topic_en');
+        $news_detail_1_en=filter_input(INPUT_POST,'news_detail_1_en');
+        $news_detail_2_en=filter_input(INPUT_POST,'news_detail_2_en');
+        $news_detail_3_en=filter_input(INPUT_POST,'news_detail_3_en');
+        $news_detail_4_en=filter_input(INPUT_POST,'news_detail_4_en');
+        $news_detail_5_en=filter_input(INPUT_POST,'news_detail_5_en');
+
+//update db         
+        $NewsData = array(
+            "news_topic_en"=>$news_topic_en,
+            "news_detail_1_en"=>$news_detail_1_en,
+            "news_detail_2_en"=>$news_detail_2_en,
+            "news_detail_3_en"=>$news_detail_3_en,
+            "news_detail_4_en"=>$news_detail_4_en,
+            "news_detail_5_en"=>$news_detail_5_en,
+            "news_update_date"=>$update_date,
+  
+        );
+        update("tb_news", $NewsData, "news_id  = '{$news_id}'"); 
+        echo "NoError";
+//update db end
+
+
+    }elseif(($action=="edit_cn")){
+        
+        $news_id=filter_input(INPUT_POST,'news_id');
+        $news_topic_cn=filter_input(INPUT_POST,'news_topic_cn');
+        $news_detail_1_cn=filter_input(INPUT_POST,'news_detail_1_cn');
+        $news_detail_2_cn=filter_input(INPUT_POST,'news_detail_2_cn');
+        $news_detail_3_cn=filter_input(INPUT_POST,'news_detail_3_cn');
+        $news_detail_4_cn=filter_input(INPUT_POST,'news_detail_4_cn');
+        $news_detail_5_cn=filter_input(INPUT_POST,'news_detail_5_cn');
+
+//update db         
+        $NewsData = array(
+            "news_topic_cn"=>$news_topic_cn,
+            "news_detail_1_cn"=>$news_detail_1_cn,
+            "news_detail_2_cn"=>$news_detail_2_cn,
+            "news_detail_3_cn"=>$news_detail_3_cn,
+            "news_detail_4_cn"=>$news_detail_4_cn,
+            "news_detail_5_cn"=>$news_detail_5_cn,
+            "news_update_date"=>$update_date,
+  
+        );
+        update("tb_news", $NewsData, "news_id  = '{$news_id}'"); 
+        echo "NoError";
+//update db end
+
+
     }else{}
 
 ?>

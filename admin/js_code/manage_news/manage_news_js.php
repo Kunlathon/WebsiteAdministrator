@@ -39,6 +39,10 @@
 
 <script src="<?php echo $RunLink->Call_Link_System();?>/template/global_assets/js/plugins/forms/selects/select2.min.js"></script>
 
+<script src="<?php echo $RunLink->Call_Link_System();?>/template/global_assets/js/plugins/notifications/pnotify.min.js"></script>
+<script src="<?php echo $RunLink->Call_Link_System();?>/template/global_assets/js/plugins/notifications/noty.min.js"></script>
+<script src="<?php echo $RunLink->Call_Link_System();?>/template/global_assets/js/plugins/notifications/jgrowl.min.js"></script>
+
 <script>
     $(document).ready(function(){
         $('.select').select2({
@@ -127,7 +131,7 @@
 
 
 <!--Show Data All-->
-<script>
+    <script>
         $(document).ready(function(){
             var run_show=$("#run_show").val();
                 if(run_show==="show"){
@@ -145,3 +149,198 @@
         })
     </script>
 <!--Show Date All End-->
+<!--Update En-->
+    <script>
+        $(document).ready(function(){
+            // Defaults
+            var swalInitManageNewsEn = swal.mixin({
+                buttonsStyling: false,
+                customClass: {
+                    confirmButton: 'btn btn-primary',
+                    cancelButton: 'btn btn-light',
+                    denyButton: 'btn btn-light',
+                    input: 'form-control'
+                }
+            });
+            // Defaults End
+
+            $('#sub_up_en').on('click',function(){
+                var action=$("#action_en").val();
+                    if(action==="edit_en"){
+                        var news_id=$("#news_id_en").val();
+                            if(news_id!==""){
+                                var news_topic_en=$("#news_topic_en").val();
+                                var news_detail_1_en=$("#news_detail_1_en").val();
+                                var news_detail_2_en=$("#news_detail_2_en").val();
+                                var news_detail_3_en=$("#news_detail_3_en").val();
+                                var news_detail_4_en=$("#news_detail_4_en").val();
+                                var news_detail_5_en=$("#news_detail_5_en").val();
+                                $.post("<?php echo $RunLink->Call_Link_System(); ?>/js_code/manage_news/manage_news_process.php",{
+                                    action:action,
+                                    news_id:news_id,
+                                    news_topic_en:news_topic_en,
+                                    news_detail_1_en:news_detail_1_en,
+                                    news_detail_2_en:news_detail_2_en,
+                                    news_detail_3_en:news_detail_3_en,
+                                    news_detail_4_en:news_detail_4_en,
+                                    news_detail_5_en:news_detail_5_en
+                                },function(test_news_th){
+                                    var test_news_th=test_news_th;
+                                        if(test_news_th.trim()==="NoError"){
+
+                                            let timerInterval;
+                                            swalInitManageNewsEn.fire({
+                                                title: 'บันทึกสำเร็จ',
+                                                //html: 'I will close in <b></b> milliseconds.',
+                                                timer: 1200,
+                                                icon: 'success',
+                                                timerProgressBar: true,
+                                                didOpen: function() {
+                                                    Swal.showLoading()
+                                                    timerInterval = setInterval(function() {
+                                                        const content = Swal.getContent();
+                                                        if (content) {
+                                                            const b_document_news_en = content.querySelector('b_document_news_en')
+                                                            if (b_document_news_en) {
+                                                                b_document_news_en.textContent = Swal.getTimerLeft();
+                                                            }else{}
+                                                        }else{}
+                                                    }, 100);
+                                                },
+                                                willClose: function() {
+                                                    clearInterval(timerInterval)
+                                                }
+                                            }).then(function (result) {
+                                                if (result.dismiss === Swal.DismissReason.timer) {
+                                                    document.location="<?php echo $RunLink->Call_Link_System();?>/?modules=manage_news"; 
+                                                }else{}
+                                            });
+
+                                        }else if(test_news_th.trim()==="ItError"){
+                                            swalInitManageNewsEn.fire({
+                                                title: 'บันทึกข้อมูลไม่สำเร็จ',
+                                                icon: 'error'
+                                            })
+                                        }else{
+                                            swalInitManageNewsEn.fire({
+                                                title: 'เกิดข้อผิดในการบันทึกข้อมูล กรุณาลองใหม่อีกครั้ง',
+                                                icon: 'error'
+                                            })
+                                        }
+                                })
+                            }else{
+                                swalInitManageNewsEn.fire({
+                                    title: 'พบข้อผิดพลาด กรุณาลองใหม่อีกครั้ง',
+                                    icon: 'error'
+                                })
+                            }
+                    }else{
+                        swalInitManageNewsEn.fire({
+                            title: 'ข้อมูลไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง',
+                            icon: 'error'
+                        });
+                    }
+
+            })
+
+        })
+    </script>
+<!--Update En End-->
+
+<!--Update Cn-->
+<script>
+        $(document).ready(function(){
+            // Defaults
+            var swalInitManageNewsCn = swal.mixin({
+                buttonsStyling: false,
+                customClass: {
+                    confirmButton: 'btn btn-primary',
+                    cancelButton: 'btn btn-light',
+                    denyButton: 'btn btn-light',
+                    input: 'form-control'
+                }
+            });
+            // Defaults End
+
+            $('#sub_up_cn').on('click',function(){
+                var action=$("#action_cn").val();
+                    if(action==="edit_cn"){
+                        var news_id=$("#news_id_cn").val();
+                            if(news_id!==""){
+                                var news_topic_cn=$("#news_topic_cn").val();
+                                var news_detail_1_cn=$("#news_detail_1_cn").val();
+                                var news_detail_2_cn=$("#news_detail_2_cn").val();
+                                var news_detail_3_cn=$("#news_detail_3_cn").val();
+                                var news_detail_4_cn=$("#news_detail_4_cn").val();
+                                var news_detail_5_cn=$("#news_detail_5_cn").val();
+                                $.post("<?php echo $RunLink->Call_Link_System(); ?>/js_code/manage_news/manage_news_process.php",{
+                                    action:action,
+                                    news_id:news_id,
+                                    news_topic_cn:news_topic_cn,
+                                    news_detail_1_cn:news_detail_1_cn,
+                                    news_detail_2_cn:news_detail_2_cn,
+                                    news_detail_3_cn:news_detail_3_cn,
+                                    news_detail_4_cn:news_detail_4_cn,
+                                    news_detail_5_cn:news_detail_5_cn
+                                },function(test_news_th){
+                                    var test_news_th=test_news_th;
+                                        if(test_news_th.trim()==="NoError"){
+
+                                            let timerInterval;
+                                            swalInitManageNewsCn.fire({
+                                                title: 'บันทึกสำเร็จ',
+                                                //html: 'I will close in <b></b> milliseconds.',
+                                                timer: 1200,
+                                                icon: 'success',
+                                                timerProgressBar: true,
+                                                didOpen: function() {
+                                                    Swal.showLoading()
+                                                    timerInterval = setInterval(function() {
+                                                        const content = Swal.getContent();
+                                                        if (content) {
+                                                            const b_document_news_cn = content.querySelector('b_document_news_cn')
+                                                            if (b_document_news_cn) {
+                                                                b_document_news_cn.textContent = Swal.getTimerLeft();
+                                                            }else{}
+                                                        }else{}
+                                                    }, 100);
+                                                },
+                                                willClose: function() {
+                                                    clearInterval(timerInterval)
+                                                }
+                                            }).then(function (result) {
+                                                if (result.dismiss === Swal.DismissReason.timer) {
+                                                    document.location="<?php echo $RunLink->Call_Link_System();?>/?modules=manage_news"; 
+                                                }else{}
+                                            });
+
+                                        }else if(test_news_th.trim()==="ItError"){
+                                            swalInitManageNewsCn.fire({
+                                                title: 'บันทึกข้อมูลไม่สำเร็จ',
+                                                icon: 'error'
+                                            })
+                                        }else{
+                                            swalInitManageNewsCn.fire({
+                                                title: 'เกิดข้อผิดในการบันทึกข้อมูล กรุณาลองใหม่อีกครั้ง',
+                                                icon: 'error'
+                                            })
+                                        }
+                                })
+                            }else{
+                                swalInitManageNewsCn.fire({
+                                    title: 'พบข้อผิดพลาด กรุณาลองใหม่อีกครั้ง',
+                                    icon: 'error'
+                                })
+                            }
+                    }else{
+                        swalInitManageNewsCn.fire({
+                            title: 'ข้อมูลไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง',
+                            icon: 'error'
+                        });
+                    }
+
+            })
+
+        })
+    </script>
+<!--Update Cn End-->
