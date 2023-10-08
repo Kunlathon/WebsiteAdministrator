@@ -126,16 +126,16 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
           </button>
           <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
             <a href=".">
-              <img src="dist/img/LCM1.png" width="100%" height="32" alt="LCM" class=""> 
+              <img src="dist/img/LCM1.png" style="width: 100%; height: 100px;" alt="LCM" class=""> 
             </a>
-			<h3><font color="red">ศูนย์ภาษา มหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย วิทยาเขตเชียงใหม่</font></h3>
+			<!--<h3><font color="red">ศูนย์ภาษา มหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย วิทยาเขตเชียงใหม่</font></h3>-->
           </h1>
 			
           <div class="navbar-nav flex-row order-md-last">
-            <div class="nav-item d-none d-md-flex me-3">
+            <div class="nav-item me-3">
               <div class="btn-list">
 
-<form name="keyword" action="?modules=course" method="post">
+				<form name="keyword" action="?modules=course" method="post">
                   <div class="row">
                       <div class="col">
                           <input type="text" name="" id="" class="form-control" placeholder="Search for…">
@@ -147,15 +147,17 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
                           </button>
                       </div>
                   </div>
-</form>
+				</form>
 
               </div>
-            </div>
-
-            <div class="nav">
+			  
+              <div class="btn-list">
+			  <label align="right">  
               <a href="index.php"><img src="dist/img/icon-th-removal.png" alt="TH"  width="32" height="32"></a>
               <a href="en/index.php"><img src="dist/img/icon-en-removal.png" alt="EN" width="32" height="32"></a>
-              <a href="https://www.facebook.com/profile.php?id=100063538752096" target="_blank"><img src="dist/img/facebook-1.png" alt="Facebook"  width="32" height="32"></a>
+              <a href="https://www.facebook.com/profile.php?id=100063538752096" target="_blank"><img src="dist/img/facebook-1.png" alt="Facebook"  width="32" height="32"></a>			  
+			  </label>  
+              </div>
             </div>
           </div>
         </div>

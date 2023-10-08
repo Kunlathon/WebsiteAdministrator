@@ -66,7 +66,7 @@ include("../config/fnc.php");
     $province2=filter_input(INPUT_POST,'province2');
     $citycode2=filter_input(INPUT_POST,'citycode2');
 
-    $course_id=filter_input(INPUT_POST,'course');
+    $course_detail_id=filter_input(INPUT_POST,'course');
 
     
         if(($_FILES["img1"]["name"]!=null)){
@@ -118,7 +118,7 @@ include("../config/fnc.php");
                 "user_mother_idcard"=>$mother_idcard,
                 "user_mothername"=>$mothername,
                 "user_mother_occupation"=>$mother_occupation,
-                "course_id"=>$course_id,
+                "course_detail_id"=>$course_detail_id,
                 "user_date"=>$Date,
                 "user_update"=>$Date,
                 "user_lastlogin"=>$DateTime,
@@ -161,7 +161,7 @@ include("../config/fnc.php");
                 "user_date"=>$Date,
                 "user_update"=>$Date,
                 "user_lastlogin"=>$DateTime,
-                "user_status"=>'1'
+                "user_status"=>'2'
 
             );
             insert("tb_student", $student_data);
@@ -199,7 +199,7 @@ include("../config/fnc.php");
                 "user_mother_idcard"=>$mother_idcard,
                 "user_mothername"=>$mothername,
                 "user_mother_occupation"=>$mother_occupation,
-                "course_id"=>$course_id,
+                "course_detail_id"=>$course_detail_id,
                 "user_date"=>$Date,
                 "user_update"=>$Date,
                 "user_lastlogin"=>$DateTime,
@@ -241,7 +241,7 @@ include("../config/fnc.php");
                 "user_date"=>$Date,
                 "user_update"=>$Date,
                 "user_lastlogin"=>$DateTime,
-                "user_status"=>'1'
+                "user_status"=>'2'
 
             );
             insert("tb_student", $student_data);

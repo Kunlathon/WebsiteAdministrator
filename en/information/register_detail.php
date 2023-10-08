@@ -9,14 +9,28 @@
         }
     }*/
 
-    $idcard=filter_input(INPUT_POST,'idcard');
-    $student_name=filter_input(INPUT_POST,'student_name');
+    if(($_REQUEST["idcard"]!=null)){
+        $idcard=$_REQUEST["idcard"];
+    }else{
+         $idcard=null;
+    }
 
-    $verify_sql="SELECT * FROM `tb_student` WHERE `user_name` LIKE '%{$student_name}%' AND `user_idcard`='{$idcard}'";
+    if(($_REQUEST["student_id"]!=null)){
+        $student_id=$_REQUEST["student_id"];
+    }else{
+         $student_id=null;
+    }
+
+
+    $verify_sql="SELECT * FROM `tb_student` WHERE `user_idcard`='{$idcard}' AND `user_student_no`='{$student_id}'";
+	//echo "$verify_sql";
     $verify_rs=result_array($verify_sql);
     foreach($verify_rs as $key=>$verify_row){
 
-            if(((is_array($verify_row) && count($verify_row)))){ ?>
+            if(((is_array($verify_row) && count($verify_row)))){ 
+                
+                
+?>
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 
    

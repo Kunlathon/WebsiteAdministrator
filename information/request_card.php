@@ -377,11 +377,42 @@
                                             <div class="mb-3">
                                                 <div class="row g-5">
                                                     <div class="col-md-12">
-                                                        <select name="schedule" id="schedule" class="form-select" required="required">
-                                                            <option value="">เลือกช่วงเวลาการเรียน / Choose your schedule perious</option>
-                                                            <option value="1">11 เมษายน 2566 - 15 กุมภาพันธ์ 2567 (11 April 2023 - 15 February 2024)</option>
-                                                            <option value="2">3 กรกฎาคม 2566 - 29 พฤษภาคม 2567 (3 July 2023 - 29 May 2024)</option>
-                                                            <option value="3">2 ตุลาคม 2566 - 19 สิงหาคม 2567 (2 October 2023 - 19 August 2024)</option>
+                                                        <select name="course_detail_id" id="course_detail_id" class="form-select" required="required">
+                                                            
+                                                                    <option value="">เลือกเรียนหลักสูตร (Select your Course)</option>
+                                                                
+                                                                <?php
+                                                                        $course_Sql="SELECT * FROM `tb_course` 
+                                                                                    INNER JOIN `tb_course_detail` ON(`tb_course`.`course_id`=`tb_course_detail`.`course_id`) 
+                                                                                    WHERE `tb_course_detail`.`course_detail_status`='2' 
+                                                                                    ORDER BY `tb_course_detail`.`course_detail_date_start` DESC;";
+                                                                        $course_List=result_array($course_Sql);
+                                                                        foreach($course_List as $key=>$course_Row){  
+                                                                            
+                                                                            if(($course_key==$course_Row["course_id"])){
+                                                                                $selected_course='selected="selected"';
+                                                                            }else{
+                                                                                $selected_course=null;
+                                                                            }
+                                                                            
+                                                                            if((isset($course_Row["course_detail_date_start"]))){
+                                                                                $cdds=date_en($course_Row["course_detail_date_start"]);
+                                                                            }else{
+                                                                                $cdds="-";
+                                                                            }
+                                                            
+                                                                            if((isset($course_Row["course_detail_date_finnish"]))){
+                                                                                $cddf=date_en($course_Row["course_detail_date_finnish"]);
+                                                                            }else{
+                                                                                $cddf="-";
+                                                                            }
+                                                            
+                                                            
+                                                            
+                                                                            ?>
+                                                                    <option value="<?php echo $course_Row["course_detail_id"];?>" <?php echo $selected_course;?> ><?php echo $course_Row["course_name"];?> (<?php echo $course_Row["course_name_en"];?> ) (<?php echo $cdds." - ".$cddf;?>)</option>     
+                                                                <?php    } ?>
+
                                                         </select>
                                                     </div>
                                                 </div>

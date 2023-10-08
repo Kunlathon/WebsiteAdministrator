@@ -19,8 +19,8 @@
                                                         <div class="page-header d=print-none">
                                                             <div class="container-xl">
                                                                 <div class="row g-2 alogn-items-center">
-                                                                    <div col-md-12>
-                                                                        <div class="page-title" style="font-size: 20px;">รายงานการยื่นเรื่องขอเอกสารรับรอง (Report on Reauesting a Recomendation Letter)</div>
+                                                                    <div class="col-md-12">
+                                                                        <div class="page-title" style="font-size: 20px;">Download</div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -49,8 +49,8 @@
                                                                     <div class="col-md-4">
                                                                         <div class="card-footer text-end" style="margin: 0 auto; text-align: center;">
                                                                         <center>
-                                                                            <button type="button" name="but_clink" id="but_clink" class="btn btn-success">คันหา</button>
-                                                                            <button type="button" name="but_delete" id="but_delete" class="btn btn-danger" value="but_delete">ยกเลิก</button>
+                                                                            <button type="button" name="but_clink" id="but_clink" class="btn btn-success">Search</button>
+                                                                            <button type="button" name="but_delete" id="but_delete" class="btn btn-danger" value="but_delete">Cancel</button>
                                                                         </center>
                                                                         </div>
                                                                     </div>
@@ -72,43 +72,52 @@
                                                         <div class="card">
                                                             <div class="card-status-top bg-green"></div>
                                                             <div class="card-header">
-                                                                <h3 class="card-title">รายการข้อมูล (Detail)</h3>
+                                                                <h3 class="card-title">Data List</h3>
                                                             </div>
                                                             <div class="card-body">
-<div id="Run_List">
+															<div id="Run_List">
                                                                 <div class="table-responsive">
                                                                
                                                                     <table class="table table-bordered">
                                                                         <thead>
-                                                                            <tr>
-                                                                                <th><div>ลำดับ (No.)</div></th>
-                                                                                <th><div>รายชื่อ (Name-Surname)</div></th>
-                                                                                <th><div>สถานะ (Status)</div></th>
+                                                                            <tr>    
+																				<th><div>ลำดับ (No.)</div></th>
+																				<th><div>รายการ (List)</div></th>
+                                                                                <th><div>ประเภท (Type)</div></th>
+                                                                                <th><div>ไฟล์ (File)</div></th>
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
-    <?php
-        $request_Sql="SELECT * FROM `tb_certified` ORDER BY `tb_certified`.`studentcard_id` DESC;";
-        $request_Rs=result_array($request_Sql);
-        $requset_count=0;
-        foreach($request_Rs as $key=>$request_Row){ 
-            $requset_count=$requset_count+1;
-            $myname=$request_Row["user_name"]." ".$request_Row["user_surname"];
+																		<?php
+																			$request_Sql="SELECT * FROM tb_document a INNER JOIN tb_document_category b ON a.document_category_id=b.document_category_id WHERE a.document_status='1' ORDER BY a.document_topic ASC";
+																			$request_Rs=result_array($request_Sql);
+																			$requset_count=0;
+																			foreach($request_Rs as $key=>$request_Row){ 
+																				$requset_count=$requset_count+1;
+																				$document_name=$request_Row["document_topic"];
+																				$document_category_name=$request_Row["document_category_name"];
 
-           
-
-            ?>
+																		?>
 
                                                                             <tr>
                                                                                 <td><div><?php echo $requset_count;?></div></td>
-                                                                                <td><div><?php echo $myname;?></div></td>
+
+                                                                                <td><div><?php echo $document_name;?></div></td>
+
+                                                                                <td><div><?php echo $document_category_name;?></div></td>
+
                                                                                 <td>
-            <?php
-                    if(($request_Row["user_status"]=="1")){    ?>
-                                                                                    <span class="badge bg-orange-lt">กำลังดำเนินการ  / In Progress</span>
-            <?php    }elseif(($request_Row["user_status"]=="2")){  ?>
-                                                                                    <span class="badge bg-teal-lt" >ดำเนินเรียบร้อย / Completed</span>
-            <?php    }else{}    ?>
+																																								
+																					<?php
+																					if ($request_Row['document_file'] == "") {
+
+																					} else {
+																					?>
+																						<a href="../uploads/document/<?php echo $request_Row['document_file']; ?>" target="_blank"><img src="../dist/img/download-png-blue.png" alt="<?php echo $document_name;?>" class="card-img-top" style="width:100px;height:40px;"></a>
+
+																					<?php
+																					}
+																					?>
                                                                                     
                                                                                 </td>
                                                                             </tr>
@@ -151,7 +160,7 @@
         $("#but_delete").on("click",function(){
             var but_delete=$("#but_delete").val();
                 if(but_delete==="but_delete"){
-                    document.location="?modules=request_certified_list";
+                    document.location="?modules=download";
                 }else{}
         })
     })
@@ -167,7 +176,7 @@
                         '<input type="text" name="text_key" id="text_key" value="'+text_key+'" class="form-control is-invalid">'
                         +'<div class="invalid-feedback">จำนวนตัวอักษรจำกัดไม่เกิน 100 ตัวอักษร</div>';
                     }else{
-                        $.post("proccess/request_certifed_show.php",{
+                        $.post("proccess/download_show.php",{
                             text_key:text_key
                         },function(RunList){
                             if(RunList!==""){
@@ -193,4 +202,3 @@
         })
     })
 </script>
-

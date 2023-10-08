@@ -163,7 +163,7 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
       <div class="sticky-top">
         <header class="navbar-expand-md">
           <div class="collapse navbar-collapse" id="navbar-menu">
-            <div class="navbar">
+            <div class="navbar" style="background-color: #FF9933;">
               <div class="container-xl">
                 <ul class="navbar-nav">
 

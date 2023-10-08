@@ -61,6 +61,19 @@ function date_th($strDate)
     return "$strDay $strMonthThai $strYear";
 }
 
+function date_en($strDate)
+{
+    $strYear = date("Y", strtotime($strDate)) + 543;
+    $strMonth = date("n", strtotime($strDate));
+    $strDay = date("j", strtotime($strDate));
+    $strHour = date("H", strtotime($strDate));
+    $strMinute = date("i", strtotime($strDate));
+    $strSeconds = date("s", strtotime($strDate));
+    $strMonthCut = Array("", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
+    $strMonthThai = $strMonthCut[$strMonth];
+    return "$strDay $strMonthThai $strYear";
+}
+
 function date_short_th($strDate)
 {
     $strYear = date("Y", strtotime($strDate)) + 543;
@@ -75,7 +88,7 @@ function date_short_th($strDate)
     return "$strDay $strMonthThai $strYear";
 }
 
-function date_en($strDate)
+function date_full_en($strDate)
 {
     $strYear = date("Y", strtotime($strDate));
     $strMonth = date("n", strtotime($strDate));

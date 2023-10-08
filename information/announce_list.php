@@ -83,12 +83,18 @@
                                                                             <tr>
                                                                                 <th><div>ลำดับ (No.)</div></th>
                                                                                 <th><div>รายชื่อ (Name-Surname)</div></th>
+                                                                                <th><div>เรียนหลักสูตร (Your Course)</div></th>
                                                                                 <th><div>สถานะ (Status)</div></th>
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
     <?php
-        $annouuce_Sql="SELECT * FROM `tb_register`";
+        $annouuce_Sql="SELECT * FROM `tb_register` 
+                       INNER JOIN `tb_course_detail` 
+                       ON (`tb_register`.`course_detail_id`=`tb_course_detail`.`course_detail_id`)
+                       JOIN `tb_course` ON(`tb_course_detail`.`course_id`=`tb_course`.`course_id`)
+                       WHERE `tb_course_detail`.`course_detail_status`='1'
+                       ORDER BY `tb_register`.`user_studentid` DESC";
         $annouuce_Rs=result_array($annouuce_Sql);
         $requset_count=0;
         foreach($annouuce_Rs as $key=>$annouuce_Row){ 
@@ -96,9 +102,29 @@
             $myname=$annouuce_Row["user_name"]." ".$annouuce_Row["user_surname"];
 
            
+                if((isset($annouuce_Row["course_name"]))){
+                    $course_name=$annouuce_Row["course_name"];
+                }else{
+                    $course_name=null;
+                }
 
+                if((isset($annouuce_Row["course_name_en"]))){
+                    $course_name_en=$annouuce_Row["course_name_en"];
+                }else{
+                    $course_name_en=null;
+                }
 
-            
+                if((isset($annouuce_Row["course_detail_date_start"]))){
+                    $cdds=date_en($annouuce_Row["course_detail_date_start"]);
+                }else{
+                    $cdds=null;
+                }
+
+                if((isset($annouuce_Row["course_detail_date_finnish"]))){
+                    $cddf=date_en($annouuce_Row["course_detail_date_finnish"]);
+                }else{
+                    $cddf=null;
+                }
 
 
             ?>
@@ -107,6 +133,13 @@
                                                                                 <td><div><?php echo $requset_count;?></div></td>
 
                                                                                 <td><div><?php echo $myname;?></div></td>
+                                                                                <td style="width: 50%">
+
+                                                                                    <div><span ><?php echo $course_name;?></span></div>
+                                                                                    <div><span ><?php echo $course_name_en;?></span></div>
+                                                                                    <div><span ><?php echo $cdds." - ".$cddf;?></span></div>
+                                                                                
+                                                                                </td>
 
                                                                                 <td>
             <?php

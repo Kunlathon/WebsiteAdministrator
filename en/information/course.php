@@ -95,14 +95,43 @@
 												<?php
 														if ($rowCouD['course_detail_image'] == "") {
 														?>
-															<a href="?modules=register&id=<?php echo $_item['course_id'];?>" class="d-block">
+															<a data-toggle="modal" data-target="#myModal<?php echo $_item['course_id'];?>" class="d-block">
 															<img src="../uploads/course/no-image-icon-0.jpg" alt="<?php echo $_item['course_name'];?>" class="card-img-top" style='width:400px;height:500px;'></a>
+
+														  <div class="modal fade" id="myModal<?php echo $_item['course_id'];?>" role="dialog">
+															<div class="modal-dialog modal-lg">
+															  <div class="modal-content">
+																<div class="modal-body">
+																  <img src="../uploads/course/<?php echo $rowCouD['course_detail_image'];?>" alt="<?php echo $_item['course_name'];?>" class="card-img-top" style='width:100%;'>
+																</div>
+																<div class="modal-footer">
+																  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+																</div>
+															  </div>
+															</div>
+														  </div>
+
 
 														<?php
 														} else {
 														?>
-															<a href="?modules=register&id=<?php echo $_item['course_id'];?>" class="d-block">
+															<a data-toggle="modal" data-target="#myModal<?php echo $_item['course_id'];?>" class="d-block">
 															<img src="../uploads/course/<?php echo $rowCouD['course_detail_image'];?>" alt="<?php echo $_item['course_name'];?>" class="card-img-top" style='width:400px;height:500px;'></a>
+
+
+														  <div class="modal fade" id="myModal<?php echo $_item['course_id'];?>" role="dialog">
+															<div class="modal-dialog modal-lg">
+															  <div class="modal-content">
+																<div class="modal-body">
+																  <img src="../uploads/course/<?php echo $rowCouD['course_detail_image'];?>" alt="<?php echo $_item['course_name'];?>" class="card-img-top" style='width:100%;'>
+																</div>
+																<div class="modal-footer">
+																  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+																</div>
+															  </div>
+															</div>
+														  </div>
+
 
 														<?php
 														}
@@ -182,5 +211,4 @@
           </div>
         </div>
 <!-- Page body end-->
-
    

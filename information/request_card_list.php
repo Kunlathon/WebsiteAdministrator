@@ -76,7 +76,7 @@
                                                             </div>
                                                             <div class="card-body">
 
-<div id="Run_List">
+                                                            <div id="Run_List">
 
                                                                 <div class="table-responsive">
                                                                
@@ -90,7 +90,7 @@
                                                                         </thead>
                                                                         <tbody>
     <?php
-        $request_Sql="SELECT * FROM `tb_student_card`";
+        $request_Sql="SELECT * FROM `tb_student_card` ORDER BY `tb_student_card`.`studentcard_id` DESC;";
         $request_Rs=result_array($request_Sql);
         $requset_count=0;
         foreach($request_Rs as $key=>$request_Row){ 

@@ -467,7 +467,10 @@
                                                                 <option value="">เลือกเรียนหลักสูตร (Select your Course)</option>
                                                                 
     <?php
-            $course_Sql="SELECT `course_id`,`course_name`,`course_name_en` FROM `tb_course`  ORDER BY `course_id` ASC";
+            $course_Sql="SELECT * FROM `tb_course` 
+                        INNER JOIN `tb_course_detail` ON(`tb_course`.`course_id`=`tb_course_detail`.`course_id`) 
+                        WHERE `tb_course_detail`.`course_detail_status`='1' 
+                        ORDER BY `tb_course_detail`.`course_detail_date_start` DESC;";
             $course_List=result_array($course_Sql);
             foreach($course_List as $key=>$course_Row){  
                 
@@ -477,8 +480,22 @@
                     $selected_course=null;
                 }
                 
+                if((isset($course_Row["course_detail_date_start"]))){
+                    $cdds=date_en($course_Row["course_detail_date_start"]);
+                }else{
+                    $cdds="-";
+                }
+
+                if((isset($course_Row["course_detail_date_finnish"]))){
+                    $cddf=date_en($course_Row["course_detail_date_finnish"]);
+                }else{
+                    $cddf="-";
+                }
+
+
+
                 ?>
-                                                                <option value="<?php echo $course_Row["course_id"];?>" <?php echo $selected_course;?> ><?php echo $course_Row["course_name"];?> (<?php echo $course_Row["course_name_en"];?>)</option>     
+                                                                <option value="<?php echo $course_Row["course_detail_id"];?>" <?php echo $selected_course;?> ><?php echo $course_Row["course_name"];?> (<?php echo $course_Row["course_name_en"];?> ) (<?php echo $cdds." - ".$cddf;?>)</option>     
     <?php    } ?>
 
                                                             </select>

@@ -224,6 +224,7 @@
                                         }else{
                                             swalInitManageNewsEn.fire({
                                                 title: 'เกิดข้อผิดในการบันทึกข้อมูล กรุณาลองใหม่อีกครั้ง',
+                                                text: test_news_th.trim(),
                                                 icon: 'error'
                                             })
                                         }
