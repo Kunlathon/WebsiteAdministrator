@@ -620,14 +620,34 @@ For collect, use and disclose my personal information for Online Enrollment only
     </div>
 </div>
           
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 
 <script src="dist/uploaders/fileinput/plugins/purify.min.js"></script>
 <script src="dist/uploaders/fileinput/plugins/sortable.min.js"></script>
 <script src="dist/uploaders/fileinput/fileinput.min.js"></script>
 
-
+<script>
+    $(document).ready(function(){
+        $("#course").on('change',function(){
+            var course_key=$("#course").val();
+                if(course_key!==""){
+                    $.post("proccess/register_data_course.php",{
+                        course_key:course_key
+                    },function(run_course_js){
+                        if(run_course_js!=""){
+                            $("#course_detail").html(run_course_js);
+                        }else{}
+                    })
+                }else{
+                    document.getElementById("course_detail").innerHTML=
+                    '<select  class="form-select" placeholder="เลือกช่วงเวลา (Select Course)" name="course_detail" id="course_detail" required="required">'
+                    +'  <option value="">เลือกช่วงเวลา (Select Course)</option> '
+                    +'</select>';
+                }
+        })
+    })
+</script>
 
 <script>
     $(document).ready(function(){
