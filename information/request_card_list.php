@@ -90,7 +90,14 @@
                                                                         </thead>
                                                                         <tbody>
     <?php
-        $request_Sql="SELECT * FROM `tb_student_card` ORDER BY `tb_student_card`.`studentcard_id` DESC;";
+        $request_Sql="SELECT * 
+                    FROM `tb_course_detail` 
+                    LEFT JOIN `tb_course` 
+                    ON(`tb_course_detail`.`course_id`=`tb_course`.`course_id`) 
+                    join `tb_student_card` ON(`tb_course_detail`.`course_detail_id`=`tb_student_card`.`course_detail_id`)
+                    WHERE `tb_course_detail`.`course_detail_status`='2'
+                    AND  `tb_course`.`course_status`='1'
+                    ORDER BY `tb_course_detail`.`course_detail_id` ASC;";
         $request_Rs=result_array($request_Sql);
         $requset_count=0;
         foreach($request_Rs as $key=>$request_Row){ 
