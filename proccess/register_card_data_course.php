@@ -12,20 +12,20 @@
                              LEFT JOIN `tb_course` 
                              ON(`tb_course_detail`.`course_id`=`tb_course`.`course_id`) 
                              WHERE `tb_course_detail`.`course_id`='{$course_key}'
-                             AND  `tb_course_detail`.`course_detail_status`='1'
+                             AND  `tb_course_detail`.`course_detail_status`='2'
                              ORDER BY `tb_course_detail`.`course_detail_id` ASC;";
                 $course_rs=result_array($course_sql);
                 foreach($course_rs as $key=>$course_row){ 
                     if((is_array($course_row) and count($course_row))){
                         
-                        if((isset($course_row["course_detail_register_date_start"]))){
-                            $cdrds_start=date($course_row["course_detail_register_date_start"]);
+                        if((isset($course_row["course_detail_date_start"]))){
+                            $cdrds_start=date($course_row["course_detail_date_start"]);
                         }else{
                             $cdrds_start="0000-00-00";
                         }   
                         
-                        if((isset($course_row["course_detail_register_date_finnish"]))){
-                            $cdrds_finnish=date($course_row["course_detail_register_date_finnish"]);
+                        if((isset($course_row["course_detail_date_finnish"]))){
+                            $cdrds_finnish=date($course_row["course_detail_date_finnish"]);
                            
                         }else{
                             $cdrds_finnish="0000-00-00";
@@ -76,7 +76,7 @@
     <?php                       }else{
                                     $course_detail_key=$course_row["course_detail_id"];
                                     $up_time_end_sql=array(
-                                        "course_detail_status"=>'2'
+                                        "course_detail_status"=>'0'
                                     );
                                     update("tb_course_detail", $up_time_end_sql ,"course_detail_id = '$course_detail_key'");
                                 }
@@ -86,4 +86,3 @@
                 }   ?>
             </select> 
 <?php    }else{} ?> 
-                

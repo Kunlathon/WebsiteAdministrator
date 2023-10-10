@@ -365,61 +365,94 @@
                                     </div>
 
 
+
                                     <div class="card">
-                                        <div class="card-status-top bg-green"></div>
+                                        <div class="card-status-top bg-blue"></div>
                                         <div class="card-header">
                                             <div class="card-title" style="font-size: 18px;">
                                                 <div>กรุณาเลือกช่วงเวลาการเรียนของคุณ / Choose your schedule perious</div>
                                             </div>
                                         </div>
-
                                         <div class="card-body">
+
                                             <div class="mb-3">
                                                 <div class="row g-5">
                                                     <div class="col-md-12">
-                                                        <select name="course_detail_id" id="course_detail_id" class="form-select" required="required">
-                                                            
-                                                                    <option value="">เลือกเรียนหลักสูตร (Select your Course)</option>
+                                                        <label class="form-check">
+                                                            <select  class="form-select" placeholder="เลือกเรียนหลักสูตร (Select your Course)" name="course" id="course" required="required">
+                                                                <option value="">เลือกเรียนหลักสูตร (Select your Course)</option>
                                                                 
-                                                                <?php
-                                                                        $course_Sql="SELECT * FROM `tb_course` 
-                                                                                    INNER JOIN `tb_course_detail` ON(`tb_course`.`course_id`=`tb_course_detail`.`course_id`) 
-                                                                                    WHERE `tb_course_detail`.`course_detail_status`='2' 
-                                                                                    ORDER BY `tb_course_detail`.`course_detail_date_start` DESC;";
-                                                                        $course_List=result_array($course_Sql);
-                                                                        foreach($course_List as $key=>$course_Row){  
-                                                                            
-                                                                            if(($course_key==$course_Row["course_id"])){
-                                                                                $selected_course='selected="selected"';
-                                                                            }else{
-                                                                                $selected_course=null;
-                                                                            }
-                                                                            
-                                                                            if((isset($course_Row["course_detail_date_start"]))){
-                                                                                $cdds=date_en($course_Row["course_detail_date_start"]);
-                                                                            }else{
-                                                                                $cdds="-";
-                                                                            }
-                                                            
-                                                                            if((isset($course_Row["course_detail_date_finnish"]))){
-                                                                                $cddf=date_en($course_Row["course_detail_date_finnish"]);
-                                                                            }else{
-                                                                                $cddf="-";
-                                                                            }
-                                                            
-                                                            
-                                                            
-                                                                            ?>
-                                                                    <option value="<?php echo $course_Row["course_detail_id"];?>" <?php echo $selected_course;?> ><?php echo $course_Row["course_name"];?> (<?php echo $course_Row["course_name_en"];?> ) (<?php echo $cdds." - ".$cddf;?>)</option>     
-                                                                <?php    } ?>
+    <?php
+            $course_Sql="SELECT * 
+                        FROM `tb_course_detail` 
+                        LEFT JOIN `tb_course` 
+                        ON(`tb_course_detail`.`course_id`=`tb_course`.`course_id`) 
+                        WHERE `tb_course_detail`.`course_detail_status`='2'
+                        AND  `tb_course`.`course_status`='1'
+                        ORDER BY `tb_course_detail`.`course_detail_id` ASC;";
+            $course_List=result_array($course_Sql);
+            foreach($course_List as $key=>$course_Row){  
+                
+                
+                if((isset($course_Row["course_id"]))){
+                    $course_id=$course_Row["course_id"];
+                    if(($course_key==$course_id)){
+                        $selected_course='selected="selected"';
+                    }else{
+                        $selected_course=null;
+                    }
+                }else{
+                    $selected_course=null;
+                }             
+                
+                if((isset($course_Row["course_name_en"]))){
+                    $course_name_en=$course_Row["course_name_en"];
+                }else{
+                    $course_name_en=null;
+                }
 
-                                                        </select>
+                if((isset($course_Row["course_name"]))){
+                    $course_name=$course_Row["course_name"];
+                }else{
+                    $course_name=null;
+                }
+                
+
+
+                ?>
+                                                                <option value="<?php echo $course_Row["course_detail_id"];?>"><?php echo $course_name." (".$course_name_en.")";?></option>     
+    <?php    } ?>
+
+                                                            </select>
+                                                        </label>
+                                                        <div id="course-null"></div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row g-5">
+                                                    <div class="col-md-12">
+                                                        <label class="form-check">
+                                                            <select  class="form-select" placeholder="เลือกช่วงเวลา (Select Course)" name="course_detail" id="course_detail" required="required">
+                                                                <option value="">เลือกช่วงเวลา (Select Course)</option>   
+                                                            </select>
+                                                        </label>
+                                                        <div id="course_detail-null"></div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
 
+
+                                            </div>
+
+   
+
+                                        </div>
                                     </div>
+
+
+
+
+
 
                                     <!--<div class="card">
                                         <div class="card-status-top bg-green"></div>
@@ -541,4 +574,30 @@ For collect, use and disclose my personal information for the purpose of request
 
     </div>
 </div>
-          
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="dist/uploaders/fileinput/plugins/purify.min.js"></script>
+<script src="dist/uploaders/fileinput/plugins/sortable.min.js"></script>
+<script src="dist/uploaders/fileinput/fileinput.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $("#course").on('change',function(){
+            var course_key=$("#course").val();
+                if(course_key!==""){
+                    $.post("proccess/register_card_data_course.php",{
+                        course_key:course_key
+                    },function(run_course_js){
+                        if(run_course_js!=""){
+                            $("#course_detail").html(run_course_js);
+                        }else{}
+                    })
+                }else{
+                    document.getElementById("course_detail").innerHTML=
+                    '<select  class="form-select" placeholder="เลือกช่วงเวลา (Select Course)" name="course_detail" id="course_detail" required="required">'
+                    +'  <option value="">เลือกช่วงเวลา (Select Course)</option> '
+                    +'</select>';
+                }
+        })
+    })
+</script>

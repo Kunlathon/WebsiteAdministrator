@@ -38,7 +38,7 @@ include("../config/fnc.php");
     $user_defective_card=filter_input(INPUT_POST,'user_defective_card');
     $user_expired_card=filter_input(INPUT_POST,'user_expired_card');
     $user_change_name=filter_input(INPUT_POST,'user_change_name');
-    $course_detail_id=filter_input(INPUT_POST,'course_detail_id');
+    $course_detail_id=filter_input(INPUT_POST,'course_key');
 
     $student_card_data = array(
 
