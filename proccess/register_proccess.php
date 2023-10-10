@@ -66,7 +66,7 @@ include("../config/fnc.php");
     $province2=filter_input(INPUT_POST,'province2');
     $citycode2=filter_input(INPUT_POST,'citycode2');
 
-    $course_detail_id=filter_input(INPUT_POST,'course');
+    $course_detail_id=filter_input(INPUT_POST,'course_detail');
 
     
         if(($_FILES["img1"]["name"]!=null)){

@@ -670,134 +670,136 @@ For collect, use and disclose my personal information for Online Enrollment only
             var check_error="yes";
             var check_register=$("#check_register").val();
 
+            var count_error=0;
+
               if(check_register==="1"){
 
                   if(tel===""){
                     document.getElementById("tel-null").innerHTML=
                       '<input name="tel" id="tel" type="text" class="form-control is-invalid" value="" placeholder="เบอร์โทรศัพท์ (Contact No.)">';
-                    check_error="yes";
+                    count_error=count_error+1;
                   }else{
                     document.getElementById("tel-null").innerHTML=
                       '<input name="tel" id="tel" type="text" class="form-control is-valid" value="'+tel+'" placeholder="เบอร์โทรศัพท์ (Contact No.)">';                   
-                    check_error="no";
+                    count_error=count_error+0;
                   }
 
                   if(email===""){
                     document.getElementById("email-null").innerHTML=
                       '<input name="email" id="email" type="text" class="form-control is-invalid" value="" placeholder="E-mail">';
-                    check_error="yes";
+                    count_error=count_error+1;
                   }else{
                     document.getElementById("email-null").innerHTML=
                       '<input name="email" id="email" type="text" class="form-control is-valid" value="'+email+'" placeholder="E-mail">';
-                    check_error="no";
+                    count_error=count_error+0;
                   }
 
                   if(address2===""){
                     document.getElementById("address2-null").innerHTML=
                       '<input name="address2" id="address2" type="text" class="form-control is-invalid" value="" placeholder="วัด/บ้านเลขที่ (House No.)">';
-                    check_error="yes";
+                    count_error=count_error+1;
                   }else{
                     document.getElementById("address2-null").innerHTML=
                       '<input name="address2" id="address2" type="text" class="form-control is-valid" value="'+address2+'" placeholder="วัด/บ้านเลขที่ (House No.)">';
-                    check_error="no";
+                    count_error=count_error+0;
                   }
 
                   if(subdistrict2===""){
                     document.getElementById("subdistrict2-null").innerHTML=
                       '<input name="subdistrict2" id="subdistrict2" type="text" class="form-control is-invalid" value="" placeholder="ตำบล/แขวง (Sub-District)">';
-                    check_error="yes";
+                    count_error=count_error+1;
                   }else{
                     document.getElementById("subdistrict2-null").innerHTML=
                       '<input name="subdistrict2" id="subdistrict2" type="text" class="form-control is-valid" value="'+subdistrict2+'" placeholder="ตำบล/แขวง (Sub-District)">';
-                    check_error="no";
+                    count_error=count_error+0;
                   }
 
                   if(district2===""){
                     document.getElementById("district2-null").innerHTML=
                       '<input name="district2" id="district2" type="text" class="form-control is-invalid" value="" placeholder="อำเภอ/เขต (District)">';
-                    check_error="yes";
+                    count_error=count_error+1;
                   }else{
                     document.getElementById("district2-null").innerHTML=
                       '<input name="district2" id="district2" type="text" class="form-control is-valid" value="'+district2+'" placeholder="อำเภอ/เขต (District)">';
-                    check_error="no";
+                    count_error=count_error+0;
                   }
 
                   if(province2===""){
                     document.getElementById("province2-null").innerHTML=
                       '<input name="province2" id="province2" type="text" class="form-control is-invalid" value="" placeholder="จังหวัด (Province)">';
-                    check_error="yes";
+                    count_error=count_error+1;
                   }else{
                     document.getElementById("province2-null").innerHTML=
                       '<input name="province2" id="province2" type="text" class="form-control is-valid" value="'+province2+'" placeholder="จังหวัด (Province)">';
-                    check_error="no";
+                    count_error=count_error+0;
                   }
 
                   if(citycode2===""){
                     document.getElementById("citycode2-null").innerHTML=
                       '<input name="citycode2" id="citycode2" type="text" class="form-control is-invalid" value="" placeholder="รหัสไปรษณีย์ (Post Code)">';
-                    check_error="yes";
+                    count_error=count_error+1;
                   }else{
                     document.getElementById("citycode2-null").innerHTML=
                       '<input name="citycode2" id="citycode2" type="text" class="form-control is-valid" value="'+citycode2+'" placeholder="รหัสไปรษณีย์ (Post Code)">';
-                    check_error="no";
+                    count_error=count_error+0;
                   }
 
                   if(fname===""){
                       document.getElementById("fname-null").innerHTML=
                       '<input name="fname" id="fname" type="text" class="form-control is-invalid" value="" placeholder="ชื่อ (Name)">';
-                      check_error="yes";
+                      count_error=count_error+1;
                   }else{
-                    document.getElementById("fname-null").innerHTML=
+                      document.getElementById("fname-null").innerHTML=
                       '<input name="fname" id="fname" type="text" class="form-control is-valid mb-2" value="'+fname+'" placeholder="ชื่อ (Name)">';
-                      check_error="no";
+                      count_error=count_error+0;
                   }
 
                   if(sname===""){
                     document.getElementById("sname-null").innerHTML=
                       '<input name="sname" id="sname" type="text" class="form-control is-invalid" value="" placeholder="นามสกุล (Surname)">';
-                      check_error="yes";
+                      count_error=count_error+1;
                   }else{
                     document.getElementById("sname-null").innerHTML=
                       '<input name="sname" id="sname" type="text" class="form-control is-valid mb-2" value="'+sname+'" placeholder="นามสกุล (Surname)">';
-                      check_error="no";
+                      count_error=count_error+0;
                   }
 
                   if(idcard===""){
                     document.getElementById("idcard-null").innerHTML=
                       '<input name="idcard" id="idcard" type="text" class="form-control is-invalid" value="" placeholder="รหัสประจำตัวประชาชน">';
-                      check_error="yes";
+                      count_error=count_error+1;
                   }else{
                     document.getElementById("idcard-null").innerHTML=
                       '<input name="idcard" id="idcard" type="text" class="form-control is-valid mb-2" value="'+idcard+'" placeholder="รหัสประจำตัวประชาชน">';
-                      check_error="no";
+                      count_error=count_error+0;
                   }
 
                   if(course===""){
                     document.getElementById("course-null").innerHTML='<font style="color: red;">กรุณาเลือก รายการนี้</font>';
-                    check_error="yes";
+                    count_error=count_error+1;
                   }else{
                     document.getElementById("course-null").innerHTML='<font>&nbsp;</font>';
-                    check_error="no";
+                    count_error=count_error+0;
                   }
 
                   if(course_detail===""){
                     document.getElementById("course_detail-null").innerHTML='<font style="color: red;">กรุณาเลือก รายการนี้</font>';
-                    check_error="yes";
+                    count_error=count_error+1;
                   }else{
                     document.getElementById("course_detail-null").innerHTML='<font>&nbsp;</font>';
-                    check_error="no";
+                    count_error=count_error+0;
                   }
 
-                  if(check_error!="yes"){
+                  if(count_error>=1){
 
                     document.getElementById("but_form_register-null").innerHTML=
-                    '<button type="submit" name="but_form_register" id="but_form_register" class="btn btn-success">ลงทะเบียน</button>'
+                    '<button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>'
                     +' <button type="button" name="" id="" class="btn btn-danger">ยกเลิก</button>';
 
                   }else{
 
                     document.getElementById("but_form_register-null").innerHTML=
-                    '<button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>'
+                    '<button type="submit" name="but_form_register" id="but_form_register" class="btn btn-success">ลงทะเบียน</button>'
                     +' <button type="button" name="" id="" class="btn btn-danger">ยกเลิก</button>';
 
                   }
