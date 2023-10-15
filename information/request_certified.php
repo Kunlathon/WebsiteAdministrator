@@ -267,46 +267,11 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                         
-
-
-
-
-
+                                        
                                         </div>
                                     </div>
 
-
                                     <div class="card">
-                                        <div class="card-status-top bg-blue"></div>
-                                        <div class="card-header">
-                                            <div class="card-title" style="font-size: 18px;">
-                                                <div>มีความประสงค์ขอเอกสารรับรอง (I would like to Request a Recomendation Letter.)</div>
-                                                    <div></div>
-                                            </div>
-                                        </div>
-                                        <div class="card-body">
-
-
-                                            <div class="mb-3">
-                                                <div class="row g-5">
-                                                    <div class="col-md-6">
-
-                                                            <label class="form-check">
-                                                                <input class="form-check-input" name="user_certified" id="user_certified" type="checkbox" value="1">
-                                                                <span class="form-check-label">ยื่นเรื่องคำร้อง (Recomendation Letter)</span>
-                                                            </label>
-                                                            
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="alert alert-success" role="alert">
-                                                        ยื่นเรื่องคำร้อง (Recomendation Letter)
-                                                        </div>  
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="card">
                                         <div class="card-status-top bg-red"></div>
                                         <div class="card-header">
                                             <div class="card-title" style="font-size: 18px;">
@@ -387,12 +352,43 @@
                                     </div>											
 
 
+                                    <div class="card">
+                                        <div class="card-status-top bg-blue"></div>
+                                        <div class="card-header">
+                                            <div class="card-title" style="font-size: 18px;">
+                                                <div>มีความประสงค์ขอเอกสารรับรอง (I would like to Request a Recomendation Letter.)</div>
+                                                    <div></div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+
+
                                             <div class="mb-3">
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
 
                                                             <label class="form-check">
-                                                                <input class="form-check-input" name="user_bankaccount" id="user_bankaccount" type="checkbox" value="1">
+                                                                <input class="form-check-input" name="user_certified" id="user_certified" type="checkbox" value="1">
+                                                                <span class="form-check-label">ยื่นเรื่องคำร้อง (Recomendation Letter)</span>
+                                                            </label>
+                                                            
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="alert alert-success" role="alert">
+                                                        ยื่นเรื่องคำร้อง (Recomendation Letter)
+                                                        </div>  
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="mb-3">
+                                                <div class="row g-5">
+                                                    <div class="col-md-6">
+
+                                                            <label class="form-check">
+                                                                <input class="form-check-input" name="user_bank_account" id="user_bank_account" type="checkbox" value="1">
                                                                 <span class="form-check-label">ขอหนังสือรับรองเปิดบัญชีธนาคาร (Recomendation Letter for  Bank Account)</span>
                                                             </label>
                                                             
@@ -513,14 +509,36 @@ For collect, use and disclose my personal information for the purpose of Reauest
             var province2=$("#province2").val();
             var citycode2=$("#citycode2").val();
 
+            var user_certified=$("#user_certified").val();
+            var user_bank_account=$("#user_bank_account").val();
 
 
             var check_error="yes";
             var check_register=$("#check_register").val();
 
+            var file_count=0;
             var count_error=0;
 
               if(check_register==="1"){
+
+
+                  if(user_certified==="1"){
+                    file_count=file_count+1;
+                  }else{
+                    file_count=file_count+0;
+                  } 
+
+                  if(user_bank_account==="1"){
+                    file_count=file_count+1;
+                  }else{
+                    file_count=file_count+0;
+                  }
+
+                  if(file_count>=1){
+                    count_error=count_error+0;
+                  }else{
+                    count_error=count_error+1;
+                  }
 
                   if(user_tel===""){
                     document.getElementById("user_tel-null").innerHTML=

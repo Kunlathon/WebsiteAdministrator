@@ -15,11 +15,23 @@ include("../config/fnc.php");
     $date=date("Y-m-d");
     $datetime=date("Y-m-d H:i:s");
 
-    $user_name=filter_input(INPUT_POST,'user_name');
-    $user_name_buddhist=filter_input(INPUT_POST,'user_name_buddhist');
-    $user_surname=filter_input(INPUT_POST,'user_surname');
+    if((isset($_POST["user_name"]))){
+        $user_name=filter_input(INPUT_POST,'user_name');
+    }else{
+        $user_name="-";
+    }
 
+    if((isset($_POST["user_name_buddhist"]))){
+        $user_name_buddhist=filter_input(INPUT_POST,'user_name_buddhist');
+    }else{
+        $user_name_buddhist="-";
+    }
 
+    if((isset($_POST["user_surname"]))){
+        $user_surname=filter_input(INPUT_POST,'user_surname');
+    }else{
+        $user_surname="-";
+    }
 
 	$user_blood=filter_input(INPUT_POST,'user_blood');
     $user_department=filter_input(INPUT_POST,'user_department');
@@ -31,6 +43,65 @@ include("../config/fnc.php");
 
     $user_certified=filter_input(INPUT_POST,'user_certified');
 
+    if((isset($_POST["address2"]))){
+        $user_address_no=filter_input(INPUT_POST,'address2');
+    }else{
+        $user_address_no="-";
+    }
+
+    if((isset($_POST["moo2"]))){
+        $user_address_moo=filter_input(INPUT_POST,'moo2');
+    }else{
+        $user_address_moo="-";
+    }
+
+    if((isset($_POST["soi2"]))){
+        $user_address_soi=filter_input(INPUT_POST,'soi2');
+    }else{
+        $user_address_soi="-";
+    }
+
+    if((isset($_POST["road2"]))){
+        $user_address_road=filter_input(INPUT_POST,'road2');
+    }else{
+        $user_address_road="-";
+    }
+
+    if((isset($_POST["subdistrict2"]))){
+        $user_address_subdistrict=filter_input(INPUT_POST,'subdistrict2');
+    }else{
+        $user_address_subdistrict="-";
+    }
+
+    if((isset($_POST["district2"]))){
+        $user_address_district=filter_input(INPUT_POST,'district2');
+    }else{
+        $user_address_district="-";
+    }
+
+    if((isset($_POST["province2"]))){
+        $user_address_province=filter_input(INPUT_POST,'province2');
+    }else{
+        $user_address_province="-";
+    }
+
+    if((isset($_POST["citycode2"]))){
+        $user_address_citycode=filter_input(INPUT_POST,'citycode2');
+    }else{
+        $user_address_citycode="-";
+    }
+
+    if((isset($_POST["user_certified"]))){
+        $user_certified=filter_input(INPUT_POST,'user_certified');
+    }else{
+        $user_certified="-";
+    }
+
+    if((isset($_POST["user_bank_account"]))){
+        $user_bank_account=filter_input(INPUT_POST,'user_bank_account');
+    }else{
+        $user_bank_account="-";
+    }
 
     $request_certifed_data = array(
 
@@ -48,8 +119,16 @@ include("../config/fnc.php");
         "user_update"=>$date,
         "user_lastlogin"=>$datetime,
         "user_certified"=>$user_certified,
+        "user_address_no_now"=>$user_address_no,
+        "user_address_moo_now"=>$user_address_moo,
+        "user_address_soi_now"=>$user_address_soi,
+        "user_address_road_now"=>$user_address_road,
+        "user_address_subdistrict_now"=>$user_address_subdistrict,
+        "user_address_district_now"=>$user_address_district,
+        "user_address_province_now"=>$user_address_province,
+        "user_address_citycode_now"=>$user_address_citycode,
+        "user_bank_account"=>$user_bank_account,
         "user_status"=>'1'
-
     );
     insert("tb_certified", $request_certifed_data);
 
