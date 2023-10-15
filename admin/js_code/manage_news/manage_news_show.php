@@ -226,10 +226,16 @@
                         <div align="center">
                             <ul class="nav justify-content-center">
                                 <li class="nav-item">
+<form name="" id="" accept-charset="utf-8" method="post" action=""> 
+
+    <button type="submit" name="button_show_<?php echo $news_row["news_id"];?>" id="button_show_<?php echo $news_row["news_id"];?>" class="btn btn-outline-secondary btn-sm" data-popup="tooltip" title="แก้ไข" data-placement="bottom"><i class="icon-pen"></i></button>
+</form>
+                                </li>
+                                <li class="nav-item">
 <form name="news_update<?php echo $news_row["news_id"];?>" accept-charset="utf-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_news">
     <input type="hidden" name="manage" value="edit"> 
     <input type="hidden" name="news_id" value="<?php echo $news_row["news_id"];?>">
-    <button type="submit" name="button_<?php echo $news_row["news_id"];?>" class="btn btn-outline-secondary btn-sm" data-popup="tooltip" title="แก้ไข" data-placement="bottom"><i class="icon-pen"></i></button>
+    <button type="submit" name="button_edit_<?php echo $news_row["news_id"];?>" id="button_edit_<?php echo $news_row["news_id"];?>" class="btn btn-outline-secondary btn-sm" data-popup="tooltip" title="แก้ไข" data-placement="bottom"><i class="icon-pen"></i></button>
 </form>
                                 </li>
                                 <li class="nav-item">

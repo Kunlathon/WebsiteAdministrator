@@ -19,7 +19,7 @@
                                                         <div class="page-header d=print-none">
                                                             <div class="container-xl">
                                                                 <div class="row g-2 alogn-items-center">
-                                                                    <div class="col-md-12">
+                                                                    <div col-md-12>
                                                                         <div class="page-title" style="font-size: 20px;">ยื่นเรื่องขอเอกสารรับรอง (Reauesting a Recomendation Letter)</div>
                                                                     </div>
                                                                 </div>
@@ -135,7 +135,7 @@
 																		<?php } ?>
 																		</select>
                                                                     </div>
-                                                                </div>                                                            
+                                                                </div>                                                                              
 
                                                         </div>
 
@@ -257,6 +257,10 @@
                                             </div>
                                          
 
+
+
+
+
                                         </div>
                                     </div>
 
@@ -285,6 +289,27 @@
                                                     <div class="col-md-6">
                                                         <div class="alert alert-success" role="alert">
                                                         ยื่นเรื่องคำร้อง (Recomendation Letter)
+                                                        </div>  
+                                                    </div>
+                                                </div>
+                                            </div>
+
+											
+
+
+                                            <div class="mb-3">
+                                                <div class="row g-5">
+                                                    <div class="col-md-6">
+
+                                                            <label class="form-check">
+                                                                <input class="form-check-input" name="user_bankaccount" id="user_bankaccount" type="checkbox" value="1">
+                                                                <span class="form-check-label">ขอหนังสือรับรองเปิดบัญชีธนาคาร (Recomendation Letter for  Bank Account)</span>
+                                                            </label>
+                                                            
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="alert alert-success" role="alert">
+                                                        ขอหนังสือรับรองเปิดบัญชีธนาคาร (Recomendation Letter for  Bank Account)
                                                         </div>  
                                                     </div>
                                                 </div>

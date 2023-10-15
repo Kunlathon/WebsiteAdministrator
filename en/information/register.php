@@ -54,11 +54,11 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
                                                         <label>คำนำหน้าชื่อภาษาไทย (Title Name in Thai)</label>
-                                                        <input name="title_t" id="title_t" type="text" class="form-control"  placeholder="คำนำหน้าชื่อภาษาไทย  (Title Name in Thai)">
+                                                        <input name="title_t" id="title_t" type="text" class="form-control"  placeholder="คำนำหน้าชื่อภาษาไทย (Title Name in Thai)">
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label>คำนำหน้าชื่อภาษาอังกฤษ (Title Name in English)</label>
-                                                        <input name="title_e" id="title_e" type="text" class="form-control"  placeholder="คำนำหน้าชื่อภาษาอังกฤษ  (Title Name in English)">
+                                                        <input name="title_e" id="title_e" type="text" class="form-control"  placeholder="คำนำหน้าชื่อภาษาอังกฤษ (Title Name in English)">
                                                     </div>
                                                 </div>
                                             </div>
@@ -253,14 +253,18 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label >เบอร์โทรศัพท์ (Contact No.)</label>
-                                                            <input name="tel" id="tel" type="text" class="form-control" placeholder="เบอร์โทรศัพท์ (Contact No.)">
+                                                            <label >เบอร์โทรศัพท์ (Contact No.) <font style="color: red;">*</font></label>
+                                                            <div id="tel-null">
+                                                            <input name="tel" id="tel" type="text" class="form-control" placeholder="เบอร์โทรศัพท์ (Contact No.)" required="required">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label >E-mail </label>
-                                                            <input name="email" id="email" type="email" class="form-control" placeholder="E-mail ">
+                                                            <label >E-mail <font style="color: red;">*</font></label>
+                                                            <div id="email-null">
+                                                            <input name="email" id="email" type="email" class="form-control" placeholder="E-mail" required="required">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -357,8 +361,8 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >ชื่อ/นามสกุลมารดา (Father's Name)</label>
-                                                            <input name="mothername" id="mothername" type="text" class="form-control" placeholder="ชื่อ/นามสกุลมารดา (Father's Name)">
+                                                            <label >ชื่อ/นามสกุลมารดา (Mother's Name)</label>
+                                                            <input name="mothername" id="mothername" type="text" class="form-control" placeholder="ชื่อ/นามสกุลมารดา (Mother's Name)">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
@@ -394,7 +398,9 @@
                                                     <div class="col-md-3">
                                                         <div class="form-group">
                                                             <label >วัด/บ้านเลขที่ (House No.)</label>
-                                                            <input name="address2" id="address2" type="text" class="form-control" placeholder="วัด/บ้านเลขที่ (House No.)">
+                                                            <div id="address2-null">
+                                                            <input name="address2" id="address2" type="text" class="form-control" placeholder="วัด/บ้านเลขที่ (House No.)" required="required">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
@@ -423,25 +429,33 @@
                                                     <div class="col-md-3">
                                                         <div class="form-group">
                                                             <label >ตำบล/แขวง (Sub-District)</label>
-                                                            <input name="subdistrict2" id="subdistrict2" type="text" class="form-control" placeholder="ตำบล/แขวง (Sub-District)">
+                                                            <div id="subdistrict2-null">
+                                                            <input name="subdistrict2" id="subdistrict2" type="text" class="form-control" placeholder="ตำบล/แขวง (Sub-District)" required="required">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
                                                             <label >อำเภอ/เขต (District)</label>
-                                                            <input name="district2" id="district2" type="text" class="form-control" placeholder="อำเภอ/เขต (District)">
+                                                            <div id="district2-null">
+                                                            <input name="district2" id="district2" type="text" class="form-control" placeholder="อำเภอ/เขต (District)" required="required">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
                                                             <label >จังหวัด (Province)</label>
-                                                            <input name="province2" id="province2" type="text" class="form-control" placeholder="จังหวัด (Province)">
+                                                            <div id="province2-null">
+                                                            <input name="province2" id="province2" type="text" class="form-control" placeholder="จังหวัด (Province)" required="required">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
                                                             <label >รหัสไปรษณีย์ (Post Code)</label>
-                                                            <input name="citycode2" id="citycode2" type="text" class="form-control" placeholder="รหัสไปรษณีย์ (Post Code)">
+                                                            <div id="citycode2-null">
+                                                            <input name="citycode2" id="citycode2" type="text" class="form-control" placeholder="รหัสไปรษณีย์ (Post Code)" required="required">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -467,18 +481,38 @@
                                                                 <option value="">เลือกเรียนหลักสูตร (Select your Course)</option>
                                                                 
     <?php
-            $course_Sql="SELECT `course_id`,`course_name`,`course_name_en` FROM `tb_course`  ORDER BY `course_id` ASC";
+            $course_Sql="SELECT * FROM `tb_course` WHERE `course_status`='1' ORDER BY `course_id` DESC;";
             $course_List=result_array($course_Sql);
             foreach($course_List as $key=>$course_Row){  
                 
-                if(($course_key==$course_Row["course_id"])){
-                    $selected_course='selected="selected"';
+                
+                if((isset($course_Row["course_id"]))){
+                    $course_id=$course_Row["course_id"];
+                    if(($course_key==$course_id)){
+                        $selected_course='selected="selected"';
+                    }else{
+                        $selected_course=null;
+                    }
                 }else{
                     $selected_course=null;
+                }             
+                
+                if((isset($course_Row["course_name_en"]))){
+                    $course_name_en=$course_Row["course_name_en"];
+                }else{
+                    $course_name_en=null;
+                }
+
+                if((isset($course_Row["course_name"]))){
+                    $course_name=$course_Row["course_name"];
+                }else{
+                    $course_name=null;
                 }
                 
+
+
                 ?>
-                                                                <option value="<?php echo $course_Row["course_id"];?>" <?php echo $selected_course;?> ><?php echo $course_Row["course_name"];?> (<?php echo $course_Row["course_name_en"];?>)</option>     
+                                                                <option value="<?php echo $course_id;?>"><?php echo $course_name." (".$course_name_en.")";?></option>     
     <?php    } ?>
 
                                                             </select>
@@ -487,6 +521,19 @@
                                                     </div>
 
                                                 </div>
+
+                                                <div class="row g-5">
+                                                    <div class="col-md-12">
+                                                        <label class="form-check">
+                                                            <select  class="form-select" placeholder="เลือกช่วงเวลา (Select Course)" name="course_detail" id="course_detail" required="required">
+                                                                <option value="">เลือกช่วงเวลา (Select Course)</option>   
+                                                            </select>
+                                                        </label>
+                                                        <div id="course_detail-null"></div>
+                                                    </div>
+                                                </div>
+
+
                                             </div>
 
    
@@ -509,10 +556,10 @@
                                                     <div class="col-md-12">
                                                         <div class="alert alert-warning" role="alert" style="color: red;">
                                                             
-                                                     *** ข้าพเจ้ายินยอมให้ข้อมูลแก่ มหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย วิทยาเขตเชียงใหม่
+                                                    *** ข้าพเจ้ายินยอมให้ข้อมูลแก่ มหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย วิทยาเขตเชียงใหม่
 จะเก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้าสำหรับการใช้ในการลงทะเบียนเรียนออนไลน์เท่านั้น *** <br>
 *** I agree to provide information to Mahachulalongkornrajavidyalaya University Chiang Mai Campus.
-For collect, use and disclose my personal information for Online Enrollment only. ***                                                                   
+For collect, use and disclose my personal information for Online Enrollment only. ***                                                           
                                                          
                                                         </div>
                                                     </div>
@@ -576,11 +623,34 @@ For collect, use and disclose my personal information for Online Enrollment only
 
 
 
-<script src="dist/uploaders/fileinput/plugins/purify.min.js"></script>
-<script src="dist/uploaders/fileinput/plugins/sortable.min.js"></script>
-<script src="dist/uploaders/fileinput/fileinput.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 
+<script src="../dist/uploaders/fileinput/plugins/purify.min.js"></script>
+<script src="../dist/uploaders/fileinput/plugins/sortable.min.js"></script>
+<script src="../dist/uploaders/fileinput/fileinput.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $("#course").on('change',function(){
+            var course_key=$("#course").val();
+                if(course_key!==""){
+                    $.post("proccess/register_data_course.php",{
+                        course_key:course_key
+                    },function(run_course_js){
+                        if(run_course_js!=""){
+                            $("#course_detail").html(run_course_js);
+                        }else{}
+                    })
+                }else{
+                    document.getElementById("course_detail").innerHTML=
+                    '<select  class="form-select" placeholder="เลือกช่วงเวลา (Select Course)" name="course_detail" id="course_detail" required="required">'
+                    +'  <option value="">เลือกช่วงเวลา (Select Course)</option> '
+                    +'</select>';
+                }
+        })
+    })
+</script>
 
 <script>
     $(document).ready(function(){
@@ -589,58 +659,150 @@ For collect, use and disclose my personal information for Online Enrollment only
             var sname=$("#sname").val();
             var idcard=$("#idcard").val();
             var course=$("#course").val();
+            
+            var tel=$("#tel").val();
+            var email=$("#email").val();
+            var address2=$("#address2").val();
+            var subdistrict2=$("#subdistrict2").val();
+            var district2=$("#district2").val();
+            var province2=$("#province2").val();
+            var citycode2=$("#citycode2").val();
+
+            var course_detail=$("#course_detail").val();
+
             var check_error="yes";
             var check_register=$("#check_register").val();
 
+            var count_error=0;
+
               if(check_register==="1"){
+
+                  if(tel===""){
+                    document.getElementById("tel-null").innerHTML=
+                      '<input name="tel" id="tel" type="text" class="form-control is-invalid" value="" placeholder="เบอร์โทรศัพท์ (Contact No.)">';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("tel-null").innerHTML=
+                      '<input name="tel" id="tel" type="text" class="form-control is-valid" value="'+tel+'" placeholder="เบอร์โทรศัพท์ (Contact No.)">';                   
+                    count_error=count_error+0;
+                  }
+
+                  if(email===""){
+                    document.getElementById("email-null").innerHTML=
+                      '<input name="email" id="email" type="text" class="form-control is-invalid" value="" placeholder="E-mail">';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("email-null").innerHTML=
+                      '<input name="email" id="email" type="text" class="form-control is-valid" value="'+email+'" placeholder="E-mail">';
+                    count_error=count_error+0;
+                  }
+
+                  if(address2===""){
+                    document.getElementById("address2-null").innerHTML=
+                      '<input name="address2" id="address2" type="text" class="form-control is-invalid" value="" placeholder="วัด/บ้านเลขที่ (House No.)">';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("address2-null").innerHTML=
+                      '<input name="address2" id="address2" type="text" class="form-control is-valid" value="'+address2+'" placeholder="วัด/บ้านเลขที่ (House No.)">';
+                    count_error=count_error+0;
+                  }
+
+                  if(subdistrict2===""){
+                    document.getElementById("subdistrict2-null").innerHTML=
+                      '<input name="subdistrict2" id="subdistrict2" type="text" class="form-control is-invalid" value="" placeholder="ตำบล/แขวง (Sub-District)">';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("subdistrict2-null").innerHTML=
+                      '<input name="subdistrict2" id="subdistrict2" type="text" class="form-control is-valid" value="'+subdistrict2+'" placeholder="ตำบล/แขวง (Sub-District)">';
+                    count_error=count_error+0;
+                  }
+
+                  if(district2===""){
+                    document.getElementById("district2-null").innerHTML=
+                      '<input name="district2" id="district2" type="text" class="form-control is-invalid" value="" placeholder="อำเภอ/เขต (District)">';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("district2-null").innerHTML=
+                      '<input name="district2" id="district2" type="text" class="form-control is-valid" value="'+district2+'" placeholder="อำเภอ/เขต (District)">';
+                    count_error=count_error+0;
+                  }
+
+                  if(province2===""){
+                    document.getElementById("province2-null").innerHTML=
+                      '<input name="province2" id="province2" type="text" class="form-control is-invalid" value="" placeholder="จังหวัด (Province)">';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("province2-null").innerHTML=
+                      '<input name="province2" id="province2" type="text" class="form-control is-valid" value="'+province2+'" placeholder="จังหวัด (Province)">';
+                    count_error=count_error+0;
+                  }
+
+                  if(citycode2===""){
+                    document.getElementById("citycode2-null").innerHTML=
+                      '<input name="citycode2" id="citycode2" type="text" class="form-control is-invalid" value="" placeholder="รหัสไปรษณีย์ (Post Code)">';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("citycode2-null").innerHTML=
+                      '<input name="citycode2" id="citycode2" type="text" class="form-control is-valid" value="'+citycode2+'" placeholder="รหัสไปรษณีย์ (Post Code)">';
+                    count_error=count_error+0;
+                  }
+
                   if(fname===""){
                       document.getElementById("fname-null").innerHTML=
-                      '<input name="fname" id="fname" type="text" class="form-control is-invalid" value="'+fname+'" placeholder="ชื่อ (Name)">';
-                      check_error="yes";
+                      '<input name="fname" id="fname" type="text" class="form-control is-invalid" value="" placeholder="ชื่อ (Name)">';
+                      count_error=count_error+1;
                   }else{
-                    document.getElementById("fname-null").innerHTML=
+                      document.getElementById("fname-null").innerHTML=
                       '<input name="fname" id="fname" type="text" class="form-control is-valid mb-2" value="'+fname+'" placeholder="ชื่อ (Name)">';
-                      check_error="no";
+                      count_error=count_error+0;
                   }
 
                   if(sname===""){
                     document.getElementById("sname-null").innerHTML=
-                      '<input name="sname" id="sname" type="text" class="form-control is-invalid" value="'+sname+'" placeholder="นามสกุล (Surname)">';
-                      check_error="yes";
+                      '<input name="sname" id="sname" type="text" class="form-control is-invalid" value="" placeholder="นามสกุล (Surname)">';
+                      count_error=count_error+1;
                   }else{
                     document.getElementById("sname-null").innerHTML=
                       '<input name="sname" id="sname" type="text" class="form-control is-valid mb-2" value="'+sname+'" placeholder="นามสกุล (Surname)">';
-                      check_error="no";
+                      count_error=count_error+0;
                   }
 
                   if(idcard===""){
                     document.getElementById("idcard-null").innerHTML=
-                      '<input name="idcard" id="idcard" type="text" class="form-control is-invalid" value="'+idcard+'" placeholder="รหัสประจำตัวประชาชน">';
-                      check_error="yes";
+                      '<input name="idcard" id="idcard" type="text" class="form-control is-invalid" value="" placeholder="รหัสประจำตัวประชาชน">';
+                      count_error=count_error+1;
                   }else{
                     document.getElementById("idcard-null").innerHTML=
                       '<input name="idcard" id="idcard" type="text" class="form-control is-valid mb-2" value="'+idcard+'" placeholder="รหัสประจำตัวประชาชน">';
-                      check_error="no";
+                      count_error=count_error+0;
                   }
 
                   if(course===""){
                     document.getElementById("course-null").innerHTML='<font style="color: red;">กรุณาเลือก รายการนี้</font>';
-                    check_error="yes";
+                    count_error=count_error+1;
                   }else{
                     document.getElementById("course-null").innerHTML='<font>&nbsp;</font>';
-                    check_error="no";
+                    count_error=count_error+0;
                   }
 
-                  if(check_error!="yes"){
+                  if(course_detail===""){
+                    document.getElementById("course_detail-null").innerHTML='<font style="color: red;">กรุณาเลือก รายการนี้</font>';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("course_detail-null").innerHTML='<font>&nbsp;</font>';
+                    count_error=count_error+0;
+                  }
+
+                  if(count_error>=1){
 
                     document.getElementById("but_form_register-null").innerHTML=
-                    '<button type="submit" name="but_form_register" id="but_form_register" class="btn btn-success">ลงทะเบียน</button>'
+                    '<button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>'
                     +' <button type="button" name="" id="" class="btn btn-danger">ยกเลิก</button>';
 
                   }else{
 
                     document.getElementById("but_form_register-null").innerHTML=
-                    '<button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>'
+                    '<button type="submit" name="but_form_register" id="but_form_register" class="btn btn-success">ลงทะเบียน</button>'
                     +' <button type="button" name="" id="" class="btn btn-danger">ยกเลิก</button>';
 
                   }

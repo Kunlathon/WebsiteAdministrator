@@ -469,7 +469,19 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
 <!---->
 <!---->
     <?php
-            if(($modules=="register")){ ?>
+            if(($modules=="register" )){ ?>
+<!-- Libs JS -->
+    <script src="dist/libs/nouislider/dist/nouislider.min.js?1685973381" defer></script>
+    <script src="dist/libs/litepicker/dist/litepicker.js?1685973381" defer></script>
+    <script src="dist/libs/tom-select/dist/js/tom-select.base.min.js?1685973381" defer></script>
+<!-- Tabler Core -->
+    <?php   }elseif(($modules=="request_card")){  ?>
+<!-- Libs JS -->
+    <script src="dist/libs/nouislider/dist/nouislider.min.js?1685973381" defer></script>
+    <script src="dist/libs/litepicker/dist/litepicker.js?1685973381" defer></script>
+    <script src="dist/libs/tom-select/dist/js/tom-select.base.min.js?1685973381" defer></script>
+<!-- Tabler Core -->
+    <?php   }elseif(($modules=="request_certified")){  ?>
 <!-- Libs JS -->
     <script src="dist/libs/nouislider/dist/nouislider.min.js?1685973381" defer></script>
     <script src="dist/libs/litepicker/dist/litepicker.js?1685973381" defer></script>

@@ -1,7 +1,7 @@
 <?php
 
-    include("../config/connect.ini.php");
-    include("../config/fnc.php");
+    include("../../config/connect.ini.php");
+    include("../../config/fnc.php");
 
     $Date=date("Y-m-d");
     $DateTime=date("Y-m-d H:i:s");
