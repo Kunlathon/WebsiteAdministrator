@@ -9,8 +9,9 @@
 //Tel 0932670639
 //Email: mpamese.pc2001@gmail.com , missing_yrc2014@hotmail.com	
 
-include("../../config/connect.ini.php");
-include("../../config/fnc.php");
+include("../config/connect.ini.php");
+include("../config/fnc.php");
+
 
     $date=date("Y-m-d");
     $datetime=date("Y-m-d H:i:s");

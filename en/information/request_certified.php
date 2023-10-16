@@ -42,20 +42,24 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label>ชื่อ (Name) *</label>
+                                                            <label>ชื่อ (Name)</label>
+                                                            <div id="user_name-null">
                                                             <input name="user_name" id="user_name" type="text" class="form-control" required="required" placeholder="ชื่อ (Name)">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >ฉายา (Buddhist Name / Middle Name))</label>
+                                                            <label >ฉายา (Buddhist Name / Middle Name)</label>
                                                             <input name="user_name_buddhist" id="user_name_buddhist" type="text" class="form-control" placeholder="ฉายา (Buddhist Name / Middle Name))">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >นามสกุล (Surname)*</label>
+                                                            <label >นามสกุล (Surname)</label>
+                                                            <div id="user_surname-null">
                                                             <input name="user_surname" id="user_surname" type="text" class="form-control"required="required" placeholder="นามสกุล (Surname)">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -154,7 +158,9 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label >รหัสประจำตัวประชาชน (ID Card / Passport No.)</label>
+                                                            <div id="user_idcard-null">
                                                             <input name="user_idcard" id="user_idcard" type="text" class="form-control" placeholder="รหัสประจำตัวประชาชน (Id Card)">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -171,7 +177,9 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label >รหัสประจำตัว (Student ID)</label>
+                                                            <div id="user_student_id-null">
                                                             <input name="user_student_id" id="user_student_id" type="text" class="form-control" placeholder="รหัสประจำตัว (Student ID)">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -244,25 +252,104 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label >เบอร์โทรศัพท์ (Phone)</label>
-                                                            <input name="user_tel" id="user_tel" type="text" class="form-control" placeholder="เบอร์โทรศัพท์ (Phone)">
+                                                            <div id="user_tel-null">
+                                                            <input name="user_tel" id="user_tel" type="text" class="form-control" placeholder="เบอร์โทรศัพท์ (Phone)" value="">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label >E-mail</label>
+                                                            <div id="user_email-null">
                                                             <input name="user_email" id="user_email" type="email" class="form-control" placeholder="E-mail">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                         
-
-
-
-
-
+                                        
                                         </div>
                                     </div>
+
+                                    <div class="card">
+                                        <div class="card-status-top bg-red"></div>
+                                        <div class="card-header">
+                                            <div class="card-title" style="font-size: 18px;">
+                                                <div>ที่อยู่ที่สามารถติดต่อได้ (Present Address)</div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+
+                                            <div class="mb-3">
+                                                <div class="row g-5">
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label >วัด/บ้านเลขที่ (House No.)</label>
+                                                            <div id="address2-null">
+                                                            <input name="address2" id="address2" type="text" class="form-control" placeholder="วัด/บ้านเลขที่ (House No.)" required="required">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label >หมู่ที่ (Section No.)</label>
+                                                            <input name="moo2" id="moo2" type="text" class="form-control" placeholder="หมู่ที่ (Section No.)">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label >ซอย (Avenue)</label>
+                                                            <input name="soi2" id="soi2" type="text" class="form-control" placeholder="ซอย (Avenue)">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label >ถนน (Road)</label>
+                                                            <input name="road2" id="road2" type="text" class="form-control" placeholder="ถนน (Road)">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <div class="row g-5">
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label >ตำบล/แขวง (Sub-District)</label>
+                                                            <div id="subdistrict2-null">
+                                                            <input name="subdistrict2" id="subdistrict2" type="text" class="form-control" placeholder="ตำบล/แขวง (Sub-District)" required="required">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label >อำเภอ/เขต (District)</label>
+                                                            <div id="district2-null">
+                                                            <input name="district2" id="district2" type="text" class="form-control" placeholder="อำเภอ/เขต (District)" required="required">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label >จังหวัด (Province)</label>
+                                                            <div id="province2-null">
+                                                            <input name="province2" id="province2" type="text" class="form-control" placeholder="จังหวัด (Province)" required="required">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label >รหัสไปรษณีย์ (Post Code)</label>
+                                                            <div id="citycode2-null">
+                                                            <input name="citycode2" id="citycode2" type="text" class="form-control" placeholder="รหัสไปรษณีย์ (Post Code)" required="required">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>											
 
 
                                     <div class="card">
@@ -294,7 +381,6 @@
                                                 </div>
                                             </div>
 
-											
 
 
                                             <div class="mb-3">
@@ -302,7 +388,7 @@
                                                     <div class="col-md-6">
 
                                                             <label class="form-check">
-                                                                <input class="form-check-input" name="user_bankaccount" id="user_bankaccount" type="checkbox" value="1">
+                                                                <input class="form-check-input" name="user_bank_account" id="user_bank_account" type="checkbox" value="1">
                                                                 <span class="form-check-label">ขอหนังสือรับรองเปิดบัญชีธนาคาร (Recomendation Letter for  Bank Account)</span>
                                                             </label>
                                                             
@@ -375,8 +461,10 @@ For collect, use and disclose my personal information for the purpose of Reauest
                                             <div class="col-md-12">
                                                 <div class="card-footer text-end" style="margin: 0 auto; text-align: center;">
                                                 <center>
-                                                    <button type="submit" name="but_form_student_card" id="but_form_student_card" class="btn btn-success">Apply</button>
-                                                    <button type="button" name="" id="" class="btn btn-danger">Cancel</button>
+                                                    <div id="but_form_register-null">
+                                                    <button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>
+                                                    <button type="button" name="but_backspace" id="but_backspace" class="btn btn-danger" value="backspace">ยกเลิก</button>
+                                                    </div>
                                                 </center>
                                                 </div>
                                             </div>
@@ -399,3 +487,204 @@ For collect, use and disclose my personal information for the purpose of Reauest
     </div>
 </div>
           
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<script src="dist/uploaders/fileinput/plugins/purify.min.js"></script>
+<script src="dist/uploaders/fileinput/plugins/sortable.min.js"></script>
+<script src="dist/uploaders/fileinput/fileinput.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $("#but_backspace").on("click",function(){
+            $backspace=$("#but_backspace").val();
+                if($backspace==="backspace"){
+                    document.location="?modules=request_certified";
+                }else{}
+        })
+    })
+</script>
+
+
+<script>
+    $(document).ready(function(){
+        $("#check_register").on('change',function(){
+            var user_name=$("#user_name").val();
+            var user_surname=$("#user_surname").val();
+            var user_idcard=$("#user_idcard").val();
+
+            var user_student_id=$("#user_student_id").val();
+            var user_tel=$("#user_tel").val();
+            var user_email=$("#user_email").val();
+            var address2=$("#address2").val();
+            var subdistrict2=$("#subdistrict2").val();
+            var district2=$("#district2").val();
+            var province2=$("#province2").val();
+            var citycode2=$("#citycode2").val();
+
+            var user_certified=$("#user_certified").val();
+            var user_bank_account=$("#user_bank_account").val();
+
+
+            var check_error="yes";
+            var check_register=$("#check_register").val();
+
+            var file_count=0;
+            var count_error=0;
+
+              if(check_register==="1"){
+
+
+                  if(user_certified==="1"){
+                    file_count=file_count+1;
+                  }else{
+                    file_count=file_count+0;
+                  } 
+
+                  if(user_bank_account==="1"){
+                    file_count=file_count+1;
+                  }else{
+                    file_count=file_count+0;
+                  }
+
+                  if(file_count>=1){
+                    count_error=count_error+0;
+                  }else{
+                    count_error=count_error+1;
+                  }
+
+                  if(user_tel===""){
+                    document.getElementById("user_tel-null").innerHTML=
+                      '<input name="user_tel" id="user_tel" type="text" class="form-control is-invalid" value="" placeholder="เบอร์โทรศัพท์ (Contact No.)">';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("user_tel-null").innerHTML=
+                      '<input name="user_tel" id="user_tel" type="text" class="form-control is-valid" value="'+user_tel+'" placeholder="เบอร์โทรศัพท์ (Contact No.)">';                   
+                    count_error=count_error+0;
+                  }
+
+                  if(user_email===""){
+                    document.getElementById("user_email-null").innerHTML=
+                      '<input name="user_email" id="user_email" type="email" class="form-control is-invalid" value="" placeholder="E-mail">';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("user_email-null").innerHTML=
+                      '<input name="user_email" id="user_email" type="email" class="form-control is-valid" value="'+user_email+'" placeholder="E-mail">';
+                    count_error=count_error+0;
+                  }
+
+                  if(user_student_id===""){
+                    document.getElementById("user_student_id-null").innerHTML=
+                    '<input name="user_student_id" id="user_student_id" type="text" class="form-control is-invalid" placeholder="รหัสประจำตัว (Student ID)" value="'+user_student_id+'" required="required">';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("user_student_id-null").innerHTML=
+                    '<input name="user_student_id" id="user_student_id" type="text" class="form-control is-valid" placeholder="รหัสประจำตัว (Student ID)" value="'+user_student_id+'" required="required">';
+                    count_error=count_error+0;
+                  }
+
+                  if(address2===""){
+                    document.getElementById("address2-null").innerHTML=
+                      '<input name="address2" id="address2" type="text" class="form-control is-invalid" value="'+address2+'" placeholder="วัด/บ้านเลขที่ (House No.)" required="required" required="required">';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("address2-null").innerHTML=
+                      '<input name="address2" id="address2" type="text" class="form-control is-valid" value="'+address2+'" placeholder="วัด/บ้านเลขที่ (House No.)" required="required">';
+                    count_error=count_error+0;
+                  }
+
+                  if(subdistrict2===""){
+                    document.getElementById("subdistrict2-null").innerHTML=
+                      '<input name="subdistrict2" id="subdistrict2" type="text" class="form-control is-invalid" value="'+subdistrict2+'" placeholder="ตำบล/แขวง (Sub-District)" required="required">';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("subdistrict2-null").innerHTML=
+                      '<input name="subdistrict2" id="subdistrict2" type="text" class="form-control is-valid" value="'+subdistrict2+'" placeholder="ตำบล/แขวง (Sub-District)" required="required">';
+                    count_error=count_error+0;
+                  }
+
+                  if(district2===""){
+                    document.getElementById("district2-null").innerHTML=
+                      '<input name="district2" id="district2" type="text" class="form-control is-invalid" value="'+district2+'" placeholder="อำเภอ/เขต (District)" required="required">';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("district2-null").innerHTML=
+                      '<input name="district2" id="district2" type="text" class="form-control is-valid" value="'+district2+'" placeholder="อำเภอ/เขต (District)" required="required">';
+                    count_error=count_error+0;
+                  }
+
+                  if(province2===""){
+                    document.getElementById("province2-null").innerHTML=
+                      '<input name="province2" id="province2" type="text" class="form-control is-invalid" value="'+province2+'" placeholder="จังหวัด (Province)" required="required">';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("province2-null").innerHTML=
+                      '<input name="province2" id="province2" type="text" class="form-control is-valid" value="'+province2+'" placeholder="จังหวัด (Province)" required="required">';
+                    count_error=count_error+0;
+                  }
+
+                  if(citycode2===""){
+                    document.getElementById("citycode2-null").innerHTML=
+                      '<input name="citycode2" id="citycode2" type="text" class="form-control is-invalid" value="" placeholder="รหัสไปรษณีย์ (Post Code)" required="required">';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("citycode2-null").innerHTML=
+                      '<input name="citycode2" id="citycode2" type="text" class="form-control is-valid" value="'+citycode2+'" placeholder="รหัสไปรษณีย์ (Post Code)" required="required">';
+                    count_error=count_error+0;
+                  }
+
+                  if(user_name===""){
+                      document.getElementById("user_name-null").innerHTML=
+                      '<input name="user_name" id="user_name" type="text" class="form-control is-invalid mb-2" value="" placeholder="ชื่อ (Name)" required="required">';
+                      count_error=count_error+1;
+                  }else{
+                      document.getElementById("user_name-null").innerHTML=
+                      '<input name="user_name" id="user_name" type="text" class="form-control is-valid mb-2" value="'+user_name+'" placeholder="ชื่อ (Name)" required="required">';
+                      count_error=count_error+0;
+                  }
+
+                  if(user_surname===""){
+                    document.getElementById("user_surname-null").innerHTML=
+                      '<input name="user_surname" id="user_surname" type="text" class="form-control is-invalid" value="" placeholder="นามสกุล (Surname)" required="required">';
+                      count_error=count_error+1;
+                  }else{
+                    document.getElementById("user_surname-null").innerHTML=
+                      '<input name="user_surname" id="user_surname" type="text" class="form-control is-valid mb-2" value="'+user_surname+'" placeholder="นามสกุล (Surname)" required="required">';
+                      count_error=count_error+0;
+                  }
+
+                  if(user_idcard===""){
+                    document.getElementById("user_idcard-null").innerHTML=
+                      '<input name="user_idcard" id="user_idcard" type="text" class="form-control is-invalid" value="'+user_idcard+'" placeholder="รหัสประจำตัวประชาชน" required="required">';
+                      count_error=count_error+1;
+                  }else{
+                    document.getElementById("user_idcard-null").innerHTML=
+                      '<input name="user_idcard" id="user_idcard" type="text" class="form-control is-valid mb-2" value="'+user_idcard+'" placeholder="รหัสประจำตัวประชาชน" required="required">';
+                      count_error=count_error+0;
+                  }
+
+                  if(count_error>=1){
+
+                    document.getElementById("but_form_register-null").innerHTML=
+                    '<button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>'
+                    +'<button type="button" name="but_backspace" id="but_backspace" class="btn btn-danger" value="backspace">ยกเลิก</button>';
+
+                  }else{
+
+                    document.getElementById("but_form_register-null").innerHTML=
+                    '<button type="submit" name="but_form_register" id="but_form_register" class="btn btn-success">ลงทะเบียน</button>'
+                    +'<button type="button" name="but_backspace" id="but_backspace" class="btn btn-danger" value="backspace">ยกเลิก</button>';
+
+                  }
+
+              }else{
+
+                    document.getElementById("but_form_register-null").innerHTML=
+                    '<button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>'
+                    +'<button type="button" name="but_backspace" id="but_backspace" class="btn btn-danger" value="backspace">ยกเลิก</button>';
+
+              }
+
+        })
+    })
+
+</script>

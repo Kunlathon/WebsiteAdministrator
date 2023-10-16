@@ -596,8 +596,8 @@ For collect, use and disclose my personal information for Online Enrollment only
                                                 <div class="card-footer text-end" style="margin: 0 auto; text-align: center;">
                                                 <center>
                                                     <div id="but_form_register-null">
-                                                    <button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">Apply</button>
-                                                    <button type="button" name="" id="" class="btn btn-danger">Cancel</button>
+                                                    <button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>
+                                                    <button type="button" name="but_backspace" id="but_backspace" class="btn btn-danger" value="backspace">ยกเลิก</button>
                                                     </div>
                                                 </center>
                                                 </div>
@@ -620,15 +620,23 @@ For collect, use and disclose my personal information for Online Enrollment only
     </div>
 </div>
           
-
-
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 
-<script src="../dist/uploaders/fileinput/plugins/purify.min.js"></script>
-<script src="../dist/uploaders/fileinput/plugins/sortable.min.js"></script>
-<script src="../dist/uploaders/fileinput/fileinput.min.js"></script>
+<script src="dist/uploaders/fileinput/plugins/purify.min.js"></script>
+<script src="dist/uploaders/fileinput/plugins/sortable.min.js"></script>
+<script src="dist/uploaders/fileinput/fileinput.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $("#but_backspace").on("click",function(){
+            $backspace=$("#but_backspace").val();
+                if($backspace==="backspace"){
+                    document.location="?modules=request_certified";
+                }else{}
+        })
+    })
+</script>
 
 <script>
     $(document).ready(function(){
@@ -797,13 +805,13 @@ For collect, use and disclose my personal information for Online Enrollment only
 
                     document.getElementById("but_form_register-null").innerHTML=
                     '<button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>'
-                    +' <button type="button" name="" id="" class="btn btn-danger">ยกเลิก</button>';
+                    +'<button type="button" name="but_backspace" id="but_backspace" class="btn btn-danger" value="backspace">ยกเลิก</button>';
 
                   }else{
 
                     document.getElementById("but_form_register-null").innerHTML=
                     '<button type="submit" name="but_form_register" id="but_form_register" class="btn btn-success">ลงทะเบียน</button>'
-                    +' <button type="button" name="" id="" class="btn btn-danger">ยกเลิก</button>';
+                    +'<button type="button" name="but_backspace" id="but_backspace" class="btn btn-danger" value="backspace">ยกเลิก</button>';
 
                   }
 
@@ -811,7 +819,7 @@ For collect, use and disclose my personal information for Online Enrollment only
 
                     document.getElementById("but_form_register-null").innerHTML=
                     '<button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>'
-                    +' <button type="button" name="" id="" class="btn btn-danger">ยกเลิก</button>';
+                    +'<button type="button" name="but_backspace" id="but_backspace" class="btn btn-danger" value="backspace">ยกเลิก</button>';
 
               }
 

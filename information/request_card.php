@@ -634,10 +634,10 @@ For collect, use and disclose my personal information for the purpose of request
                                             <div class="col-md-12">
                                                 <div class="card-footer text-end" style="margin: 0 auto; text-align: center;">
                                                 <center>
-                                                    <div id="but_form_register-null">
+                                                    <font id="but_form_register-null">
                                                     <button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>
-                                                    <button type="button" name="" id="" class="btn btn-danger">ยกเลิก</button>
-                                                    </div>
+                                                    </font>
+                                                    <button type="button" onclick="location.href='?modules=request_card'" class="btn btn-danger">ยกเลิก</button>
                                                 </center>
                                                 </div>
                                             </div>
@@ -664,6 +664,17 @@ For collect, use and disclose my personal information for the purpose of request
 <script src="dist/uploaders/fileinput/plugins/purify.min.js"></script>
 <script src="dist/uploaders/fileinput/plugins/sortable.min.js"></script>
 <script src="dist/uploaders/fileinput/fileinput.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $("#but_backspace").on("click",function(){
+            $backspace=$("#but_backspace").val();
+                if($backspace==="backspace"){
+                    document.location="?modules=request_card";
+                }else{}
+        })
+    })
+</script>
 
 <script>
     $(document).ready(function(){
@@ -841,23 +852,23 @@ For collect, use and disclose my personal information for the purpose of request
                   if(count_error>=1){
 
                     document.getElementById("but_form_register-null").innerHTML=
-                    '<button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>'
-                    +' <button type="button" name="" id="" class="btn btn-danger">ยกเลิก</button>';
-
+                    '<font id="but_form_register-null">'
+                    +'  <button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>'
+                    +'</font>';
                   }else{
 
                     document.getElementById("but_form_register-null").innerHTML=
-                    '<button type="submit" name="but_form_register" id="but_form_register" class="btn btn-success">ลงทะเบียน</button>'
-                    +' <button type="button" name="" id="" class="btn btn-danger">ยกเลิก</button>';
-
+                    '<font id="but_form_register-null">'
+                    +'  <button type="submit" name="but_form_register" id="but_form_register" class="btn btn-success">ลงทะเบียน</button>'
+                    +'</font>';
                   }
 
               }else{
 
                     document.getElementById("but_form_register-null").innerHTML=
-                    '<button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>'
-                    +' <button type="button" name="" id="" class="btn btn-danger">ยกเลิก</button>';
-
+                    '<font id="but_form_register-null">'
+                    +'  <button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>'
+                    +'</font>';
               }
 
         })

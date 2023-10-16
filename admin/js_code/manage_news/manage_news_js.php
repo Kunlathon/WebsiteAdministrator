@@ -248,8 +248,17 @@
     </script>
 <!--Update En End-->
 
+<!--list-->
+    <script>
+        $(document).ready(function(){
+            var news_key=$("#news_key").val();
+                if()
+        })
+    </script>
+<!--list end-->
+
 <!--Update Cn-->
-<script>
+    <script>
         $(document).ready(function(){
             // Defaults
             var swalInitManageNewsCn = swal.mixin({
