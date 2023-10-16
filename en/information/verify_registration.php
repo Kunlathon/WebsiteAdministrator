@@ -20,7 +20,7 @@
                                     <div class="page-header d=print-none">
                                       <div class="container-xl">
                                         <div class="row g-2 alogn-items-center">
-                                          <div col-md-12>
+                                          <div class="col-md-12">
                                             <div class="page-title" style="font-size: 20px;">ค้นหาข้อมูลผู้สมัคร (Search for Applicant Information)</div>
                                           </div>
                                         </div>
@@ -60,7 +60,7 @@
                               <div class="col-md-12">
                                 <div class="card-footer text-end" style="margin: 0 auto; text-align: center;">
                                   <center>
-                                    <button type="submit" name="sum_vefify" id="sum_vefify" class="btn btn-success">Apply</button>
+                                    <button type="submit" name="sum_vefify" id="sum_vefify" class="btn btn-success">Search</button>
                                     <button type="button" name="" id="" class="btn btn-danger">Cancel</button>
                                   </center>
                                 </div>

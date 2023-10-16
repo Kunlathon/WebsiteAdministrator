@@ -20,7 +20,7 @@
 					 <?php
 						if($rowRes['information_image']==""){ ?>
 					<?php   } else { ?>
-                            <p><div align="center"><img src="dist/information/<?php echo $rowRes['information_image'];?>" class="img-thumbnail" alt="<?php echo $rowRes['information_topic_en'];?>" style="width:500px; height:450px;"></div></p>
+                            <p><div align="center"><img src="../dist/information/<?php echo $rowRes['information_image'];?>" class="img-thumbnail" alt="<?php echo $rowRes['information_topic_en'];?>" style="width:500px; height:450px;"></div></p>
                             
 					<?php   } ?>
 

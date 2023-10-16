@@ -9,8 +9,8 @@
 //Tel 0932670639
 //Email: mpamese.pc2001@gmail.com , missing_yrc2014@hotmail.com	
 
-include("../config/connect.ini.php");
-include("../config/fnc.php");
+include("../../config/connect.ini.php");
+include("../../config/fnc.php");
 
     $date=date("Y-m-d");
     $datetime=date("Y-m-d H:i:s");
@@ -103,6 +103,14 @@ include("../config/fnc.php");
         $user_bank_account="-";
     }
 
+
+
+    if((isset($_POST["course_detail"]))){
+        $course_detail=filter_input(INPUT_POST,'course_detail');
+    }else{
+        $course_detail="-";
+    }
+
     $request_certifed_data = array(
 
         "user_name"=>$user_name,
@@ -128,6 +136,7 @@ include("../config/fnc.php");
         "user_address_province_now"=>$user_address_province,
         "user_address_citycode_now"=>$user_address_citycode,
         "user_bank_account"=>$user_bank_account,
+        "course_detail_id"=>$course_detail,
         "user_status"=>'1'
     );
     insert("tb_certified", $request_certifed_data);

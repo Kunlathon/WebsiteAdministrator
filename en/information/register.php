@@ -31,7 +31,7 @@
                                                         <div class="page-header d=print-none">
                                                             <div class="container-xl">
                                                                 <div class="row g-2 alogn-items-center">
-                                                                    <div col-md-12>
+                                                                    <div class="col-md-12">
                                                                         <div class="page-title" style="font-size: 20px;">ลงทะเบียนเรียนออนไลน์ (Online Enrollment)</div>
                                                                     </div>
                                                                 </div>
@@ -595,10 +595,10 @@ For collect, use and disclose my personal information for Online Enrollment only
                                             <div class="col-md-12">
                                                 <div class="card-footer text-end" style="margin: 0 auto; text-align: center;">
                                                 <center>
-                                                    <div id="but_form_register-null">
-                                                    <button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>
-                                                    <button type="button" name="but_backspace" id="but_backspace" class="btn btn-danger" value="backspace">ยกเลิก</button>
-                                                    </div>
+                                                    <font id="but_form_register-null">
+                                                    <button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">Apply</button>
+                                                    </font>
+                                                    <button type="button" onclick="location.href='?modules=register'" class="btn btn-danger">Cancel</button>
                                                 </center>
                                                 </div>
                                             </div>
@@ -623,9 +623,9 @@ For collect, use and disclose my personal information for Online Enrollment only
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 
-<script src="dist/uploaders/fileinput/plugins/purify.min.js"></script>
-<script src="dist/uploaders/fileinput/plugins/sortable.min.js"></script>
-<script src="dist/uploaders/fileinput/fileinput.min.js"></script>
+<script src="../dist/uploaders/fileinput/plugins/purify.min.js"></script>
+<script src="../dist/uploaders/fileinput/plugins/sortable.min.js"></script>
+<script src="../dist/uploaders/fileinput/fileinput.min.js"></script>
 
 <script>
     $(document).ready(function(){
@@ -804,23 +804,23 @@ For collect, use and disclose my personal information for Online Enrollment only
                   if(count_error>=1){
 
                     document.getElementById("but_form_register-null").innerHTML=
-                    '<button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>'
-                    +'<button type="button" name="but_backspace" id="but_backspace" class="btn btn-danger" value="backspace">ยกเลิก</button>';
-
+                    '<font id="but_form_register-null">'
+                    +' <button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">Apply</button>'
+                    +'</font>';
                   }else{
 
                     document.getElementById("but_form_register-null").innerHTML=
-                    '<button type="submit" name="but_form_register" id="but_form_register" class="btn btn-success">ลงทะเบียน</button>'
-                    +'<button type="button" name="but_backspace" id="but_backspace" class="btn btn-danger" value="backspace">ยกเลิก</button>';
-
+                    '<font id="but_form_register-null">'
+                    +' <button type="submit" name="but_form_register" id="but_form_register" class="btn btn-success">Apply</button>'
+                    +'</font>';
                   }
 
               }else{
 
                     document.getElementById("but_form_register-null").innerHTML=
-                    '<button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>'
-                    +'<button type="button" name="but_backspace" id="but_backspace" class="btn btn-danger" value="backspace">ยกเลิก</button>';
-
+                    '<font id="but_form_register-null">'
+                    +' <button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">Apply</button>'
+                    +'</font>';
               }
 
         })

@@ -50,7 +50,7 @@
                                                                         <div class="card-footer text-end" style="margin: 0 auto; text-align: center;">
                                                                         <center>
                                                                             <button type="button" name="but_clink" id="but_clink" class="btn btn-success">Search</button>
-                                                                            <button type="button" name="but_delete" id="but_delete" class="btn btn-danger" value="but_delete">Canceled</button>
+                                                                            <button type="button" name="but_delete" id="but_delete" class="btn btn-danger" value="but_delete">Cancel</button>
                                                                         </center>
                                                                         </div>
                                                                     </div>

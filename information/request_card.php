@@ -471,7 +471,7 @@
                         ON(`tb_course_detail`.`course_id`=`tb_course`.`course_id`) 
                         WHERE `tb_course_detail`.`course_detail_status`='2'
                         AND  `tb_course`.`course_status`='1'
-                        ORDER BY `tb_course_detail`.`course_detail_id` ASC;";
+                        GROUP BY `tb_course_detail`.`course_id` ASC;";
             $course_List=result_array($course_Sql);
             foreach($course_List as $key=>$course_Row){  
                 
@@ -681,7 +681,7 @@ For collect, use and disclose my personal information for the purpose of request
         $("#course").on('change',function(){
             var course_key=$("#course").val();
                 if(course_key!==""){
-                    $.post("proccess/register_card_data_course.php",{
+                    $.post("proccess/request_card_data_course.php",{
                         course_key:course_key
                     },function(run_course_js){
                         if(run_course_js!=""){

@@ -19,7 +19,7 @@
                                                         <div class="page-header d=print-none">
                                                             <div class="container-xl">
                                                                 <div class="row g-2 alogn-items-center">
-                                                                    <div col-md-12>
+                                                                    <div class="col-md-12">
                                                                         <div class="page-title" style="font-size: 20px;">ยื่นเรื่องขอเอกสารรับรอง (Reauesting a Recomendation Letter)</div>
                                                                     </div>
                                                                 </div>
@@ -351,7 +351,6 @@
                                         </div>
                                     </div>											
 
-
                                     <div class="card">
                                         <div class="card-status-top bg-blue"></div>
                                         <div class="card-header">
@@ -419,37 +418,120 @@ For collect, use and disclose my personal information for the purpose of request
 
                                                 </div>-->
 
+                                        </div>
+                                    </div>
+
+                                    <div class="card">
+                                        <div class="card-status-top bg-blue"></div>
+                                        <div class="card-header">
+                                            <div class="card-title" style="font-size: 18px;">
+                                                <div>กรุณาเลือกช่วงเวลาการเรียนของคุณ / Choose your schedule perious</div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+
+                                            <div class="mb-3">
                                                 <div class="row g-5">
                                                     <div class="col-md-12">
-                                                        <div class="alert alert-warning" role="alert" style="color: red;">
-                                                            
-                                                    *** ข้าพเจ้ายินยอมให้ข้อมูลแก่ มหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย วิทยาเขตเชียงใหม่
-จะเก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้าสำหรับการใช้ในการยื่นเรื่องขอเอกสารรับรองเท่านั้น ***<br>
-*** I agree to provide information to Mahachulalongkornrajavidyalaya University Chiang Mai Campus.
-For collect, use and disclose my personal information for the purpose of Reauesting a Recomendation Letter only. ***                                                           
-                                                         
-                                                        </div>
+                                                        <label class="form-check">
+                                                            <select  class="form-select" placeholder="เลือกเรียนหลักสูตร (Select your Course)" name="course" id="course" required="required">
+                                                                <option value="">เลือกเรียนหลักสูตร (Select your Course)</option>
+                                                                
+    <?php
+            $course_Sql="SELECT * FROM `tb_course_detail` 
+                        LEFT JOIN `tb_course` ON(`tb_course_detail`.`course_id`=`tb_course`.`course_id`) 
+                        WHERE `tb_course_detail`.`course_detail_status`='2' 
+                        AND `tb_course`.`course_status`='1' 
+                        GROUP BY `tb_course_detail`.`course_id` 
+                        ORDER BY `tb_course_detail`.`course_id` ASC;";
+            $course_List=result_array($course_Sql);
+            foreach($course_List as $key=>$course_Row){  
+                
+                
+                if((isset($course_Row["course_id"]))){
+                    $course_id=$course_Row["course_id"];
+                    if(($course_key==$course_id)){
+                        $selected_course='selected="selected"';
+                    }else{
+                        $selected_course=null;
+                    }
+                }else{
+                    $selected_course=null;
+                }             
+                
+                if((isset($course_Row["course_name_en"]))){
+                    $course_name_en=$course_Row["course_name_en"];
+                }else{
+                    $course_name_en=null;
+                }
+
+                if((isset($course_Row["course_name"]))){
+                    $course_name=$course_Row["course_name"];
+                }else{
+                    $course_name=null;
+                }
+                
+
+
+                ?>
+                                                                <option value="<?php echo $course_Row["course_detail_id"];?>"><?php echo $course_name." (".$course_name_en.")";?></option>     
+    <?php    } ?>
+
+                                                            </select>
+                                                        </label>
+                                                        <div id="course-null"></div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row g-5">
+                                                    <div class="col-md-12">
+                                                        <label class="form-check">
+                                                            <select  class="form-select" placeholder="เลือกช่วงเวลา (Select Course)" name="course_detail" id="course_detail" required="required">
+                                                                <option value="">เลือกช่วงเวลา (Select Course)</option>   
+                                                            </select>
+                                                        </label>
+                                                        <div id="course_detail-null"></div>
                                                     </div>
                                                 </div>
 
-                                                <div class="row ">
-                                                    <div class="col-md-6" >
-                                                        <div class="form-group"></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="card">
+                                        <div class="mb-3">
+
+                                            <div class="row g-5">
+                                                <div class="col-md-12">
+                                                    <div class="alert alert-warning" role="alert" style="color: red;">      
+                                                    *** ข้าพเจ้ายินยอมให้ข้อมูลแก่ มหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย วิทยาเขตเชียงใหม่
+จะเก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้าสำหรับการใช้ในการยื่นเรื่องขอเอกสารรับรองเท่านั้น ***<br>
+*** I agree to provide information to Mahachulalongkornrajavidyalaya University Chiang Mai Campus.
+For collect, use and disclose my personal information for the purpose of Reauesting a Recomendation Letter only. ***                                                            
                                                     </div>
-                                                    <div class="col-md-6" >
-                                                        <div class="form-group">
-                                                            <div class="input-group mb-2">
-                                                                <label class="form-check">
-                                                                    <div id="check_register-null">
+                                                </div>
+                                            </div>
+
+                                            <div class="row g-5">
+                                                <div class="col-md-6" >
+                                                    <div class="form-group"></div>
+                                                </div>
+                                                <div class="col-md-6" >
+                                                    <div class="form-group">
+                                                        <div class="input-group mb-2">
+                                                            <label class="form-check">
+                                                                <div id="check_register-null">
                                                                     <input class="form-check-input" name="check_register" id="check_register" type="checkbox" value="1" required="required">
                                                                     <span class="form-check-label">ยอมรับเงื่อนไข (Agreement)</span>
-                                                                    </div>
-                                                                </label>
-                                                            </div>
+                                                                </div>
+                                                            </label>
                                                         </div>
-                                                    </div>  
-                                                </div>
-    
+                                                    </div>
+                                                </div>  
+                                            </div>
 
                                         </div>
                                     </div>
@@ -461,10 +543,10 @@ For collect, use and disclose my personal information for the purpose of Reauest
                                             <div class="col-md-12">
                                                 <div class="card-footer text-end" style="margin: 0 auto; text-align: center;">
                                                 <center>
-                                                    <div id="but_form_register-null">
-                                                    <button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>
-                                                    <button type="button" name="but_backspace" id="but_backspace" class="btn btn-danger" value="backspace">ยกเลิก</button>
-                                                    </div>
+                                                    <font id="but_form_register-null">
+                                                    <button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">Apply</button>
+                                                    </font>
+                                                    <button type="button" onclick="location.href='?modules=request_certified'" class="btn btn-danger">Cancel</button>
                                                 </center>
                                                 </div>
                                             </div>
@@ -489,21 +571,33 @@ For collect, use and disclose my personal information for the purpose of Reauest
           
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-<script src="dist/uploaders/fileinput/plugins/purify.min.js"></script>
-<script src="dist/uploaders/fileinput/plugins/sortable.min.js"></script>
-<script src="dist/uploaders/fileinput/fileinput.min.js"></script>
+<script src="../dist/uploaders/fileinput/plugins/purify.min.js"></script>
+<script src="../dist/uploaders/fileinput/plugins/sortable.min.js"></script>
+<script src="../dist/uploaders/fileinput/fileinput.min.js"></script>
+
+
 
 <script>
     $(document).ready(function(){
-        $("#but_backspace").on("click",function(){
-            $backspace=$("#but_backspace").val();
-                if($backspace==="backspace"){
-                    document.location="?modules=request_certified";
-                }else{}
+        $("#course").on('change',function(){
+            var course_key=$("#course").val();
+                if(course_key!==""){
+                    $.post("proccess/request_certified_data_course.php",{
+                        course_key:course_key
+                    },function(run_course_js){
+                        if(run_course_js!=""){
+                            $("#course_detail").html(run_course_js);
+                        }else{}
+                    })
+                }else{
+                    document.getElementById("course_detail").innerHTML=
+                    '<select  class="form-select" placeholder="เลือกช่วงเวลา (Select Course)" name="course_detail" id="course_detail" required="required">'
+                    +'  <option value="">เลือกช่วงเวลา (Select Course)</option> '
+                    +'</select>';
+                }
         })
     })
 </script>
-
 
 <script>
     $(document).ready(function(){
@@ -511,6 +605,9 @@ For collect, use and disclose my personal information for the purpose of Reauest
             var user_name=$("#user_name").val();
             var user_surname=$("#user_surname").val();
             var user_idcard=$("#user_idcard").val();
+
+            var course=$("#course").val();
+            var course_detail=$("#course_detail").val();
 
             var user_student_id=$("#user_student_id").val();
             var user_tel=$("#user_tel").val();
@@ -546,6 +643,8 @@ For collect, use and disclose my personal information for the purpose of Reauest
                     file_count=file_count+0;
                   }
 
+
+                  
                   if(file_count>=1){
                     count_error=count_error+0;
                   }else{
@@ -559,6 +658,22 @@ For collect, use and disclose my personal information for the purpose of Reauest
                   }else{
                     document.getElementById("user_tel-null").innerHTML=
                       '<input name="user_tel" id="user_tel" type="text" class="form-control is-valid" value="'+user_tel+'" placeholder="เบอร์โทรศัพท์ (Contact No.)">';                   
+                    count_error=count_error+0;
+                  }
+
+                  if(course===""){
+                    document.getElementById("course-null").innerHTML='<font style="color: red;">กรุณาเลือก รายการนี้</font>';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("course-null").innerHTML='<font>&nbsp;</font>';
+                    count_error=count_error+0;
+                  }
+
+                  if(course_detail===""){
+                    document.getElementById("course_detail-null").innerHTML='<font style="color: red;">กรุณาเลือก รายการนี้</font>';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("course_detail-null").innerHTML='<font>&nbsp;</font>';
                     count_error=count_error+0;
                   }
 
@@ -665,23 +780,23 @@ For collect, use and disclose my personal information for the purpose of Reauest
                   if(count_error>=1){
 
                     document.getElementById("but_form_register-null").innerHTML=
-                    '<button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>'
-                    +'<button type="button" name="but_backspace" id="but_backspace" class="btn btn-danger" value="backspace">ยกเลิก</button>';
-
+                    '<font id="but_form_register-null">'
+                    +' <button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">Apply</button>'
+                    +'</font>';
                   }else{
 
                     document.getElementById("but_form_register-null").innerHTML=
-                    '<button type="submit" name="but_form_register" id="but_form_register" class="btn btn-success">ลงทะเบียน</button>'
-                    +'<button type="button" name="but_backspace" id="but_backspace" class="btn btn-danger" value="backspace">ยกเลิก</button>';
-
+                    '<font id="but_form_register-null">'
+                    +' <button type="submit" name="but_form_register" id="but_form_register" class="btn btn-success">Apply</button>'
+                    +'</font>';
                   }
 
               }else{
 
                     document.getElementById("but_form_register-null").innerHTML=
-                    '<button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>'
-                    +'<button type="button" name="but_backspace" id="but_backspace" class="btn btn-danger" value="backspace">ยกเลิก</button>';
-
+                    '<font id="but_form_register-null">'
+                    +' <button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">Apply</button>'
+                    +'</font>';
               }
 
         })

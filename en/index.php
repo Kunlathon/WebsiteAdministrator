@@ -289,7 +289,7 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
                     </a>
                     <div class="dropdown-menu">
                       <a class="dropdown-item" href="?modules=register">
-                        Registered
+                        Register
                       </a>
                       <a class="dropdown-item" href="?modules=announce_list">
                         Announcement
@@ -375,7 +375,7 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
 
       <?php
 
-	  	  if($modules=="history") {
+	  if($modules=="history") {
 		  include("information/history.php");
 	  } else if($modules=="resolution") {
 		  include("information/resolution.php");

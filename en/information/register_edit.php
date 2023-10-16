@@ -44,7 +44,7 @@
                                                         <div class="page-header d=print-none">
                                                             <div class="container-xl">
                                                                 <div class="row g-2 alogn-items-center">
-                                                                    <div col-md-12>
+                                                                    <div class="col-md-12">
                                                                         <div class="page-title" style="font-size: 20px;">แก้ไขลงทะเบียนเรียนออนไลน์</div>
                                                                     </div>
                                                                 </div>
@@ -712,9 +712,9 @@ For collect, use and disclose my personal information for the purpose of request
 
 
 
-<script src="dist/uploaders/fileinput/plugins/purify.min.js"></script>
-<script src="dist/uploaders/fileinput/plugins/sortable.min.js"></script>
-<script src="dist/uploaders/fileinput/fileinput.min.js"></script>
+<script src="../dist/uploaders/fileinput/plugins/purify.min.js"></script>
+<script src="../dist/uploaders/fileinput/plugins/sortable.min.js"></script>
+<script src="../dist/uploaders/fileinput/fileinput.min.js"></script>
 
 
 

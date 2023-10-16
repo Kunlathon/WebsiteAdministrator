@@ -103,8 +103,13 @@ include("../config/fnc.php");
         $user_bank_account="-";
     }
 
-    $request_certifed_data = array(
+    if((isset($_POST["course_detail"]))){
+        $course_detail=filter_input(INPUT_POST,'course_detail');
+    }else{
+        $course_detail="-";
+    }
 
+    $request_certifed_data = array( 
         "user_name"=>$user_name,
         "user_name_buddhist"=>$user_name_buddhist,
         "user_surname"=>$user_surname,
@@ -128,6 +133,7 @@ include("../config/fnc.php");
         "user_address_province_now"=>$user_address_province,
         "user_address_citycode_now"=>$user_address_citycode,
         "user_bank_account"=>$user_bank_account,
+        "course_detail_id"=>$course_detail,
         "user_status"=>'1'
     );
     insert("tb_certified", $request_certifed_data);

@@ -955,9 +955,9 @@
 
 
 
-<script src="dist/uploaders/fileinput/plugins/purify.min.js"></script>
-<script src="dist/uploaders/fileinput/plugins/sortable.min.js"></script>
-<script src="dist/uploaders/fileinput/fileinput.min.js"></script>
+<script src="../dist/uploaders/fileinput/plugins/purify.min.js"></script>
+<script src="../dist/uploaders/fileinput/plugins/sortable.min.js"></script>
+<script src="../dist/uploaders/fileinput/fileinput.min.js"></script>
 
 
 

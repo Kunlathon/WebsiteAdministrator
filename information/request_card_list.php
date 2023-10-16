@@ -178,7 +178,7 @@
                         '<input type="text" name="text_key" id="text_key" value="'+text_key+'" class="form-control is-invalid">'
                         +'<div class="invalid-feedback">จำนวนตัวอักษรจำกัดไม่เกิน 100 ตัวอักษร</div>';
                     }else{
-                        $.post("proccess/register_card_show.php",{
+                        $.post("proccess/request_card_show.php",{
                             text_key:text_key
                         },function(RunList){
                             if(RunList!==""){

@@ -19,7 +19,7 @@
                                                         <div class="page-header d=print-none">
                                                             <div class="container-xl">
                                                                 <div class="row g-2 alogn-items-center">
-                                                                    <div col-md-12>
+                                                                    <div class="col-md-12">
                                                                         <div class="page-title" style="font-size: 20px;">คำร้องขอบัตรประจำตัวนิสิต (Request for Student Card)</div>
                                                                     </div>
                                                                 </div>
@@ -471,7 +471,7 @@
                         ON(`tb_course_detail`.`course_id`=`tb_course`.`course_id`) 
                         WHERE `tb_course_detail`.`course_detail_status`='2'
                         AND  `tb_course`.`course_status`='1'
-                        ORDER BY `tb_course_detail`.`course_detail_id` ASC;";
+                        GROUP BY `tb_course_detail`.`course_id` ASC;";
             $course_List=result_array($course_Sql);
             foreach($course_List as $key=>$course_Row){  
                 
@@ -634,10 +634,10 @@ For collect, use and disclose my personal information for the purpose of request
                                             <div class="col-md-12">
                                                 <div class="card-footer text-end" style="margin: 0 auto; text-align: center;">
                                                 <center>
-                                                    <div id="but_form_register-null">
-                                                    <button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>
-                                                    <button type="button" name="but_backspace" id="but_backspace" class="btn btn-danger" value="backspace">ยกเลิก</button>
-                                                    </div>
+                                                    <font id="but_form_register-null">
+                                                    <button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">Apply</button>
+                                                    </font>
+                                                    <button type="button" onclick="location.href='?modules=request_card'" class="btn btn-danger">cancel</button>
                                                 </center>
                                                 </div>
                                             </div>
@@ -661,9 +661,9 @@ For collect, use and disclose my personal information for the purpose of request
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-<script src="dist/uploaders/fileinput/plugins/purify.min.js"></script>
-<script src="dist/uploaders/fileinput/plugins/sortable.min.js"></script>
-<script src="dist/uploaders/fileinput/fileinput.min.js"></script>
+<script src="../dist/uploaders/fileinput/plugins/purify.min.js"></script>
+<script src="../dist/uploaders/fileinput/plugins/sortable.min.js"></script>
+<script src="../dist/uploaders/fileinput/fileinput.min.js"></script>
 
 <script>
     $(document).ready(function(){
@@ -681,7 +681,7 @@ For collect, use and disclose my personal information for the purpose of request
         $("#course").on('change',function(){
             var course_key=$("#course").val();
                 if(course_key!==""){
-                    $.post("proccess/register_card_data_course.php",{
+                    $.post("proccess/request_card_data_course.php",{
                         course_key:course_key
                     },function(run_course_js){
                         if(run_course_js!=""){
@@ -852,23 +852,23 @@ For collect, use and disclose my personal information for the purpose of request
                   if(count_error>=1){
 
                     document.getElementById("but_form_register-null").innerHTML=
-                    '<button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>'
-                    +'<button type="button" name="but_backspace" id="but_backspace" class="btn btn-danger" value="backspace">ยกเลิก</button>';
-
+                    '<font id="but_form_register-null">'
+                    +' <button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>'
+                    +'</font>';
                   }else{
 
                     document.getElementById("but_form_register-null").innerHTML=
-                    '<button type="submit" name="but_form_register" id="but_form_register" class="btn btn-success">ลงทะเบียน</button>'
-                    +'<button type="button" name="but_backspace" id="but_backspace" class="btn btn-danger" value="backspace">ยกเลิก</button>';
-
+                    '<font id="but_form_register-null">'
+                    +' <button type="submit" name="but_form_register" id="but_form_register" class="btn btn-success">ลงทะเบียน</button>'
+                    +'</font>';
                   }
 
               }else{
 
                     document.getElementById("but_form_register-null").innerHTML=
-                    '<button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>'
-                    +'<button type="button" name="but_backspace" id="but_backspace" class="btn btn-danger" value="backspace">ยกเลิก</button>';
-
+                    '<font id="but_form_register-null">'
+                    +' <button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>'
+                    +'</font>';
               }
 
         })
