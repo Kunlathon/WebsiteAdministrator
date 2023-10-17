@@ -146,7 +146,7 @@
                     if(($annouuce_Row["user_status"]=="1")){    ?>
                                                                                     <span class="badge bg-orange-lt">กำลังดำเนินการ / In Progress</span>
             <?php    }elseif(($annouuce_Row["user_status"]=="2")){  ?>
-                                                                                    <span class="badge bg-teal-lt" >ดำเนินเรียบร้อย / Completed</span>
+                                                                                    <span class="badge bg-teal-lt" >อนุมัติแล้ว / Approved</span>
             <?php    }else{}    ?>
                                                                                     
                                                                                 </td>
