@@ -7,6 +7,37 @@
                     <div class="container-xl">
 
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<?php
+$id = $_REQUEST['id'];
+$sql = "SELECT * FROM tb_course a INNER JOIN  tb_course_detail b ON a.course_id=b.course_id INNER JOIN tb_teacher c ON b.teacher_id=c.teacher_id WHERE  course_detail_id='$id' AND b.course_detail_status ='2' AND c.teacher_status = '1' ORDER BY b.course_detail_id DESC";
+//echo $sql;
+$row = row_array($sql);
+
+				if((isset($row["course_name"]))){
+                    $course_name=$row["course_name"];
+                }else{
+                    $course_name=null;
+                }
+
+                if((isset($row["course_name_en"]))){
+                    $course_name_en=$row["course_name_en"];
+                }else{
+                    $course_name_en=null;
+                }
+
+                if((isset($row["course_detail_date_start"]))){
+                    $cdds=date_en($row["course_detail_date_start"]);
+                }else{
+                    $cdds=null;
+                }
+
+                if((isset($row["course_detail_date_finnish"]))){
+                    $cddf=date_en($row["course_detail_date_finnish"]);
+                }else{
+                    $cddf=null;
+                }
+?>
+
                         <div class="row row-cards">
                             <div class="col-md-12">
                                 <div class="card-body">
@@ -19,9 +50,18 @@
                                                         <div class="page-header d=print-none">
                                                             <div class="container-xl">
                                                                 <div class="row g-2 alogn-items-center">
-                                                                    <div class="col-md-12">
-                                                                        <div class="page-title" style="font-size: 20px;">Download</div>
+
+                                                                    <div class="col-md-4">
+																	<a href="?modules=classroom_detail&id=<?php echo $row['course_detail_id'];?>" class="d-block">
+																		<img src="../uploads/teacher/<?php echo $row['teacher_picture'];?>" alt="<?php echo $row['teacher_name'];?>" class="card-img-top"></a>
+
                                                                     </div>
+																	<div class="col-md-8">                                                                        
+                                                                                    <div><span ><h1><?php echo $course_name;?></h1></span></div>
+                                                                                    <div><span ><h1><?php echo $course_name_en;?></h1></span></div>
+                                                                                    <div><span ><h1><?php echo $cdds." - ".$cddf;?></h1></span></div>
+                                                                    </div>
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -72,64 +112,37 @@
                                                         <div class="card">
                                                             <div class="card-status-top bg-green"></div>
                                                             <div class="card-header">
-                                                                <h3 class="card-title">Data List</h3>
+                                                                <h3 class="card-title">รายชื่อนักเรียน (Student Name List)</h3>
                                                             </div>
-                                                            <div class="card-body">
-															<div id="Run_List">
-                                                                <div class="table-responsive">
-                                                               
-                                                                    <table class="table table-bordered">
-                                                                        <thead>
-                                                                            <tr>    
-																				<th><div>ลำดับ (No.)</div></th>
-																				<th><div>รายการ (List)</div></th>
-                                                                                <th><div>ประเภท (Type)</div></th>
-                                                                                <th><div>ไฟล์ (File)</div></th>
-                                                                            </tr>
-                                                                        </thead>
-                                                                        <tbody>
-																		<?php
-																			$request_Sql="SELECT * FROM tb_document a INNER JOIN tb_document_category b ON a.document_category_id=b.document_category_id WHERE a.document_status='1' ORDER BY a.document_topic ASC";
-																			$request_Rs=result_array($request_Sql);
-																			$requset_count=0;
-																			foreach($request_Rs as $key=>$request_Row){ 
-																				$requset_count=$requset_count+1;
-																				$document_name=$request_Row["document_topic"];
-																				$document_category_name=$request_Row["document_category_name"];
+                                                            <div class="card-body">															
+																
+															<?php
+																$sqlClaD = "SELECT * FROM tb_classroom_teacher a INNER JOIN tb_classroom_detail b ON a.classroom_t_id=b.classroom_t_id WHERE course_detail_id='{$row['course_detail_id']}'";
+																 //echo $sqlClaD;
+																 $rowClaD = result_array($sqlClaD);
 
-																		?>
+																 foreach ($rowClaD as $key => $_itemClaD){ 
 
-                                                                            <tr>
-                                                                                <td><div><?php echo $requset_count;?></div></td>
+																	$sqlStu="SELECT * FROM tb_student WHERE user_student_no='{$_itemClaD['user_student_no']}'";
+																	$rowStu = row_array($sqlStu);
+															?>
 
-                                                                                <td><div><?php echo $document_name;?></div></td>
+																<div class="col-md-3" align="center">
+																	<div class="card card-sm alogn-items-center">
+																		<div class="card-body">
+																			<img src="https://chart.googleapis.com/chart?chs=100x100&cht=qr&chl=http://www.mse-exam.net/qr/chk_std.php?std_id=<?php echo $rowStu['user_student_no'];?>&choe=UTF-8";><br>
+																			<?php echo $rowStu['user_student_no'];?><br>
+																			<?php echo $rowStu['user_name']."&nbsp;".$rowStu['user_name_buddhist']."&nbsp;".$rowStu['user_surname']; ?>																		
+																		</div>
+																	</div>
+																</div>
 
-                                                                                <td><div><?php echo $document_category_name;?></div></td>
+																<?php
+																 }
+																?>                                                               
+                                                                    
 
-                                                                                <td>
-																																								
-																					<?php
-																					if ($request_Row['document_file'] == "") {
-
-																					} else {
-																					?>
-																						<a href="../uploads/document/<?php echo $request_Row['document_file']; ?>" target="_blank"><img src="../dist/img/download-png-blue.png" alt="<?php echo $document_name;?>" class="card-img-top" style="width:100px;height:40px;"></a>
-
-																					<?php
-																					}
-																					?>
-                                                                                    
-                                                                                </td>
-                                                                            </tr>
-    <?php   } ?>
-
-
-                                                                        </tbody>
-                                                                </table>
-
-                                                                </div>
-</div>
-                                                            </div>
+															</div>
                                                         </div>
 
                                                     </div>

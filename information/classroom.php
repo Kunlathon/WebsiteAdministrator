@@ -32,7 +32,7 @@
                                             </div>
 
                                             <div class="col-md-6" align="right">
-											<form name="keyword" action="?modules=teacher" method="post">
+											<form name="keyword" action="?modules=classroom" method="post">
                                               <div class="row g-2">											  
                                                 <div class="col">
                                                   <input type="text" name="keyword" id="" class="form-control" placeholder="Search for…">											
@@ -80,7 +80,7 @@
 
 											  $start = ($page - 1) * $perpage;
 
-											  $sql = "SELECT * FROM tb_teacher WHERE (teacher_name LIKE '%$keyword%' OR teacher_surname LIKE '%$keyword%' OR buddhist_name LIKE '%$keyword%') AND teacher_status = '1' ORDER BY teacher_id DESC LIMIT {$start} , {$perpage}";
+											  $sql = "SELECT * FROM tb_course a INNER JOIN  tb_course_detail b ON a.course_id=b.course_id INNER JOIN tb_teacher c ON b.teacher_id=c.teacher_id WHERE (c.teacher_name LIKE '%$keyword%' OR c.teacher_surname LIKE '%$keyword%' OR c.buddhist_name LIKE '%$keyword%') AND b.course_detail_status ='2' AND c.teacher_status = '1' ORDER BY b.course_detail_id DESC LIMIT {$start} , {$perpage}";
 											  //echo $sql;
 											  $row = result_array($sql);
 
@@ -89,7 +89,7 @@
 
                                             <div class="col-md-4">
                                                 <div class="card card-sm alogn-items-center">
-                                                    <a href="uploads/teacher/<?php echo $_item['teacher_file'];?>" class="d-block" target="_blank">
+                                                    <a href="?modules=classroom_detail&id=<?php echo $_item['course_detail_id'];?>" class="d-block">
 													<img src="uploads/teacher/<?php echo $_item['teacher_picture'];?>" alt="<?php echo $_item['teacher_name'];?>" class="card-img-top"></a>
                                                     <div class="card-body">
                                                         <div class="d-flex align-items-center">
@@ -102,7 +102,7 @@
 										<?php
 										  }
 
-										  $sqlPage = "SELECT * , COUNT(teacher_id) AS COUNT FROM tb_teacher WHERE (teacher_name LIKE '%$keyword%' OR teacher_surname LIKE '%$keyword%' OR buddhist_name LIKE '%$keyword%') AND teacher_status = '1' ORDER BY teacher_id";
+										  $sqlPage = "SELECT * , COUNT(c.teacher_id) AS COUNT  FROM tb_course a INNER JOIN  tb_course_detail b ON a.course_id=b.course_id INNER JOIN tb_teacher c ON b.teacher_id=c.teacher_id WHERE (c.teacher_name LIKE '%$keyword%' OR c.teacher_surname LIKE '%$keyword%' OR c.buddhist_name LIKE '%$keyword%') AND b.course_detail_status ='2' AND c.teacher_status = '1' ORDER BY b.course_detail_id DESC LIMIT {$start} , {$perpage}";
 										  $rowPage = row_array($sqlPage);
 										  $total_record = $rowPage['COUNT'];
 										  $total_page = ceil($total_record / $perpage);
@@ -113,7 +113,7 @@
 											<nav>
 											<ul class="pagination ">
 											  <li class="page-item disabled">
-												<a class="page-link" href="?modules=teacher&keyword=<?php echo $keyword; ?>&page=1" tabindex="-1" aria-disabled="true">
+												<a class="page-link" href="?modules=classroom&keyword=<?php echo $keyword; ?>&page=1" tabindex="-1" aria-disabled="true">
 												  <!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
 												  <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg>
 												  prev
@@ -129,11 +129,11 @@
 												  }
 
 												?>
-												  <li class="page-item <?php echo $active; ?>"><a class="page-link" href="?modules=teacher&keyword=<?php echo $keyword; ?>&page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+												  <li class="page-item <?php echo $active; ?>"><a class="page-link" href="?modules=classroom&keyword=<?php echo $keyword; ?>&page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
 												<?php } ?>
 
 											  <li class="page-item">
-												<a class="page-link" href="?modules=teacher&keyword=<?php echo $keyword; ?>&page=<?php echo $total_page; ?>">
+												<a class="page-link" href="?modules=classroom&keyword=<?php echo $keyword; ?>&page=<?php echo $total_page; ?>">
 												  next <!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
 												  <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
 												</a>
