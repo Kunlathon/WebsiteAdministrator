@@ -1,36 +1,19 @@
 <?php
-    /*if((isset($_GET["id"]))){
-        $course_key=filter_input(INPUT_GET,'id');
-    }else{
-        if((isset($_POST["id"]))){
-            $course_key=filter_input(INPUT_POST,'id');
-        }else{
-            $course_key=null;
-        }
-    }*/
 
-    if(($_REQUEST["idcard"]!=null)){
-        $idcard=$_REQUEST["idcard"];
-    }else{
-         $idcard=null;
-    }
-
-    if(($_REQUEST["student_id"]!=null)){
-        $student_id=$_REQUEST["student_id"];
-    }else{
-         $student_id=null;
-    }
-
-
-    $verify_sql="SELECT * FROM `tb_student` WHERE `user_idcard`='{$idcard}' AND `user_student_no`='{$student_id}'";
+    $idcard=$_SESSION["idcard"];
+    $student_id=$_SESSION["student_id"];
+   
+    $verify_sql="SELECT * 
+                 FROM `tb_student` 
+                 WHERE `user_idcard`='{$idcard}' 
+                 AND `user_student_no`='{$student_id}'";
 	//echo "$verify_sql";
     $verify_rs=result_array($verify_sql);
     foreach($verify_rs as $key=>$verify_row){
 
             if(((is_array($verify_row) && count($verify_row)))){ 
                 
-                
-?>
+                ?>
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 
    
@@ -55,25 +38,29 @@
                                                         <div class="page-header d=print-none">
                                                             <div class="container-xl">
                                                                 <div class="row g-2 alogn-items-center">
- <form name="form_student_detail" id="form_student_detail" method="post" accept-charset="utf-8" enctype="multipart/form-data" action="?modules=register_edit">
+
                                                                     <div class="row">
                                                                         <div class="col-md-6">
                                                                             <div class="page-title" style="font-size: 20px;">รายละเอียดนิสิต
-                                                                            &nbsp;<button type="submit" name="sub_student_detail" id="sub_student_detail" class="btn btn-icon" aria-label="Button" >
-                                                                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-writing-sign" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                                                    <path d="M3 19c3.333 -2 5 -4 5 -6c0 -3 -1 -3 -2 -3s-2.032 1.085 -2 3c.034 2.048 1.658 2.877 2.5 4c1.5 2 2.5 2.5 3.5 1c.667 -1 1.167 -1.833 1.5 -2.5c1 2.333 2.333 3.5 4 3.5h2.5"></path>
-                                                                                    <path d="M20 17v-12c0 -1.121 -.879 -2 -2 -2s-2 .879 -2 2v12l2 2l2 -2z"></path>
-                                                                                    <path d="M16 7h4"></path>
-                                                                                &nbsp;</svg> 
-                                                                            </button>                                                                        
+                                                                            &nbsp;     
+                                                                                <div class="col-6 col-sm-4 col-md-2 col-xl-auto py-3">
+                                                                                    <button type="button" name="sub_student_detail" onclick="location.href='?modules=register_edit'" id="sub_student_detail" class="btn btn-purple w-100">
+                                                                                        แก้ไขข้อมูล
+                                                                                    </button>
+                                                                                </div>
+                                                                            
+                                                                                <div class="col-6 col-sm-4 col-md-2 col-xl-auto py-3">
+                                                                                    <button type="button" name="sub_student_detail" onclick="location.href='proccess/verify_registration_logout.php'" id="sub_student_detail" class="btn btn-lime w-100">
+                                                                                        ออกจากระบบ
+                                                                                    </button>
+                                                                                </div>
                                                                             </div>
-
+                                                                             
                                                                         </div>
+                                                                        <div class="col-md-6"></div>
+
                                                                     </div>
-    <input type="hidden" name="idcard" id="idcard" value="<?php echo $idcard;?>">
-    <input type="hidden" name="student_name" id="student_name" value="<?php echo $student_name;?>">
-</form>                                                                   
+                                                              
 
                                                                 </div>
                                                             </div>
@@ -90,6 +77,39 @@
                                             <div class="card-title" style="font-size: 18px;" >ข้อมูลส่วนตัว (Personal Information) </div>
                                         </div>
                                         <div class="card-body">
+
+                                            <div class="mb-3">
+                                                <div class="row g-5">
+                                                    <div class="col-md-6" align="right">
+                                                        <div class="form-group">
+                                                        
+        <?php
+            $user_pic=$verify_row["user_pic"];
+                if((isset($verify_row["user_pic"]))){
+                    if((file_exists("../../uploads/student/<?php echo $user_pic;?>"))){   ?>
+                      <div><img src="../../uploads/student/<?php echo $user_pic; ?>" class="img-thumbnail" alt="<?php echo  $verify_row["user_pic"]; ?>" style="width:152px; height:168px;"></div>
+            <?php	}else{  ?>
+                        <div><img src="../../uploads/student/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:152px; height:168px;"></div>					
+        <?php	    } ?>
+        <?php  }else{ ?>
+                    <div><img src="../../uploads/student/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:152px; height:168px;"></div>
+        <?php  }?>
+
+
+
+                                                        </div>
+                                                       
+                                                    </div>
+                                                    <div class="col-md-6" align="left">
+    <?php
+             if((isset($verify_row["user_student_no"]))){   ?>
+                    <div><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=http://www.mse-exam.net/qr/chk_std.php?std_id=<?php echo $verify_row["user_student_no"]; ?>&choe=UTF-8"; class="img-thumbnail" style="width:152px; height:168px;"></div>
+    <?php    }else{ ?>
+                    <div><img src="../../uploads/student/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:152px; height:168px;"></div>
+    <?php    } ?>
+                                                    </div>
+                                                </div>
+                                            </div>
 
                                             <div class="mb-3">
                                                 <div class="row g-5">
@@ -715,7 +735,7 @@
                                         <div class="card-status-top bg-blue"></div>
                                         <div class="card-header">
                                             <div class="card-title" style="font-size: 18px;">
-                                                <div>ประกาศรายชื่อผู้สมัคร</div>
+                                                <div>เรียนหลักสูตร</div>
                                             </div>
                                         </div>
                                         <div class="card-body">
@@ -730,14 +750,14 @@
                                                                     <thead>
                                                                         <tr>
                                                                             <th><div>ลำดับ (No.)</div></th>
-                                                                            <th><div>รายชื่อ (Name-Surname)</div></th>
+                                                                            <!--<th><div>รายชื่อ (Name-Surname)</div></th>-->
                                                                             <th><div>หลักสูตร (Course)</div></th>
                                                                             <th><div>สถานะ (Status)</div></th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
     <?php
-    $annouuce_Sql="SELECT * FROM `tb_register`";
+    $annouuce_Sql="SELECT * FROM `tb_register` WHERE user_idcard='{$verify_row['user_idcard']}'";
     $annouuce_Rs=result_array($annouuce_Sql);
     $requset_count=0;
     foreach($annouuce_Rs as $key=>$annouuce_Row){ 
@@ -763,7 +783,7 @@
                                                                         <tr>
                                                                             <td><div><?php echo $requset_count;?></div></td>
 
-                                                                            <td><div><?php echo $myname;?></div></td>
+                                                                            <!--<td><div><?php echo $myname;?></div></td>-->
 
                                                                             <td><div><?php echo $txt_course_name;?></div></td>
 
@@ -799,7 +819,7 @@
                                         <div class="card-status-top bg-blue"></div>
                                         <div class="card-header">
                                             <div class="card-title" style="font-size: 18px;">
-                                                <div>รายงานการขอบัตรนิสิต (REQUEST FOR STUDENT CARD REPORT)</div>
+                                                <div>การขอบัตรนิสิต (REQUEST FOR STUDENT CARD)</div>
                                             </div>
                                         </div>
                                         <div class="card-body">
@@ -821,7 +841,7 @@
                                                                    </thead>
                                                                    <tbody>
 <?php
-   $request_Sql="SELECT * FROM `tb_student_card`";
+   $request_Sql="SELECT * FROM `tb_student_card` WHERE user_idcard='{$verify_row['user_idcard']}'";
    $request_Rs=result_array($request_Sql);
    $requset_count=0;
    foreach($request_Rs as $key=>$request_Row){ 
@@ -868,7 +888,7 @@
                                         <div class="card-status-top bg-blue"></div>
                                         <div class="card-header">
                                             <div class="card-title" style="font-size: 18px;">
-                                                <div>รายงานการยื่นเรื่องขอเอกสารรับรอง ()</div>
+                                                <div>ขอเอกสารรับรอง ()</div>
                                             </div>
                                         </div>
                                         <div class="card-body">
@@ -889,7 +909,7 @@
                                                                    </thead>
                                                                    <tbody>
 <?php
-   $request_Sql="SELECT * FROM `tb_certified`";
+   $request_Sql="SELECT * FROM `tb_certified` WHERE user_idcard='{$verify_row['user_idcard']}'";
    $request_Rs=result_array($request_Sql);
    $requset_count=0;
    foreach($request_Rs as $key=>$request_Row){ 
@@ -955,9 +975,9 @@
 
 
 
-<script src="../dist/uploaders/fileinput/plugins/purify.min.js"></script>
-<script src="../dist/uploaders/fileinput/plugins/sortable.min.js"></script>
-<script src="../dist/uploaders/fileinput/fileinput.min.js"></script>
+<script src="dist/uploaders/fileinput/plugins/purify.min.js"></script>
+<script src="dist/uploaders/fileinput/plugins/sortable.min.js"></script>
+<script src="dist/uploaders/fileinput/fileinput.min.js"></script>
 
 
 

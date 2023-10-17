@@ -3143,7 +3143,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                     </div>                            
                                 </div>
 
-                            </div>
+                        </div>
 
 
 						</div>
@@ -3175,51 +3175,14 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
 
                 <input name="news_key" id="news_key" type="hidden" value="<?php echo $news_key;?>">
 
-                <div class="row">
-                    <div class="col-<?php echo $grade;?>-12">
-                        <div id="Run_List_All"><i class="icon-spinner2 spinner"></i> <span>กำลังโหลดข้อมูล... </span></div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-<?php echo $grid;?>-12">
-                        <div class="card border border-purple">
-                            <div class="card-header header-elements-inline bg-info text-white">
-                                <div class="col-<?php echo $grid; ?>-6">ข้อมูลข่าว</div>
-                                <div class="col-<?php echo $grid; ?>-6">
-                                    <table align="right">
-                                        <tr>
-                                            <td>
-                                                <div>
-                                                    <form name="form_manage_news_show" id="form_manage_news_show" accept-charset="uft-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_news">
-                                                        <input type="hidden" name="manage" id="manage" value="show">
-                                                        <button type="submit" name="sub_mvs" id="sub_mvs" class="btn btn-secondary btn-sm" style="align: right;"><i class="icon-list-unordered"></i> รายการ</button>
-                                                    </form>
-
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <form name="form_manage_news_add" id="form_manage_news_add" accept-charset="utf-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_news">
-                                                        <input type="hidden" name="manage" id="manage" value="add">
-                                                        <button type="submit" name="sub_mva" id="sub_mva" class="btn btn-secondary btn-sm" style="align: right;"><i class="icon-plus3"></i> เพิ่มข้อมูลข่าว</button>
-                                                    </form>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-<?php echo $grid; ?>-12">
-                                       
-                                    </div>
-                                </div>
-                            </div>
+                <div id="Run_List_All">
+                    <div class="row">
+                        <div class="col-<?php echo $grade;?>-12">
+                            <i class="icon-spinner2 spinner"></i> <span>กำลังโหลดข้อมูล... </span>
                         </div>
                     </div>
                 </div>
+
 
                 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
     <?php  }elseif(($manage=="show")) { ?>

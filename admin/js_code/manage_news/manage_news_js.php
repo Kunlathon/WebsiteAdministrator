@@ -252,7 +252,15 @@
     <script>
         $(document).ready(function(){
             var news_key=$("#news_key").val();
-                if()
+                if(news_key!==""){
+                    $.post("<?php echo $RunLink->Call_Link_System(); ?>/js_code/manage_news/manage_news_list.php",{
+                        news_key:news_key
+                    },function(data_list){
+                        if(data_list){
+                            $("#Run_List_All").html(data_list);
+                        }else{}
+                    })
+                }else{}
         })
     </script>
 <!--list end-->

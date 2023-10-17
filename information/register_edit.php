@@ -1,41 +1,15 @@
 <?php
-    /*if((isset($_GET["id"]))){
-        $course_key=filter_input(INPUT_GET,'id');
-    }else{
-        if((isset($_POST["id"]))){
-            $course_key=filter_input(INPUT_POST,'id');
-        }else{
-            $course_key=null;
-        }
-    }*/
 
+        $idcard=$_SESSION["idcard"];
+        $student_id=$_SESSION["student_id"];
 
-    if(($_POST["idcard"]!=null)){
-        $idcard=filter_input(INPUT_POST,'idcard');
-    }else{
-        if(($_GET["ic"]!=null)){
-            $idcard=filter_input(INPUT_GET,'ic');
-        }else{
-            $idcard=null;
-        }
-    }
-
-    if(($_POST["student_name"]!=null)){
-        $student_name=filter_input(INPUT_POST,'student_name');
-    }else{
-        if(($_GET["sn"]!=null)){
-            $student_name=filter_input(INPUT_GET,'sn');
-        }else{
-            $student_name=null;
-        }
-    }
-
-
-
-
-    $verify_sql="SELECT * FROM `tb_student` WHERE `user_name` LIKE '%{$student_name}%' OR `user_idcard`='{$idcard}'";
-    $verify_rs=result_array($verify_sql);
-    foreach($verify_rs as $key=>$verify_row){
+        $verify_sql="SELECT * 
+                    FROM `tb_student` 
+                    WHERE `user_idcard`='{$idcard}' 
+                    AND `user_student_no`='{$student_id}'";
+        //echo "$verify_sql";
+        $verify_rs=result_array($verify_sql);
+        foreach($verify_rs as $key=>$verify_row){
 
             if(((is_array($verify_row) && count($verify_row)))){
                 
@@ -237,11 +211,28 @@
                                                     <div class="col-md-12">
                                                         <div class="page-header d=print-none">
                                                             <div class="container-xl">
-                                                                <div class="row g-2 alogn-items-center">
-                                                                    <div col-md-12>
-                                                                        <div class="page-title" style="font-size: 20px;">แก้ไขลงทะเบียนเรียนออนไลน์</div>
+
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="page-title" style="font-size: 20px;">แก้ไขลงทะเบียนเรียนออนไลน์
+                                                                        &nbsp;     
+                                                                            <div class="col-6 col-sm-4 col-md-2 col-xl-auto py-3">
+                                                                                <button type="button" name="sub_student_detail" onclick="location.href='?modules=register_detail'" id="sub_student_detail" class="btn btn-purple w-100">
+                                                                                    รายละเอียดนิสิต
+                                                                                </button>
+                                                                            </div>
+                                                                            
+                                                                            <div class="col-6 col-sm-4 col-md-2 col-xl-auto py-3">
+                                                                                <button type="button" name="sub_student_detail" onclick="location.href='proccess/verify_registration_logout.php'" id="sub_student_detail" class="btn btn-lime w-100">
+                                                                                    ออกจากระบบ
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
+                                                                    <div class="col-md-6"></div>
                                                                 </div>
+
+                                                
                                                             </div>
                                                         </div>
                                                     </div>
