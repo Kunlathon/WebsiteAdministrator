@@ -86,13 +86,13 @@
         <?php
             $user_pic=$verify_row["user_pic"];
                 if((isset($verify_row["user_pic"]))){
-                    if((file_exists("../../uploads/student/<?php echo $user_pic;?>"))){   ?>
-                      <div><img src="../../uploads/student/<?php echo $user_pic; ?>" class="img-thumbnail" alt="<?php echo  $verify_row["user_pic"]; ?>" style="width:152px; height:168px;"></div>
+                    if((file_exists("../uploads/student/".$user_pic))){   ?>
+                      <div><img src="../../languagecenter/uploads/student/<?php echo $user_pic; ?>" class="img-thumbnail" alt="<?php echo  $verify_row["user_pic"]; ?>" style="width:152px; height:168px;"></div>
             <?php	}else{  ?>
-                        <div><img src="../../uploads/student/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:152px; height:168px;"></div>					
+                        <div><img src="../../languagecenter/uploads/student/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:152px; height:168px;"></div>					
         <?php	    } ?>
         <?php  }else{ ?>
-                    <div><img src="../../uploads/student/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:152px; height:168px;"></div>
+                    <div><img src="../../languagecenter/uploads/student/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:152px; height:168px;"></div>
         <?php  }?>
 
 
@@ -105,7 +105,7 @@
              if((isset($verify_row["user_student_no"]))){   ?>
                     <div><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=http://www.mse-exam.net/qr/chk_std.php?std_id=<?php echo $verify_row["user_student_no"]; ?>&choe=UTF-8"; class="img-thumbnail" style="width:152px; height:168px;"></div>
     <?php    }else{ ?>
-                    <div><img src="../../uploads/student/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:152px; height:168px;"></div>
+                    <div><img src="../../languagecenter/uploads/student/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:152px; height:168px;"></div>
     <?php    } ?>
                                                     </div>
                                                 </div>

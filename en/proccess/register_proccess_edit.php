@@ -91,7 +91,7 @@ include("../../config/fnc.php");
             $register_tmp = $_FILES["img1"]["tmp_name"];
             $register_size = $_FILES["img1"]["size"];
 
-            move_uploaded_file($register_tmp, '../uploads/student/' . $register_new_name);
+            move_uploaded_file($register_tmp, '../../uploads/student/' . $register_new_name);
             //up image end
             
             $register_data = array(

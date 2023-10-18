@@ -36,9 +36,9 @@ $row = row_array($sql);
                 }else{
                     $cddf=null;
                 }
-?>
 
-                        <div class="row row-cards">
+?>
+						<div class="row row-cards">
                             <div class="col-md-12">
                                 <div class="card-body">
 
@@ -116,6 +116,8 @@ $row = row_array($sql);
                                                             </div>
                                                             <div class="card-body">															
 																
+                                                                <div class="row">
+
 															<?php
 																$sqlClaD = "SELECT * FROM tb_classroom_teacher a INNER JOIN tb_classroom_detail b ON a.classroom_t_id=b.classroom_t_id WHERE course_detail_id='{$row['course_detail_id']}'";
 																 //echo $sqlClaD;
@@ -127,7 +129,8 @@ $row = row_array($sql);
 																	$rowStu = row_array($sqlStu);
 															?>
 
-																<div class="col-md-3" align="center">
+                                                                    
+                                                                <div class="col-md-3" align="center">
 																	<div class="card card-sm alogn-items-center">
 																		<div class="card-body">
 																			<img src="https://chart.googleapis.com/chart?chs=100x100&cht=qr&chl=http://www.mse-exam.net/qr/chk_std.php?std_id=<?php echo $rowStu['user_student_no'];?>&choe=UTF-8";><br>
@@ -137,10 +140,12 @@ $row = row_array($sql);
 																	</div>
 																</div>
 
+
 																<?php
 																 }
-																?>                                                               
-                                                                    
+																?>        
+
+                                                                </div>                                                                   
 
 															</div>
                                                         </div>

@@ -255,11 +255,11 @@
                                             <div class="mb-3">
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
-                                                        <label>คำนำหน้าชื่อภาษาไทย</label>
+                                                        <label>คำนำหน้าชื่อภาษาไทย (Title Name in Thai)</label>
                                                         <input name="title_t" id="title_t" type="text" class="form-control" value="<?php echo $user_prefix_th;?>"  placeholder="คำนำหน้าชื่อภาษาไทย">
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <label>คำนำหน้าชื่อภาษาอังกฤษ</label>
+                                                        <label>คำนำหน้าชื่อภาษาอังกฤษ (Title Name in English)</label>
                                                         <input name="title_e" id="title_e" type="text" class="form-control" value="<?php echo $user_prefix_en;?>" placeholder="คำนำหน้าชื่อภาษาอังกฤษ">
                                                     </div>
                                                 </div>
@@ -299,7 +299,7 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label >วัน/เดือน/ปี ที่เกิด</label>
+                                                            <label >วัน/เดือน/ปี ที่เกิด (Date of Birth)</label>
                 
                                                             <div class="row row-cards">
                                                                     <div class="col-md-3">
@@ -484,7 +484,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label >วัน/เดือน/ปี ที่บรรพชา/อุปสมบท</label>
+                                                            <label >วัน/เดือน/ปี ที่บรรพชา/อุปสมบท (Date of Ordination) (Monk Only)</label>
                                                             
                                                             <div class="row row-cards">
                                                                     <div class="col-md-3">
@@ -675,7 +675,7 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label >เบอร์โทรศัพท์</label>
+                                                            <label >เบอร์โทรศัพท์ (Contact No.) </label>
                                                             <input name="tel" id="tel" type="text" class="form-control" value="<?php echo $user_tel;?>" placeholder="เบอร์โทรศัพท์">
                                                         </div>
                                                     </div>
@@ -692,19 +692,19 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >เชื้อชาติ</label>
+                                                            <label >เชื้อชาติ (Nationality)</label>
                                                             <input name="race" id="race" type="text" class="form-control" value="<?php echo $user_race;?>" placeholder="เชื้อชาติ">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >สัญชาติ</label>
+                                                            <label >สัญชาติ (Nation)</label>
                                                             <input name="nationality" id="nationality" type="text" class="form-control" value="<?php echo $user_nationality;?>" placeholder="สัญชาติ">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >ศาสนา</label>
+                                                            <label >ศาสนา (Religion)</label>
                                                             <input name="religion" id="religion" type="text" class="form-control" value="<?php echo $user_religion;?>" placeholder="ศาสนา">
                                                         </div>
                                                     </div>
@@ -726,13 +726,13 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label >ส่วนสูง</label>
+                                                                    <label >ส่วนสูง (Height)</label>
                                                                     <input name="height" id="height" type="text" class="form-control" value="<?php echo $user_height;?>" placeholder="ส่วนสูง">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                  <label >น้ำหนัก</label>
+                                                                  <label >น้ำหนัก (Weight)</label>
                                                                   <input name="weight" id="weight" type="text" class="form-control" value="<?php echo $user_weight;?>" placeholder="น้ำหนัก">
                                                                 </div>
                                                             </div>
@@ -749,20 +749,20 @@
         <?php
             $user_pic=$verify_row["user_pic"];
                 if((isset($verify_row["user_pic"]))){
-                    if((file_exists("../../uploads/student/<?php echo $user_pic;?>"))){   ?>
-                      <div><img src="../../uploads/student/<?php echo $user_pic; ?>" class="img-thumbnail" alt="<?php echo  $verify_row["user_pic"]; ?>" style="width:152px; height:168px;"></div>
+                    if((file_exists("../uploads/student/".$user_pic))){   ?>
+                      <div><img src="../../languagecenter/uploads/student/<?php echo $user_pic; ?>" class="img-thumbnail" alt="<?php echo  $verify_row["user_pic"]; ?>" style="width:152px; height:168px;"></div>
             <?php	}else{  ?>
-                        <div><img src="../../uploads/student/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:152px; height:168px;"></div>					
+                        <div><img src="../../languagecenter/uploads/student/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:152px; height:168px;"></div>					
         <?php	    } ?>
         <?php  }else{ ?>
-                    <div><img src="../../uploads/student/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:152px; height:168px;"></div>
+                    <div><img src="../../languagecenter/uploads/student/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:152px; height:168px;"></div>
         <?php  }?>
 
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label >รูปภาพ <font style="color: red;">รูปถ่ายขนาด 1 นิ้วครึ่ง</font></label>
+                                                            <label >รูปภาพ (Photo) <font style="color: red;">รูปถ่ายขนาด 1 นิ้วครึ่ง / Photo Size 1.5 inch(300X450 px. )</font></label>
                                                             <input name="img1" id="img1" type="file" class="form-control" >
                                                         </div>
                                                     </div>
@@ -775,19 +775,19 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >ชื่อ/นามสกุลบิดา</label>
+                                                            <label >ชื่อ/นามสกุลบิดา (Father's Name)</label>
                                                             <input name="fathername" id="fathername" type="text" class="form-control" value="<?php echo $user_fathername;?>"  placeholder="ชื่อ/นามสกุลบิดา">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >อาชีพ</label>
+                                                            <label >อาชีพ (Occupation)</label>
                                                             <input name="father_occupation" id="father_occupation" type="text" class="form-control"  value="<?php echo $user_father_occupation;?>" placeholder="อาชีพ">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >รหัสประจำตัวประชาชน</label>
+                                                            <label >รหัสประจำตัวประชาชน (ID Card)</label>
                                                             <input name="father_idcard" id="father_idcard" type="text" class="form-control"  value="<?php echo $user_father_idcard;?>" placeholder="รหัสประจำตัวประชาชน">
                                                         </div>
                                                     </div>
@@ -798,19 +798,19 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >ชื่อ/นามสกุลมารดา</label>
+                                                            <label >ชื่อ/นามสกุลมารดา (Mother's Name)</label>
                                                             <input name="mothername" id="mothername" type="text" class="form-control" value="<?php echo $user_mothername;?>" placeholder="ชื่อ/นามสกุลมารดา">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >อาชีพ</label>
+                                                            <label >อาชีพ (Occupation)</label>
                                                             <input name="mother_occupation" id="mother_occupation" type="text" class="form-control" value="<?php echo $user_mother_occupation;?>" placeholder="อาชีพ">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >รหัสประจำตัวประชาชน</label>
+                                                            <label >รหัสประจำตัวประชาชน (ID Card)</label>
                                                             <input name="mother_idcard" id="mother_idcard" type="text" class="form-control" value="<?php echo $user_mother_idcard;?>" placeholder="รหัสประจำตัวประชาชน">
                                                         </div>
                                                     </div>
@@ -825,7 +825,7 @@
                                         <div class="card-status-top bg-red"></div>
                                         <div class="card-header">
                                             <div class="card-title" style="font-size: 18px;">
-                                                <div>ที่อยู่ที่สามารถติดต่อได้</div>
+                                                <div>ที่อยู่ที่สามารถติดต่อได้ (Present Address)</div>
                                             </div>
                                         </div>
                                         <div class="card-body">
@@ -834,25 +834,27 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label >วัด/บ้านเลขที่</label>
+                                                            <label >วัด/บ้านเลขที่ (House No.)</label>
+                                                            <div id="address2-null">
                                                             <input name="address2" id="address2" type="text" class="form-control" value="<?php echo $user_address_no_now;?>" placeholder="วัด/บ้านเลขที่">
+                                                            </div>                                                        
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label >หมู่ที่</label>
+                                                            <label >หมู่ที่ (Section No.)</label>
                                                             <input name="moo2" id="moo2" type="text" class="form-control" value="<?php echo $user_address_moo_now;?>" placeholder="หมู่ที่">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label >ซอย</label>
+                                                            <label >ซอย (Avenue)</label>
                                                             <input name="soi2" id="soi2" type="text" class="form-control" value="<?php echo $user_address_soi_now;?>" placeholder="ซอย">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label >ถนน</label>
+                                                            <label >ถนน (Road)</label>
                                                             <input name="road2" id="road2" type="text" class="form-control" value="<?php echo $user_address_road_now;?>" placeholder="ถนน">
                                                         </div>
                                                     </div>
@@ -863,26 +865,34 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label >ตำบล/แขวง</label>
+                                                            <label >ตำบล/แขวง (Sub-District)</label>
+                                                            <div id="subdistrict2-null">
                                                             <input name="subdistrict2" id="subdistrict2" type="text" class="form-control" value="<?php echo $user_address_subdistrict_now;?>" placeholder="ตำบล/แขวง">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label >อำเภอ/เขต</label>
+                                                            <label >อำเภอ/เขต (District)</label>
+                                                            <div id="district2-null">
                                                             <input name="district2" id="district2" type="text" class="form-control" value="<?php echo $user_address_district_now;?>" placeholder="อำเภอ/เขต">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label >จังหวัด</label>
+                                                            <label >จังหวัด (Province)</label>
+                                                            <div id="province2-null">
                                                             <input name="province2" id="province2" type="text" class="form-control" value="<?php echo $user_address_province_now;?>" placeholder="จังหวัด">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label >รหัสไปรษณีย์</label>
+                                                            <label >รหัสไปรษณีย์ (Post Code)</label>
+                                                            <div id="citycode2-null">
                                                             <input name="citycode2" id="citycode2" type="text" class="form-control" value="<?php echo $user_address_citycode_now;?>" placeholder="รหัสไปรษณีย์">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -927,7 +937,7 @@ For collect, use and disclose my personal information for the purpose of request
                                                                 <label class="form-check">
                                                                     <div id="check_register-null">
                                                                     <input class="form-check-input" name="check_register" id="check_register" type="checkbox" value="1" required="required">
-                                                                    <span class="form-check-label">ยอมรับเงื่อนไข</span>
+                                                                    <span class="form-check-label">ยอมรับเงื่อนไข  (Agreement)</span>
                                                                     </div>
                                                                 </label>
                                                             </div>
@@ -1013,52 +1023,120 @@ For collect, use and disclose my personal information for the purpose of request
             var sname=$("#sname").val();
             var idcard=$("#idcard").val();
             var check_error="yes";
+            var count_error=0;
             var check_register=$("#check_register").val();
+
+            var address2=$("#address2").val();
+            var subdistrict2=$("#subdistrict2").val();
+            var district2=$("#district2").val();
+            var province2=$("#province2").val();
+            var citycode2=$("#citycode2").val();
+
               if(check_register==="1"){
 
                   if(fname===""){
                       document.getElementById("fname-null").innerHTML=
                       '<input name="fname" id="fname" type="text" class="form-control is-invalid" value="'+fname+'" placeholder="ชื่อ (Name)">';
-                      check_error="yes";
+                      count_error=count_error+1;
                   }else{
                     document.getElementById("fname-null").innerHTML=
                       '<input name="fname" id="fname" type="text" class="form-control is-valid mb-2" value="'+fname+'" placeholder="ชื่อ (Name)">';
-                      check_error="no";
+                      count_error=count_error+0;
                   }
 
                   if(sname===""){
                     document.getElementById("sname-null").innerHTML=
                       '<input name="sname" id="sname" type="text" class="form-control is-invalid" value="'+sname+'" placeholder="นามสกุล (Surname)">';
-                      check_error="yes";
+                      count_error=count_error+1;
                   }else{
                     document.getElementById("sname-null").innerHTML=
                       '<input name="sname" id="sname" type="text" class="form-control is-valid mb-2" value="'+sname+'" placeholder="นามสกุล (Surname)">';
-                      check_error="no";
+                      count_error=count_error+0;
                   }
 
                   if(idcard===""){
                     document.getElementById("idcard-null").innerHTML=
                       '<input name="idcard" id="idcard" type="text" class="form-control is-invalid" value="'+idcard+'" placeholder="รหัสประจำตัวประชาชน">';
-                      check_error="yes";
+                      count_error=count_error+1;
                   }else{
                     document.getElementById("idcard-null").innerHTML=
                       '<input name="idcard" id="idcard" type="text" class="form-control is-valid mb-2" value="'+idcard+'" placeholder="รหัสประจำตัวประชาชน">';
-                      check_error="no";
+                      count_error=count_error+0;
                   }
 
-                  if(check_error!="yes"){
 
-                    document.getElementById("but_form_register-null").innerHTML=
-                    '<button type="submit" name="but_form_register" id="but_form_register" class="btn btn-success">ลงทะเบียน</button>'
-                    +' <button type="button" name="" id="" class="btn btn-danger">ยกเลิก</button>';
-
+                  if(address2===""){
+                    document.getElementById("address2-null").innerHTML=
+                      '<input name="address2" id="address2" type="text" class="form-control is-invalid" value="'+address2+'" placeholder="วัด/บ้านเลขที่ (House No.)">';
+                    count_error=count_error+1;
                   }else{
+                    document.getElementById("address2-null").innerHTML=
+                      '<input name="address2" id="address2" type="text" class="form-control is-valid" value="'+address2+'" placeholder="วัด/บ้านเลขที่ (House No.)">';
+                    count_error=count_error+0;
+                  }
+
+                  if(subdistrict2===""){
+                    document.getElementById("subdistrict2-null").innerHTML=
+                      '<input name="subdistrict2" id="subdistrict2" type="text" class="form-control is-invalid" value="'+subdistrict2+'" placeholder="ตำบล/แขวง (Sub-District)">';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("subdistrict2-null").innerHTML=
+                      '<input name="subdistrict2" id="subdistrict2" type="text" class="form-control is-valid" value="'+subdistrict2+'" placeholder="ตำบล/แขวง (Sub-District)">';
+                    count_error=count_error+0;
+                  }
+
+                  if(district2===""){
+                    document.getElementById("district2-null").innerHTML=
+                      '<input name="district2" id="district2" type="text" class="form-control is-invalid" value="'+district2+'" placeholder="อำเภอ/เขต (District)">';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("district2-null").innerHTML=
+                      '<input name="district2" id="district2" type="text" class="form-control is-valid" value="'+district2+'" placeholder="อำเภอ/เขต (District)">';
+                    count_error=count_error+0;
+                  }
+
+                  if(province2===""){
+                    document.getElementById("province2-null").innerHTML=
+                      '<input name="province2" id="province2" type="text" class="form-control is-invalid" value="'+province2+'" placeholder="จังหวัด (Province)">';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("province2-null").innerHTML=
+                      '<input name="province2" id="province2" type="text" class="form-control is-valid" value="'+province2+'" placeholder="จังหวัด (Province)">';
+                    count_error=count_error+0;
+                  }
+
+                  if(citycode2===""){
+                    document.getElementById("citycode2-null").innerHTML=
+                      '<input name="citycode2" id="citycode2" type="text" class="form-control is-invalid" value="'+citycode2+'" placeholder="รหัสไปรษณีย์ (Post Code)">';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("citycode2-null").innerHTML=
+                      '<input name="citycode2" id="citycode2" type="text" class="form-control is-valid" value="'+citycode2+'" placeholder="รหัสไปรษณีย์ (Post Code)">';
+                    count_error=count_error+0;
+                  }
+
+
+                  if(count_error>=1){
 
                     document.getElementById("but_form_register-null").innerHTML=
                     '<button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>'
                     +' <button type="button" name="" id="" class="btn btn-danger">ยกเลิก</button>';
 
+                  }else{
+
+                    document.getElementById("but_form_register-null").innerHTML=
+                    '<button type="submit" name="but_form_register" id="but_form_register" class="btn btn-success ">ลงทะเบียน</button>'
+                    +' <button type="button" name="" id="" class="btn btn-danger">ยกเลิก</button>';
+
                   }
+
+
+
+
+
+
+
+
 
               }else{
 
