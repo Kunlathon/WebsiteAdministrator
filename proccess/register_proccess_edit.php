@@ -135,7 +135,7 @@ include("../config/fnc.php");
             echo "<meta charset='utf-8'/><script>alert('แก้ไขข้อมูลสำเร็จ');location.href='../?modules=register_detail';</script>";
         }else{
 
-            $register_data = array(
+            $register_data2 = array(
                 "user_idcard"=>$idcard,
                 "user_prefix_th"=>$title_t,
                 "user_prefix_en"=>$title_e,
@@ -171,7 +171,7 @@ include("../config/fnc.php");
                 "user_status"=>'1'
 
             );
-            update("tb_student", $register_data , "user_studentid  = '$student_key'");
+            update("tb_student", $register_data2 , "user_studentid  = '$student_key'");
             echo "<meta charset='utf-8'/><script>alert('แก้ไขข้อมูลสำเร็จ');location.href='../?modules=register_detail';</script>";
         }
 

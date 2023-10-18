@@ -91,7 +91,7 @@ include("../../config/fnc.php");
             $register_tmp = $_FILES["img1"]["tmp_name"];
             $register_size = $_FILES["img1"]["size"];
 
-            move_uploaded_file($register_tmp, '../../uploads/student/' . $register_new_name);
+            move_uploaded_file($register_tmp, '../uploads/student/' . $register_new_name);
             //up image end
             
             $register_data = array(
@@ -132,10 +132,10 @@ include("../../config/fnc.php");
 
             );
             update("tb_student", $register_data , "user_studentid  = '$student_key'");
-            echo "<meta charset='utf-8'/><script>alert('แก้ไขข้อมูลสำเร็จ');location.href='../?modules=register_detail&idcard=$idcard&student_name=$student_name';</script>";
+            echo "<meta charset='utf-8'/><script>alert('แก้ไขข้อมูลสำเร็จ');location.href='../?modules=register_detail';</script>";
         }else{
 
-            $register_data = array(
+            $register_data2 = array(
                 "user_idcard"=>$idcard,
                 "user_prefix_th"=>$title_t,
                 "user_prefix_en"=>$title_e,
@@ -171,8 +171,8 @@ include("../../config/fnc.php");
                 "user_status"=>'1'
 
             );
-            update("tb_student", $register_data , "user_studentid  = '$student_key'");
-            echo "<meta charset='utf-8'/><script>alert('แก้ไขข้อมูลสำเร็จ');location.href='../?modules=register_detail&idcard=$idcard&student_name=$student_name';</script>";
+            update("tb_student", $register_data2 , "user_studentid  = '$student_key'");
+            echo "<meta charset='utf-8'/><script>alert('แก้ไขข้อมูลสำเร็จ');location.href='../?modules=register_detail';</script>";
         }
 
 
