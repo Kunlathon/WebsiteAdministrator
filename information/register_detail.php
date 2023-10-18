@@ -80,7 +80,7 @@
 
                                             <div class="mb-3">
                                                 <div class="row g-5">
-                                                    <div class="col-md-6" align="right">
+                                                    <div class="col-md-6" align="left">
                                                         <div class="form-group">
                                                         
         <?php
@@ -100,13 +100,14 @@
                                                         </div>
                                                        
                                                     </div>
-                                                    <div class="col-md-6" align="left">
+                                                    <div class="col-md-6" align="right">
     <?php
              if((isset($verify_row["user_student_no"]))){   ?>
                     <div><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=http://www.mse-exam.net/qr/chk_std.php?std_id=<?php echo $verify_row["user_student_no"]; ?>&choe=UTF-8"; class="img-thumbnail" style="width:152px; height:168px;"></div>
     <?php    }else{ ?>
                     <div><img src="uploads/student/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:152px; height:168px;"></div>
     <?php    } ?>
+                    <div align="right">Your&nbsp;QR&nbsp;CODE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
                                                     </div>
                                                 </div>
                                             </div>

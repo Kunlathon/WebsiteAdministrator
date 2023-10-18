@@ -116,37 +116,38 @@ $row = row_array($sql);
                                                             </div>
                                                             <div class="card-body">															
 																
-                                                                <div class="row">
+                                                                <div id="Run_List">
+                                                                    <div class="row">
 
-															<?php
-																$sqlClaD = "SELECT * FROM tb_classroom_teacher a INNER JOIN tb_classroom_detail b ON a.classroom_t_id=b.classroom_t_id WHERE course_detail_id='{$row['course_detail_id']}'";
-																 //echo $sqlClaD;
-																 $rowClaD = result_array($sqlClaD);
+                                                                    <?php
+                                                                        $sqlClaD = "SELECT * FROM tb_classroom_teacher a INNER JOIN tb_classroom_detail b ON a.classroom_t_id=b.classroom_t_id WHERE course_detail_id='{$row['course_detail_id']}'";
+                                                                        //echo $sqlClaD;
+                                                                        $rowClaD = result_array($sqlClaD);
 
-																 foreach ($rowClaD as $key => $_itemClaD){ 
+                                                                        foreach ($rowClaD as $key => $_itemClaD){ 
 
-																	$sqlStu="SELECT * FROM tb_student WHERE user_student_no='{$_itemClaD['user_student_no']}'";
-																	$rowStu = row_array($sqlStu);
-															?>
+                                                                            $sqlStu="SELECT * FROM tb_student WHERE user_student_no='{$_itemClaD['user_student_no']}'";
+                                                                            $rowStu = row_array($sqlStu);
+                                                                    ?>
 
-                                                                    
-                                                                <div class="col-md-3" align="center">
-																	<div class="card card-sm alogn-items-center">
-																		<div class="card-body">
-																			<img src="https://chart.googleapis.com/chart?chs=100x100&cht=qr&chl=http://www.mse-exam.net/qr/chk_std.php?std_id=<?php echo $rowStu['user_student_no'];?>&choe=UTF-8";><br>
-																			<?php echo $rowStu['user_student_no'];?><br>
-																			<?php echo $rowStu['user_name']."&nbsp;".$rowStu['user_name_buddhist']."&nbsp;".$rowStu['user_surname']; ?>																		
-																		</div>
-																	</div>
-																</div>
+                                                                            
+                                                                        <div class="col-md-3" align="center">
+                                                                            <div class="card card-sm alogn-items-center">
+                                                                                <div class="card-body">
+                                                                                    <img src="https://chart.googleapis.com/chart?chs=100x100&cht=qr&chl=http://www.mse-exam.net/qr/chk_std.php?std_id=<?php echo $rowStu['user_student_no'];?>&choe=UTF-8";><br>
+                                                                                    <?php echo $rowStu['user_student_no'];?><br>
+                                                                                    <?php echo $rowStu['user_name']."&nbsp;".$rowStu['user_name_buddhist']."&nbsp;".$rowStu['user_surname']; ?>																		
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
 
 
-																<?php
-																 }
-																?>        
+                                                                        <?php
+                                                                        }
+                                                                        ?>        
 
-                                                                </div>                                                                   
-
+                                                                    </div>                                                                   
+                                                                </div>
 															</div>
                                                         </div>
 
@@ -177,8 +178,9 @@ $row = row_array($sql);
     $(document).ready(function(){
         $("#but_delete").on("click",function(){
             var but_delete=$("#but_delete").val();
+            var course_detail_id="<?php echo $id;?>";
                 if(but_delete==="but_delete"){
-                    document.location="?modules=download";
+                    document.location="?modules=classroom_detail&id="+course_detail_id;
                 }else{}
         })
     })
@@ -188,14 +190,16 @@ $row = row_array($sql);
     $(document).ready(function(){
         $("#but_clink").on("click",function(){
             var text_key=$("#text_key").val();
+            var course_detail_id="<?php echo $id;?>";
                 if(text_key!==""){
                     if(text_key.length>=101){
                         document.getElementById("text_key-null").innerHTML=
                         '<input type="text" name="text_key" id="text_key" value="'+text_key+'" class="form-control is-invalid">'
                         +'<div class="invalid-feedback">จำนวนตัวอักษรจำกัดไม่เกิน 100 ตัวอักษร</div>';
                     }else{
-                        $.post("proccess/download_show.php",{
-                            text_key:text_key
+                        $.post("../proccess/classroom_detail_show.php",{
+                            text_key:text_key,
+                            course_detail_id:course_detail_id
                         },function(RunList){
                             if(RunList!==""){
                                 $("#Run_List").html(RunList);

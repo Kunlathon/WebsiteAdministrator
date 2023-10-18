@@ -45,13 +45,13 @@
                                                                             &nbsp;     
                                                                                 <div class="col-6 col-sm-4 col-md-2 col-xl-auto py-3">
                                                                                     <button type="button" name="sub_student_detail" onclick="location.href='?modules=register_edit'" id="sub_student_detail" class="btn btn-purple w-100">
-                                                                                        แก้ไขข้อมูล
+                                                                                        Edit
                                                                                     </button>
                                                                                 </div>
                                                                             
                                                                                 <div class="col-6 col-sm-4 col-md-2 col-xl-auto py-3">
                                                                                     <button type="button" name="sub_student_detail" onclick="location.href='proccess/verify_registration_logout.php'" id="sub_student_detail" class="btn btn-lime w-100">
-                                                                                        ออกจากระบบ
+                                                                                        Sign Out
                                                                                     </button>
                                                                                 </div>
                                                                             </div>
@@ -80,7 +80,7 @@
 
                                             <div class="mb-3">
                                                 <div class="row g-5">
-                                                    <div class="col-md-6" align="right">
+                                                    <div class="col-md-6" align="left">
                                                         <div class="form-group">
                                                         
         <?php
@@ -100,13 +100,14 @@
                                                         </div>
                                                        
                                                     </div>
-                                                    <div class="col-md-6" align="left">
+                                                    <div class="col-md-6" align="right">
     <?php
              if((isset($verify_row["user_student_no"]))){   ?>
                     <div><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=http://www.mse-exam.net/qr/chk_std.php?std_id=<?php echo $verify_row["user_student_no"]; ?>&choe=UTF-8"; class="img-thumbnail" style="width:152px; height:168px;"></div>
     <?php    }else{ ?>
                     <div><img src="../../languagecenter/uploads/student/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:152px; height:168px;"></div>
     <?php    } ?>
+                    <div align="right">Your&nbsp;QR&nbsp;CODE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
                                                     </div>
                                                 </div>
                                             </div>
