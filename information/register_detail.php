@@ -675,7 +675,7 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label >วัด/บ้านเลขที่  (House No.) : <?php echo $verify_row["user_address_no_now"];?></label>
+                                                            <label >วัด/บ้านเลขที่ (House No.) : <?php echo $verify_row["user_address_no_now"];?></label>
                                                            <!--<input name="address2" id="address2" type="text" class="form-control" placeholder="วัด/บ้านเลขที่">-->
                                                         </div>
                                                     </div>

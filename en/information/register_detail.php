@@ -115,7 +115,7 @@
                                             <div class="mb-3">
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
-                                                        <label>ชื่อภาษาไทย : <?php echo $verify_row["user_prefix_th"]." ".$verify_row["user_name"]." ".$verify_row["user_surname"];?></label>
+                                                        <label>ชื่อภาษาไทย (Name TH) : <?php echo $verify_row["user_prefix_th"]." ".$verify_row["user_name"]." ".$verify_row["user_surname"];?></label>
                                                         <!--<input name="title_t" id="title_t" type="text" class="form-control"  placeholder="คำนำหน้าชื่อภาษาไทย">-->
                                                     </div>
                                                     <div class="col-md-6">
@@ -159,7 +159,7 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label >วัน/เดือน/ปี ที่เกิด : <?php echo $verify_row["user_birthday"];?></label>
+                                                            <label >วัน/เดือน/ปี ที่เกิด (Date of Birth) : <?php echo $verify_row["user_birthday"];?></label>
                 
                                                             <!--<div class="row row-cards">
                                                                     <div class="col-md-3">
@@ -344,7 +344,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label >วัน/เดือน/ปี ที่บรรพชา/อุปสมบท : </label>
+                                                            <label >วัน/เดือน/ปี ที่บรรพชา/อุปสมบท  (Date of Ordination) (Monk Only) : </label>
                                                             
                                                                 <!--<div class="row row-cards">
                                                                     <div class="col-md-3">
@@ -535,7 +535,7 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label >เบอร์โทรศัพท์ : <?php echo $verify_row["user_tel"];?></label>
+                                                            <label >เบอร์โทรศัพท์ (Contact No.) : <?php echo $verify_row["user_tel"];?></label>
                                                             <!--<input name="tel" id="tel" type="text" class="form-control" placeholder="เบอร์โทรศัพท์">-->
                                                         </div>
                                                     </div>
@@ -552,19 +552,19 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >เชื้อชาติ : <?php echo $verify_row["user_nationality"];?></label>
+                                                            <label >เชื้อชาติ (Nationality) : <?php echo $verify_row["user_nationality"];?></label>
                                                             <!--<input name="race" id="race" type="text" class="form-control" placeholder="เชื้อชาติ">-->
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >สัญชาติ : <?php echo $verify_row["user_religion"];?></label>
+                                                            <label >สัญชาติ (Nation) : <?php echo $verify_row["user_religion"];?></label>
                                                             <!--<input name="nationality" id="nationality" type="text" class="form-control" placeholder="สัญชาติ">-->
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >ศาสนา : <?php echo $verify_row["user_religion"];?></label>
+                                                            <label >ศาสนา (Religion) : <?php echo $verify_row["user_religion"];?></label>
                                                             <!--<input name="religion" id="religion" type="text" class="form-control" placeholder="ศาสนา">-->
                                                         </div>
                                                     </div>
@@ -586,13 +586,13 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label >ส่วนสูง : <?php echo $verify_row["user_height"];?></label>
+                                                                    <label >ส่วนสูง (Height) : <?php echo $verify_row["user_height"];?></label>
                                                                     <!--<input name="height" id="height" type="text" class="form-control" placeholder="ส่วนสูง">-->
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                  <label >น้ำหนัก : <?php echo $verify_row["user_weight"];?></label>
+                                                                  <label >น้ำหนัก (Weight) : <?php echo $verify_row["user_weight"];?></label>
                                                                   <!--<input name="weight" id="weight" type="text" class="form-control" placeholder="น้ำหนัก">-->
                                                                 </div>
                                                             </div>
@@ -616,19 +616,19 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >ชื่อ/นามสกุลบิดา : <?php echo $verify_row["user_father_idcard"];?></label>
+                                                            <label >ชื่อ/นามสกุลบิดา (Father's Name) : <?php echo $verify_row["user_father_idcard"];?></label>
                                                             <!--<input name="fathername" id="fathername" type="text" class="form-control" placeholder="ชื่อ/นามสกุลบิดา">-->
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >อาชีพ : <?php echo $verify_row["user_fathername"];?></label>
+                                                            <label >อาชีพ (Occupation) : <?php echo $verify_row["user_fathername"];?></label>
                                                             <!--<input name="father_occupation" id="father_occupation" type="text" class="form-control" placeholder="อาชีพ">-->
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >รหัสประจำตัวประชาชน : <?php echo $verify_row["user_father_occupation"];?></label>
+                                                            <label >รหัสประจำตัวประชาชน (ID Card) : <?php echo $verify_row["user_father_occupation"];?></label>
                                                             <!--<input name="father_idcard" id="father_idcard" type="text" class="form-control" placeholder="รหัสประจำตัวประชาชน">-->
                                                         </div>
                                                     </div>
@@ -639,19 +639,19 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >ชื่อ/นามสกุลมารดา : <?php echo $verify_row["user_mother_idcard"];?></label>
+                                                            <label >ชื่อ/นามสกุลมารดา (Mother's Name) : <?php echo $verify_row["user_mother_idcard"];?></label>
                                                             <!--<input name="mothername" id="mothername" type="text" class="form-control" placeholder="ชื่อ/นามสกุลมารดา">-->
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >อาชีพ : <?php echo $verify_row["user_mothername"];?></label>
+                                                            <label >อาชีพ  (Occupation) : <?php echo $verify_row["user_mothername"];?></label>
                                                             <!--<input name="mother_occupation" id="mother_occupation" type="text" class="form-control" placeholder="อาชีพ">-->
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label >รหัสประจำตัวประชาชน : <?php echo $verify_row["user_mother_occupation"];?></label>
+                                                            <label >รหัสประจำตัวประชาชน (ID Card) : <?php echo $verify_row["user_mother_occupation"];?></label>
                                                            <!-- <input name="mother_idcard" id="mother_idcard" type="text" class="form-control" placeholder="รหัสประจำตัวประชาชน">-->
                                                         </div>
                                                     </div>
@@ -666,7 +666,7 @@
                                         <div class="card-status-top bg-red"></div>
                                         <div class="card-header">
                                             <div class="card-title" style="font-size: 18px;">
-                                                <div>ที่อยู่ที่สามารถติดต่อได้</div>
+                                                <div>ที่อยู่ที่สามารถติดต่อได้   (Present Address)</div>
                                             </div>
                                         </div>
                                         <div class="card-body">
@@ -675,25 +675,25 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label >วัด/บ้านเลขที่ : <?php echo $verify_row["user_address_no_now"];?></label>
+                                                            <label >วัด/บ้านเลขที่ (House No.) : <?php echo $verify_row["user_address_no_now"];?></label>
                                                            <!--<input name="address2" id="address2" type="text" class="form-control" placeholder="วัด/บ้านเลขที่">-->
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label >หมู่ที่ : <?php echo $verify_row["user_address_moo_now"];?></label>
+                                                            <label >หมู่ที่ (Section No.) : <?php echo $verify_row["user_address_moo_now"];?></label>
                                                             <!--<input name="moo2" id="moo2" type="text" class="form-control" placeholder="หมู่ที่">-->
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label >ซอย : <?php echo $verify_row["user_address_soi_now"];?></label>
+                                                            <label >ซอย (Avenue) : <?php echo $verify_row["user_address_soi_now"];?></label>
                                                             <!--<input name="soi2" id="soi2" type="text" class="form-control" placeholder="ซอย">-->
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label >ถนน : <?php echo $verify_row["user_address_road_now"];?></label>
+                                                            <label >ถนน (Road) : <?php echo $verify_row["user_address_road_now"];?></label>
                                                             <!--<input name="road2" id="road2" type="text" class="form-control" placeholder="ถนน">-->
                                                         </div>
                                                     </div>
@@ -704,25 +704,25 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label >ตำบล/แขวง  : <?php echo $verify_row["user_address_subdistrict_now"];?></label>
+                                                            <label >ตำบล/แขวง (Sub-District) : <?php echo $verify_row["user_address_subdistrict_now"];?></label>
                                                             <!--<input name="subdistrict2" id="subdistrict2" type="text" class="form-control" placeholder="ตำบล/แขวง">-->
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label >อำเภอ/เขต  : <?php echo $verify_row["user_address_district_now"];?></label>
+                                                            <label >อำเภอ/เขต (District) : <?php echo $verify_row["user_address_district_now"];?></label>
                                                             <!--<input name="district2" id="district2" type="text" class="form-control" placeholder="อำเภอ/เขต">-->
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label >จังหวัด  : <?php echo $verify_row["user_address_province_now"];?></label>
+                                                            <label >จังหวัด (Province) : <?php echo $verify_row["user_address_province_now"];?></label>
                                                             <!--<input name="province2" id="province2" type="text" class="form-control" placeholder="จังหวัด">-->
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label >รหัสไปรษณีย์ : <?php echo $verify_row["user_address_citycode_now"];?></label>
+                                                            <label >รหัสไปรษณีย์ (Post Code) : <?php echo $verify_row["user_address_citycode_now"];?></label>
                                                             <!--<input name="citycode2" id="citycode2" type="text" class="form-control" placeholder="รหัสไปรษณีย์">-->
                                                         </div>
                                                     </div>

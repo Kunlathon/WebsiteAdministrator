@@ -14,11 +14,32 @@
  <div class="row">
 
 <?php
-    $sqlClaD = "SELECT * FROM tb_classroom_teacher 
+
+if($text_key ==""){
+
+    $sqlClaD = "SELECT * FROM tb_classroom_teacher a 
+				INNER JOIN tb_classroom_detail b ON a.classroom_t_id=b.classroom_t_id 				
+				INNER JOIN tb_student c ON b.user_student_no=c.user_student_no 
+                WHERE a.course_detail_id='{$course_detail_id}' 
+                AND c.user_student_no LIKE '%{$text_key}%'";
+
+} elseif($text_key !=""){																		
+
+    $sqlClaD = "SELECT * FROM tb_classroom_teacher a 
+				INNER JOIN tb_classroom_detail b ON a.classroom_t_id=b.classroom_t_id 				
+				INNER JOIN tb_student c ON b.user_student_no=c.user_student_no 
+                WHERE a.course_detail_id='{$course_detail_id}' 
+                AND c.user_student_no LIKE '%{$text_key}%'
+				OR c.user_name LIKE '%{$text_key}%'
+				OR c.user_name_buddhist LIKE '%{$text_key}%'		
+				OR c.user_surname LIKE '%{$text_key}%'	";
+}
+
+    /*$sqlClaD = "SELECT * FROM tb_classroom_teacher 
                 a INNER JOIN tb_classroom_detail b 
                 ON a.classroom_t_id=b.classroom_t_id 
                 WHERE course_detail_id='{$course_detail_id}' 
-                AND user_student_no LIKE '%{$text_key}%'";
+                AND user_student_no LIKE '%{$text_key}%'";*/
     //echo $sqlClaD;
     $rowClaD = result_array($sqlClaD);
 

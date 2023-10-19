@@ -9,6 +9,7 @@
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 <?php
 $id = $_REQUEST['id'];
+$text_key = $_REQUEST['text_key'];
 $sql = "SELECT * FROM tb_course a INNER JOIN  tb_course_detail b ON a.course_id=b.course_id INNER JOIN tb_teacher c ON b.teacher_id=c.teacher_id WHERE  course_detail_id='$id' AND b.course_detail_status ='2' AND c.teacher_status = '1' ORDER BY b.course_detail_id DESC";
 //echo $sql;
 $row = row_array($sql);
@@ -17,6 +18,18 @@ $row = row_array($sql);
                     $course_name=$row["course_name"];
                 }else{
                     $course_name=null;
+                }
+
+                if((isset($row["meeting_id"]))){
+                    $meeting_id=$row["meeting_id"];
+                }else{
+                    $meeting_id=null;
+                }
+
+                if((isset($row["passcode"]))){
+                    $passcode=$row["passcode"];
+                }else{
+                    $passcode=null;
                 }
 
                 if((isset($row["course_name_en"]))){
@@ -36,6 +49,12 @@ $row = row_array($sql);
                 }else{
                     $cddf=null;
                 }
+
+				/*if((isset($text_key))){
+                    $text_key=$text_key;
+                }else{
+                    $text_key=null;
+                }*/
 
 ?>
 						<div class="row row-cards">
@@ -57,9 +76,11 @@ $row = row_array($sql);
 
                                                                     </div>
 																	<div class="col-md-8">                                                                        
-                                                                                    <div><span ><h1><?php echo $course_name;?></h1></span></div>
-                                                                                    <div><span ><h1><?php echo $course_name_en;?></h1></span></div>
-                                                                                    <div><span ><h1><?php echo $cdds." - ".$cddf;?></h1></span></div>
+                                                                                    <div><span ><h2><?php echo $course_name;?></h2></span></div>
+                                                                                    <div><span ><h2><?php echo $course_name_en;?></h2></span></div>
+                                                                                    <div><span ><h2><?php echo $cdds." - ".$cddf;?></h2></span></div>
+                                                                                    <div><span ><h2>Zoom Meeting ID : <?php echo $meeting_id;?></h2></span></div>
+																					<div><span ><h2>Passcode : <?php echo $passcode;?></h2></span></div>
                                                                     </div>
 
                                                                 </div>
@@ -126,8 +147,8 @@ $row = row_array($sql);
 
                                                                         foreach ($rowClaD as $key => $_itemClaD){ 
 
-                                                                            $sqlStu="SELECT * FROM tb_student WHERE user_student_no='{$_itemClaD['user_student_no']}'";
-                                                                            $rowStu = row_array($sqlStu);
+																			$sqlStu="SELECT * FROM tb_student WHERE user_student_no='{$_itemClaD['user_student_no']}'";
+																			$rowStu = row_array($sqlStu);
                                                                     ?>
 
                                                                             
