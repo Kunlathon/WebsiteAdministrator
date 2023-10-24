@@ -8,8 +8,27 @@
 
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 <?php
-$id = $_REQUEST['id'];
-$text_key = $_REQUEST['text_key'];
+    if((isset($_POST["id"]))){
+        $id=filter_input(INPUT_POST,'id');
+    }else{
+        if((isset($_GET["id"]))){
+            $id=filter_input(INPUT_GET,'id');
+        }else{
+            $id=null;
+        }
+    }
+
+    if((isset($_POST["text_key"]))){
+        $text_key=filter_input(INPUT_POST,'text_key');
+    }else{
+        if((isset($_GET["text_key"]))){
+            $text_key=filter_input(INPUT_GET,'text_key');
+        }else{
+            $text_key=null;
+        }
+    }
+//$id = $_REQUEST['id'];
+//$text_key = $_REQUEST['text_key'];
 $sql = "SELECT * FROM tb_course a INNER JOIN  tb_course_detail b ON a.course_id=b.course_id INNER JOIN tb_teacher c ON b.teacher_id=c.teacher_id WHERE  course_detail_id='$id' AND b.course_detail_status ='2' AND c.teacher_status = '1' ORDER BY b.course_detail_id DESC";
 //echo $sql;
 $row = row_array($sql);
@@ -50,6 +69,12 @@ $row = row_array($sql);
                     $cddf=null;
                 }
 
+                if((isset($row["picture_class"]))){
+                    $picture_class=$row["picture_class"];
+                }else{
+                    $picture_class=null;
+                }
+
 				/*if((isset($text_key))){
                     $text_key=$text_key;
                 }else{
@@ -75,12 +100,54 @@ $row = row_array($sql);
 																		<img src="../uploads/teacher/<?php echo $row['teacher_picture'];?>" alt="<?php echo $row['teacher_name'];?>" class="card-img-top"></a>
 
                                                                     </div>
-																	<div class="col-md-8">                                                                        
+																	<div class="col-md-5">                                                                        
                                                                                     <div><span ><h2><?php echo $course_name;?></h2></span></div>
                                                                                     <div><span ><h2><?php echo $course_name_en;?></h2></span></div>
                                                                                     <div><span ><h2><?php echo $cdds." - ".$cddf;?></h2></span></div>
                                                                                     <div><span ><h2>Zoom Meeting ID : <?php echo $meeting_id;?></h2></span></div>
 																					<div><span ><h2>Passcode : <?php echo $passcode;?></h2></span></div>
+                                                                    </div>
+
+                                                                    <div class="col-md-3">
+                                                                        
+    <?php
+        if(($picture_class!=null)){
+            if((file_exists("../uploads/picture_class/".$picture_class))){ ?>
+
+                                                                        <div align="right"><input type="image" class="img-thumbnail" name="picture_class_show" id="picture_class_show" src="../uploads/picture_class/<?php echo $picture_class;?>" style="widex: 40%; height:200px;" data-toggle="modal" data-target="#myModal"></div>
+                                                                        <div align="right">Schedule&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>                                                                    
+
+
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+            
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Schedule</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <img src="../uploads/picture_class/<?php echo $picture_class;?>" class="img-thumbnail" alt="Cinque Terre" style="widex: 100%;"> 
+                </div>
+                
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <?php   }else{}
+        }else{}
+    
+    ?>
+
                                                                     </div>
 
                                                                 </div>
