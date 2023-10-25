@@ -134,7 +134,7 @@
                 <div class="card">
                   <div class="card-body">
 						<a href="uploads/teacher/<?php echo $rowTea['teacher_file'];?>" class="d-block" target="_blank">
-						<img src="uploads/teacher/<?php echo $rowTea['teacher_picture'];?>" alt="<?php echo $rowTea['teacher_name'];?>" class="card-img-top"></a>
+						<img src="uploads/teacher/<?php echo $rowTea['teacher_picture'];?>" alt="<?php echo $rowTea['teacher_name'];?>" class="card-img-top" style="width:100%; height:160px;"></a>
 						<div class="card-body">
 							<div class="d-flex align-items-center">
 								<div><?php echo $rowTea['teacher_name'];?></div>

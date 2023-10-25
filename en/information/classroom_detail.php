@@ -97,7 +97,7 @@ $row = row_array($sql);
 
                                                                     <div class="col-md-4">
 																	<a href="?modules=classroom_detail&id=<?php echo $row['course_detail_id'];?>" class="d-block">
-																		<img src="../uploads/teacher/<?php echo $row['teacher_picture'];?>" alt="<?php echo $row['teacher_name'];?>" class="card-img-top"></a>
+																		<img src="../uploads/teacher/<?php echo $row['teacher_picture'];?>" alt="<?php echo $row['teacher_name'];?>" class="card-img-top" style="width:100%; height:160px;"></a>
 
                                                                     </div>
 																	<div class="col-md-5">                                                                        

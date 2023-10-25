@@ -94,7 +94,7 @@
                                             <div class="col-md-4">
                                                 <div class="card card-sm alogn-items-center">
                                                     <a href="?modules=gallery_image&id=<?php echo $_item['gallery_id'];?>" class="d-block">
-													<img src="../uploads/gallery/<?php echo $_item['gallery_folder'];?>/<?php echo $_item['gallery_thumbnail'];?>" alt="<?php echo $_item['gallery_name'];?>" class="card-img-top"></a>
+													<img src="../uploads/gallery/<?php echo $_item['gallery_folder'];?>/<?php echo $_item['gallery_thumbnail'];?>" alt="<?php echo $_item['gallery_name'];?>" class="card-img-top" style="width:100%; height:200px;"></a>
                                                     <div class="card-body">
                                                         <div class="d-flex align-items-center">
                                                             <div><?php echo $_item['gallery_name'];?></div>

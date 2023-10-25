@@ -90,7 +90,7 @@
                                             <div class="col-md-4">
                                                 <div class="card card-sm alogn-items-center">
                                                     <a href="?modules=classroom_detail&id=<?php echo $_item['course_detail_id'];?>" class="d-block">
-													<img src="../uploads/teacher/<?php echo $_item['teacher_picture'];?>" alt="<?php echo $_item['teacher_name'];?>" class="card-img-top"></a>
+													<img src="../uploads/teacher/<?php echo $_item['teacher_picture'];?>" alt="<?php echo $_item['teacher_name'];?>" class="card-img-top" style="width:100%; height:160px;"></a>
                                                     <div class="card-body">
                                                         <div class="d-flex align-items-center">
                                                             <div><?php echo $_item['teacher_name'];?></div>
