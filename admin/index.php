@@ -37,6 +37,10 @@ $link_web=new link_web();
 
 $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 
+	if(($modules==null)){
+		$modules="error";
+	}else{}
+
 ?>
 
 <!DOCTYPE html>
@@ -196,6 +200,8 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 		include("js_code/document/document_js.php");
 	}elseif(($modules=="document_category")){
 		include("js_code/document_category/document_category_js.php");
+	}elseif(($modules=="basic_website")){
+		include("js_code/basic_website/basic_website_js.php");
 	}else{ ?>
 		<!-- Theme JS files -->
 		<script src="<?php echo $RunLink->Call_Link_System(); ?>/template/global_assets/js/plugins/forms/inputs/typeahead/handlebars.min.js"></script>
@@ -501,16 +507,12 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 						case "dashboard":
 							include $load;
 							break;
-						default: ?> 
-<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-
-<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-				<?php	}
+						default: 
+							include $load;
+						}
 					//-----------------------------------------------------------------------------------------------------------
-					
-				
-					
-				} else {
+				}else{
+					include "mainfile/error.php";
 				}
 				?>
 				<!--Wording Area-->
@@ -587,6 +589,8 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 				<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 				<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 				<!-- Footer -->
+
+
 				<?php require("structure/footer.php"); ?>
 				<!-- /footer -->
 
