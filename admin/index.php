@@ -182,10 +182,6 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 		include("js_code/manage_video/manage_video_js.php");
 	}elseif(($modules=="manage_news")){
 		include("js_code/manage_news/manage_news_js.php");
-	}elseif(($modules=="manage_news_en")){
-		include("js_code/manage_news_en/manage_news_js.php");
-	}elseif(($modules=="manage_news_cn")){
-		include("js_code/manage_news_cn/manage_news_js.php");
 	}elseif(($modules=="announcemen_news")){
 		include("js_code/announcemen_news/announcemen_news_js.php");
 	}elseif(($modules=="press_release_news")){

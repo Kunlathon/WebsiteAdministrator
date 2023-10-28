@@ -149,6 +149,29 @@
         })
     </script>
 <!--Show Date All End-->
+<!--Show Data Type-->
+<script>
+        $(document).ready(function(){
+            var run_show=$("#run_show").val();
+            var copy_category_key=$("#copy_category_key").val();
+            var copy_category_name=$("#copy_category_name").val();
+                if(run_show==="show_type"){
+                    $.post("<?php echo $RunLink->Call_Link_System();?>/js_code/manage_news/manage_news_show_type.php",{
+                        run_show:run_show,
+                        copy_category_key:copy_category_key,
+                        copy_category_name:copy_category_name
+                    },function(RunShow){
+                        if(RunShow!=""){
+                            $("#Run_Show_Type_All").html(RunShow);
+                        }else{}
+                    })
+                }else{
+                    document.getElementById("Run_Show_Type_All").innerHTML=
+                    '<span style="font-weight: bold; color:red;">ไม่สามารถดำเนินการได้</span>';
+                }
+        })
+    </script>
+<!--Show Date Type End-->
 <!--Update En-->
     <script>
         $(document).ready(function(){

@@ -139,7 +139,7 @@ if ((preg_match("/manage_strategic_plan.php/", $_SERVER['PHP_SELF']))) {
 
                                                 <fieldset class="mb-3">
                                                     <?php
-                                                    if ((file_exists("../dist/information/" . $information_image))) { ?>
+                                                    if (file_exists("../dist/information/" . $information_image)) { ?>
                                                         <div><img src="../dist/information/<?php echo $information_image; ?>" class="img-thumbnail" alt="<?php echo $information_image; ?>" style="width:152px; height:168px;"></div>
                                                     <?php   } else { ?>
                                                         <div><img src="../dist/information/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:152px; height:168px;"></div>

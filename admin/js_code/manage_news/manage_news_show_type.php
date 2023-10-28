@@ -112,8 +112,32 @@
             </thead>
             <tbody>
     <?php
+
+            if((isset($_POST["copy_category_key"]))){
+                $copy_category_key=filter_input(INPUT_POST, 'copy_category_key');
+            }else{
+                if((isset($_GET["copy_category_key"]))){
+                    $copy_category_key=filter_input(INPUT_GET, 'copy_category_key');
+                }else{
+                    $copy_category_key=null;
+                }
+            }
+
+            if((isset($_POST["copy_category_name"]))){
+                $copy_category_name=filter_input(INPUT_POST, 'copy_category_name');
+            }else{
+                if((isset($_GET["copy_category_name"]))){
+                    $copy_category_name=filter_input(INPUT_GET, 'copy_category_name');
+                }else{
+                    $copy_category_name=null;
+                }
+            } 
+
             $count_int=0;
-            $news_sql = "SELECT * FROM `tb_news`  ORDER BY `news_id` DESC";
+            $news_sql = "SELECT * 
+                         FROM `tb_news` 
+                         WHERE `news_category_id`='{$copy_category_key}'
+                         ORDER BY `news_id` DESC;";
             $news_list = result_array($news_sql);
             foreach ($news_list as $key => $news_row) { 
                 $count_int=$count_int+1;
@@ -134,7 +158,7 @@
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
                 <tr>
                     <td style="vertical-align: text-top;" class="align-top">
-                        <div><center><?php echo $count_int;?></center></div>
+                        <div><center><?php echo $count_int;?> </center></div>
                     </td>
                     <td style="vertical-align: text-top;" class="align-top">
                         <div>
@@ -248,6 +272,7 @@
                 </tr>
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
     <?php   } ?>
+
             </tbody>
         </table>
     </div>

@@ -37,15 +37,66 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
         </div>
         <div class="content">
 
+    <?php
+        if((isset($_POST["copy_category_key"]))){
+            $cck=filter_input(INPUT_POST, 'copy_category_key');
+        }else{
+            if((isset($_GET["copy_category_key"]))){
+                $cck=filter_input(INPUT_GET, 'copy_category_key');
+            }else{
+                $cck=null;
+            }
+        }
+    ?>
 
                 <div class="row">
                     <div class="col-<?php echo $grid; ?>-12">
                         <fieldset class="mb-3">
-                            <div class="form-group row">
-			                    <button type="button" class="btn btn-outline-primary">ข้อมูลข่าว TH</button>&nbsp;
-                                <button type="button" class="btn btn-outline-primary">ข้อมูลข่าว EN</button>&nbsp;
-                                <button type="button" class="btn btn-outline-primary">ข้อมูลข่าว CN</button>&nbsp;
-                            </div>
+                            <ul class="nav justify-content-right">
+                                <li class="nav-item">
+<form name="button_news0" id="button_news0" accept-charset="uft-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_news">
+                                    <input type="hidden" name="manage" id="manage0" value="show">
+                                    
+    <?php
+             if(($cck==null)){  ?>
+                                    <button type="submit" name="submit_0" id="submit_0" class="btn btn-primary">ข่าวทั้งหมด</button>&nbsp;&nbsp;
+    <?php    }else{ ?>
+                                    <button type="submit" name="submit_0" id="submit_0" class="btn btn-outline-primary">ข่าวทั้งหมด</button>&nbsp;&nbsp;
+    <?php    } ?>
+
+
+</form>
+                                </li>                        
+    <?php
+        $PrintNewsSql="SELECT `news_category_id`,`news_category_name` 
+                       FROM `tb_news_category` 
+                       WHERE 1  
+                       ORDER BY `news_category_id` ASC";
+        $PrintNewsRs=result_array($PrintNewsSql);
+        $count_news=0;
+        foreach ($PrintNewsRs as $key => $PrintNewsRow){
+            if((is_array($PrintNewsRow) and count($PrintNewsRow))){ ?>
+
+                                <li class="nav-item">
+<form name="button_news<?php echo $count_news++;?>" id="<?php echo $count_news++;?>" accept-charset="uft-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_news">
+                                    <input type="hidden" name="copy_category_key" id="copy_category_key<?php echo $PrintNewsRow["news_category_id"];?>" value="<?php echo $PrintNewsRow["news_category_id"];?>">  
+                                    <input type="hidden" name="copy_category_name" id="copy_category_name<?php echo $PrintNewsRow["news_category_id"];?>" value="<?php echo $PrintNewsRow["news_category_name"];?>">
+                                    <input type="hidden" name="manage" id="manage<?php echo $PrintNewsRow["news_category_id"];?>" value="show_type">
+    
+    <?php
+             if(($cck==$PrintNewsRow["news_category_id"])){  ?>
+                                    <button type="submit" name="submit_<?php echo $PrintNewsRow["news_category_id"];?>" id="submit_<?php echo $PrintNewsRow["news_category_id"];?>" class="btn btn-primary"><?php echo $PrintNewsRow["news_category_name"];?></button>&nbsp;&nbsp;
+    <?php    }else{ ?>
+                                    <button type="submit" name="submit_<?php echo $PrintNewsRow["news_category_id"];?>" id="submit_<?php echo $PrintNewsRow["news_category_id"];?>" class="btn btn-outline-primary"><?php echo $PrintNewsRow["news_category_name"];?></button>&nbsp;&nbsp;
+    <?php    } ?>                                   
+ 
+</form>
+                                </li>
+
+    <?php   }else{}
+        }
+    ?>
+                            </ul>
                         </fieldset>
                     </div>
                 </div>
@@ -113,8 +164,16 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 foreach ($NewsCategory_list as $key => $NewsCategory_row) {
                                                                     if ((is_array($NewsCategory_row) && count($NewsCategory_row))) {
                                                                         $NewsCategoryId = $NewsCategory_row["news_category_id"];
-                                                                        $NewsCategoryName = $NewsCategory_row["news_category_name"]; ?>
-                                                                        <option value="<?php echo $NewsCategoryId; ?>"><?php echo $NewsCategoryName; ?></option>
+                                                                        $NewsCategoryName = $NewsCategory_row["news_category_name"]; 
+                                                                        
+                                                                            if(($cck==$NewsCategoryId)){
+                                                                                $cck_selected="selected";
+                                                                            }else{
+                                                                                $cck_selected=null;
+                                                                            }
+                                                                        
+                                                                        ?>
+                                                                        <option value="<?php echo $NewsCategoryId; ?>" <?php echo $cck_selected;?>><?php echo $NewsCategoryName; ?></option>
                                                                 <?php   } else {
                                                                         $NewsCategoryId = null;
                                                                         $NewsCategoryName = null;
@@ -3201,6 +3260,86 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
 
 
                 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <?php  }elseif(($manage=="show_type")){ 
+        
+                if((isset($_POST["copy_category_key"]))){
+                    $copy_category_key=filter_input(INPUT_POST, 'copy_category_key');
+                }else{
+                    if((isset($_GET["copy_category_key"]))){
+                        $copy_category_key=filter_input(INPUT_GET, 'copy_category_key');
+                    }else{
+                        $copy_category_key=null;
+                    }
+                }
+
+                if((isset($_POST["copy_category_name"]))){
+                    $copy_category_name=filter_input(INPUT_POST, 'copy_category_name');
+                }else{
+                    if((isset($_GET["copy_category_name"]))){
+                        $copy_category_name=filter_input(INPUT_GET, 'copy_category_name');
+                    }else{
+                        $copy_category_name=null;
+                    }
+                }
+        
+        ?>
+
+                <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                <div class="row">
+                    <div class="col-<?php echo $grid; ?>-12">
+                        <h4>ข้อมูล<?php echo $copy_category_name;?></h4>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-<?php echo $grid; ?>-12">
+                        <div class="card border border-purple">
+                            <div class="card-header header-elements-inline bg-info text-white">
+                                <div class="col-<?php echo $grid; ?>-6">ข้อมูล<?php echo $copy_category_name;?></div>
+                                <div class="col-<?php echo $grid; ?>-6">
+                                    <table align="right">
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <form name="form_manage_news_show" id="form_manage_news_show" accept-charset="uft-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_news">
+                                                        <input type="hidden" name="manage" id="manage" value="show">
+                                                        <button type="submit" name="sub_mvs" id="sub_mvs" class="btn btn-secondary btn-sm" style="align: right;"><i class="icon-list-unordered"></i> รายการ</button>
+                                                    </form>
+
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <form name="form_manage_news_add" id="form_manage_news_add" accept-charset="utf-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_news">
+                                                        <input type="hidden" name="manage" id="manage" value="add">
+                                                        <input type="hidden" name="copy_category_key" id="copy_category_key" value="<?php echo $copy_category_key;?>">
+                                                        <button type="submit" name="sub_mva" id="sub_mva" class="btn btn-secondary btn-sm" style="align: right;"><i class="icon-plus3"></i> เพิ่มข้อมูลข่าว</button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-<?php echo $grid; ?>-12">
+                                        <div id="Run_Show_Type_All"><i class="icon-spinner2 spinner"></i> <span>กำลังโหลดข้อมูล... </span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                <input type="hidden" name="run_show" id="run_show" value="show_type">
+                <input type="hidden" name="copy_category_key" id="copy_category_key"value="<?php echo $copy_category_key;?>">
+                <input type="hidden" name="copy_category_name" id="copy_category_name" value="<?php echo $copy_category_name;?>">
+                <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+
     <?php  }elseif(($manage=="show")) { ?>
                 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
                 <div class="row">

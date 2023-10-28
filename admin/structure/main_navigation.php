@@ -25,7 +25,7 @@ if ((preg_match("/main_navigation.php/", $_SERVER['PHP_SELF']))) {
     <?php if ((check_session("admin_status_lcm") == '1')) { ?>
 
         <li class="nav-item">
-            <a href="index.php" class="nav-link">
+            <a href="<?php echo $RunLink->Call_Link_System(); ?>/" class="nav-link">
                 <i class="icon-home4"></i>
                 <span>
                     หน้าแรก
