@@ -111,37 +111,94 @@ include("../../config/fnc.php");
         $course_detail="-";
     }
 
-    $request_certifed_data = array(
+        if(($_FILES["img1"]["name"]!=null)){
 
-        "user_name"=>$user_name,
-        "user_name_buddhist"=>$user_name_buddhist,
-        "user_surname"=>$user_surname,
-        "user_blood"=>$user_blood,
-        "user_department"=>$user_department,
-        "user_faculty"=>$user_faculty,
-        "user_study"=>$user_study,
-        "user_cash"=>$user_cash,
-        "user_idcard"=>$user_idcard,
-        "user_student_id"=>$user_student_id,
-        "user_date"=>$date,
-        "user_update"=>$date,
-        "user_lastlogin"=>$datetime,
-        "user_certified"=>$user_certified,
-        "user_address_no_now"=>$user_address_no,
-        "user_address_moo_now"=>$user_address_moo,
-        "user_address_soi_now"=>$user_address_soi,
-        "user_address_road_now"=>$user_address_road,
-        "user_address_subdistrict_now"=>$user_address_subdistrict,
-        "user_address_district_now"=>$user_address_district,
-        "user_address_province_now"=>$user_address_province,
-        "user_address_citycode_now"=>$user_address_citycode,
-        "user_bank_account"=>$user_bank_account,
-        "course_detail_id"=>$course_detail,
-        "user_status"=>'1'
-    );
-    insert("tb_certified", $request_certifed_data);
+            $register_nameNew=$Dateimg."_register_certified";
+            $register_name = $_FILES["img1"]["name"];
+            $register_type = $_FILES["img1"]["type"];
 
-    echo "<meta charset='utf-8'/><script>alert('ส่งคำร้องสำเร็จ');location.href='../?modules=request_certified';</script>";
+            //new file Name
+            $imgFile = explode('.', $register_name);
+            $fileType = $imgFile[count($imgFile) - 1];
+            //new file Name end
+
+            $register_new_name = $register_nameNew.".".$fileType;
+            $register_tmp = $_FILES["img1"]["tmp_name"];
+            $register_size = $_FILES["img1"]["size"];
+
+            move_uploaded_file($register_tmp, '../uploads/certified/' . $register_new_name);
+            //up image end
+
+            $request_certifed_data = array(
+
+                "user_name"=>$user_name,
+                "user_name_buddhist"=>$user_name_buddhist,
+                "user_surname"=>$user_surname,
+                "user_blood"=>$user_blood,
+                "user_department"=>$user_department,
+                "user_faculty"=>$user_faculty,
+                "user_study"=>$user_study,
+                "user_cash"=>$user_cash,
+                "user_idcard"=>$user_idcard,
+                "user_student_id"=>$user_student_id,
+                "user_date"=>$date,
+                "user_update"=>$date,
+                "user_lastlogin"=>$datetime,
+                "user_certified"=>$user_certified,
+                "user_address_no_now"=>$user_address_no,
+                "user_address_moo_now"=>$user_address_moo,
+                "user_address_soi_now"=>$user_address_soi,
+                "user_address_road_now"=>$user_address_road,
+                "user_address_subdistrict_now"=>$user_address_subdistrict,
+                "user_address_district_now"=>$user_address_district,
+                "user_address_province_now"=>$user_address_province,
+                "user_address_citycode_now"=>$user_address_citycode,
+                "user_bank_account"=>$user_bank_account,
+                "course_detail_id"=>$course_detail,
+                "user_pic"=>$register_new_name,
+                "user_status"=>'1'
+            );
+            insert("tb_certified", $request_certifed_data);
+
+            echo "<meta charset='utf-8'/><script>alert('ส่งคำร้องสำเร็จ');location.href='../?modules=request_certified';</script>"; 
+
+        }else{
+
+            $request_certifed_data = array(
+
+                "user_name"=>$user_name,
+                "user_name_buddhist"=>$user_name_buddhist,
+                "user_surname"=>$user_surname,
+                "user_blood"=>$user_blood,
+                "user_department"=>$user_department,
+                "user_faculty"=>$user_faculty,
+                "user_study"=>$user_study,
+                "user_cash"=>$user_cash,
+                "user_idcard"=>$user_idcard,
+                "user_student_id"=>$user_student_id,
+                "user_date"=>$date,
+                "user_update"=>$date,
+                "user_lastlogin"=>$datetime,
+                "user_certified"=>$user_certified,
+                "user_address_no_now"=>$user_address_no,
+                "user_address_moo_now"=>$user_address_moo,
+                "user_address_soi_now"=>$user_address_soi,
+                "user_address_road_now"=>$user_address_road,
+                "user_address_subdistrict_now"=>$user_address_subdistrict,
+                "user_address_district_now"=>$user_address_district,
+                "user_address_province_now"=>$user_address_province,
+                "user_address_citycode_now"=>$user_address_citycode,
+                "user_bank_account"=>$user_bank_account,
+                "course_detail_id"=>$course_detail,
+                "user_status"=>'1'
+            );
+            insert("tb_certified", $request_certifed_data);
+
+            echo "<meta charset='utf-8'/><script>alert('ส่งคำร้องสำเร็จ');location.href='../?modules=request_certified';</script>"; 
+
+        }
+
+
 
 ?>
 

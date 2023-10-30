@@ -183,8 +183,8 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
 
                                                             </optgroup>
                                                         </select>
-                                                        <div>
-                                                        </div>
+                                                    <div>
+                                                </div>
                                             </fieldset>
                                         </div>
                                     </div>
@@ -196,7 +196,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                     <div class="form-group row">
                                                         <label class="col-form-label col-<?php echo $grid; ?>-2">หัวข้อข่าว</label>
                                                         <div class="col-<?php echo $grid; ?>-10">
-                                                            <input type="text" name="news_topic" id="news_topic" class="form-control" value="" placeholder="หัวข้อข่าว" required="required" maxlength="100" required="required">
+                                                            <input type="text" name="news_topic" id="news_topic" class="form-control" value="" placeholder="หัวข้อข่าว"  maxlength="100" required="required">
                                                             <div>
                                                             </div>
                                                         </div>

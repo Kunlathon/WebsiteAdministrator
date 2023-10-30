@@ -63,7 +63,7 @@ if ((preg_match("/main_navigation.php/", $_SERVER['PHP_SELF']))) {
 
             <ul class="nav nav-group-sub" data-submenu-title="Layouts">
                 <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_news" class="nav-link ">ข่าวสารทั้งหมด</a></li>
-                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=#" class="nav-link ">ข้อมูลเว็บไชต์</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=basic_website" class="nav-link ">ข้อมูลเว็บไชต์</a></li>
                 <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=image_slide" class="nav-link ">ภาพสไลด์</a></li>
                 <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=picture_album" class="nav-link ">ภาพกิจกรรม</a></li>
                 <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_video" class="nav-link ">วิดีโอ</a></li>

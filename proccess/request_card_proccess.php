@@ -90,41 +90,102 @@ include("../config/fnc.php");
         }
 
 
-    $student_card_data = array(
+        if(($_FILES["img1"]["name"]!=null)){
 
-        "user_name"=>$user_name,
-        "user_name_buddhist"=>$user_name_buddhist,
-        "user_surname"=>$user_surname,
-        "user_birthday"=>$user_birthday,
-        "user_blood"=>$user_blood,
-        "user_department"=>$user_department,
-        "user_faculty"=>$user_faculty,
-        "user_study"=>$user_study,
-        "user_cash"=>$user_cash,
-        "user_idcard"=>$user_idcard,
-        "user_student_id"=>$user_student_id,
-        "user_date"=>$date,
-        "user_update"=>$date,
-        "user_lastlogin"=>$datetime,
-        "user_new_card"=>$user_new_card,
-        "user_lost_card"=>$user_lost_card,
-        "user_defective_card"=>$user_defective_card,
-        "user_expired_card"=>$user_expired_card,
-        "user_change_name"=>$user_change_name,
-        "course_detail_id"=>$course_detail_id,
-        "user_address_no"=>$user_address_no,
-        "user_address_moo"=>$user_address_moo,
-        "user_address_soi"=>$user_address_soi,
-        "user_address_road"=>$user_address_road,
-        "user_address_subdistrict"=>$user_address_subdistrict,
-        "user_address_district"=>$user_address_district,
-        "user_address_province"=>$user_address_province,
-        "user_address_citycode"=>$user_address_citycode,
-        "user_status"=>'1'
-    );
-    insert("tb_student_card", $student_card_data);
+            $register_nameNew=$Dateimg."_register_card";
+            $register_name = $_FILES["img1"]["name"];
+            $register_type = $_FILES["img1"]["type"];
 
-    echo "<meta charset='utf-8'/><script>alert('ส่งคำร้องสำเร็จ');location.href='../?modules=request_card_list';</script>";
+            //new file Name
+            $imgFile = explode('.', $register_name);
+            $fileType = $imgFile[count($imgFile) - 1];
+            //new file Name end
+
+            $register_new_name = $register_nameNew.".".$fileType;
+            $register_tmp = $_FILES["img1"]["tmp_name"];
+            $register_size = $_FILES["img1"]["size"];
+
+            move_uploaded_file($register_tmp, '../uploads/card/' . $register_new_name);
+            //up image end
+
+            $student_card_data = array(
+
+                "user_name"=>$user_name,
+                "user_name_buddhist"=>$user_name_buddhist,
+                "user_surname"=>$user_surname,
+                "user_birthday"=>$user_birthday,
+                "user_blood"=>$user_blood,
+                "user_department"=>$user_department,
+                "user_faculty"=>$user_faculty,
+                "user_study"=>$user_study,
+                "user_cash"=>$user_cash,
+                "user_idcard"=>$user_idcard,
+                "user_student_id"=>$user_student_id,
+                "user_date"=>$date,
+                "user_update"=>$date,
+                "user_lastlogin"=>$datetime,
+                "user_new_card"=>$user_new_card,
+                "user_lost_card"=>$user_lost_card,
+                "user_defective_card"=>$user_defective_card,
+                "user_expired_card"=>$user_expired_card,
+                "user_change_name"=>$user_change_name,
+                "course_detail_id"=>$course_detail_id,
+                "user_address_no"=>$user_address_no,
+                "user_address_moo"=>$user_address_moo,
+                "user_address_soi"=>$user_address_soi,
+                "user_address_road"=>$user_address_road,
+                "user_address_subdistrict"=>$user_address_subdistrict,
+                "user_address_district"=>$user_address_district,
+                "user_address_province"=>$user_address_province,
+                "user_address_citycode"=>$user_address_citycode,
+                "user_pic"=>$register_new_name,
+                "user_status"=>'1'
+            );
+            insert("tb_student_card", $student_card_data);
+
+            echo "<meta charset='utf-8'/><script>alert('ส่งคำร้องสำเร็จ');location.href='../?modules=request_card_list';</script>";            
+
+        }else{
+
+            $student_card_data = array(
+
+                "user_name"=>$user_name,
+                "user_name_buddhist"=>$user_name_buddhist,
+                "user_surname"=>$user_surname,
+                "user_birthday"=>$user_birthday,
+                "user_blood"=>$user_blood,
+                "user_department"=>$user_department,
+                "user_faculty"=>$user_faculty,
+                "user_study"=>$user_study,
+                "user_cash"=>$user_cash,
+                "user_idcard"=>$user_idcard,
+                "user_student_id"=>$user_student_id,
+                "user_date"=>$date,
+                "user_update"=>$date,
+                "user_lastlogin"=>$datetime,
+                "user_new_card"=>$user_new_card,
+                "user_lost_card"=>$user_lost_card,
+                "user_defective_card"=>$user_defective_card,
+                "user_expired_card"=>$user_expired_card,
+                "user_change_name"=>$user_change_name,
+                "course_detail_id"=>$course_detail_id,
+                "user_address_no"=>$user_address_no,
+                "user_address_moo"=>$user_address_moo,
+                "user_address_soi"=>$user_address_soi,
+                "user_address_road"=>$user_address_road,
+                "user_address_subdistrict"=>$user_address_subdistrict,
+                "user_address_district"=>$user_address_district,
+                "user_address_province"=>$user_address_province,
+                "user_address_citycode"=>$user_address_citycode,
+                "user_status"=>'1'
+            );
+            insert("tb_student_card", $student_card_data);
+
+            echo "<meta charset='utf-8'/><script>alert('ส่งคำร้องสำเร็จ');location.href='../?modules=request_card_list';</script>"; 
+
+        }
+
+
 
 ?>
 

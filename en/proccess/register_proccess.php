@@ -129,7 +129,6 @@ include("../../config/fnc.php");
 
             $student_data = array(
                 "user_idcard"=>$idcard,
-                "user_pic"=>$register_new_name,
                 "user_prefix_th"=>$title_t,
                 "user_prefix_en"=>$title_e,
                 "user_name"=>$fname,

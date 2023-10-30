@@ -183,11 +183,10 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <div class="form-group"></div>
-                                                        <!--<div class="form-group">
-                                                            <label >ชั้นปีที่ (Studying in)</label>
-                                                            <input name="user_study" id="user_study" type="text" class="form-control" placeholder="ชั้นปีที่ (Studying in)">
-                                                        </div>-->
+                                                        <div class="form-group">
+                                                            <label >รูปภาพ (Photo) <font style="color: red;">รูปถ่ายขนาด 1 นิ้วครึ่ง / Photo Size 1.5 inch(300X450 px. )</font></label>
+                                                            <input name="img1" id="img1" type="file" class="form-control" >
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
