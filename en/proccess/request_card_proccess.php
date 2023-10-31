@@ -15,7 +15,8 @@ include("../../config/fnc.php");
 
     $date=date("Y-m-d");
     $datetime=date("Y-m-d H:i:s");
-
+    $Dateimg=date("YmdHis");
+    
     $user_name=filter_input(INPUT_POST,'user_name');
     $user_name_buddhist=filter_input(INPUT_POST,'user_name_buddhist');
     $user_surname=filter_input(INPUT_POST,'user_surname');
@@ -89,11 +90,11 @@ include("../../config/fnc.php");
             $user_address_citycode="-";
         }
 
-        if(($_FILES["img1"]["name"]!=null)){
+        if(($_FILES["rc_img"]["name"]!=null)){
 
             $register_nameNew=$Dateimg."_register_card";
-            $register_name = $_FILES["img1"]["name"];
-            $register_type = $_FILES["img1"]["type"];
+            $register_name = $_FILES["rc_img"]["name"];
+            $register_type = $_FILES["rc_img"]["type"];
 
             //new file Name
             $imgFile = explode('.', $register_name);
@@ -101,13 +102,15 @@ include("../../config/fnc.php");
             //new file Name end
 
             $register_new_name = $register_nameNew.".".$fileType;
-            $register_tmp = $_FILES["img1"]["tmp_name"];
-            $register_size = $_FILES["img1"]["size"];
+            $register_tmp = $_FILES["rc_img"]["tmp_name"];
+            $register_size = $_FILES["rc_img"]["size"];
 
-            move_uploaded_file($register_tmp, '../uploads/card/' . $register_new_name);
+            move_uploaded_file($register_tmp, '../../uploads/card/' . $register_new_name);
             //up image end
 
-            $student_card_data = array(
+            //echo $register_new_name;
+
+           $student_card_data = array(
 
                 "user_name"=>$user_name,
                 "user_name_buddhist"=>$user_name_buddhist,
@@ -146,7 +149,7 @@ include("../../config/fnc.php");
 
         }else{
 
-            $student_card_data = array(
+           $student_card_data = array(
 
                 "user_name"=>$user_name,
                 "user_name_buddhist"=>$user_name_buddhist,

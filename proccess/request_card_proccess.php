@@ -15,6 +15,7 @@ include("../config/fnc.php");
 
     $date=date("Y-m-d");
     $datetime=date("Y-m-d H:i:s");
+    $Dateimg=date("YmdHis");
 
     $user_name=filter_input(INPUT_POST,'user_name');
     $user_name_buddhist=filter_input(INPUT_POST,'user_name_buddhist');

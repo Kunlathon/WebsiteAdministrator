@@ -1,3 +1,6 @@
+<?php
+ini_set('display_errors', 0);
+?>
 <div class="page-body">
     <div class="container-xl">
 
@@ -30,7 +33,7 @@
                                             </div>
                                         </div>                            
                                     </div>
-<form name="form_student_card" id="form_student_card" method="post" action="proccess/request_card_proccess.php">
+<form name="form_student_card" id="form_student_card" method="post" enctype="multipart/form-data" action="proccess/request_card_proccess.php">
                                     <div class="card">
                                         <div class="card-status-top bg-green"></div>
                                         <div class="card-header">
@@ -185,7 +188,7 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label >รูปภาพ (Photo) <font style="color: red;">รูปถ่ายขนาด 1 นิ้วครึ่ง / Photo Size 1.5 inch(300X450 px. )</font></label>
-                                                            <input name="img1" id="img1" type="file" class="form-control" >
+                                                            <input name="rc_img" id="rc_img" type="file" class="form-control" >
                                                         </div>
                                                     </div>
                                                 </div>
@@ -471,7 +474,7 @@
                         ON(`tb_course_detail`.`course_id`=`tb_course`.`course_id`) 
                         WHERE `tb_course_detail`.`course_detail_status`='2'
                         AND  `tb_course`.`course_status`='1'
-                        GROUP BY `tb_course_detail`.`course_id` ASC;";
+                        GROUP BY `tb_course_detail`.`course_id` ORDER BY `tb_course_detail`.`course_id` ASC;";
             $course_List=result_array($course_Sql);
             foreach($course_List as $key=>$course_Row){  
                 

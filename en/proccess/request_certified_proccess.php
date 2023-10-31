@@ -14,7 +14,7 @@ include("../../config/fnc.php");
 
     $date=date("Y-m-d");
     $datetime=date("Y-m-d H:i:s");
-
+    $Dateimg=date("YmdHis");
     if((isset($_POST["user_name"]))){
         $user_name=filter_input(INPUT_POST,'user_name');
     }else{
@@ -126,7 +126,7 @@ include("../../config/fnc.php");
             $register_tmp = $_FILES["img1"]["tmp_name"];
             $register_size = $_FILES["img1"]["size"];
 
-            move_uploaded_file($register_tmp, '../uploads/certified/' . $register_new_name);
+            move_uploaded_file($register_tmp, '../../uploads/certified/' . $register_new_name);
             //up image end
 
             $request_certifed_data = array(

@@ -30,7 +30,7 @@
                                             </div>
                                         </div>                            
                                     </div>
-<form name="form_student_card" id="form_student_card" method="post" action="proccess/request_certified_proccess.php">
+<form name="form_student_card" id="form_student_card" enctype="multipart/form-data" method="post" action="proccess/request_certified_proccess.php">
                                     <div class="card">
                                         <div class="card-status-top bg-green"></div>
                                         <div class="card-header">
