@@ -153,7 +153,7 @@
                                             <div class="form-group row">
                                                 <label class="col-form-label col-<?php echo $grid; ?>-2">สี</label>
                                                 <div class="col-<?php echo $grid; ?>-10">
-                                                    <input type="text" name="" id="" class="form-control" value="" placeholder="" required="required" maxlength="100">
+                                                    <input type="color" name="" id="" class="form-control" value="" placeholder="" required="required" maxlength="100">
                                                 </div>
                                             </div>
                                         </fieldset>
