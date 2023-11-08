@@ -38,22 +38,31 @@
 					$i = 0;
 
                     foreach ($listSli as $key => $rowSli) {
-						if ($i==0){
-                   ?>
-                    <div class="carousel-item active">
-                      <img src="uploads/slides/<?php echo $rowSli['slide_image']; ?>" alt="<?php echo $rowSli['slide_topic']; ?>" style="width: 100%; height: 400px;">
-                    </div>
-					<?php 
-						} else {
-					?>
-                    <div class="carousel-item">
-                      <img src="uploads/slides/<?php echo $rowSli['slide_image']; ?>" alt="<?php echo $rowSli['slide_topic']; ?>" style="width: 100%; height: 400px;">
-                    </div>
-				
-                    <?php 
-						}
-					$i++;
-					} 
+
+                        if(($i==0)){
+                            if(($rowSli["slide_link"]!=null)){  ?>
+                      <div class="carousel-item active">
+                        <a href="<?php echo $rowSli["slide_link"];?>"><img src="uploads/slides/<?php echo $rowSli['slide_image']; ?>" alt="<?php echo $rowSli['slide_topic']; ?>" style="width: 100%; height: 400px;"></a>
+                      </div>
+                  <?php     }else{ ?>
+                      <div class="carousel-item active">
+                        <img src="uploads/slides/<?php echo $rowSli['slide_image']; ?>" alt="<?php echo $rowSli['slide_topic']; ?>" style="width: 100%; height: 400px;">
+                      </div>
+                  <?php     } ?>
+                  <?php  }else{
+                            if(($rowSli["slide_link"]!=null)){  ?>
+                      <div class="carousel-item">
+                        <a href="<?php echo $rowSli["slide_link"];?>"><img src="uploads/slides/<?php echo $rowSli['slide_image']; ?>" alt="<?php echo $rowSli['slide_topic']; ?>" style="width: 100%; height: 400px;">
+                      </div>
+                  <?php     }else{ ?>
+                      <div class="carousel-item">
+                        <img src="uploads/slides/<?php echo $rowSli['slide_image']; ?>" alt="<?php echo $rowSli['slide_topic']; ?>" style="width: 100%; height: 400px;">
+                      </div>
+                  <?php   } 
+                         }
+                    $i++;
+
+					          } 
 					?>
 
                   </div>
@@ -81,7 +90,7 @@
                   <div class="col-md-6">
                     <div class="form-imagecheck mb-2">             
                       <span class="form-imagecheck" onclick="location.href='?modules=gallery_image&id=<?php echo $rowGal['gallery_id'];?>'">
-                        <img src="uploads/gallery/<?php echo $rowGal['gallery_folder'];?>/<?php echo $rowGal['gallery_thumbnail'];?>" alt="<?php echo $rowGal['gallery_name'];?>" class="form-image" title="<?php echo $rowGal['gallery_name'];?>">
+                        <img src="uploads/gallery/<?php echo $rowGal['gallery_folder'];?>/<?php echo $rowGal['gallery_thumbnail'];?>" alt="<?php echo $rowGal['gallery_name'];?>" class="form-image" style="width: 100%; height: 100px;" title="<?php echo $rowGal['gallery_name'];?>">
                       </span>
                     </div>
                   </div>

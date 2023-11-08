@@ -74,7 +74,7 @@
 
 	<?php
 			if(($manage=="show")){ ?>
-
+	
 	<div class="row">
 		<div class="col-<?php echo $grid;?>-12">
 			<div class="panel">

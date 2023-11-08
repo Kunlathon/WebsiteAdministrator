@@ -30,6 +30,7 @@
 
             $slide_topic=filter_input(INPUT_POST, 'slide_topic');//*
             $slide_link=filter_input(INPUT_POST, 'slide_link');
+            $slide_link_en=filter_input(INPUT_POST, 'slide_link');
             $slide_status=filter_input(INPUT_POST, 'slide_status');//*
 //up image
             $slide_image_nameNew=$image_date."_slide";
@@ -56,6 +57,7 @@
                     "slide_topic" => $slide_topic,
                     "slide_image" => $slide_new_name,
                     "slide_link" => $slide_link,
+                    "slide_link_en"=>$slide_link_en,
                     "slide_post_date" => $update_date,
                     "slide_update_date" => $update_date,
                     "slide_status" => $slide_status
@@ -81,6 +83,7 @@
             $slide_id=filter_input(INPUT_POST, 'slide_id');//*
             $slide_topic=filter_input(INPUT_POST, 'slide_topic');//*
             $slide_link=filter_input(INPUT_POST, 'slide_link');
+            $slide_link_en=filter_input(INPUT_POST, 'slide_link_en');
             $slide_status=filter_input(INPUT_POST, 'slide_status');//*
 
             if(($_FILES["slide_image"]["name"]==null)){
@@ -91,6 +94,7 @@
                         "slide_topic" => $slide_topic,
                         //"slide_image" => $slide_new_name,
                         "slide_link" => $slide_link,
+                        "slide_link_en"=>$slide_link_en,
                         "slide_post_date" => $update_date,
                         "slide_update_date" => $update_date,
                         "slide_status" => $slide_status

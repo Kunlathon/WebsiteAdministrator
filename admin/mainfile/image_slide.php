@@ -119,8 +119,20 @@ if ((preg_match("/image_slide.php/", $_SERVER['PHP_SELF']))) {
                                                             <label class="col-form-label col-<?php echo $grid; ?>-2">สิงค์</label>
                                                             <div class="col-<?php echo $grid; ?>-10">
                                                                 <input type="url" name="slide_link" id="slide_link" class="form-control" value="" placeholder="ข้อมูลสิงค์">
-                                                                <div>
-                                                                </div>
+                                                            <div>
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-<?php echo $grid; ?>-12">
+                                                    <fieldset class="mb-3">
+                                                        <div class="form-group row">
+                                                            <label class="col-form-label col-<?php echo $grid; ?>-2">สิงค์ EN</label>
+                                                            <div class="col-<?php echo $grid; ?>-10">
+                                                                <input type="url" name="slide_link_en" id="slide_link_en" class="form-control" value="" placeholder="ข้อมูลสิงค์">
+                                                            <div>
+                                                        </div>
                                                     </fieldset>
                                                 </div>
                                             </div>
@@ -188,6 +200,7 @@ if ((preg_match("/image_slide.php/", $_SERVER['PHP_SELF']))) {
                             $slide_topic = $slide_row["slide_topic"];
                             $slide_image = $slide_row["slide_image"];
                             $slide_link = $slide_row["slide_link"];
+                            $slide_link_en=$slide_row["slide_link_en"];
                             $slide_post_date = $slide_row["slide_post_date"];
                             $slide_update_date = $slide_row["slide_update_date"];
                             $slide_status = $slide_row["slide_status"];
@@ -196,6 +209,7 @@ if ((preg_match("/image_slide.php/", $_SERVER['PHP_SELF']))) {
                             $slide_topic = null;
                             $slide_image = null;
                             $slide_link = null;
+                            $slide_link_en=null;
                             $slide_post_date = null;
                             $slide_update_date = null;
                             $slide_status = null;
@@ -263,7 +277,7 @@ if ((preg_match("/image_slide.php/", $_SERVER['PHP_SELF']))) {
                                     modal: modalTemplate
                                 },
                                 initialPreview: [
-                                    '../dist/img/slides/' + js_img_name
+                                    '../uploads/slides/' + js_img_name
                                 ],
                                 initialPreviewConfig: [
                                     // {caption: 'Jane.jpg', size: 930321, key: 1, url: '{$url}'}
@@ -355,6 +369,18 @@ if ((preg_match("/image_slide.php/", $_SERVER['PHP_SELF']))) {
                                                                 <label class="col-form-label col-<?php echo $grid; ?>-2">สิงค์</label>
                                                                 <div class="col-<?php echo $grid; ?>-10">
                                                                     <input type="url" name="slide_link" id="slide_link" class="form-control" value="<?php echo $slide_link; ?>" placeholder="ข้อมูลสิงค์">
+                                                                    <div>
+                                                                    </div>
+                                                        </fieldset>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-<?php echo $grid; ?>-12">
+                                                        <fieldset class="mb-3">
+                                                            <div class="form-group row">
+                                                                <label class="col-form-label col-<?php echo $grid; ?>-2">สิงค์ EN</label>
+                                                                <div class="col-<?php echo $grid; ?>-10">
+                                                                    <input type="url" name="slide_link_en" id="slide_link_en" class="form-control" value="<?php echo $slide_link_en; ?>" placeholder="ข้อมูลสิงค์">
                                                                     <div>
                                                                     </div>
                                                         </fieldset>

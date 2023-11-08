@@ -132,13 +132,13 @@
                     <td align="center" style="vertical-align: text-top;" class="align-top">
     <?php
             if((isset($slideimg_name))){
-                if(file_exists("../../../dist/img/slides/".$slideimg_name)){ ?>
-                        <div><img src="../dist/img/slides/<?php echo $slideimg_name;?>" class="img-thumbnail" alt="<?php echo $slideimg_name;?>" style="width:304px; height:236px;"></div>
+                if(file_exists("../../../uploads/slides/".$slideimg_name)){ ?>
+                        <div><img src="../uploads/slides/<?php echo $slideimg_name;?>" class="img-thumbnail" alt="<?php echo $slideimg_name;?>" style="width:304px; height:236px;"></div>
     <?php       }else{ ?>
-                        <div><img src="../dist/img/slides/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:304px; height:236px;"></div>
+                        <div><img src="../uploads/slides/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:304px; height:236px;"></div>
     <?php       }
             }else{ ?>
-                        <div><img src="../dist/img/slides/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:304px; height:236px;"></div>
+                        <div><img src="../uploads/slides/no-image-icon-0.jpg" class="img-thumbnail" alt="no image" style="width:304px; height:236px;"></div>
     <?php   } ?>
 
                     </td>
