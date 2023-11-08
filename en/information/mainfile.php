@@ -12,35 +12,21 @@
                     $sqlSli = "SELECT * FROM tb_slide WHERE slide_status='1' ORDER BY slide_id DESC LIMIT 10";
                     $listSli = result_array($sqlSli);
 
-					$i = 0;
+                    $i = 0;
 
-          foreach ($listSli as $key => $rowSli) {
+                    foreach ($listSli as $key => $rowSli) {
+						if ($i==0){
+                   ?>
+                    <li data-target="#demo" data-slide-to="<?php echo $i; ?>" class="active"></li>
+					<?php 
+						} else {
+					?>
+                    <li data-target="#demo" data-slide-to="<?php echo $i; ?>"></li>
 
-             if(($i==0)){
-                if(($rowSli["slide_link_en"]!=null)){  ?>
-          <div class="carousel-item active">
-            <a href="<?php echo $rowSli["slide_link_en"];?>"><img src="uploads/slides/<?php echo $rowSli['slide_image']; ?>" alt="<?php echo $rowSli['slide_topic']; ?>" style="width: 100%; height: 400px;"></a>
-          </div>
-      <?php     }else{ ?>
-          <div class="carousel-item active">
-            <img src="uploads/slides/<?php echo $rowSli['slide_image']; ?>" alt="<?php echo $rowSli['slide_topic']; ?>" style="width: 100%; height: 400px;">
-          </div>
-      <?php     } ?>
-      <?php  }else{
-                if(($rowSli["slide_link_en"]!=null)){  ?>
-          <div class="carousel-item">
-            <a href="<?php echo $rowSli["slide_link_en"];?>"><img src="uploads/slides/<?php echo $rowSli['slide_image']; ?>" alt="<?php echo $rowSli['slide_topic']; ?>" style="width: 100%; height: 400px;">
-          </div>
-      <?php     }else{ ?>
-          <div class="carousel-item">
-            <img src="uploads/slides/<?php echo $rowSli['slide_image']; ?>" alt="<?php echo $rowSli['slide_topic']; ?>" style="width: 100%; height: 400px;">
-          </div>
-      <?php   } 
-             }
-        $i++;
-
-          } 
-
+					<?php 
+						}
+					$i++;
+					} 
 					?>
 
 
@@ -51,23 +37,32 @@
 
 					$i = 0;
 
-                    foreach ($listSli as $key => $rowSli) {
-						if ($i==0){
-                   ?>
-                    <div class="carousel-item active">
-                      <img src="../uploads/slides/<?php echo $rowSli['slide_image']; ?>" alt="<?php echo $rowSli['slide_topic']; ?>" style="width: 100%; height: 400px;">
-                    </div>
-					<?php 
-						} else {
-					?>
-                    <div class="carousel-item">
-                      <img src="../uploads/slides/<?php echo $rowSli['slide_image']; ?>" alt="<?php echo $rowSli['slide_topic']; ?>" style="width: 100%; height: 400px;">
-                    </div>
-				
-                    <?php 
-						}
-					$i++;
-					} 
+          foreach ($listSli as $key => $rowSli) {
+
+            if(($i==0)){
+                if(($rowSli["slide_link_en"]!=null)){  ?>
+          <div class="carousel-item active">
+            <a href="<?php echo $rowSli["slide_link_en"];?>"><img src="../uploads/slides/<?php echo $rowSli['slide_image']; ?>" alt="<?php echo $rowSli['slide_topic']; ?>" style="width: 100%; height: 400px;"></a>
+          </div>
+      <?php     }else{ ?>
+          <div class="carousel-item active">
+            <img src="../uploads/slides/<?php echo $rowSli['slide_image']; ?>" alt="<?php echo $rowSli['slide_topic']; ?>" style="width: 100%; height: 400px;">
+          </div>
+      <?php     } ?>
+      <?php  }else{
+                if(($rowSli["slide_link_en"]!=null)){  ?>
+          <div class="carousel-item">
+            <a href="<?php echo $rowSli["slide_link_en"];?>"><img src="../uploads/slides/<?php echo $rowSli['slide_image']; ?>" alt="<?php echo $rowSli['slide_topic']; ?>" style="width: 100%; height: 400px;">
+          </div>
+      <?php     }else{ ?>
+          <div class="carousel-item">
+            <img src="../uploads/slides/<?php echo $rowSli['slide_image']; ?>" alt="<?php echo $rowSli['slide_topic']; ?>" style="width: 100%; height: 400px;">
+          </div>
+      <?php   } 
+             }
+        $i++;
+
+        } 
 					?>
 
                   </div>
