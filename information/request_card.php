@@ -185,7 +185,26 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label >รูปภาพ (Photo) <font style="color: red;">รูปถ่ายขนาด 1 นิ้วครึ่ง / Photo Size 1.5 inch(300X450 px. )</font></label>
+                                                            <div id="img1-null">
                                                             <input name="img1" id="img1" type="file" class="form-control" >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <div class="row g-5">
+                                                    <div class="col-md-6">
+                                                        <label >Passport <font style="color: red;"></font></label>
+                                                        <div id="passport_img-null">
+                                                        <input name="passport_img" id="passport_img" type="file" class="form-control" >
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label >Visa Page <font style="color: red;"></font></label>
+                                                        <div id="visa_page_img-null">
+                                                        <input name="visa_page_img" id="visa_page_img" type="file" class="form-control" >
                                                         </div>
                                                     </div>
                                                 </div>
@@ -706,6 +725,11 @@ For collect, use and disclose my personal information for the purpose of request
             var user_idcard=$("#user_idcard").val();
             var course=$("#course").val();
             var user_student_id=$("#user_student_id").val();
+
+            var img1=$("#user_student_id").val();
+            var passport_img=$("#user_student_id").val();
+            var visa_page_img=$("#user_student_id").val();
+
             //var tel=$("#tel").val();
             //var email=$("#email").val();
             var address2=$("#address2").val();
@@ -849,12 +873,56 @@ For collect, use and disclose my personal information for the purpose of request
                     count_error=count_error+0;
                   }
 
+
+                  if(img1===""){
+                    document.getElementById("img1-null").innerHTML=
+                    '<div id="img1-null">'
+                    +'<input name="img1" id="img1" type="file" class="form-control is-invalid" value="'+img1+'" >'
+                    +'</div>';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("img1-null").innerHTML=
+                    '<div id="img1-null">'
+                    +'<input name="img1" id="img1" type="file" class="form-control is-valid" value="'+img1+'" >'
+                    +'</div>';
+                    count_error=count_error+0;
+                  }
+
+                  if(passport_img===""){
+                    document.getElementById("passport_img-null").innerHTML=
+                    '<div id="passport_img-null">'
+                    +'<input name="passport_img" id="passport_img" type="file" class="form-control is-invalid" value="'+passport_img+'">'
+                    +'</div>';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("passport_img-null").innerHTML=
+                    '<div id="passport_img-null">'
+                    +'<input name="passport_img" id="passport_img" type="file" class="form-control is-valid" value="'+passport_img+'">'
+                    +'</div>';
+                    count_error=count_error+0;
+                  }
+
+                  if(visa_page_img===""){
+                    document.getElementById("visa_page_img-null").innerHTML=
+                    '<div id="visa_page_img-null">'
+                    +'<input name="visa_page_img" id="visa_page_img" type="file" class="form-control is-invalid" value="'+visa_page_img+'">'
+                    +'</div>';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("visa_page_img-null").innerHTML=
+                    '<div id="visa_page_img-null">'
+                    +'<input name="visa_page_img" id="visa_page_img" type="file" class="form-control is-valid" value="'+visa_page_img+'">'
+                    +'</div>';
+                    count_error=count_error+0;
+                  }
+
                   if(count_error>=1){
 
                     document.getElementById("but_form_register-null").innerHTML=
                     '<font id="but_form_register-null">'
                     +'  <button type="button" name="but_form_register" id="but_form_register" class="btn btn-success disabled">ลงทะเบียน</button>'
                     +'</font>';
+
                   }else{
 
                     document.getElementById("but_form_register-null").innerHTML=
