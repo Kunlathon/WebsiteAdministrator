@@ -185,9 +185,7 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label >รูปภาพ (Photo) <font style="color: red;">รูปถ่ายขนาด 1 นิ้วครึ่ง / Photo Size 1.5 inch(300X450 px. )</font></label>
-                                                            <div id="img1-null">
-                                                            <input name="img1" id="img1" type="file" class="form-control" >
-                                                            </div>
+                                                            <input name="img1" id="img1" type="file" class="form-control" required="required">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -196,16 +194,12 @@
                                             <div class="mb-3">
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
-                                                        <label >Passport <font style="color: red;"></font></label>
-                                                        <div id="passport_img-null">
-                                                        <input name="passport_img" id="passport_img" type="file" class="form-control" >
-                                                        </div>
+                                                        <label >Passport <font style="color: red;">*</font></label>
+                                                        <input name="passport_img" id="passport_img" type="file" class="form-control" required="required">
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <label >Visa Page <font style="color: red;"></font></label>
-                                                        <div id="visa_page_img-null">
-                                                        <input name="visa_page_img" id="visa_page_img" type="file" class="form-control" >
-                                                        </div>
+                                                        <label >Visa Page <font style="color: red;">*</font></label>
+                                                        <input name="visa_page_img" id="visa_page_img" type="file" class="form-control" required="required">
                                                     </div>
                                                 </div>
                                             </div>
@@ -484,13 +478,13 @@
                                                                 <option value="">เลือกเรียนหลักสูตร (Select your Course)</option>
                                                                 
     <?php
-            $course_Sql="SELECT * 
-                        FROM `tb_course_detail` 
-                        LEFT JOIN `tb_course` 
-                        ON(`tb_course_detail`.`course_id`=`tb_course`.`course_id`) 
-                        WHERE `tb_course_detail`.`course_detail_status`='2'
-                        AND  `tb_course`.`course_status`='1'
-                        GROUP BY `tb_course_detail`.`course_id` ASC;";
+            $course_Sql="SELECT * FROM `tb_course_detail` 
+                         LEFT JOIN `tb_course` 
+                         ON(`tb_course_detail`.`course_id`=`tb_course`.`course_id`) 
+                         WHERE `tb_course_detail`.`course_detail_status`='2' 
+                         AND `tb_course`.`course_status`='1' 
+                         GROUP BY `tb_course_detail`.`course_id` 
+                         ORDER BY `tb_course_detail`.`course_id` ASC;";
             $course_List=result_array($course_Sql);
             foreach($course_List as $key=>$course_Row){  
                 
@@ -875,44 +869,20 @@ For collect, use and disclose my personal information for the purpose of request
 
 
                   if(img1===""){
-                    document.getElementById("img1-null").innerHTML=
-                    '<div id="img1-null">'
-                    +'<input name="img1" id="img1" type="file" class="form-control is-invalid" value="'+img1+'" >'
-                    +'</div>';
                     count_error=count_error+1;
                   }else{
-                    document.getElementById("img1-null").innerHTML=
-                    '<div id="img1-null">'
-                    +'<input name="img1" id="img1" type="file" class="form-control is-valid" value="'+img1+'" >'
-                    +'</div>';
                     count_error=count_error+0;
                   }
 
                   if(passport_img===""){
-                    document.getElementById("passport_img-null").innerHTML=
-                    '<div id="passport_img-null">'
-                    +'<input name="passport_img" id="passport_img" type="file" class="form-control is-invalid" value="'+passport_img+'">'
-                    +'</div>';
                     count_error=count_error+1;
                   }else{
-                    document.getElementById("passport_img-null").innerHTML=
-                    '<div id="passport_img-null">'
-                    +'<input name="passport_img" id="passport_img" type="file" class="form-control is-valid" value="'+passport_img+'">'
-                    +'</div>';
                     count_error=count_error+0;
                   }
 
                   if(visa_page_img===""){
-                    document.getElementById("visa_page_img-null").innerHTML=
-                    '<div id="visa_page_img-null">'
-                    +'<input name="visa_page_img" id="visa_page_img" type="file" class="form-control is-invalid" value="'+visa_page_img+'">'
-                    +'</div>';
                     count_error=count_error+1;
                   }else{
-                    document.getElementById("visa_page_img-null").innerHTML=
-                    '<div id="visa_page_img-null">'
-                    +'<input name="visa_page_img" id="visa_page_img" type="file" class="form-control is-valid" value="'+visa_page_img+'">'
-                    +'</div>';
                     count_error=count_error+0;
                   }
 

@@ -185,11 +185,25 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label >รูปภาพ (Photo) <font style="color: red;">รูปถ่ายขนาด 1 นิ้วครึ่ง / Photo Size 1.5 inch(300X450 px. )</font></label>
-                                                            <input name="img1" id="img1" type="file" class="form-control" >
+                                                            <input name="img1" id="img1" type="file" class="form-control" required="required">
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <div class="mb-3">
+                                                <div class="row g-5">
+                                                    <div class="col-md-6">
+                                                        <label >Passport <font style="color: red;">*</font></label>
+                                                        <input name="passport_img" id="passport_img" type="file" class="form-control" required="required">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label >Visa Page <font style="color: red;">*</font></label>
+                                                        <input name="visa_page_img" id="visa_page_img" type="file" class="form-control" required="required">
+                                                    </div>
+                                                </div>
+                                            </div>
+
 
                                             <!--<div class="mb-3">
                                                 <div class="row g-5">
@@ -605,6 +619,10 @@ For collect, use and disclose my personal information for the purpose of Reauest
             var user_surname=$("#user_surname").val();
             var user_idcard=$("#user_idcard").val();
 
+            var img1=$("#user_student_id").val();
+            var passport_img=$("#user_student_id").val();
+            var visa_page_img=$("#user_student_id").val();
+
             var course=$("#course").val();
             var course_detail=$("#course_detail").val();
 
@@ -775,6 +793,24 @@ For collect, use and disclose my personal information for the purpose of Reauest
                       '<input name="user_idcard" id="user_idcard" type="text" class="form-control is-valid mb-2" value="'+user_idcard+'" placeholder="รหัสประจำตัวประชาชน" required="required">';
                       count_error=count_error+0;
                   }
+
+                  if(img1===""){
+                    count_error=count_error+1;
+                  }else{
+                    count_error=count_error+0;
+                  }
+
+                  if(passport_img===""){
+                    count_error=count_error+1;
+                  }else{
+                    count_error=count_error+0;
+                  }
+
+                  if(visa_page_img===""){
+                    count_error=count_error+1;
+                  }else{
+                    count_error=count_error+0;
+                  }     
 
                   if(count_error>=1){
 
