@@ -93,7 +93,7 @@
 													<img src="uploads/news/<?php echo $_item['news_image0'];?>" alt="<?php echo $_item['news_topic'];?>" class="card-img-top"></a>
                                                     <div class="card-body">
                                                         <div class="d-flex align-items-center">
-                                                            <div><?php echo $_item['news_topic'];?></div>
+                                                            <a href="?modules=news_detail&id=<?php echo $_item['news_id'];?>"><div><?php echo $_item['news_topic'];?></div></a>
                                                         </div>
                                                     </div>
                                                 </div>
