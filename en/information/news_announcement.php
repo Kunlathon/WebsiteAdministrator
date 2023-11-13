@@ -90,10 +90,10 @@
                                             <div class="col-md-4">
                                                 <div class="card card-sm alogn-items-center">
                                                     <a href="?modules=news_detail&id=<?php echo $_item['news_id'];?>" class="d-block">
-													<img src="../uploads/news/<?php echo $_item['news_image0'];?>" alt="<?php echo $_item['news_topic'];?>" class="card-img-top"></a>
+													<img src="../uploads/news/<?php echo $_item['news_image0'];?>" alt="<?php echo $_item['news_topic_en'];?>" class="card-img-top"></a>
                                                     <div class="card-body">
                                                         <div class="d-flex align-items-center">
-                                                            <div><?php echo $_item['news_topic'];?></div>
+                                                            <div><a href="?modules=news_detail&id=<?php echo $_item['news_id'];?>"><?php echo $_item['news_topic_en'];?></a></div>
                                                         </div>
                                                     </div>
                                                 </div>

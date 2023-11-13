@@ -407,7 +407,9 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
 			include("information/news_public.php");
 	  }elseif(($modules=="news_recruitment")){
 			include("information/news_recruitment.php");
-	  }elseif(($modules=="course")){
+	  }elseif(($modules=="news_detail")){
+      include("information/news_detail.php");
+    }elseif(($modules=="course")){
 			include("information/course.php");
 	  }elseif(($modules=="download")){
 			include("information/download.php");
@@ -433,7 +435,7 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
 	 		include("information/classroom.php");
 	  }elseif(($modules=="classroom_detail")){
 	 		include("information/classroom_detail.php");
-	   }else{
+	  }else{
 		  	include("information/mainfile.php");
 	  }
 
