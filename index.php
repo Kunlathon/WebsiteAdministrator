@@ -51,16 +51,16 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : '';
     <meta property="og:description" content="ศูนย์ภาษา มหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย วิทยาเขตเชียงใหม่">
 
 <?php 
-  if($modules=="temples-detail" || $modules=="travel-detail" || $modules=="tradition-detail" || $modules=="culture-detail"){
+  if($modules=="news_detail"){
 	$id = isset($_GET['id']) ? $_GET['id'] : '';
 
-	//$sqlTravel = "SELECT * FROM tb_travel WHERE travel_id = '$id'";
-    //$rowTravel = row_array($sqlTravel);
+	  $sqlNews = "SELECT * FROM tb_news WHERE news_id = '$id'";
+    $rowNews = row_array($sqlNews);
 ?>
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="<?php echo $rowTravel['news_topic']; ?>"/>
 	<meta property="og:description" content="<?php echo $rowTravel['news_topic']; ?>" />
-	<meta property="og:image" content="https://www.phothitech.net/languagecenter/uploads/news/<?php echo $rowTravel['news_image0']; ?>" />
+	<meta property="og:image" content="https://www.phothitech.net/languagecenter/uploads/news/<?php echo $rowNews['news_image0']; ?>" />
 
 <?php 
 	}
