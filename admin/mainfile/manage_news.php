@@ -748,8 +748,8 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                             removeLabel: 'ลบ',
                                                             removeClass: 'btn btn-danger',
                                                             removeIcon: '<i class="icon-cancel-square mr-2"></i>',
-                                                            //uploadClass: 'btn btn-teal',
-                                                            //uploadIcon: '<i class="icon-file-upload mr-2"></i>',
+                                                            uploadClass: 'btn btn-teal',
+                                                            uploadIcon: '<i class="icon-file-upload mr-2"></i>',
                                                             uploadTitle: "อัปโหลดไฟล์ที่เลือก",
                                                             uploadLabel: "อัปโหลด",
                                                             layoutTemplates: {
@@ -763,9 +763,9 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
 
                                                                 <?php
                                                                 if ((($news_image0 != null))) {
-                                                                    if (file_exists("../uploads/news/" . $news_image0)) { ?> '../uploads/news/<?php echo $news_image0; ?>'
+                                                                            if (file_exists("../uploads/news/" . $news_image0)) { ?> '../uploads/news/<?php echo $news_image0; ?>'
                                                                 <?php       } else {
-                                                                    }
+                                                                            }
                                                                 } else {
                                                                 } ?>
 

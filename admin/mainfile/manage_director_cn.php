@@ -186,7 +186,7 @@ if ((preg_match("/manage_director.php/", $_SERVER['PHP_SELF']))) {
                                             <fieldset class="mb-3">
                                                 <div class="form-group row">
                                                     <div class="col-<?php echo $grid; ?>-12">
-                                                        <textarea name="information_detail_cn" id="editor-full" rows="4" cols="4" required="required">
+                                                        <textarea name="information_detail_cn" class="summernote" rows="4" cols="4" required="required">
                                             <?php echo $information_detail_cn; ?>
                                         </textarea>
                                                     </div>

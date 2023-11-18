@@ -244,7 +244,7 @@ if ((preg_match("/manage_history.php/", $_SERVER['PHP_SELF']))) {
                                             <fieldset class="mb-3">
                                                 <div class="form-group row">
                                                     <div class="col-<?php echo $grid; ?>-12">
-                                                        <input type="file" name="information_image" id="information_image" class="form-control file-input-custom"  data-show-upload="false" placeholder="ภาพ">
+                                                        <input type="file" name="information_image" class="summernote" class="form-control file-input-custom"  data-show-upload="false" placeholder="ภาพ">
                                                     </div>
                                                 </div>
                                             </fieldset>

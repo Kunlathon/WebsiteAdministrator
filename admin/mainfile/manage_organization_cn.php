@@ -167,7 +167,7 @@ if ((preg_match("/manage_organization.php/", $_SERVER['PHP_SELF']))) {
                             <fieldset class="mb-3">
                                 <div class="form-group row">
                                     <div class="col-<?php echo $grid; ?>-12">
-                                        <input type="file" name="information_image" id="information_image" class="form-control"  placeholder="ภาพ" readonly="readonly">
+                                        <input type="file" name="information_image" class="summernote" class="form-control"  placeholder="ภาพ" readonly="readonly">
                                     </div>
                                 </div>
                             </fieldset>
@@ -186,7 +186,7 @@ if ((preg_match("/manage_organization.php/", $_SERVER['PHP_SELF']))) {
                                             <fieldset class="mb-3">
                                                 <div class="form-group row">
                                                     <div class="col-<?php echo $grid; ?>-12">
-                                                        <textarea name="information_detail_cn" id="editor-full" rows="4" cols="4" required="required">
+                                                        <textarea name="information_detail_cn" class="summernote" rows="4" cols="4" required="required">
                                             <?php echo $information_detail_cn; ?>
                                         </textarea>
                                                     </div>
