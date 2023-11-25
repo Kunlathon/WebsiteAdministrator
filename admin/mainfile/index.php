@@ -22,17 +22,17 @@
 <?php check_login('admin_username_lcm', 'login.php'); ?>
 
 <?php
-//error_reporting (E_ALL ^ E_NOTICE);
+	//error_reporting (E_ALL ^ E_NOTICE);
 
-header("Content-type:text/html; charset=UTF-8");
-header("Cache-Control: no-store, no-cache, must-revalidate");
-header("Cache-Control: post-check=0, pre-check=0", false);
+	header("Content-type:text/html; charset=UTF-8");
+	header("Cache-Control: no-store, no-cache, must-revalidate");
+	header("Cache-Control: post-check=0, pre-check=0", false);
 
-include("structure/link.php");
-$RunLink = new link_system();
-//$RunLink->CallLink_System();
+	include("structure/link.php");
+	$RunLink = new link_system();
+	//$RunLink->CallLink_System();
 
-$modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
+	$modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 
 ?>
 

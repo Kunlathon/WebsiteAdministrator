@@ -22,7 +22,26 @@ if ((preg_match("/user_menu.php/", $_SERVER['PHP_SELF']))) {
 		<div class="sidebar-section-body">
 			<div class="media">
 				<a href="#" class="mr-3">
-					<img src="template/global_assets/images/placeholders/placeholder.jpg" class="rounded-circle" alt="">
+
+		<?php
+            $um_aid = check_session("admin_id_lcm");
+            $um_sql = "SELECT * FROM `tb_admin` WHERE `admin_id` = '{$um_aid}'";
+            $um_row = row_array($um_sql);
+                if(($um_row["admin_img"]!="")){
+                    $um_copy_img_user=$um_row["admin_img"];
+                }else{
+                    $um_copy_img_user="no_picture.jpg";
+                }
+        ?>
+
+		<?php
+                 if((!file_exists("uploads/profile_picture/$um_copy_img_user"))){ ?>
+                    <img class="card-img-top img-fluid mx-auto d-block" style="width: 100%; height: 60px;" src="<?php echo $RunLink->Call_Link_System();?>/uploads/profile_picture/no_picture.jpg" class="rounded-circle" >
+        <?php    }else{ ?>
+                    <img class="card-img-top img-fluid mx-auto d-block" style="width: 100%; height: 60px;" src="<?php echo $RunLink->Call_Link_System();?>/uploads/profile_picture/<?php echo $um_row['admin_img'];?>" class="rounded-circle" >
+        <?php    }  ?>
+					
+
 				</a>
 
 				<?php

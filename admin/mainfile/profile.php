@@ -87,7 +87,11 @@
             $aid = check_session("admin_id_lcm");
             $sql = "SELECT * FROM `tb_admin` WHERE `admin_id` = '{$aid}'";
             $row = row_array($sql);
-            $copy_img_user=$row["admin_img"];
+                if(($row["admin_img"]!="")){
+                    $copy_img_user=$row["admin_img"];
+                }else{
+                    $copy_img_user="no_picture.jpg";
+                }
         ?>
 
             <div class="row">
@@ -102,9 +106,9 @@
 
                         <?php
                                  if((!file_exists("uploads/profile_picture/$copy_img_user"))){ ?>
-                                    <img class="card-img-top img-fluid mx-auto d-block" style="width: 50%;" src="<?php echo $RunLink->Call_Link_System();?>/uploads/profile_picture/no_picture.jpg" class="img-thumbnail">
+                                    <img class="card-img-top img-fluid mx-auto d-block" style="width: 50%; height: auto;" src="<?php echo $RunLink->Call_Link_System();?>/uploads/profile_picture/no_picture.jpg" class="img-thumbnail">
                         <?php    }else{ ?>
-                                    <img class="card-img-top img-fluid mx-auto d-block" style="width: 50%;" src="<?php echo $RunLink->Call_Link_System();?>/uploads/profile_picture/<?php echo $row['admin_img'];?>" class="img-thumbnail">
+                                    <img class="card-img-top img-fluid mx-auto d-block" style="width: 50%; height: auto;" src="<?php echo $RunLink->Call_Link_System();?>/uploads/profile_picture/<?php echo $row['admin_img'];?>" class="img-thumbnail">
                         <?php    }  ?>
                                             
                                         </div>
@@ -422,9 +426,9 @@
 
 <?php
          if((!file_exists("uploads/profile_picture/$copy_img_user"))){ ?>
-            <img class="card-img-top img-fluid mx-auto d-block" style="width: 50%;" src="<?php echo $RunLink->Call_Link_System();?>/uploads/profile_picture/no_picture.jpg" class="img-thumbnail">
+            <img class="card-img-top img-fluid mx-auto d-block" style="width: 50%; height: auto;" src="<?php echo $RunLink->Call_Link_System();?>/uploads/profile_picture/no_picture.jpg" class="img-thumbnail">
 <?php    }else{ ?>
-            <img class="card-img-top img-fluid mx-auto d-block" style="width: 50%;" src="<?php echo $RunLink->Call_Link_System();?>/uploads/profile_picture/<?php echo $row['admin_img'];?>" class="img-thumbnail">
+            <img class="card-img-top img-fluid mx-auto d-block" style="width: 50%; height: auto;" src="<?php echo $RunLink->Call_Link_System();?>/uploads/profile_picture/<?php echo $row['admin_img'];?>" class="img-thumbnail">
 <?php    }  ?>
                     
                                         </div>                            

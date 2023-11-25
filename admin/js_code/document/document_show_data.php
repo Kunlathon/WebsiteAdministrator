@@ -113,7 +113,7 @@
     }else{}
 ?>
 
-<div class="table-responsive">
+    <div class="table-responsive">
         <table class="table table-bordered" id="datatable-button-html5-columns-STD" style="width: 100%;">
             <thead>
                 <tr align="center">

@@ -25,7 +25,7 @@ if ((preg_match("/main_navigation.php/", $_SERVER['PHP_SELF']))) {
     <?php if ((check_session("admin_status_lcm") == '1')) { ?>
 
         <li class="nav-item">
-            <a href="<?php echo $RunLink->Call_Link_System(); ?>/" class="nav-link">
+            <a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=dashboard" class="nav-link">
                 <i class="icon-home4"></i>
                 <span>
                     หน้าแรก
@@ -67,7 +67,7 @@ if ((preg_match("/main_navigation.php/", $_SERVER['PHP_SELF']))) {
                 <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=image_slide" class="nav-link ">ภาพสไลด์</a></li>
                 <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=picture_album" class="nav-link ">ภาพกิจกรรม</a></li>
                 <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_video" class="nav-link ">วิดีโอ</a></li>
-                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=document" class="nav-link ">เอกสารดาวน์โหลด</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=document_category" class="nav-link ">เอกสารดาวน์โหลด</a></li>
 
             </ul>
         </li>
@@ -127,7 +127,7 @@ if ((preg_match("/main_navigation.php/", $_SERVER['PHP_SELF']))) {
             </ul>
         </li>
 
-        <li class="nav-item nav-item-submenu">
+        <li class="nav-item nav-item">
             <a href="#" class="nav-link"><i class="icon-puzzle2"></i> <span>ออกจากระแบบ</span></a>
         </li>
 

@@ -19,6 +19,10 @@ if ((preg_match("/main_navbar.php/", $_SERVER['PHP_SELF']))) {
 	die();
 } else {
 	check_login('admin_username_lcm', 'login.php');
+
+	$mn_ls=new link_system();
+	$set_mn_ls=$mn_ls->Call_Link_System();
+
 ?>
 	<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 	<div class="navbar navbar-expand-lg navbar-dark navbar-static">
@@ -32,9 +36,9 @@ if ((preg_match("/main_navbar.php/", $_SERVER['PHP_SELF']))) {
 		</div>
 
 		<div class="navbar-brand text-center text-lg-left">
-			<a href="index.php" class="d-inline-block">
-				<img src="template/global_assets/images/logo_light.png" class="d-none d-sm-block" alt="">
-				<img src="template/global_assets/images/logo_icon_light.png" class="d-sm-none" alt="">
+			<a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=dashboard" class="d-inline-block">
+				<img src="template/global_assets/images/logo_light.png" class="d-none d-sm-block" alt="dashboard">
+				<img src="template/global_assets/images/logo_icon_light.png" class="d-sm-none" alt="dashboard">
 			</a>
 		</div>
 
@@ -42,7 +46,7 @@ if ((preg_match("/main_navbar.php/", $_SERVER['PHP_SELF']))) {
 			<ul class="navbar-nav">
 				<li class="nav-item dropdown">
 
-					<div class="dropdown-menu dropdown-content wmin-lg-350">
+					<!--<div class="dropdown-menu dropdown-content wmin-lg-350">
 						<div class="dropdown-content-header">
 							<span class="font-weight-semibold">Git updates</span>
 							<a href="#" class="text-body"><i class="icon-sync"></i></a>
@@ -72,13 +76,14 @@ if ((preg_match("/main_navbar.php/", $_SERVER['PHP_SELF']))) {
 								<a href="#" class="text-body ml-2" data-popup="tooltip" title="Bug tracker"><i class="icon-bug2"></i></a>
 							</div>
 						</div>
-					</div>
+					</div>-->
+
 				</li>
 			</ul>
 
 			<span class="badge badge-success my-3 my-lg-0 ml-lg-3">Online</span>
 
-			<ul class="navbar-nav ml-lg-auto">
+			<!--<ul class="navbar-nav ml-lg-auto">
 				<li class="nav-item dropdown">
 					<a href="#" class="navbar-nav-link" data-toggle="dropdown">
 						<i class="icon-people"></i>
@@ -114,11 +119,11 @@ if ((preg_match("/main_navbar.php/", $_SERVER['PHP_SELF']))) {
 						</div>
 					</div>
 				</li>
-			</ul>
+			</ul>-->
 		</div>
 
 		<ul class="navbar-nav flex-row order-1 order-lg-2 flex-1 flex-lg-0 justify-content-end align-items-center">
-			<li class="nav-item nav-item-dropdown-lg dropdown">
+			<!--<li class="nav-item nav-item-dropdown-lg dropdown">
 				<a href="#" class="navbar-nav-link navbar-nav-link-toggler" data-toggle="dropdown">
 					<i class="icon-bubbles4"></i>
 					<span class="badge badge-warning badge-pill ml-auto ml-lg-0">2</span>
@@ -156,22 +161,47 @@ if ((preg_match("/main_navbar.php/", $_SERVER['PHP_SELF']))) {
 						<a href="#" class="btn btn-light btn-block border-0 rounded-top-0" data-popup="tooltip" title="Load more"><i class="icon-menu7"></i></a>
 					</div>
 				</div>
-			</li>
+			</li>-->
+
+			<span class="badge badge-info my-3 my-lg-0 ml-lg-3"><?php echo "Update : 2023/11/25 14:47";?></span>
 
 			<?php $admin_name_lcm = check_session("admin_name_lcm"); ?>
 
 			<li class="nav-item nav-item-dropdown-lg dropdown dropdown-user h-100">
 				<a href="#" class="navbar-nav-link navbar-nav-link-toggler dropdown-toggle d-inline-flex align-items-center h-100" data-toggle="dropdown">
-					<img src="template/global_assets/images/placeholders/placeholder.jpg" class="rounded-pill mr-lg-2" height="34" alt="">
-					<span class="d-none d-lg-inline-block"><?php echo $admin_name_lcm; ?></span>
+
+
+		<?php
+            $mn_aid = check_session("admin_id_lcm");
+            $mn_sql = "SELECT * FROM `tb_admin` WHERE `admin_id` = '{$mn_aid}'";
+            $mn_row = row_array($mn_sql);
+                if(($mn_row["admin_img"]!=null)){
+                    $mn_copy_img_user=$mn_row["admin_img"];
+                }else{
+                    $mn_copy_img_user="no_picture.jpg";
+                }
+        ?>
+
+		<?php
+                 if((!file_exists("uploads/profile_picture/$mn_copy_img_user"))){ ?>
+					<img src="<?php echo $RunLink->Call_Link_System();?>/uploads/profile_picture/no_picture.jpg" class="rounded-circle" style="width: 100%; height: 30px;"> 
+        <?php    }else{ ?>
+					<img src="<?php echo $RunLink->Call_Link_System();?>/uploads/profile_picture/<?php echo $mn_row['admin_img'];?>" class="rounded-circle" style="width: 100%; height: 30px;"> 
+        <?php    }  ?>
+
+
+
+					
+					<span class="d-none d-lg-inline-block"> <?php echo $admin_name_lcm; ?></span>
 				</a>
 
 				<div class="dropdown-menu dropdown-menu-right">
-					<a href="?modules=profile" class="dropdown-item"><i class="icon-user-plus"></i> ข้อมูลของฉัน</a>
-					<a href="#" class="dropdown-item"><i class="icon-comment-discussion"></i> การเข้าสู่ระบบ <span class="badge badge-primary badge-pill ml-auto">58</span></a>
-					<a href="#" class="dropdown-item"><i class="icon-comment-discussion"></i> Messages <span class="badge badge-primary badge-pill ml-auto">58</span></a>
+					<a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=profile" class="dropdown-item"><i class="icon-user-plus"></i> ข้อมูลของฉัน</a>
+					<a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=changepass" class="dropdown-item"><i class="icon-key"></i> เปลี่ยนรหัสผ่าน</a>
+					<!--<a href="#" class="dropdown-item"><i class="icon-comment-discussion"></i> การเข้าสู่ระบบ <span class="badge badge-primary badge-pill ml-auto">58</span></a>
+					<a href="#" class="dropdown-item"><i class="icon-comment-discussion"></i> Messages <span class="badge badge-primary badge-pill ml-auto">58</span></a>-->
 					<div class="dropdown-divider"></div>
-					<a href="?modules=school" class="dropdown-item"><i class="icon-cog5"></i> ตั้งค่าโรงเรียน</a>
+					<a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=basic_website" class="dropdown-item"><i class="icon-cog5"></i> ข้อมูลเว็บไชต์</a>
 					<a id="sweet_Logout" class="dropdown-item"><i class="icon-switch2"></i> ออกจากระบบ</a>
 				</div>
 			</li>
