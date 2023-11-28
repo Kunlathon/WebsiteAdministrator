@@ -42,6 +42,21 @@ include("../../config/fnc.php");
     $user_change_name=filter_input(INPUT_POST,'user_change_name');
     $course_detail_id=filter_input(INPUT_POST,'course_detail');
 
+
+
+
+        if((isset($_POST["user_tel"]))){
+            $user_tel=filter_input(INPUT_POST,'user_tel');
+        }else{
+            $user_tel="-";
+        }
+
+        if((isset($_POST["user_email"]))){
+            $user_email=filter_input(INPUT_POST,'user_email');
+        }else{
+            $user_email="-";
+        }
+
         if((isset($_POST["address2"]))){
             $user_address_no=filter_input(INPUT_POST,'address2');
         }else{
@@ -170,6 +185,8 @@ include("../../config/fnc.php");
             "user_pic"=>$register_new_name,
             "user_pic_passport"=>$passport_new_name,
             "user_pic_visa"=>$visa_new_name,
+            "user_tel"=>$user_tel,
+            "user_email"=>$user_email,
             "user_status"=>'1'
         );
         insert("tb_student_card", $student_card_data);

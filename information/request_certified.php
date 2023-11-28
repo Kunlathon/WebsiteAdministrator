@@ -685,21 +685,21 @@ For collect, use and disclose my personal information for the purpose of Reauest
 
                   if(user_tel===""){
                     document.getElementById("user_tel-null").innerHTML=
-                      '<input name="user_tel" id="user_tel" type="text" class="form-control is-invalid" value="" placeholder="เบอร์โทรศัพท์ (Contact No.)">';
+                      '<input name="user_tel" id="user_tel" type="text" class="form-control is-invalid" value="'+user_tel+'" placeholder="เบอร์โทรศัพท์ (Contact No.)" required="required">';
                     count_error=count_error+1;
                   }else{
                     document.getElementById("user_tel-null").innerHTML=
-                      '<input name="user_tel" id="user_tel" type="text" class="form-control is-valid" value="'+user_tel+'" placeholder="เบอร์โทรศัพท์ (Contact No.)">';                   
+                      '<input name="user_tel" id="user_tel" type="text" class="form-control is-valid" value="'+user_tel+'" placeholder="เบอร์โทรศัพท์ (Contact No.)" required="required">';                   
                     count_error=count_error+0;
                   }
 
                   if(user_email===""){
                     document.getElementById("user_email-null").innerHTML=
-                      '<input name="user_email" id="user_email" type="email" class="form-control is-invalid" value="" placeholder="E-mail">';
+                      '<input name="user_email" id="user_email" type="email" class="form-control is-invalid" value="'+user_email+'" placeholder="E-mail" required="required">';
                     count_error=count_error+1;
                   }else{
                     document.getElementById("user_email-null").innerHTML=
-                      '<input name="user_email" id="user_email" type="email" class="form-control is-valid" value="'+user_email+'" placeholder="E-mail">';
+                      '<input name="user_email" id="user_email" type="email" class="form-control is-valid" value="'+user_email+'" placeholder="E-mail" required="required">';
                     count_error=count_error+0;
                   }
 

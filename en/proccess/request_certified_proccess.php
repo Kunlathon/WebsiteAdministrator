@@ -111,6 +111,18 @@ include("../../config/fnc.php");
         $course_detail="-";
     }
 
+    if((isset($_POST["user_tel"]))){
+        $user_tel=filter_input(INPUT_POST,'user_tel');
+    }else{
+        $user_tel="-";
+    }
+
+    if((isset($_POST["user_email"]))){
+        $user_email=filter_input(INPUT_POST,'user_email');
+    }else{
+        $user_email="-";
+    }
+
 
     $register_nameNew=$Dateimg."_register_certified";
     $register_name = $_FILES["img1"]["name"];
@@ -187,6 +199,8 @@ include("../../config/fnc.php");
         "user_pic"=>$register_new_name,
         "user_pic_passport"=>$passport_new_name,
         "user_pic_visa"=>$visa_new_name,
+        "user_tel"=>$user_tel,
+        "user_email"=>$user_email,
         "user_status"=>'1'
     );
     insert("tb_certified", $request_certifed_data);

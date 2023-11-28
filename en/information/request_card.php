@@ -267,13 +267,17 @@ ini_set('display_errors', 0);
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label >เบอร์โทรศัพท์ (Phone) </label>
-                                                            <input name="" id="" type="text" class="form-control" placeholder="เบอร์โทรศัพท์ (Phone)">
+                                                            <div id="user_tel-null">
+                                                            <input name="user_tel" id="user_tel" type="text" class="form-control" placeholder="เบอร์โทรศัพท์ (Phone)" required="required">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label >E-mail </label>
-                                                            <input name="" id="" type="email" class="form-control" placeholder="E-mail">
+                                                            <div id="user_email-null">
+                                                            <input name="user_email" id="user_email" type="email" class="form-control" placeholder="E-mail" required="required">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -735,6 +739,9 @@ For collect, use and disclose my personal information for the purpose of request
             var province2=$("#province2").val();
             var citycode2=$("#citycode2").val();
 
+            var user_tel=$("#user_tel").val();
+            var user_email=$("#user_email").val();
+
             var course_detail=$("#course_detail").val();
 
             var check_error="yes";
@@ -781,6 +788,27 @@ For collect, use and disclose my personal information for the purpose of request
                   }else{
                     document.getElementById("address2-null").innerHTML=
                       '<input name="address2" id="address2" type="text" class="form-control is-valid" value="'+address2+'" placeholder="วัด/บ้านเลขที่ (House No.)" required="required">';
+                    count_error=count_error+0;
+                  }
+
+
+                  if(user_tel===""){
+                    document.getElementById("user_tel-null").innerHTML=
+                    '<input name="user_tel" id="user_tel" type="text" class="form-control is-invalid" placeholder="เบอร์โทรศัพท์ (Phone)" value="'+user_tel+'" required="required">';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("user_tel-null").innerHTML=
+                    '<input name="user_tel" id="user_tel" type="text" class="form-control is-valid" placeholder="เบอร์โทรศัพท์ (Phone)" value="'+user_tel+'" required="required">';
+                    count_error=count_error+0;
+                  }
+
+                  if(user_email===""){
+                    document.getElementById("user_email-null").innerHTML=
+                    '<input name="user_email" id="user_email" type="email" class="form-control is-invalid" placeholder="E-mail" value="'+user_email+'" required="required" >';
+                    count_error=count_error+1;
+                  }else{
+                    document.getElementById("user_email-null").innerHTML=
+                    '<input name="user_email" id="user_email" type="email" class="form-control is-valid" placeholder="E-mail" value="'+user_email+'" required="required">';
                     count_error=count_error+0;
                   }
 

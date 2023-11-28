@@ -643,7 +643,7 @@ For collect, use and disclose my personal information for Online Enrollment only
         $("#course").on('change',function(){
             var course_key=$("#course").val();
                 if(course_key!==""){
-                    $.post("proccess/register_data_course.php",{
+                    $.post("../proccess/register_data_course.php",{
                         course_key:course_key
                     },function(run_course_js){
                         if(run_course_js!=""){
