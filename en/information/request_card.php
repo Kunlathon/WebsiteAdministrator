@@ -266,7 +266,7 @@ ini_set('display_errors', 0);
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label >เบอร์โทรศัพท์ (Phone) </label>
+                                                            <label >เบอร์โทรศัพท์ (Phone) <font style="color: #FF0000;">*</font></label>
                                                             <div id="user_tel-null">
                                                             <input name="user_tel" id="user_tel" type="text" class="form-control" placeholder="เบอร์โทรศัพท์ (Phone)" required="required">
                                                             </div>
@@ -274,7 +274,7 @@ ini_set('display_errors', 0);
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label >E-mail </label>
+                                                            <label >E-mail <font style="color: #FF0000;">*</font></label>
                                                             <div id="user_email-null">
                                                             <input name="user_email" id="user_email" type="email" class="form-control" placeholder="E-mail" required="required">
                                                             </div>

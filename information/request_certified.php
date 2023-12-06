@@ -263,7 +263,7 @@
                                                 <div class="row g-5">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label >เบอร์โทรศัพท์ (Phone)</label>
+                                                            <label >เบอร์โทรศัพท์ (Phone) <font style="color: #FF0000;">*</font></label>
                                                             <div id="user_tel-null">
                                                             <input name="user_tel" id="user_tel" type="text" class="form-control" placeholder="เบอร์โทรศัพท์ (Phone)" value="">
                                                             </div>
@@ -271,7 +271,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label >E-mail</label>
+                                                            <label >E-mail <font style="color: #FF0000;">*</font></label>
                                                             <div id="user_email-null">
                                                             <input name="user_email" id="user_email" type="email" class="form-control" placeholder="E-mail">
                                                             </div>
@@ -384,13 +384,13 @@
 
                                                             <label class="form-check">
                                                                 <input class="form-check-input" name="user_certified" id="user_certified" type="checkbox" value="1">
-                                                                <span class="form-check-label">ยื่นเรื่องคำร้อง (Recomendation Letter)</span>
+                                                                <span class="form-check-label">ขอหนังสือรับรองนักเรียน (Recomendation Letter)</span>
                                                             </label>
                                                             
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="alert alert-success" role="alert">
-                                                        ยื่นเรื่องคำร้อง (Recomendation Letter)
+                                                        ขอหนังสือรับรองนักเรียน (Recomendation Letter)
                                                         </div>  
                                                     </div>
                                                 </div>

@@ -24,7 +24,7 @@
                             
 					<?php   } ?>
 
-                    <p><?php echo $rowRes['information_detail'];?></p>
+                    <p><?php echo $rowRes['information_detail_en'];?></p>
 
                   </div>
                   

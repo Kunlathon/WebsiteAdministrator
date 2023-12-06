@@ -26,7 +26,7 @@ function connect(){
 		if (($Server=='127.0.0.1' or $Server=='::1')){
 			//MySQL Connect
 			$db_config = array(
-				"host" => "localhost:3310",  // กำหนด host
+				"host" => "localhost",  // กำหนด host
 				"user" => "root", // กำหนดชื่อ user
 				"pass" => "1234",   // กำหนดรหัสผ่าน
 				"dbname" => "mcucm_languagecenter_db2023",  // กำหนดชื่อฐานข้อมูล

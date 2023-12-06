@@ -39,26 +39,9 @@
 
             if(($manage=="edit")){  
                 
-                $setting_sql = "SELECT * FROM `tb_setting` WHERE `sid`='1'";
+                $setting_sql = "SELECT * FROM `tb_setting`";
                 $setting_row = row_array($setting_sql);
                     if((is_array($setting_row) and count($setting_row))){
-                        $txt_sid=$setting_row[""];
-                        $txt_title=$setting_row[""];
-                        $txt_title_en=$setting_row[""];
-                        $txt_title_cn=$setting_row[""];
-                        $txt_keyword=$setting_row[""];
-                        $txt_keyword_en=$setting_row[""];
-                        $txt_keyword_cn=$setting_row[""];
-                        $txt_desc_web=$setting_row[""];
-                        $txt_desc_web_en=$setting_row[""];
-                        $txt_desc_web_cn=$setting_row[""];
-                        $txt_noscript=$setting_row[""];
-                        $txt_email=$setting_row[""];
-                        $txt_phone=$setting_row[""];
-                        $txt_addr=$setting_row[""];
-                        $txt_addr_cn=$setting_row[""];
-                        $txt_addr_en=$setting_row[""];
-                        $txt_site_color=$setting_row[""];
 
                     }else{
 

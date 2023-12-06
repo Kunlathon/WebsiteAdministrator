@@ -67,7 +67,7 @@ if ((preg_match("/main_navigation.php/", $_SERVER['PHP_SELF']))) {
                 <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=image_slide" class="nav-link ">ภาพสไลด์</a></li>
                 <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=picture_album" class="nav-link ">ภาพกิจกรรม</a></li>
                 <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_video" class="nav-link ">วิดีโอ</a></li>
-                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=document_category" class="nav-link ">เอกสารดาวน์โหลด</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=document" class="nav-link ">เอกสารดาวน์โหลด</a></li>
 
             </ul>
         </li>
@@ -127,7 +127,7 @@ if ((preg_match("/main_navigation.php/", $_SERVER['PHP_SELF']))) {
             </ul>
         </li>
 
-        <li class="nav-item nav-item">
+        <li class="nav-item nav-item-submenu">
             <a href="#" class="nav-link"><i class="icon-puzzle2"></i> <span>ออกจากระแบบ</span></a>
         </li>
 
