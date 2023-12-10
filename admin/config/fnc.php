@@ -128,25 +128,6 @@ function date_full_time_th($strDate)
     return "$strDay $strMonthThai $strYear, $strHour:$strMinute น.";
 }
 
-function admin_status($num)
-{
-    $status = "ไม่มีตำแหน่ง";
-
-    if ($num == "1") {
-        $status = "ผู้ดูแลระบบ";
-    } elseif ($num == "2") {
-        $status = "วิชาการไทย";
-    } elseif ($num == "3") {
-        $status = "วิชาการต่างประเทศ";
-    } elseif ($num == "4") {
-        $status = "นายทะเบียน";
-    } elseif ($num == "5") {
-        $status = "เจ้าหน้าที่ทะเบียน";
-    }
-
-    return $status;
-}
-
 function teacher_type($num)
 {
     $status = "ไม่มีตำแหน่ง";
@@ -209,6 +190,21 @@ function marital_status($num)
     } elseif ($num == "5") {
         $status = "แยกกันอยู่";
     } 
+
+    return $status;
+}
+
+function user_status($num)
+{
+    $status = "ไม่มีตำแหน่ง";
+
+    if ($num == 1) {
+        $status = "ผู้ดูแลระบบ";
+    } elseif ($num == 2) {
+        $status = "ผู้บริหาร";
+    } elseif ($num == 3) {
+        $status = "พนักงาน";
+    }
 
     return $status;
 }
@@ -342,4 +338,76 @@ function teacher_teach_status($num)
 
     return $status;
 }
+
+function register_status($num)
+{
+    $status = "ไม่มีข้อมูล";
+
+    if ($num == 1) {
+        $status = "สมัครเรียน";
+    } elseif ($num == 2) {
+        $status = "ผู้มีสิทธิ์สอบ";
+    } elseif ($num == 3) {
+        $status = "ผู้ไม่มีสิทธิ์สอบ";
+    } elseif ($num == 4) {
+        $status = "ผู้สอบผ่าน";
+    } elseif ($num == 5) {
+        $status = "ผู้สอบไม่ผ่าน";
+    } 
+
+    return $status;
+}
+
+function student_new_status($num)
+{
+    $status = "ไม่มีข้อมูล";
+
+    if ($num == 1) {
+        $status = "<span class='label label-sm label-success'> ปกติ </span>";
+    } elseif ($num == 2) {
+        $status = "<span class='label label-sm label-warning'> ศิษย์เก่า </span>";
+    }
+
+    return $status;
+}
+
+function admin_status($num)
+{
+    $status = "ไม่มีตำแหน่ง";
+
+    if ($num == "1") {
+        $status = "ผู้ดูแลระบบ";
+    } elseif ($num == "2") {
+        $status = "เจ้าหน้าที่";
+    } 
+
+    return $status;
+}
+
+function payment_status($num)
+{
+    $status = "ค้างชำระ";
+
+    if ($num == "1") {
+        $status = "เงินสด";
+    } elseif ($num == "2") {
+        $status = "โอนเงิน";
+    } 
+
+    return $status;
+}
+
+function show_status($num)
+{
+    $status = "ไม่มีข้อมูล";
+
+    if ($num == 1) {
+        $status = "(แสดง)";
+    } elseif ($num == 0) {
+        $status = "(ไม่แสดง)";
+    } 
+
+    return $status;
+}
+
 ?>

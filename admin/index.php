@@ -105,8 +105,8 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 		include("js_code/student_data/student_data_js.php");
 	} elseif (($modules == "term_data")) {
 		include("js_code/term_data/term_data_js.php");
-	} elseif (($modules == "course_data")) {
-		include("js_code/course_data/course_data_js.php");
+	} elseif (($modules == "course")) {
+		include("js_code/course/course_js.php");
 	} elseif (($modules == "classroom_data")) {
 		include("js_code/classroom_data/classroom_data_js.php");	
 	} elseif (($modules == "user_data")) {
@@ -497,7 +497,7 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 						case "term_data":
 							include $load;
 							break;
-						case "course_data":
+						case "course":
 							include $load;
 							break;
 						case "document_category":

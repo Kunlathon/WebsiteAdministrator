@@ -21,28 +21,24 @@ if ((preg_match("/user_menu.php/", $_SERVER['PHP_SELF']))) {
 	<div class="sidebar-section sidebar-user my-1">
 		<div class="sidebar-section-body">
 			<div class="media">
-				<a href="#" class="mr-3">
 
 		<?php
-            $um_aid = check_session("admin_id_lcm");
-            $um_sql = "SELECT * FROM `tb_admin` WHERE `admin_id` = '{$um_aid}'";
-            $um_row = row_array($um_sql);
-                if(($um_row["admin_img"]!="")){
-                    $um_copy_img_user=$um_row["admin_img"];
+            $mn_aid = check_session("admin_id_lcm");
+            $mn_sql = "SELECT * FROM `tb_admin` WHERE `admin_id` = '{$mn_aid}'";
+            $mn_row = row_array($mn_sql);
+                if(($mn_row["admin_img"]!=null)){
+                    $mn_copy_img_user=$mn_row["admin_img"];
                 }else{
-                    $um_copy_img_user="no_picture.jpg";
+                    $mn_copy_img_user="no_picture.jpg";
                 }
         ?>
 
 		<?php
-                 if((!file_exists("uploads/profile_picture/$um_copy_img_user"))){ ?>
-                    <img class="card-img-top img-fluid mx-auto d-block" style="width: 100%; height: 60px;" src="<?php echo $RunLink->Call_Link_System();?>/uploads/profile_picture/no_picture.jpg" class="rounded-circle" >
+                 if((!file_exists("uploads/profile_picture/$mn_copy_img_user"))){ ?>
+					<a href="#" class="mr-3"><img src="<?php echo $RunLink->Call_Link_System();?>/uploads/profile_picture/no_picture.jpg" class="rounded-circle" alt=""></a> 
         <?php    }else{ ?>
-                    <img class="card-img-top img-fluid mx-auto d-block" style="width: 100%; height: 60px;" src="<?php echo $RunLink->Call_Link_System();?>/uploads/profile_picture/<?php echo $um_row['admin_img'];?>" class="rounded-circle" >
+					<a href="#" class="mr-3"><img src="<?php echo $RunLink->Call_Link_System();?>/uploads/profile_picture/<?php echo $mn_row['admin_img'];?>" class="rounded-circle" alt=""></a> 
         <?php    }  ?>
-					
-
-				</a>
 
 				<?php
 					$admin_name_lcm = check_session("admin_name_lcm");

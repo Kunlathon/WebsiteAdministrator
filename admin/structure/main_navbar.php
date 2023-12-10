@@ -163,24 +163,28 @@ if ((preg_match("/main_navbar.php/", $_SERVER['PHP_SELF']))) {
 				</div>
 			</li>-->
 
-			<span class="badge badge-info my-3 my-lg-0 ml-lg-3"><?php echo "Update : 2023/11/25 14:47";?></span>
-
-			<?php $admin_name_lcm = check_session("admin_name_lcm"); ?>
-
-			<li class="nav-item nav-item-dropdown-lg dropdown dropdown-user h-100">
-				<a href="#" class="navbar-nav-link navbar-nav-link-toggler dropdown-toggle d-inline-flex align-items-center h-100" data-toggle="dropdown">
-
-
 		<?php
             $mn_aid = check_session("admin_id_lcm");
             $mn_sql = "SELECT * FROM `tb_admin` WHERE `admin_id` = '{$mn_aid}'";
             $mn_row = row_array($mn_sql);
                 if(($mn_row["admin_img"]!=null)){
                     $mn_copy_img_user=$mn_row["admin_img"];
+                    $admin_lastlogin=$mn_row["admin_lastlogin"];
+					
                 }else{
                     $mn_copy_img_user="no_picture.jpg";
+                    $admin_lastlogin=$mn_row["admin_lastlogin"];
                 }
         ?>
+
+
+			<span class="badge badge-info my-3 my-lg-0 ml-lg-3"><?php echo "Last Login : $admin_lastlogin";?></span>
+
+			<?php $admin_name_lcm = check_session("admin_name_lcm"); ?>
+
+			<li class="nav-item nav-item-dropdown-lg dropdown dropdown-user h-100">
+				<a href="#" class="navbar-nav-link navbar-nav-link-toggler dropdown-toggle d-inline-flex align-items-center h-100" data-toggle="dropdown">
+
 
 		<?php
                  if((!file_exists("uploads/profile_picture/$mn_copy_img_user"))){ ?>
