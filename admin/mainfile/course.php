@@ -152,6 +152,37 @@
                 <?php
                          if((isset($_POST["course_id"]))){ 
                             $course_key=filter_input(INPUT_POST,'course_id');
+                            $sql = "SELECT * FROM `tb_course` WHERE `course_id`= '{$course_key}'";
+                            $row = row_array($sql);
+
+                                if((isset($row['course_name']))){
+                                    $course_name=$row['course_name'];
+                                }else{
+                                    $course_name=null;
+                                }
+
+                                if((isset($row['course_name_en']))){
+                                    $course_name_en=$row['course_name_en'];
+                                }else{
+                                    $course_name_en=null;
+                                }
+
+                                
+                                if((isset($row['course_name_cn']))){
+                                    $course_name_cn=$row['course_name_cn'];
+                                }else{
+                                    $course_name_cn=null;
+                                }
+
+                                if((isset($row['course_status']))){
+                                    if(($row['course_status']==1)){
+                                        $cs_status='checked="checked"';
+                                    }else{
+                                        $cs_status=null;
+                                    }
+                                }else{
+
+                                }
 
                             ?>
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
@@ -203,7 +234,7 @@
                                     <div class="form-group row">
                                         <label class="col-form-label col-<?php echo $grid;?>-2">หลักสูตร (TH)</label>
                                         <div class="col-<?php echo $grid;?>-10">
-                                            <input name="txtname" id="txtname" type="text" class="form-control" placeholder="กรอกข้อมูลหลักสูตร (TH)..." value="">
+                                            <input name="txtname" id="txtname" type="text" class="form-control" placeholder="กรอกข้อมูลหลักสูตร (TH)..." value="<?php echo $course_name;?>">
                                         </div>
                                     </div>
                                 </div>
@@ -217,7 +248,7 @@
                                 <div class="form-group row">
 									<label class="col-form-label col-<?php echo $grid;?>-2">หลักสูตร (EN)</label>
 									<div class="col-<?php echo $grid;?>-10">
-										<input name="txtnameen" id="txtnameen" type="text" class="form-control" placeholder="กรอกข้อมูลหลักสูตร (EN)...">
+										<input name="txtnameen" id="txtnameen" type="text" class="form-control" placeholder="กรอกข้อมูลหลักสูตร (EN)..." value="<?php echo $course_name_en;?>">
 									</div>
 								</div>
                             </div>
@@ -230,12 +261,31 @@
                                 <div class="form-group row">
 									<label class="col-form-label col-<?php echo $grid;?>-2">หลักสูตร (CN)</label>
 									<div class="col-<?php echo $grid;?>-10">
-										<input name="txtnamecn" id="txtnamecn" type="text" class="form-control" placeholder="กรอกข้อมูลหลักสูตร (CN)...">
+										<input name="txtnamecn" id="txtnamecn" type="text" class="form-control" placeholder="กรอกข้อมูลหลักสูตร (CN)..." value="<?php echo $course_name_cn;?>">
 									</div>
 								</div>
                             </div>
                         </div>
                      </fieldset>
+
+                     <fieldset class="mb-3">
+                        <div class="row">
+                            <div class="col-<?php echo $grid;?>-12">
+                                <div class="form-group row">
+                                    <label class="col-form-label col-<?php echo $grid;?>-2">สถานะ</label>
+                                    <div class="col-<?php echo $grid;?>-10">
+                                        <div class="custom-control custom-switch custom-switch-square custom-control-success mb-2">
+                                            <input type="checkbox" class="custom-control-input" name="course_status" id="course_status" value="1" <?php echo $cs_status;?>>
+                                            <label class="custom-control-label" for="course_status">แสดง</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                     </fieldset>
+
+
 
                      <fieldset class="mb-3">
                         <div class="row">
