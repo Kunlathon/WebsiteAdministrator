@@ -50,63 +50,50 @@
             if(($run_show=="show")){ ?>
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 <script>
-    $(document).ready(function(){
+    $(course).ready(function() {
 
-        $.extend( $.fn.dataTable.defaults, {
+        $.extend($.fn.dataTable.defaults, {
             autoWidth: false,
-            columnDefs: [{ 
-                orderable: false,
-                width: 100,
-                //targets: [ 7 ]
-            }],
-            dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+            dom: '<"datatable-header"fBl><"datatable-scroll-wrap"t><"datatable-footer"ip>',
             language: {
-                search: '<span>Filter:</span> _INPUT_',
-                searchPlaceholder: 'Type to filter...',
-                lengthMenu: '<span>Show:</span> _MENU_',
-                paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
+                search: '<span>ค้นหา:</span> _INPUT_',
+                searchPlaceholder: 'พิมพ์เพื่อค้นหา...',
+                lengthMenu: '<span>แสดง:</span> _MENU_',
+                paginate: {
+                    'first': 'First',
+                    'last': 'Last',
+                    'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;',
+                    'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;'
+                }
             }
         });
 
-        // Apply custom style to select
-        $.extend( $.fn.dataTableExt.oStdClasses, {
-            "sLengthSelect": "custom-select"
-        });
+        $('#datatable-button-html5-columns-STD').DataTable({
+            processing: true,
 
-        // Basic datatable
-        $('.datatable-button-html5-columns-STD').DataTable({
-            
             columnDefs: [{
                 "targets": '_all',
                 "createdCell": function(td, cellData, rowData, row, col) {
                     $(td).css('padding', '4px')
                 }
             }],
+            "paging"       :    true,
+            "lengthChange" :    true,
+            "searching"    :    true,
+            "ordering"     :    false,
+            "info"         :    true,
+            "autowidth"    :    false,
             "lengthMenu": [
-                [20, 40, 60, 100, -1],
-                [20, 40, 60, 100,"All"]
-            ]       
-        });    
-        
-        $('.datatable-button-html5-columns-STDB').DataTable({
-            columnDefs: [{
-                "targets": '_all',
-                "createdCell": function(td, cellData, rowData, row, col) {
-                    $(td).css('padding', '4px')
-                }
-            }],
-            "paging" : false,
-            "lengehChange": false,
-            "searching": true,
-            "ordering": false,
-            "autoWidth": false       
+                    [20, 40, 60, 80, 100, -1],
+                    [20, 40, 60, 80, 100, "All"]
+                ]
         });
 
     })
 </script>
 
     <div class="table-responsive">
-        <table class="table table-bordered datatable-button-html5-columns-STD">
+        <table class="table table-bordered" id="datatable-button-html5-columns-STD" style="width: 100%;">
             <thead>
                 <tr align="center">
                     <th>
@@ -199,47 +186,16 @@
 </form>
                                 </li>
                                 <li class="nav-item">
-                                <button type="button" name="Delete_Course_Delete" data-toggle="modal" data-target="#modal_course_Delete<?php echo $row['course_id']; ?>" class="btn btn-outline-danger btn-sm" data-popup="tooltip" title="ลบ" data-placement="bottom"><i class="icon-bin"></i></button>
+                                    <button type="button" name="delete_course_<?php echo $row["course_id"];?>" id="delete_course_<?php echo $row["course_id"];?>" class="btn btn-outline-danger btn-sm" data-popup="tooltip" title="ลบ" data-placement="bottom" value="<?php echo $row["course_id"];?>"><i class="icon-bin"></i></button>
                                 </li>
                             </ul>
                         </div>
                     </td>
                 </tr>
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-<!--Delete-->
-    <div id="modal_course_Delete<?php echo $row['course_id']; ?>" class="modal fade" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-danger text-white">
-                    <div><i class="icon-warning" style="font-size :30px;"></i></div>
-                </div>
-
-                <div class="modal-body">
-<form name="Form-course-Delete" id="Form-course-Delete" method="post" accept-charset="utf-8">
-                    <div class="row">
-                        <div class="col-<?php echo $grid; ?>-12">
-                            <div class="row" style="text-align: center;">
-                                <div class="col-<?php echo $grid; ?>-12" style="font-size :18px">
-                                    ต้องการลบข้อมูล  หรือไม่
-                                </div>
-                            </div>
-                        </div>
-                    </div><br>
-                    <div class="row" style="text-align: center;">
-                        <div class="col-<?php echo $grid; ?>-12">
-                            <button type="button" data-dismiss="modal" id="delete_course_<?php echo $row["course_id"];?>" name="delete_course_<?php echo $row["course_id"];?>" class="btn btn-outline-success" value="<?php echo $row["course_id"];?>">ใช้</button>
-                            <button type="button" data-dismiss="modal" class="btn btn-outline-danger">ยกเลิก</button>
-                        </div>
-                    </div>
-</form>
-                </div>
-
-            </div>
-        </div>
-    </div>
 
     <script>
-        $(document).ready(function(){
+        $(course).ready(function(){
             var course_id=$("#delete_course_<?php echo $row["course_id"];?>").val();
             var action="delete";
             var action_error="error";
@@ -259,6 +215,21 @@
 // Defaults End
 
             $('#delete_course_<?php echo $row["course_id"];?>').on('click', function() {
+                swalInitDeteleImageData.fire({
+                    title: 'ต้องการลบข้อมูลหรือไม่',
+                    //text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    allowOutsideClick: false,
+                    showCancelButton: true,
+                    confirmButtonText: 'ใช่',
+                    cancelButtonText: 'ไม่',
+                    buttonsStyling: false,
+                    customClass: {
+                        confirmButton: 'btn btn-success',
+                        cancelButton: 'btn btn-danger'
+                    }
+                }).then(function(result) {
+                    if(result.value){
 
                         if (action==="") {
                             swalInitDeteleImageData.fire({
@@ -314,7 +285,7 @@
                                             }
                                         }).then(function(result) {
                                             if (result.dismiss === Swal.DismissReason.timer) {
-                                                document.location = "<?php echo $RunLink->Call_Link_System(); ?>/?modules=course";
+                                                course.location = "<?php echo $RunLink->Call_Link_System(); ?>/?modules=course";
                                             } else {}
                                         });
 
@@ -333,14 +304,23 @@
                             })
                         }else{}
 
+                    }else if (result.dismiss === swal.DismissReason.cancel){
+                        swalInitDeteleImageData.fire({
+                            title: 'พบข้อผิดพลาด',
+                            text: process_delete,
+                            icon: 'error'
+                        });
+                    }else{
+                        swalInitDeteleImageData.fire({
+                            title: 'XXX',
+                            text: process_delete,
+                            icon: 'error'
+                        });
+                    }
                 });
             });
+        })
     </script>
-
-<!--Delete End-->
-
-
-
 
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
     <?php    } ?>

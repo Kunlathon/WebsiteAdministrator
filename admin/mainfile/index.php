@@ -187,11 +187,14 @@
 	<script src="<?php echo $RunLink->Call_Link_System(); ?>/template/global_assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
 
 	<!-- Theme JS files extra_sweetalert -->
-
 	<script>
-		 $(document).ready(function(){
-
-			// Defaults
+		var SA_Logout = function() {
+			var _componentSA_Logout = function() {
+				if (typeof swal == 'undefined') {
+					console.warn('Warning - sweet_alert.min.js is not loaded.');
+					return;
+				}
+				// Defaults
 				var swalInitLogout = swal.mixin({
 					buttonsStyling: false,
 					customClass: {
@@ -201,40 +204,53 @@
 						input: 'form-control'
 					}
 				});
-			// Defaults End
+				// Defaults End
 
-			$('#sweet_Logout').on('click', function() {
-				swalInitLogout.fire({
-					title: 'ต้องการออกจากระบบหรือไม่',
-					//text: "You won't be able to revert this!",
-					icon: 'warning',
-					allowOutsideClick: false,
-					showCancelButton: true,
-					confirmButtonText: 'ใช้, ต้องออกจากระบบ',
-					cancelButtonText: 'ไม่, ไม่ต้องการออกจากระบบ',
-					buttonsStyling: false,
-					customClass: {
-						confirmButton: 'btn btn-success',
-						cancelButton: 'btn btn-danger'
-					}
-				}).then(function(result) {
-					if (result.value) {
-						document.location = "<?php echo $RunLink->Call_Link_System(); ?>/process/logout.php";
-					} else if (result.dismiss === swal.DismissReason.cancel) {
-						//swalInitLogout.fire(
-						//'Cancelled',
-						//'Your imaginary file is safe :)',
-						//'error'
-						//);
-					} else {
-						//--------------------------------------------------------------------------------------					
-					}
+				//--------------------------------------------------------------------------------------
+				//--------------------------------------------------------------------------------------
+				$('#sweet_Logout').on('click', function() {
+					swalInitLogout.fire({
+						title: 'ต้องการออกจากระบบหรือไม่',
+						//text: "You won't be able to revert this!",
+						icon: 'warning',
+						allowOutsideClick: false,
+						showCancelButton: true,
+						confirmButtonText: 'ใช้, ต้องออกจากระบบ',
+						cancelButtonText: 'ไม่, ไม่ต้องการออกจากระบบ',
+						buttonsStyling: false,
+						customClass: {
+							confirmButton: 'btn btn-success',
+							cancelButton: 'btn btn-danger'
+						}
+					}).then(function(result) {
+						if (result.value) {
+							document.location = "<?php echo $RunLink->Call_Link_System(); ?>/process/logout.php";
+						} else if (result.dismiss === swal.DismissReason.cancel) {
+							//swalInitLogout.fire(
+							//'Cancelled',
+							//'Your imaginary file is safe :)',
+							//'error'
+							//);
+						} else {
+							//--------------------------------------------------------------------------------------					
+						}
+					});
 				});
-			});
-
-		 })
+				//--------------------------------------------------------------------------------------
+			};
+			//--------------------------------------------------------------------------------------
+			return {
+				initComponentsLogin: function() {
+					_componentSA_Logout();
+				}
+			}
+		}();
+		// Initialize module
+		// ------------------------------
+		document.addEventListener('DOMContentLoaded', function() {
+			SA_Logout.initComponentsLogin();
+		});
 	</script>
-
 	<!-- Theme JS files extra_sweetalert End-->
 
 	<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->

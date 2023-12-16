@@ -105,66 +105,7 @@
             echo "NotError";
         }
 
-    }elseif(($action=="edit")){
-        $count_error=0;
-
-        if((isset($_POST["course_id"]))){
-            $course_id=filter_input(INPUT_POST, 'course_id');
-            $count_error=$count_error+0;
-        }else{
-            $course_id=null;
-            $count_error=$count_error+1;
-        }
-
-        if((isset($_POST["txtname"]))){
-            $txtname=filter_input(INPUT_POST, 'txtname');
-            $count_error=$count_error+0;
-        }else{
-            $txtname=null;
-            $count_error=$count_error+1;
-        }
-
-        if((isset($_POST["txtnameen"]))){
-            $txtnameen=filter_input(INPUT_POST, 'txtnameen');
-        }else{
-            $txtnameen=null;
-        }
-
-        if((isset($_POST["txtnamecn"]))){
-            $txtnamecn=filter_input(INPUT_POST, 'txtnamecn');
-        }else{
-            $txtnamecn=null;
-        }
-
-        if((isset($_POST["course_status"]))){
-            $course_status=filter_input(INPUT_POST, 'course_status');
-            $count_error=$count_error+0;
-        }else{
-            $course_status=null;
-            $count_error=$count_error+1;
-        }
-
-        if(($count_error>=1)){
-            echo "Error";
-        }else{
-            $data = array(
-				"course_name" => $txtname ,
-				"course_name_en" => $txtnameen ,
-				"course_name_cn" => $txtnamecn ,
-				//"course_memo" => $txtdetail,
-				"course_status" => $course_status
-			
-		    );
-
-		    update("tb_course", $data, "course_id = '{$course_id}'");
-
-            echo "NotError";
-
-        }
- 
-       
-
-
+        
     }else{
 
     }

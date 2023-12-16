@@ -155,6 +155,12 @@
                             $sql = "SELECT * FROM `tb_course` WHERE `course_id`= '{$course_key}'";
                             $row = row_array($sql);
 
+                                if((isset($row['course_id']))){
+                                   $course_id=$row['course_id'];
+                                }else{
+                                   $course_id=null;
+                                }
+
                                 if((isset($row['course_name']))){
                                     $course_name=$row['course_name'];
                                 }else{
@@ -175,13 +181,9 @@
                                 }
 
                                 if((isset($row['course_status']))){
-                                    if(($row['course_status']==1)){
-                                        $cs_status='checked="checked"';
-                                    }else{
-                                        $cs_status=null;
-                                    }
+                                    $cs_status=$row['course_status'];
                                 }else{
-
+                                    $cs_status=null;
                                 }
 
                             ?>
@@ -274,10 +276,17 @@
                                 <div class="form-group row">
                                     <label class="col-form-label col-<?php echo $grid;?>-2">สถานะ</label>
                                     <div class="col-<?php echo $grid;?>-10">
-                                        <div class="custom-control custom-switch custom-switch-square custom-control-success mb-2">
-                                            <input type="checkbox" class="custom-control-input" name="course_status" id="course_status" value="1" <?php echo $cs_status;?>>
-                                            <label class="custom-control-label" for="course_status">แสดง</label>
-                                        </div>
+                                        <select class="form-control select" data-fouc  name="course_status" id="course_status">
+		<?php
+                 if($cs_status==1){  ?>
+                                            <option value="0">ไม่แสดง</option>
+											<option value="1" selected="selected">แสดง</option>
+        <?php    }else{ ?>
+                                            <option value="0" selected="selected">ไม่แสดง</option>
+											<option value="1">แสดง</option>
+        <?php    } ?>
+
+										</select>
                                     </div>
 
                                 </div>
@@ -291,12 +300,13 @@
                         <div class="row">
                             <div class="col-<?php echo $grid;?>-12">
                                 <div class="form-group row">
-                                    <button type="button" name="button_course_add" id="button_course_add" class="btn btn-info" value="create">บันทึก</button>&nbsp;
+                                    <button type="button" name="button_course_edit" id="button_course_edit" class="btn btn-info" value="edit">บันทึก</button>&nbsp;
                                     <button type="button" name="button_course_reset" id="button_course_reset" class="btn btn-danger">ยกเลิก</button>
 								</div>
                             </div>
                         </div>
                      </fieldset>
+    <input type="hidden" name="course_id" id="course_id" value="<?php echo $course_id;?>">
 </form>
                     </div>
 

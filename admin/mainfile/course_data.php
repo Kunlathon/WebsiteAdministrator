@@ -31,7 +31,9 @@
         }else{
             if((isset($_GET["list"]))){
                 $list=base64_decode(filter_input(INPUT_GET, 'list')) ;
-            }else{}
+            }else{
+                $list=null;
+            }
         }
 ?>
 
@@ -42,9 +44,9 @@
                         <a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=dashboard" class="breadcrumb-item">
                             <i class="icon-home2 mr-2"></i> หน้าแรก</a>
 
-                        <a href="?modules=course_data" class="breadcrumb-item"> จัดการหลักสูตรหลัก</a>
+                        <a href="?modules=course_data" class="breadcrumb-item"> หลักสูตร</a>
 
-                        <a href="#" class="breadcrumb-item"> หลักสูตรหลัก</a>
+                        <a href="#" class="breadcrumb-item"> ข้อมูลหลักสูตร</a>
 
 
                     </div>
@@ -55,63 +57,66 @@
 
         <div class="content">
 
-            <div class="row">
-                <div class="col-<?php echo $grid; ?>-12">
-                    <h4>หลักสูตรหลัก</h4>
-                </div>
-            </div>
-
-            <div class="row">
-
-                <div class="col-<?php echo $grid; ?>-6">
-                    <div class="btn-group">
-                        <button type="button" name="term_data" id="term_data" class="btn btn-outline-success btn-sm" value="">ภาคเรียน</button>&nbsp;&nbsp;
-                        <button type="button" name="grade_data" id="grade_data" class="btn btn-outline-success btn-sm" value="">ระดับชั้น</button>&nbsp;&nbsp;
-                        <button type="button" name="course_data" id="course_data" class="btn btn-success btn-sm" value="">หลักสูตรหลัก</button>&nbsp;&nbsp;
-                        <button type="button" name="classroom_data" id="classroom_data" class="btn btn-outline-success btn-sm" value="">จัดหลักสูตร</button>
+            <fieldset class="mb-3">
+                <div class="row">
+                    <div class="col-<?php echo $grid; ?>-12">
+                        <h4>หลักสูตรหลัก</h4>
                     </div>
                 </div>
+            </fieldset>
 
-                <div class="col-<?php echo $grid; ?>-6">
-                    <fieldset class="mb-3">
-                        <div class="form-group row">
-                            <label class="col-form-label col-<?php echo $grid; ?>-3">ระดับชั้น</label>
-                            <div class="col-<?php echo $grid; ?>-9">
-                                <select class="form-control select" name="classSD" id="classSD" data-placeholder="ระดับชั้น..." required="required">
-                                    <option></option>
-                                    <optgroup label="ระดับชั้น">
+            <fieldset class="mb-3">
+                <div class="row">
 
-                                        <?php
-                                        $listSD = $list;
-                                        $classSD_Sql = "SELECT `grade_id`,`grade_name`,`grade_name_eng` 
-                                                        FROM `tb_grade` 
-                                                        ORDER BY `grade_id` ASC";
-                                        $classSD_Row = result_array($classSD_Sql);
-                                        foreach ($classSD_Row as $key => $classSD_Print) {
-                                            if ((is_array($classSD_Print) && count($classSD_Print))) { ?>
-                                                <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-                                                <?php
-                                                if (($listSD == $classSD_Print["grade_id"])) { ?>
-                                                    <option value="<?php echo $classSD_Print["grade_id"]; ?>" selected="selected"><?php echo $classSD_Print["grade_name"]; ?></option>
-                                                <?php   } else { ?>
-                                                    <option value="<?php echo $classSD_Print["grade_id"]; ?>"><?php echo $classSD_Print["grade_name"]; ?></option>
-                                                <?php   } ?>
-
-                                                <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-                                        <?php       } else {
-                                            }
-                                        } ?>
-
-
-                                    </optgroup>
-                                </select>
-                            </div>
+                    <div class="col-<?php echo $grid; ?>-6">
+                        <div class="btn-group">
+                            <button type="button" name="term_data" id="term_data" class="btn btn-outline-success btn-sm" value="">ภาคเรียน</button>&nbsp;&nbsp;
+                            <button type="button" name="grade_data" id="grade_data" class="btn btn-outline-success btn-sm" value="">ระดับชั้น</button>&nbsp;&nbsp;
+                            <button type="button" name="course_data" id="course_data" class="btn btn-success btn-sm" value="">หลักสูตรหลัก</button>&nbsp;&nbsp;
+                            <button type="button" name="classroom_data" id="classroom_data" class="btn btn-outline-success btn-sm" value="">จัดหลักสูตร</button>
                         </div>
-                    </fieldset>
+                    </div>
+
+                    <div class="col-<?php echo $grid; ?>-6">
+                        <fieldset class="mb-3">
+                            <div class="form-group row">
+                                <label class="col-form-label col-<?php echo $grid; ?>-3">ระดับชั้น</label>
+                                <div class="col-<?php echo $grid; ?>-9">
+                                    <select class="form-control select" name="classSD" id="classSD" data-placeholder="ระดับชั้น..." required="required">
+                                        <option></option>
+                                        <optgroup label="ระดับชั้น">
+
+                                            <?php
+                                            $listSD = $list;
+                                            $classSD_Sql = "SELECT `grade_id`,`grade_name`,`grade_name_eng` 
+                                                            FROM `tb_grade` 
+                                                            ORDER BY `grade_id` ASC";
+                                            $classSD_Row = result_array($classSD_Sql);
+                                            foreach ($classSD_Row as $key => $classSD_Print) {
+                                                if ((is_array($classSD_Print) && count($classSD_Print))) { ?>
+                                                    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                                                    <?php
+                                                    if (($listSD == $classSD_Print["grade_id"])) { ?>
+                                                        <option value="<?php echo $classSD_Print["grade_id"]; ?>" selected="selected"><?php echo $classSD_Print["grade_name"]; ?></option>
+                                                    <?php   } else { ?>
+                                                        <option value="<?php echo $classSD_Print["grade_id"]; ?>"><?php echo $classSD_Print["grade_name"]; ?></option>
+                                                    <?php   } ?>
+
+                                                    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                                            <?php       } else {
+                                                }
+                                            } ?>
+
+
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+
                 </div>
-
-            </div><br>
-
+            </fieldset>
     <?php
 
             if((isset($_POST["manage"]))){

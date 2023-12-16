@@ -123,6 +123,10 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 		include("js_code/course_show_class/course_show_class_js.php");
 	}elseif(($modules=="course_manage")){
 		include("js_code/course_manage/course_manage_js.php");	
+	}elseif(($modules=="course_classroom_data")){
+		include("js_code/course_classroom_data/course_classroom_data_js.php");
+	}elseif(($modules=="course_classroom_show")){
+		include("js_code/course_classroom_show/course_classroom_show_js.php");
 	}elseif(($modules=="image_slide")){
 		include("js_code/image_slide/image_slide_js.php");
 //----------------------------------------------------------------------------------------
@@ -498,6 +502,9 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 							include $load;
 							break;
 						case "course":
+							include $load;
+							break;
+						case "course_classroom_data":
 							include $load;
 							break;
 						case "document_category":
