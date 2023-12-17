@@ -263,7 +263,7 @@ if ((preg_match("/main_navigation.php/", $_SERVER['PHP_SELF']))) {
 
             <ul class="nav nav-group-sub" data-submenu-title="Layouts">
                 <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=" class="nav-link ">อาจารย์</a></li>
-                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=" class="nav-link ">ผู้ใช้งานระบบ</a></li>
+                <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=user" class="nav-link ">ผู้ใช้งานระบบ</a></li>
             </ul>
         </li>
 

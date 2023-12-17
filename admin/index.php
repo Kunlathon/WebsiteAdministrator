@@ -109,10 +109,8 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 		include("js_code/course/course_js.php");
 	} elseif (($modules == "classroom_data")) {
 		include("js_code/classroom_data/classroom_data_js.php");	
-	} elseif (($modules == "user_data")) {
-		include("js_code/user_data/user_data_js.php");	
-	} elseif (($modules == "user_data2")) {
-		include("js_code/user_data2/user_data2_js.php");	
+	} elseif (($modules == "user")) {
+		include("js_code/user/user_js.php");	
 	} elseif (($modules == "check_payment")) {
 		include("js_code/check_payment/check_payment_js.php");
 	} elseif (($modules == "payment_show")) {
@@ -206,6 +204,10 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 		include("js_code/document_category/document_category_js.php");
 	}elseif(($modules=="basic_website")){
 		include("js_code/basic_website/basic_website_js.php");
+	}elseif(($modules=="student_all")){
+		include("js_code/student_all/student_all_js.php");
+	}elseif(($modules=="alumni")){
+		include("js_code/alumni/alumni_js.php");
 	}else{ ?>
 		<!-- Theme JS files -->
 		<script src="<?php echo $RunLink->Call_Link_System(); ?>/template/global_assets/js/plugins/forms/inputs/typeahead/handlebars.min.js"></script>
@@ -359,16 +361,16 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 						case "student_data":
 							include $load;
 							break;						
-						case "user_data":
+						case "user":
 							include $load;
-							break;						
-						case "user_data2";
-							include $load;
-							break;						
+							break;											
 						case "student_success":
 							include $load;
 							break;
-						case "student_alumni":
+						case "student_all":
+							include $load;
+							break;
+						case "alumni":
 							include $load;
 							break;
 						case "student_resign":

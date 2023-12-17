@@ -45,15 +45,6 @@
     }
 ?>
 
-
-
-<?php
-    if((isset($_POST["run_show"]))){
-        $run_show=filter_input(INPUT_POST, 'run_show');
-            if(($run_show=="show")){ 
-                $classtid=filter_input(INPUT_POST,'classtid');                
-                ?>
-<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 <script>
     $(document).ready(function(){
 
@@ -78,6 +69,14 @@
             "sLengthSelect": "custom-select"
         });
 
+
+        var dataTable = $('.datatable-button-html5-columns-STD').DataTable();
+
+        if (dataTable) {
+            dataTable.destroy();
+        }else{}
+
+
         // Basic datatable
         $('.datatable-button-html5-columns-STD').DataTable({
             
@@ -89,11 +88,11 @@
             }],
             "lengthMenu": [
                 [20, 40, 60, 100, -1],
-                [20, 40, 60, 100,"All"]
+                [20, 40 ,60, 100,"All"]
             ]       
         });    
         
-        $('.datatable-button-html5-columns-STDB').DataTable({
+        /*$('.datatable-button-html5-columns-STDB').DataTable({
             columnDefs: [{
                 "targets": '_all',
                 "createdCell": function(td, cellData, rowData, row, col) {
@@ -105,10 +104,19 @@
             "searching": true,
             "ordering": false,
             "autoWidth": false       
-        });
+        });*/
 
     })
 </script>
+
+<?php
+    if((isset($_POST["run_show"]))){
+        $run_show=filter_input(INPUT_POST, 'run_show');
+            if(($run_show=="show")){ 
+                $classtid=filter_input(INPUT_POST,'classtid');                
+                ?>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
 
    
 

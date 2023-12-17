@@ -26,13 +26,13 @@
 
 ?>
 
-<script src="<?php echo $RunLink->Call_Link_System();?>/template/global_assets/js/plugins/tables/datatables/datatables.min.js"></script>
+    <script src="<?php echo $RunLink->Call_Link_System();?>/template/global_assets/js/plugins/tables/datatables/datatables.min.js"></script>
 
-<script src="<?php echo $RunLink->Call_Link_System();?>/template/global_assets/js/plugins/ui/moment/moment.min.js"></script>
+    <script src="<?php echo $RunLink->Call_Link_System();?>/template/global_assets/js/plugins/ui/moment/moment.min.js"></script>
 
-<script src="<?php echo $RunLink->Call_Link_System();?>/template/global_assets/js/plugins/notifications/jgrowl.min.js"></script>
+    <script src="<?php echo $RunLink->Call_Link_System();?>/template/global_assets/js/plugins/notifications/jgrowl.min.js"></script>
 
-	<script>
+    <script>
         $(document).ready(function(){
             $('.select').select2({
                 minimumResultsForSearch: Infinity
@@ -41,16 +41,12 @@
     </script>
 <!-- /theme JS files -->
 
-<!-- /theme JS files -->
-
     <script>
         $(document).ready(function(){
             var run_show=$("#run_show").val();
-            var classtid=$("#classtid").val();
-                if(run_show==="show" && classtid!==""){
-                    $.post("<?php echo $RunLink->Call_Link_System();?>/js_code/course_classroom_show/course_classroom_show_show.php",{
-                        run_show:run_show,
-                        classtid:classtid
+                if(run_show==="show"){
+                    $.post("<?php echo $RunLink->Call_Link_System();?>/js_code/user/user_show.php",{
+                        run_show:run_show
                     },function(RunShow){
                         if(RunShow!=""){
                             $("#Run_Show_All").html(RunShow);
