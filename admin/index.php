@@ -109,11 +109,13 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 		include("js_code/course/course_js.php");
 	} elseif (($modules == "classroom_data")) {
 		include("js_code/classroom_data/classroom_data_js.php");	
-	} elseif (($modules == "user")) {
+	}elseif(($modules=="user")) {
 		include("js_code/user/user_js.php");	
-	} elseif (($modules == "check_payment")) {
+	}elseif(($modules=="teacher_data")){
+		include("js_code/teacher_data/teacher_data_js.php");
+	}elseif(($modules=="check_payment")) {
 		include("js_code/check_payment/check_payment_js.php");
-	} elseif (($modules == "payment_show")) {
+	}elseif(($modules=="payment_show")) {
 		include("js_code/payment_show/payment_show_js.php");
 	}elseif(($modules=="manage_payment")){
 		include("js_code/manage_payment/manage_payment_js.php");
@@ -497,6 +499,9 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 							include $load;
 							break;
 						case "document":
+							include $load;
+							break;
+						case "teacher_data":
 							include $load;
 							break;
 							// ----- Non ----- //
