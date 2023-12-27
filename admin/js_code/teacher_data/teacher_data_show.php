@@ -17,6 +17,9 @@
     include("../../structure/function_php_oop.php");
 
     $RunLink = new link_system();
+    $RunLink_web=new link_web();
+
+
 
     check_login('admin_username_lcm', 'login.php');
 ?>
@@ -149,9 +152,9 @@
                     <td align="left" style=" vertical-align: text-top;" class="align-top">
         <?php
                  if(($row['teacher_picture']==null)){ ?>
-                        <div><img class="img-fluid" src="../../uploads/teacher/no-image-icon-0.jpg" alt=""></div>
+                        <div><img class="img-fluid" src="<?php echo $RunLink_web->Call_link_web();?>/uploads/teacher/no-image-icon-0.jpg" alt=""></div>
         <?php    }else{ ?>
-                        <div><img class="img-fluid" src="../../uploads/teacher/<?php echo $row['teacher_picture']; ?>" alt="" style='width:200px;height:150px;'></div>
+                        <div><img class="img-fluid" src="<?php echo $RunLink_web->Call_link_web();?>/uploads/teacher/<?php echo $row['teacher_picture']; ?>" alt="" style='width:200px;height:150px;'></div>
         <?php    } ?>
                     </td>
                     <td align="center" style=" vertical-align: text-top;" class="align-top">

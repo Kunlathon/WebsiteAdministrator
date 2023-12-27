@@ -22,15 +22,15 @@ if(preg_match("/link.php/",$_SERVER['PHP_SELF'])) {
             switch($_SERVER['REMOTE_ADDR']){
                 case "127.0.0.1":
                     // $link_txt="http://127.0.0.1/sys-abaacademic-2023";
-                    $link_txt="http://mcucm-languagecenter-2023.test:8010";
+                    $link_txt="http://languagecenter.test:8010/mcucm-languagecenter-2023";
                     break;
                 case "::1":
                     // $link_txt="http://127.0.0.1/sys-abaacademic-2023";
-                    $link_txt="http://mcucm-languagecenter-2023.test:8010";
+                    $link_txt="http://languagecenter.test:8010/mcucm-languagecenter-2023";
                     break;
                 case "localhost":
                     // $link_txt="http://127.0.0.1/sys-abaacademic-2023";
-                    $link_txt="http://mcucm-languagecenter-2023.test:8010";
+                    $link_txt="http://languagecenter.test:8010/mcucm-languagecenter-2023";
                     break;
                 default:
                     $link_txt="https://www.phothitech.net/languagecenter";
