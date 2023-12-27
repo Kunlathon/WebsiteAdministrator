@@ -53,7 +53,195 @@ error_reporting(E_ALL ^ E_NOTICE);
             }
         }
 
-            if(($manage=="add")){ ?>
+            if(($manage=="edit")){ ?>
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+        <?php
+                if((isset($_POST["admin_id"]))){
+                $admin_id=filter_input(INPUT_POST,'admin_id');
+                $sql = "SELECT * FROM `tb_admin` WHERE `admin_id` = '{$admin_id}'";
+                $row = row_array($sql); ?>
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <fieldset>
+        <div class="row">
+            <div class="col-<?php echo $grid;?>-12">
+                <h4>ข้อมูลผู้ใช้งานระบบ</h4>
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <div class="row">
+            <div class="col-<?php echo $grid;?>-12">
+                <div class="card border border-purple">
+                    <div class="card-header header-elements-inline bg-info text-white">
+                        <div class="col-<?php echo $grid;?>-6">ฟอร์มแก้ไขข้อมูลผู้ใช้งานระบบ</div>
+                        <div class="col-<?php echo $grid;?>-6">
+                            <table align="right">
+                                <tr>
+                                    <td>
+                                        <div>
+<form name="user_form_add" id="user_form_add" accept-charset="uft-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=user">
+                                            <input type="hidden" name="manage" id="manage" value="add">
+                                            <button type="submit" name="sub_cfa" id="sub_cfa" class="btn btn-secondary btn-sm" style="align: right;"><i class="icon-pencil4"></i> เพิ่มข้อมูล</button>
+</form>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+<form name="user_form_show" id="user_form_show" accept-charset="uft-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=user">
+                                            <input type="hidden" name="manage" id="manage" value="show">
+                                            <button type="submit" name="sub_cfs" id="sub_cfs" class="btn btn-secondary btn-sm" style="align: right;"><i class="icon-list-unordered"></i> แสดงข้อมูล</button>
+</form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>                    
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+<form name="form_add_user" id="form_add_user" accept-charset="utf-8" action="#" method="post" enctype="multipart/form-data">
+
+
+                        <fieldset class="mb-3">
+                            <div class="row">
+                                <div class="col-<?php echo $grid; ?>-12">
+                                    <div class="form-group row">
+                                        <label class="col-form-label col-<?php echo $grid; ?>-2">ชื่อ</label>
+                                        <div class="col-<?php echo $grid; ?>-10">
+                                            <div id="name-null">
+                                                <input type="text" name="name" id="name" class="form-control" value="<?php echo $row['admin_name'];?>" placeholder="ชื่อ" required="required" maxlength="100" required="required">
+                                                <span>กรอกข้อมูลชื่อ</span>
+                                            </div>
+                                        <div>
+                                    </div>
+                                <div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="mb-3">
+                            <div class="row">
+                                <div class="col-<?php echo $grid; ?>-12">
+                                    <div class="form-group row">
+                                        <label class="col-form-label col-<?php echo $grid; ?>-2">นามสกุล</label>
+                                        <div class="col-<?php echo $grid; ?>-10">
+                                            <div id="surname-null">
+                                                <input type="text" name="surname" id="surname" class="form-control" value="<?php echo $row['admin_lastname'];?>" placeholder="นามสกุล" required="required" maxlength="100" required="required">                                           
+                                                <span>กรอกข้อมูลนามสกุล</span>
+                                            </div>
+                                        <div>
+                                    </div>
+                                <div>
+                            </div>
+                        </fieldset>
+                        
+                        <fieldset class="mb-3">
+                            <div class="row">
+                                <div class="col-<?php echo $grid; ?>-12">
+                                    <div class="form-group row">
+                                        <label class="col-form-label col-<?php echo $grid; ?>-2">ชื่อผู้ใช้งาน</label>
+                                        <div class="col-<?php echo $grid; ?>-10">
+                                            <div id="username-null">
+                                                <input type="text" name="username" id="username" class="form-control" value="<?php echo $row['admin_username'];?>" placeholder="ชื่อผู้ใช้งาน" required="required" maxlength="100" required="required">                                           
+                                                <span>กรอกข้อมูลชื่อผู้ใช้งาน</span>
+                                            </div>
+                                        <div>
+                                    </div>
+                                <div>
+                            </div>
+                        </fieldset>
+
+
+
+                        <fieldset class="mb-3">
+                            <div class="row">
+                                <div class="col-<?php echo $grid; ?>-12">
+                                    <div class="form-group row">
+                                        <label class="col-form-label col-<?php echo $grid; ?>-2">เบอร์โทรศัพท์</label>
+                                        <div class="col-<?php echo $grid; ?>-10">
+                                            <div id="tel-null">
+                                                <input type="tel" name="tel" id="tel" class="form-control" value="<?php echo $row['admin_tel'];?>" pattern="[0-9]{3}-[0-9]{7}" placeholder="เบอร์โทรศัพท์" required="required" maxlength="100" required="required">                                           
+                                                <span>กรอกข้อมูลเบอร์โทรศัพท์</span>
+                                            </div>
+                                        <div>
+                                    </div>
+                                <div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="mb-3">
+                            <div class="row">
+                                <div class="col-<?php echo $grid; ?>-12">
+                                    <div class="form-group row">
+                                        <label class="col-form-label col-<?php echo $grid; ?>-2">อีเมล</label>
+                                        <div class="col-<?php echo $grid; ?>-10">
+                                            <div id="email-null">
+                                                <input type="email" name="email" id="email" class="form-control" value="<?php echo $row['admin_email'];?>" placeholder="อีเมล" required="required" maxlength="100" required="required">                                           
+                                                <span>กรอกข้อมูลเบอร์โทรศัพท์</span>
+                                            </div>
+                                        <div>
+                                    </div>
+                                <div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="mb-3">
+                            <div class="row">
+                                <div class="col-<?php echo $grid; ?>-12">
+                                    <div class="form-group row">
+                                        <label class="col-form-label col-<?php echo $grid; ?>-2">ประเภทผู้ใช้งานระบบ</label>
+                                        <div class="col-<?php echo $grid; ?>-10">
+                                            <select class="form-control select" data-fouc  name="type" id="type">  
+                                                <option value="">ประเภทผู้ใช้งานระบบ</option>
+    <?php
+        $select_type_txt=array("ผู้ดูแลระบบ","เจ้าหน้าที่");
+        $select_type_id=array(1,2);
+        $select_type_count=0;
+            while($select_type_count<2){ 
+                
+                if(($row['admin_status']==$select_type_id[$select_type_count])){
+                    $admin_selected='selected="selected"';
+                }else{
+                    $admin_selected=null;
+                }
+                
+                ?>
+
+                                                <option value="<?php echo $select_type_id[$select_type_count];?>" <?php echo $admin_selected;?>><?php echo $select_type_txt[$select_type_count];?></option>
+
+    <?php   $select_type_count=$select_type_count+1; 
+            } ?>
+                                            </select>
+                                            <div id="type-null"><span>กรอกข้อมูลประเภทผู้ใช้งานระบบ</span></div>
+                                        <div>
+                                    </div>
+                                <div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="mb-3">
+                            <div class="row">
+                                <div class="col-<?php echo $grid;?>-12">
+                                    <button type="button" name="sub_edit" id="sub_edit" class="btn btn-info" value="update" >บันทึก</button>&nbsp;
+                                    <button type="button" name="reset_up" id="reset_up"  value="Reset" class="btn btn-danger">ยกเลิก</button>
+                                </div>
+                            </div>
+                        </fieldset>
+    <input type="hidden" name="admin_id" id="admin_id" value="<?php echo $admin_id;?>">
+</form>
+                    </div>
+
+                </div>     
+            </div>
+        </div>
+    </fieldset>
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+        <?php   }else{ 
+
+                }
+            ?>
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+     <?php  }elseif(($manage=="add")){?>
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
     <fieldset>
         <div class="row">

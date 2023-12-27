@@ -23,7 +23,80 @@
     $now_date = date('Y-m-d');
     $action = filter_input(INPUT_POST, 'action'); 
 
-        if(($action=="create")){
+        if(($action=="update")){
+
+            $count_error=0;
+                if((isset($_POST["name"]))){
+                    $name=filter_input(INPUT_POST, 'name');
+                    $count_error=$count_error+0;
+                }else{
+                    $name=null;
+                    $count_error=$count_error+1;
+                }
+                if((isset($_POST["surname"]))){
+                    $surname=filter_input(INPUT_POST, 'surname');
+                    $count_error=$count_error+0;
+                }else{
+                    $surname=null;
+                    $count_error=$count_error+1;
+                }
+                if((isset($_POST["username"]))){
+                    $username=filter_input(INPUT_POST, 'username');
+                    $count_error=$count_error+0;
+                }else{
+                    $username=null;
+                    $count_error=$count_error+1;
+                }
+                if((isset($_POST["tel"]))){
+                    $tel=filter_input(INPUT_POST, 'tel');
+                    $count_error=$count_error+0;
+                }else{
+                    $tel=null;
+                    $count_error=$count_error+1;
+                }
+                if((isset($_POST["email"]))){
+                    $email=filter_input(INPUT_POST, 'email');
+                    $count_error=$count_error+0;
+                }else{
+                    $email=null;
+                    $count_error=$count_error+1;
+                }
+                if((isset($_POST["type"]))){
+                    $type=filter_input(INPUT_POST, 'type');
+                    $count_error=$count_error+0;
+                }else{
+                    $type=null;
+                    $count_error=$count_error+1;
+                }
+                if((isset($_POST["admin_id"]))){
+                    $admin_id=filter_input(INPUT_POST, 'admin_id');
+                    $count_error=$count_error+0;
+                }else{
+                    $admin_id=null;
+                    $count_error=$count_error+1;
+                }
+            
+                if(($count_error>=1)){
+                    echo "Error_Null";
+                }else{
+
+                    $data = array(
+                        "admin_name" => $name ,
+                        "admin_lastname" => $surname ,
+                        "admin_username" => $username ,
+                        "admin_tel" => $tel ,
+                        "admin_email" => $email ,
+                        "admin_update" => $now_date  ,
+                        "admin_status" => $type
+                    );
+            
+                    update("tb_admin", $data, "admin_id = {$admin_id}");
+                    echo "NotError";
+
+                }
+
+
+        }elseif(($action=="create")){
 
             $count_error=0;
                 if((isset($_POST["name"]))){

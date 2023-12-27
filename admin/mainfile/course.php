@@ -278,7 +278,7 @@
                                     <div class="col-<?php echo $grid;?>-10">
                                         <select class="form-control select" data-fouc  name="course_status" id="course_status">
 		<?php
-                 if($cs_status==1){  ?>
+                 if(($cs_status==1)){  ?>
                                             <option value="0">ไม่แสดง</option>
 											<option value="1" selected="selected">แสดง</option>
         <?php    }else{ ?>
