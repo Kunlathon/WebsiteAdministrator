@@ -14,7 +14,7 @@
 //error_reporting (E_ALL ^ E_NOTICE);
 //ini_set('display_errors', 'On');
 error_reporting(E_ALL ^ E_NOTICE);
-    if((preg_match("/register1.php/", $_SERVER['PHP_SELF']))) {
+    if((preg_match("/list_register1.php/", $_SERVER['PHP_SELF']))) {
         Header("Location: ../index.php");
         die();
     }else{
@@ -27,9 +27,9 @@ error_reporting(E_ALL ^ E_NOTICE);
                         <a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=dashboard" class="breadcrumb-item">
                             <i class="icon-home2 mr-2"></i> หน้าแรก</a>
 
-                        <a href="?modules=register1" class="breadcrumb-item"> ข้อมูลการสมัคร</a>
+                        <a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=list_register1" class="breadcrumb-item"> ข้อมูลการสมัคร</a>
 
-                        <a href="#" class="breadcrumb-item"> ข้อมูลการสมัครเรียนออนไลน์</a>
+                        <a href="#" class="breadcrumb-item">  ข้อมูลนิสิตที่ผ่านการสมัคร</a>
 
                     </div>
                     <a href="#" class="header-elements-toggle text-body d-lg-none"><i class="icon-more"></i></a>
@@ -39,7 +39,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 
         <div class="content">
 
-    <?php
+        <?php
         if((isset($_POST["manage"]))){
             $manage=filter_input(INPUT_POST,'manage');
         }else{
@@ -163,10 +163,11 @@ error_reporting(E_ALL ^ E_NOTICE);
         }
     ?>
 
-
         </div>
 
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-<?php   }else{}
+<?php   }else{
+
+        }
     }
 ?>

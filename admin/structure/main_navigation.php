@@ -263,7 +263,7 @@ if ((preg_match("/main_navigation.php/", $_SERVER['PHP_SELF']))) {
         }else{
             $count_mn_C=$count_mn_C+0;
         }
-        if(($modules=="document_category")){
+        if(($modules=="document_category" or $modules=="document")){
             $count_mn_C=$count_mn_C+1;
         }else{
             $count_mn_C=$count_mn_C+0;
@@ -308,7 +308,7 @@ if ((preg_match("/main_navigation.php/", $_SERVER['PHP_SELF']))) {
                 <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=manage_video" class="nav-link">วิดีโอ</a></li>
   <?php  } ?>
   <?php
-         if(($modules=="document_category")){ ?>
+         if(($modules=="document_category" or $modules=="document")){ ?>
                 <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=document_category" class="nav-link active">เอกสารดาวน์โหลด</a></li>
   <?php  }else{ ?>
                 <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=document_category" class="nav-link">เอกสารดาวน์โหลด</a></li>

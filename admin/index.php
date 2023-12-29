@@ -210,6 +210,20 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 		include("js_code/student_all/student_all_js.php");
 	}elseif(($modules=="alumni")){
 		include("js_code/alumni/alumni_js.php");
+	}elseif(($modules=="register1")){
+		include("js_code/register1/register1_js.php");
+	}elseif(($modules=="list_register1")){
+		include("js_code/list_register1/list_register1_js.php");
+	}elseif(($modules=="unregister1")){
+		include("js_code/unregister1/unregister1_js.php");
+	}elseif(($modules=="certified_show")){
+		include("js_code/certified_show/certified_show_js.php");
+	}elseif(($modules=="list_student_card")){
+		include("js_code/list_student_card/list_student_card_js.php");
+	}elseif(($modules=="list_certified")){
+		include("js_code/list_certified/list_certified_js.php");
+	}elseif(($modules=="student_card_show")){
+		include("js_code/student_card_show/student_card_show_js.php");
 	}else{ ?>
 		<!-- Theme JS files -->
 		<script src="<?php echo $RunLink->Call_Link_System(); ?>/template/global_assets/js/plugins/forms/inputs/typeahead/handlebars.min.js"></script>
@@ -230,13 +244,9 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 
 	<!-- Theme JS files extra_sweetalert -->
 	<script>
-		var SA_Logout = function() {
-			var _componentSA_Logout = function() {
-				if (typeof swal == 'undefined') {
-					console.warn('Warning - sweet_alert.min.js is not loaded.');
-					return;
-				}
-				// Defaults
+		$(document).ready(function(){
+
+// Defaults
 				var swalInitLogout = swal.mixin({
 					buttonsStyling: false,
 					customClass: {
@@ -246,10 +256,7 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 						input: 'form-control'
 					}
 				});
-				// Defaults End
-
-				//--------------------------------------------------------------------------------------
-				//--------------------------------------------------------------------------------------
+// Defaults End
 				$('#sweet_Logout').on('click', function() {
 					swalInitLogout.fire({
 						title: 'ต้องการออกจากระบบหรือไม่',
@@ -278,21 +285,9 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 						}
 					});
 				});
-				//--------------------------------------------------------------------------------------
-			};
-			//--------------------------------------------------------------------------------------
-			return {
-				initComponentsLogin: function() {
-					_componentSA_Logout();
-				}
-			}
-		}();
-		// Initialize module
-		// ------------------------------
-		document.addEventListener('DOMContentLoaded', function() {
-			SA_Logout.initComponentsLogin();
-		});
+		})
 	</script>
+
 	<!-- Theme JS files extra_sweetalert End-->
 
 	<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
@@ -388,6 +383,12 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 							include $load;
 							break;						
 						case "image_slide":
+							include $load;
+							break;
+						case "list_student_card":
+							include $load;
+							break;
+						case "list_certified":
 							include $load;
 							break;
 //----------------------------------------------------------------------------------------	
@@ -502,6 +503,21 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 							include $load;
 							break;
 						case "teacher_data":
+							include $load;
+							break;
+						case "register1":
+							include $load;
+							break;
+						case "list_register1":
+							include $load;
+							break;
+						case "unregister1":
+							include $load;
+							break;
+						case "certified_show":
+							include $load;
+							break;
+						case "student_card_show":
 							include $load;
 							break;
 							// ----- Non ----- //
