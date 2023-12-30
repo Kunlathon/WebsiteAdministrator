@@ -224,6 +224,8 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 		include("js_code/list_certified/list_certified_js.php");
 	}elseif(($modules=="student_card_show")){
 		include("js_code/student_card_show/student_card_show_js.php");
+	}elseif(($modules=="course_show")){
+		include("js_code/course_show/course_show_js.php");
 	}else{ ?>
 		<!-- Theme JS files -->
 		<script src="<?php echo $RunLink->Call_Link_System(); ?>/template/global_assets/js/plugins/forms/inputs/typeahead/handlebars.min.js"></script>
@@ -518,6 +520,9 @@ $modules = isset($_GET['modules']) ? $_GET['modules'] : 'dashboard';
 							include $load;
 							break;
 						case "student_card_show":
+							include $load;
+							break;
+						case "course_show":
 							include $load;
 							break;
 							// ----- Non ----- //

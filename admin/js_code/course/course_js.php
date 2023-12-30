@@ -39,6 +39,18 @@
             });           
         })
     </script>
+
+    <script>
+        $(document).ready(function(){
+            $("#button_show").on("click",function(){
+                var button_show=$("#button_show").val();
+                    if(button_show==="show"){
+                        location.reload();
+                    }else{}
+            })
+        })
+    </script>
+
 <!-- /theme JS files -->
 
     <script>

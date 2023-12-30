@@ -188,8 +188,8 @@
                         <div align="center">
                             <ul class="nav justify-content-center">
                                 <li class="nav-item">
-<form name="form_course_show<?php echo $row["course_id"];?>" accept-charset="utf-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=course">
-    <input type="hidden" name="" value="">
+<form name="form_course_show<?php echo $row["course_id"];?>" accept-charset="utf-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=course_show">
+    <input type="hidden" name="course_id" id="course_id" value="<?php echo $row['course_id']; ?>">
     <button type="submit" name="button_course_show<?php echo $row["course_id"];?>" class="btn btn-outline-info btn-sm"  title="แสดงข้อมูล <?php echo  $count1_CouD; ?>" data-placement="bottom"><?php echo  $count1_CouD; ?></button>
 </form>
                                 </li>

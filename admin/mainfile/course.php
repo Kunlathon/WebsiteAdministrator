@@ -215,10 +215,7 @@
                                     </td>
                                     <td>
                                         <div>
-<form name="course_form_show" id="course_form_show" accept-charset="uft-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=course">
-                                            <input type="hidden" name="manage" id="manage" value="show">
-                                            <button type="submit" name="sub_cfs" id="sub_cfs" class="btn btn-secondary btn-sm" style="align: right;"><i class="icon-list-unordered"></i> แสดงข้อมูล</button>
-</form>
+                                            <button type="button" name="button_show" id="button_show" class="btn btn-secondary btn-sm" style="align: right;"><i class="icon-list-unordered"></i> แสดงข้อมูล</button>
                                         </div>
                                     </td>
                                 </tr>

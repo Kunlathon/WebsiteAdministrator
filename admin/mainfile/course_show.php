@@ -1,20 +1,17 @@
 <?php
-//Develop By Arnon Manomuang
-//พัฒนาเว็บไซต์โดย นายอานนท์ มะโนเมือง
-//Tel 0631146517 , 0946164461
-//โทร 0631146517 , 0946164461
-//Email: manomuang@hotmail.com , manomuang11@gmail.com , manomuang@gmail.com
+    //Develop By Arnon Manomuang
+    //พัฒนาเว็บไซต์โดย นายอานนท์ มะโนเมือง
+    //Tel 0631146517 , 0946164461
+    //โทร 0631146517 , 0946164461
+    //Email: manomuang@hotmail.com , manomuang11@gmail.com , manomuang@gmail.com
 
-//Develop By Kunlathon Saowakhon
-//พัฒนาเว็บไซต์โดย นายกุลธร เสาวคนธ์
-//Tel 0932670639
-//โทร 0932670639
-//Email: mpamese.pc2001@gmail.com , missing_yrc2014@hotmail.com	
-
-//error_reporting (E_ALL ^ E_NOTICE);
-//ini_set('display_errors', 'On');
-error_reporting(E_ALL ^ E_NOTICE);
-    if((preg_match("/list_certified.php/", $_SERVER['PHP_SELF']))) {
+    //Develop By Kunlathon Saowakhon
+    //พัฒนาเว็บไซต์โดย นายกุลธร เสาวคนธ์
+    //Tel 0932670639
+    //โทร 0932670639
+    //Email: mpamese.pc2001@gmail.com , missing_yrc2014@hotmail.com	
+    error_reporting(E_ALL ^ E_NOTICE);
+    if ((preg_match("/course_show_show.php/", $_SERVER['PHP_SELF']))) {
         Header("Location: ../index.php");
         die();
     }else{
@@ -36,7 +33,6 @@ error_reporting(E_ALL ^ E_NOTICE);
                 </div>
             </div>
         </div>
-
         <div class="content">
 
     <?php
@@ -49,17 +45,28 @@ error_reporting(E_ALL ^ E_NOTICE);
                 $manage="show";
             }
         }
-
             if(($manage=="add")){ ?>
-<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--> 
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-     <?php  }elseif(($manage="show")){ ?>
+    <?php   }elseif(($manage=="show")){ ?>
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+        <?php
+            if((isset($_POST["course_show_id"]))){
+                $course_show_id=filter_input(INPUT_POST,'course_show_id');
+            }else{
+                if((isset($_GET["course_show_id"]))){
+                    $course_show_id=filter_input(INPUT_GET,'course_show_id');
+                }else{
+                    $course_show_id=null;
+                }
+            }
+        ?>
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
     <fieldset class="mb-3">
         <div class="row">
             <div class="col-<?php echo $grid;?>-12">
-                <h4>ข้อมูลขอบัตรประจำตัวนิสิตออนไลน์</h4>
+                <h4>ข้อมูลรายละเอียดหลักสูตร</h4>
             </div>
         </div>
     </fieldset>
@@ -69,39 +76,23 @@ error_reporting(E_ALL ^ E_NOTICE);
             <div class="col-<?php echo $grid;?>-12">
                 <div class="card border border-purple">
                     <div class="card-header header-elements-inline bg-info text-white">
-                        <div class="col-<?php echo $grid;?>-6">ตารางข้อมูลขอบัตรประจำตัวนิสิตออนไลน์</div>
+                        <div class="col-<?php echo $grid;?>-6">ตารางข้อมูลรายละเอียดหลักสูตร</div>
                         <div class="col-<?php echo $grid;?>-6">
                             <table align="right">
                                 <tr>
                                     <td>
                                         <div>
-                                            <button type="button" name="button_show" id="button_show" class="btn btn-secondary btn-sm" style="align: right;" value="show"><i class="icon-list-unordered"></i> แสดงข้อมูล</button>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-<form name="" id="" accept-charset="uft-8" method="post" action="">
-                                            <input type="hidden" name="manage" id="manage" value="show">
-                                            <button type="submit" name="" id="" class="btn btn-danger btn-sm" style="align: right;"><i class="icon-printer4"></i> พิมพ์</button>
+<form name="course_show_form_add" id="course_show_form_add" accept-charset="uft-8" method="post" action="<?php echo $RunLink->Call_Link_System(); ?>/?modules=course_show">
+                                            <input type="hidden" name="manage" id="manage" value="add">
+                                            <button type="submit" name="sub_cfa" id="sub_cfa" class="btn btn-secondary btn-sm" style="align: right;"><i class="icon-pencil4"></i> เพิ่มข้อมูล</button>
 </form>
                                         </div>
                                     </td>
                                     <td>
                                         <div>
-<form name="" id="" accept-charset="uft-8" method="post" action="">
-                                            <input type="hidden" name="manage" id="manage" value="show">
-                                            <button type="submit" name="" id="" class="btn btn-pink btn-sm" style="align: right;"><i class="icon-file-excel"></i> Excel</button>
-</form>
+                                            <button type="button" name="button_show" id="button_show" class="btn btn-secondary btn-sm" value="show" style="align: right;"><i class="icon-list-unordered"></i> แสดงข้อมูล</button>
                                         </div>
                                     </td>
-                                    <td>
-                                        <div>
-<form name="" id="" accept-charset="uft-8" method="post" action="">
-                                            <input type="hidden" name="manage" id="manage" value="show">
-                                            <button type="submit" name="" id="" class="btn btn-purple btn-sm" style="align: right;"><i class="icon-check"></i> อนุมัติ</button>
-</form>
-                                        </div>
-                                    </td>                                    
                                 </tr>
                             </table>                    
                         </div>
@@ -122,13 +113,14 @@ error_reporting(E_ALL ^ E_NOTICE);
         </div>
     </fieldset>
     <input type="hidden" name="run_show" id="run_show" value="show">
+
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
     <?php   }else{ ?>
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-<fieldset class="mb-3">
+    <fieldset class="mb-3">
         <div class="row">
             <div class="col-<?php echo $grid;?>-12">
-                <h4>ข้อมูลขอบัตรประจำตัวนิสิตออนไลน์</h4>
+                <h4>ข้อมูลรายละเอียดหลักสูตร</h4>
             </div>
         </div>
     </fieldset>
@@ -157,10 +149,9 @@ error_reporting(E_ALL ^ E_NOTICE);
         </div>
     </fieldset>
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-    <?php   }  ?>
+    <?php   } ?>
 
         </div>
-
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 <?php   }else{ ?>
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
@@ -169,4 +160,3 @@ error_reporting(E_ALL ^ E_NOTICE);
 <?php   }
     }
 ?>
-

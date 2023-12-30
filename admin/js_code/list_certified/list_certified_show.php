@@ -121,29 +121,96 @@
                         <div>ลำดับ</div>
                     </th>
                     <th>
-                        <div>เลขที่</div>
+                        <div>รหัสนิสิต</div>
                     </th>
                     <th>
                         <div>รายชื่อ</div>
                     </th>
                     <th>
-                        <div>ลงทะเบียน</div>
+                        <div>ใบรับรอง</div>
                     </th>
                     <th>
-                        <div>วันที่</div>
+                        <div>เปิดบัญชีธนาคาร</div>
                     </th>
                     <th>
                         <div>สถานะ</div>
                     </th>
                     <th>
-                        <div>สอบ</div>
-                    </th>
-                    <th>
                         <div>จัดการ</div>
                     </th>
-                </tr>
+                    </tr>
             </thead>
             <tbody>
+    <?php
+    	$countA = 1;
+        $sql = "SELECT * FROM `tb_certified` WHERE user_status='1' ORDER BY studentcard_id DESC";
+        $list = result_array($sql);
+             foreach ($list as $key => $row) { 
+                
+                if((isset($row['studentcard_id']))){
+                    $user_idcode1 = base64_encode($row['studentcard_id']);
+                }else{
+                    $user_idcode1 = null;
+                } ?>
+                    <tr>
+                        <td align="center" style="vertical-align: text-top;" class="align-top">
+                            <div><?php echo $countA; ?></div>
+                        </td>
+                        <td align="center" style="vertical-align: text-top;" class="align-top">
+                            <div><?php echo $row['user_student_id']; ?></div>
+                        </td>   
+                        <td align="left" style="vertical-align: text-top;" class="align-top">
+                            <div><?php echo  $row['user_name'] . "&nbsp;" . $row['user_name_buddhist'] . "&nbsp;" . $row['user_surname']; ?></div>
+                        </td>
+                        <td align="center" style="vertical-align: text-top;" class="align-top">
+        <?php
+			if ($row['user_certified'] == "1") {
+			    if ($row['user_certified_file'] == "") {
+			?>
+																<a href="" class="btn red btn-sm" title="แสดงข้อมูล">
+																	<i class="fa fa-file-pdf-o"></i> </a>
+
+		<?php
+				}else{
+			?>
+																<a href="../../uploads/certified/<?php echo $row['user_certified_file']; ?>" class="btn blue btn-sm" target="_blank" title="แสดงข้อมูล">
+																	<i class="fa fa-file-pdf-o"></i> </a>
+
+		<?php
+				}
+			}
+			?>   
+                        
+                      
+                        </td>
+                        <td align="center" style="vertical-align: text-top;" class="align-top">
+        <?php
+			if(($row['user_bank_account'] == "1")) {
+			    if ($row['user_bank_account_file'] == "") { ?>
+																<a href="" class="btn red btn-sm" title="แสดงข้อมูล">
+																	<i class="fa fa-file-pdf-o"></i> </a>
+
+		<?php
+				}else{ ?>
+																<a href="../../uploads/certified/<?php echo $row['user_bank_account_file']; ?>" class="btn blue btn-sm" target="_blank" title="แสดงข้อมูล">
+																	<i class="fa fa-file-pdf-o"></i> </a>
+
+		<?php
+			    }
+			} ?>
+                        </td>
+                        <td align="center" style="vertical-align: text-top;" class="align-top"> 
+                            <div>
+                                <a href="process/approve_list_certified.php?id=<?php echo $user_idcode1; ?>" title="ดำเนินการ"><span class="badge badge-success"> ดำเนินการ </span></a>
+								&nbsp;
+								<a href="process/canceled_list_certified.php?id=<?php echo $user_idcode1; ?>" title="ยกเลิก"><span class="badge badge-danger"> ยกเลิก </span></a>
+                            </div>
+                        </td>
+                        <td align="center" style="vertical-align: text-top;" class="align-top"></td>
+                    </tr>
+    <?php    
+            $countA = $countA + 1; 
+             } ?>
 
 
             </tbody>
