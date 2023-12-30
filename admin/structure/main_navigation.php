@@ -318,7 +318,7 @@ if ((preg_match("/main_navigation.php/", $_SERVER['PHP_SELF']))) {
 
 <?php
     $count_mn_D=0;
-    if(($modules=="course")){
+    if(($modules=="course" or $modules=="course_show")){
         $count_mn_D=$count_mn_D+1;
     }else{
         $count_mn_D=$count_mn_D+0;
@@ -336,7 +336,7 @@ if ((preg_match("/main_navigation.php/", $_SERVER['PHP_SELF']))) {
             <a href="#" class="nav-link"><i class="icon-stack3"></i> <span>หลักสูตร/ห้องเรียน</span></a>
             <ul class="nav nav-group-sub" data-submenu-title="Layouts">
     <?php
-            if(($modules=="course")){ ?>
+            if(($modules=="course" or $modules=="course_show")){ ?>
                 <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=course" class="nav-link active">จัดการหลักสูตร</a></li>
     <?php   }else{  ?>
                 <li class="nav-item"><a href="<?php echo $RunLink->Call_Link_System(); ?>/?modules=course" class="nav-link">จัดการหลักสูตร</a></li>
