@@ -53,7 +53,15 @@ error_reporting(E_ALL ^ E_NOTICE);
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-    <?php   }elseif(($manage=="show")){ ?>
+    <?php   }elseif(($manage=="show")){ 
+        
+        $now_date1=date("Y-m-d");
+        $now_date2=date("Y-m-d",strtotime("+1 days",strtotime($now_date1)));
+
+        $now_date1=str_replace("-","/",$now_date1);
+        $now_date2=str_replace("-","/",$now_date2);
+        
+        ?>
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 
     <fieldset class="mb-3">
@@ -108,6 +116,30 @@ error_reporting(E_ALL ^ E_NOTICE);
                     </div>
 
                     <div class="card-body">
+
+                        <fieldset class="mb-3">
+                            <div class="row">
+                                <div class="col-<?php echo $grid;?>-8">
+                                    <div class="form-group row">
+                                        <label class="col-form-label col-<?php echo $grid;?>-2">ระหว่างวันที่</label>
+                                        <div class="col-<?php echo $grid;?>-10">
+                                            <div class="input-group">
+                                                <span class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="icon-calendar22"></i></span>
+                                                </span>  
+                                                <input type="text" name="TimeSearch" id="TimeSearch" class="form-control daterange-basic" value="<?php echo $now_date1." - ".$now_date2;?>">                                                                                              
+                                            </div>    
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-<?php echo $grid;?>-4"></div>
+                            </div>
+                        </fieldset>
+
+                   
+
+                        <fieldset class="mb-3">
                         <div id="Run_Show_All">
                         <div class="row">
                             <div class="col-<?php echo $grid; ?>-12">
@@ -115,6 +147,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                             </div>
                         </div>
                         </div>
+                        </fieldset>
                     </div>
 
                 </div>       
