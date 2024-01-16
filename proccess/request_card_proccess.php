@@ -149,6 +149,34 @@ include("../config/fnc.php");
 
         move_uploaded_file($visa_tmp, '../uploads/visa_card/' . $visa_new_name);
 
+
+        if(($_FILES["promptpay"]["name"]!=null)){
+
+            $promptpay_nameNew=$Dateimg."_card_promptpay";
+            $promptpay_name = $_FILES["promptpay"]["name"];
+            $promptpay_type = $_FILES["promptpay"]["type"];
+
+            //new file Name
+            $imgFile = explode('.', $promptpay_name);
+            $fileType = $imgFile[count($imgFile) - 1];
+            //new file Name end
+
+            $promptpay_new_name = $promptpay_nameNew.".".$fileType;
+            $promptpay_tmp = $_FILES["promptpay"]["tmp_name"];
+            $promptpay_size = $_FILES["promptpay"]["size"];
+
+            move_uploaded_file($promptpay_tmp, '../uploads/payments/card_promptpay/' . $promptpay_new_name);
+            //up image end
+
+        }else{
+
+            $promptpay_new_name="";
+
+        }
+
+
+
+
         $student_card_data = array(
 
             "user_name"=>$user_name,
@@ -170,6 +198,7 @@ include("../config/fnc.php");
             "user_defective_card"=>$user_defective_card,
             "user_expired_card"=>$user_expired_card,
             "user_change_name"=>$user_change_name,
+            "PromptPay"=>$promptpay_new_name,
             "course_detail_id"=>$course_detail_id,
             "user_address_no"=>$user_address_no,
             "user_address_moo"=>$user_address_moo,

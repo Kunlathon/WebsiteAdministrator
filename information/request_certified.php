@@ -204,6 +204,18 @@
                                                 </div>
                                             </div>
 
+                                            <div class="mb-3">
+                                                <div class="row g-5">
+
+                                                    <div class="col-md-12">
+                                                        <label >รูปภาพ ใบเสร็จเงินโอน </label>
+                                                        <input name="promptpay" id="promptpay" type="file" class="form-control" >                                                           
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>
+
+
                                             <!--<div class="mb-3">
                                                 <div class="row g-5">
                                                     <div class="col-md-6">

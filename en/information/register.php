@@ -325,12 +325,21 @@
 
                                             <div class="mb-3">
                                                 <div class="row g-5">
-                                                    <div class="col-md-12">
+                                                    
+                                                    <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label >รูปภาพ (Photo) <font style="color: red;">รูปถ่ายขนาด 1 นิ้วครึ่ง / Photo Size 1.5 inch(300X450 px. )</font></label>
                                                             <input name="img1" id="img1" type="file" class="form-control" >
                                                         </div>
                                                     </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label >รูปภาพ ใบเสร็จเงินโอน </label>
+                                                            <input name="promptpay" id="promptpay" type="file" class="form-control" >
+                                                        </div>
+                                                    </div>
+
                                                 </div>
                                             </div>
 

@@ -193,16 +193,31 @@
 
                                             <div class="mb-3">
                                                 <div class="row g-5">
+
                                                     <div class="col-md-6">
                                                         <label >Passport <font style="color: red;">*</font></label>
                                                         <input name="passport_img" id="passport_img" type="file" class="form-control" required="required">
                                                     </div>
+
                                                     <div class="col-md-6">
                                                         <label >Visa Page <font style="color: red;">*</font></label>
                                                         <input name="visa_page_img" id="visa_page_img" type="file" class="form-control" required="required">
                                                     </div>
+                                           
                                                 </div>
                                             </div>
+
+                                            <div class="mb-3">
+                                                <div class="row g-5">
+
+                                                    <div class="col-md-12">
+                                                        <label >รูปภาพ ใบเสร็จเงินโอน </label>
+                                                        <input name="promptpay" id="promptpay" type="file" class="form-control" >                                                           
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>
+
 
                                             <!--<div class="mb-3">
                                                 <div class="row g-5">
@@ -280,8 +295,13 @@
                                                 </div>
                                             </div>
                                          
+
+
                                         </div>
                                     </div>
+
+
+
 
                                     <div class="card">
                                         <div class="card-status-top bg-red"></div>

@@ -53,7 +53,15 @@ error_reporting(E_ALL ^ E_NOTICE);
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-    <?php   }elseif(($manage=="show")){ ?>
+    <?php   }elseif(($manage=="show")){ 
+        
+        $now_date1=date("Y-m-d");
+        $now_date2=date("Y-m-d",strtotime("+1 days",strtotime($now_date1)));
+
+        $now_date1=str_replace("-","/",$now_date1);
+        $now_date2=str_replace("-","/",$now_date2);
+        
+        ?>
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 
     <fieldset class="mb-3">
@@ -63,6 +71,8 @@ error_reporting(E_ALL ^ E_NOTICE);
             </div>
         </div>
     </fieldset>
+
+
 
     <fieldset class="mb-3">
         <div class="row">

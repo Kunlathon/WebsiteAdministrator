@@ -69,6 +69,36 @@ include("../config/fnc.php");
     $course_detail_id=filter_input(INPUT_POST,'course_detail');
 
     
+
+        if(($_FILES["promptpay"]["name"]!=null)){
+
+            $promptpay_nameNew=$Dateimg."_register_promptpay";
+            $promptpay_name = $_FILES["promptpay"]["name"];
+            $promptpay_type = $_FILES["promptpay"]["type"];
+
+            //new file Name
+            $imgFile = explode('.', $promptpay_name);
+            $fileType = $imgFile[count($imgFile) - 1];
+            //new file Name end
+
+            $promptpay_new_name = $promptpay_nameNew.".".$fileType;
+            $promptpay_tmp = $_FILES["promptpay"]["tmp_name"];
+            $promptpay_size = $_FILES["promptpay"]["size"];
+
+            move_uploaded_file($promptpay_tmp, '../uploads/payments/register_promptpay/' . $promptpay_new_name);
+            //up image end
+
+        }else{
+
+            $promptpay_new_name="";
+
+        }
+
+
+
+
+
+
         if(($_FILES["img1"]["name"]!=null)){
 
             $register_nameNew=$Dateimg."_register";
@@ -118,6 +148,7 @@ include("../config/fnc.php");
                 "user_mother_idcard"=>$mother_idcard,
                 "user_mothername"=>$mothername,
                 "user_mother_occupation"=>$mother_occupation,
+                "PromptPay"=>$promptpay_new_name,
                 "course_detail_id"=>$course_detail_id,
                 "user_date"=>$Date,
                 "user_update"=>$Date,
@@ -198,6 +229,7 @@ include("../config/fnc.php");
                 "user_mother_idcard"=>$mother_idcard,
                 "user_mothername"=>$mothername,
                 "user_mother_occupation"=>$mother_occupation,
+                "PromptPay"=>$promptpay_new_name,
                 "course_detail_id"=>$course_detail_id,
                 "user_date"=>$Date,
                 "user_update"=>$Date,
