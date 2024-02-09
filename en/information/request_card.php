@@ -208,16 +208,6 @@ ini_set('display_errors', 0);
                                             </div>
 
 
-                                            <div class="mb-3">
-                                                <div class="row g-5">
-
-                                                    <div class="col-md-12">
-                                                        <label >รูปภาพ ใบเสร็จเงินโอน </label>
-                                                        <input name="promptpay" id="promptpay" type="file" class="form-control" >                                                           
-                                                    </div>
-                                                   
-                                                </div>
-                                            </div>
 
                                             <!--<div class="mb-3">
                                                 <div class="row g-5">
@@ -292,6 +282,23 @@ ini_set('display_errors', 0);
                                                             </div>
                                                         </div>
                                                     </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <div class="row g-5">
+
+                                                    <div class="col-md-6">
+                                                        <center>
+                                                            <img src="../uploads/payments/QR_Code.jpg" style="width: 40%;" class="img-thumbnail" alt="PromptPay">
+                                                        </center>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <label >รูปภาพ ใบเสร็จเงินโอน (Bill Payment Slip)</label>
+                                                        <input name="promptpay" id="promptpay" type="file" class="form-control" >                                                           
+                                                    </div>
+                                                   
                                                 </div>
                                             </div>
                                          

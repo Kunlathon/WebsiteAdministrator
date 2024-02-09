@@ -104,8 +104,12 @@ $row = row_array($sql);
                                                                                     <div><span ><h2><?php echo $course_name;?></h2></span></div>
                                                                                     <div><span ><h2><?php echo $course_name_en;?></h2></span></div>
                                                                                     <div><span ><h2><?php echo $cdds." - ".$cddf;?></h2></span></div>
-                                                                                    <div><span ><h2>Zoom Meeting ID : <?php echo $meeting_id;?></h2></span></div>
-																					<div><span ><h2>Passcode : <?php echo $passcode;?></h2></span></div>
+
+																					<table border='1' cellspacing="1" cellpadding="1" style="width:100%;background-color:gold;">
+																						<tr><td><span ><h2>Zoom Meeting ID : <?php echo $meeting_id;?></h2></td></span></tr>
+																						<tr><td><span ><h2>Passcode : <?php echo $passcode;?></h2></td></span></tr>
+
+																					</table>
                                                                     </div>
 
                                                                     <div class="col-md-3">

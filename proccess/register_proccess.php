@@ -70,7 +70,7 @@ include("../config/fnc.php");
 
     
 
-        if(($_FILES["promptpay"]["name"]!=null)){
+       /* if(($_FILES["promptpay"]["name"]!=null)){
 
             $promptpay_nameNew=$Dateimg."_register_promptpay";
             $promptpay_name = $_FILES["promptpay"]["name"];
@@ -92,7 +92,7 @@ include("../config/fnc.php");
 
             $promptpay_new_name="";
 
-        }
+        }*/
 
 
 
@@ -148,7 +148,6 @@ include("../config/fnc.php");
                 "user_mother_idcard"=>$mother_idcard,
                 "user_mothername"=>$mothername,
                 "user_mother_occupation"=>$mother_occupation,
-                "PromptPay"=>$promptpay_new_name,
                 "course_detail_id"=>$course_detail_id,
                 "user_date"=>$Date,
                 "user_update"=>$Date,
