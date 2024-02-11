@@ -214,7 +214,7 @@ if ((preg_match("/manage_director.php/", $_SERVER['PHP_SELF']))) {
                 '<?php echo $link_web->Call_link_web();?>/uploads/information/'+copy_information_image,
             ],
             initialPreviewConfig: [
-                {caption: copy_information_image,  key: 1, url: '{$url}', showDrag: false}
+                {caption: copy_information_image,  key: 1, url: '<?php echo $link_web->Call_link_web();?>/uploads/information/'+copy_information_image, showDrag: false}
             ],
             initialPreviewAsData: true,
             overwriteInitial: true,

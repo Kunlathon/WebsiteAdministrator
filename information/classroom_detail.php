@@ -75,6 +75,12 @@ $row = row_array($sql);
                     $picture_class=null;
                 }
 
+                if((isset($row["course_group"]))){
+                    $course_group=$row["course_group"];
+                }else{
+                    $course_group=null;
+                }
+
 				/*if((isset($text_key))){
                     $text_key=$text_key;
                 }else{
@@ -97,14 +103,15 @@ $row = row_array($sql);
 
                                                                     <div class="col-md-4">
 																	<a href="?modules=classroom_detail&id=<?php echo $row['course_detail_id'];?>" class="d-block">
-																		<img src="uploads/teacher/<?php echo $row['teacher_picture'];?>" alt="<?php echo $row['teacher_name'];?>" class="card-img-top" style="width:100%; height:160px;"></a>
+																		<img src="uploads/teacher/<?php echo $row['teacher_picture'];?>" alt="<?php echo $row['teacher_name'];?>" class="card-img-top" style="width:90%; height:90%;"></a>
 
                                                                     </div>
 																	<div class="col-md-5">                                                                        
                                                                                     <div><span ><h2><?php echo $course_name;?></h2></span></div>
                                                                                     <div><span ><h2><?php echo $course_name_en;?></h2></span></div>
                                                                                     <div><span ><h2><?php echo $cdds." - ".$cddf;?></h2></span></div>
-                                                                                    <div>
+																					<div><span ><h2><font color="red"><?php echo $course_group;?></font></h2></span></div>
+																					<div>
 
 																					<table border='1' cellspacing="1" cellpadding="1" style="width:100%;background-color:gold;">
 																						<tr><td><span ><h2>Zoom Meeting ID : <?php echo $meeting_id;?></h2></td></span></tr>
@@ -122,7 +129,7 @@ $row = row_array($sql);
         if(($picture_class!=null)){
             if((file_exists("uploads/picture_class/".$picture_class))){ ?>
 
-                                                                        <div align="right"><input type="image" class="img-thumbnail" name="picture_class_show" id="picture_class_show" src="uploads/picture_class/<?php echo $picture_class;?>" style="widex: 40%; height:200px;" data-toggle="modal" data-target="#myModal"></div>
+                                                                        <div align="right"><input type="image" class="img-thumbnail" name="picture_class_show" id="picture_class_show" src="uploads/picture_class/<?php echo $picture_class;?>" style="width: 80%; height:100%;" data-toggle="modal" data-target="#myModal"></div>
                                                                         <div align="right">Schedule&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>                                                                    
 
 

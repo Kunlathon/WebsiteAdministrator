@@ -292,7 +292,7 @@
                                                     </div>
 
                                                     <div class="col-md-6">
-                                                        <label >รูปภาพ ใบเสร็จเงินโอน (Bill Payment Slip)</label>
+                                                        <label >รูปภาพ ใบเสร็จเงินโอน  (Bill Payment Slip)</label>
                                                         <input name="promptpay" id="promptpay" type="file" class="form-control" >                                                           
                                                     </div>
                                                    

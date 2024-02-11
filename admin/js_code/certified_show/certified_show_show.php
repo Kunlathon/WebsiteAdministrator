@@ -20,7 +20,6 @@
 
     check_login('admin_username_lcm', 'login.php');
 ?>
-
     <script type="text/javascript">
         function setScreenHWCookie() {
             $.cookie('sw', screen.width);
@@ -76,6 +75,7 @@
             dataTable.destroy();
         }else{}
 
+
         // Basic datatable
         $('.datatable-button-html5-columns-STD').DataTable({
             
@@ -91,6 +91,20 @@
             ]       
         });    
         
+        /*$('.datatable-button-html5-columns-STDB').DataTable({
+            columnDefs: [{
+                "targets": '_all',
+                "createdCell": function(td, cellData, rowData, row, col) {
+                    $(td).css('padding', '4px')
+                }
+            }],
+            "paging" : false,
+            "lengehChange": false,
+            "searching": true,
+            "ordering": false,
+            "autoWidth": false       
+        });*/
+
     })
 </script>
 
@@ -99,7 +113,6 @@
         $run_show=filter_input(INPUT_POST, 'run_show');
             if(($run_show=="show")){ ?>
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-
     <div class="table-responsive">
         <table class="table table-bordered datatable-button-html5-columns-STD">
             <thead>
@@ -108,13 +121,22 @@
                         <div>ลำดับ</div>
                     </th>
                     <th>
-                        <div>หลักสูตร</div>
+                        <div>เลขที่</div>
+                    </th>
+                    <th>
+                        <div>รายชื่อ</div>
+                    </th>
+                    <th>
+                        <div>ลงทะเบียน</div>
+                    </th>
+                    <th>
+                        <div>วันที่</div>
                     </th>
                     <th>
                         <div>สถานะ</div>
                     </th>
                     <th>
-                        <div>รายละเอียด</div>
+                        <div>สอบ</div>
                     </th>
                     <th>
                         <div>จัดการ</div>
@@ -127,11 +149,7 @@
             </tbody>
         </table>
     </div>
-
-
-
-
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-    <?php   }else{}
+<?php       }else{}
     }else{}
 ?>

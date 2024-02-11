@@ -42,7 +42,7 @@
                 $information_image_type = $_FILES["information_image"]["type"];
         
                     if(($copy_image!=null)){
-                        $delete_image="../../../dist/information/".$copy_image;
+                        $delete_image="../../../uploads/information/".$copy_image;
                         unlink($delete_image);
                     }else{}
 
@@ -55,7 +55,7 @@
                 $information_image_tmp = $_FILES["information_image"]["tmp_name"];
                 $information_image_size = $_FILES["information_image"]["size"];
 
-                 move_uploaded_file($information_image_tmp, '../../../dist/information/' . $information_image_new_name);
+                 move_uploaded_file($information_image_tmp, '../../../uploads/information/' . $information_image_new_name);
 //up image end
 //update db         
                 $Data = array(

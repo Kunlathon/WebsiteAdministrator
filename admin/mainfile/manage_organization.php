@@ -144,6 +144,9 @@ if ((preg_match("/manage_organization.php/", $_SERVER['PHP_SELF']))) {
         }
     ?>
 
+
+
+
 <script>
     $(document).ready(function(){
         var copy_information_image="<?php echo $copy_information_image;?>";
@@ -244,7 +247,7 @@ if ((preg_match("/manage_organization.php/", $_SERVER['PHP_SELF']))) {
                                             <fieldset class="mb-3">
                                                 <div class="form-group row">
                                                     <div class="col-<?php echo $grid; ?>-12">
-                                                        <input type="file" name="information_image" class="summernote" class="form-control file-input-custom" data-show-upload="false" placeholder="ภาพ">
+                                                        <input type="file" name="information_image"  class="form-control file-input-custom" data-show-upload="false" placeholder="ภาพ">
                                                     </div>
                                                 </div>
                                             </fieldset>
@@ -264,8 +267,8 @@ if ((preg_match("/manage_organization.php/", $_SERVER['PHP_SELF']))) {
                                                 <div class="form-group row">
                                                     <div class="col-<?php echo $grid; ?>-12">
                                                         <textarea name="information_detail" class="summernote" rows="4" cols="4" required="required">
-                                            <?php echo $information_detail; ?>
-                                        </textarea>
+                                                            <?php echo $information_detail; ?>
+                                                        </textarea>
                                                     </div>
                                                 </div>
                                             </fieldset>

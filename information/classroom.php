@@ -93,7 +93,17 @@
 													<img src="uploads/teacher/<?php echo $_item['teacher_picture'];?>" alt="<?php echo $_item['teacher_name'];?>" class="card-img-top" style="width:100%; width:100%;"></a>
                                                     <div class="card-body">
                                                         <div class="d-flex align-items-center">
-                                                            <div style="display: block; margin: auto;"><?php echo $_item['teacher_name'];?></div>
+                                                            <div style="display: block; margin: auto;"><?php echo $_item['teacher_name'];?>
+															
+															<?php 
+															if((isset($_item["course_group"]))){
+															?>
+																<br><font color="red">( <?php echo $_item['course_group'];?> )</font>
+															<?php 
+															}else{
+															}
+															?>
+															</div>
                                                         </div>
                                                     </div>
                                                 </div>

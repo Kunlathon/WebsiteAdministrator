@@ -70,7 +70,7 @@
 
 										 <?php
 
-											  $perpage = 9;
+											  $perpage = 12;
 
 											  if (isset($_GET['page'])) {
 												$page = $_GET['page'];
@@ -87,13 +87,23 @@
 											  foreach ($row as $key => $_item){ 
 										?>
 
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="card card-sm alogn-items-center">
                                                     <a href="?modules=classroom_detail&id=<?php echo $_item['course_detail_id'];?>" class="d-block">
-													<img src="../uploads/teacher/<?php echo $_item['teacher_picture'];?>" alt="<?php echo $_item['teacher_name'];?>" class="card-img-top" style="width:100%; height:160px;"></a>
+													<img src="../uploads/teacher/<?php echo $_item['teacher_picture'];?>" alt="<?php echo $_item['teacher_name'];?>" class="card-img-top" style="width:100%; height:100%;"></a>
                                                     <div class="card-body">
                                                         <div class="d-flex align-items-center">
-                                                            <div><?php echo $_item['teacher_name'];?></div>
+                                                            <div style="display: block; margin: auto;"><?php echo $_item['teacher_name'];?>
+															
+															<?php 
+															if((isset($_item["course_group"]))){
+															?>
+																<br><font color="red">( <?php echo $_item['course_group'];?> )</font>
+															<?php 
+															}else{
+															}
+															?>
+															</div>
                                                         </div>
                                                     </div>
                                                 </div>
