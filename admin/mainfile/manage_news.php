@@ -961,7 +961,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 <label class="col-form-label col-<?php echo $grid; ?>-2">เนื้อหาข่าว 1 รูปภาพที่ 2</label>
                                                                 <div class="col-<?php echo $grid; ?>-10">
 
-                                                                    <input type="file" name="news_image1_2" id="news_image1_2" class="file-input-image1_2" data-show-upload="false" data-show-caption="true" data-show-preview="true" data-fouc>
+                                                                    <input type="file" name="news_image1_2" id="news_image1_2" class="file-update-image1_2" data-show-upload="false"  data-fouc>
                                                                     <span class="form-text text-muted">นานสกุลไฟส์ <code>jpg</code>,<code>JPG</code>,<code>png</code>,<code>PNG</code></span>
 
                                                                     <div>
@@ -1021,7 +1021,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                             indicatorLoading: '<i class="icon-spinner2 spinner text-muted"></i>'
                                                         };
 
-                                                        $('.file-input-image1_2').fileinput({
+                                                        $('.file-update-image1_2').fileinput({
                                                             previewFileType: 'image',
                                                             browseLabel: 'เลือกรูป',
                                                             browseClass: 'btn btn-secondary',
@@ -1037,6 +1037,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 icon: '<i class="icon-file-check"></i>',
                                                                 modal: modalTemplate
                                                             },
+                                                            //-------------------------------------------------------------------------------------------------------------
 
                                                             initialPreview: [
 
@@ -1053,9 +1054,9 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 } else {
                                                                 } ?>
 
-                                                            ],
+                                                                ],
 
-                                                            initialPreviewConfig: [
+                                                                initialPreviewConfig: [
 
                                                                 <?php
                                                                 if ((($news_image1_2 != null))) {
@@ -1076,12 +1077,13 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 } else {
                                                                 } ?>
 
-                                                            ],
-
+                                                                ],
+                                    
+                                                            //-------------------------------------------------------------------------------------------------------------
                                                             initialCaption: "กรุณาเลือกภาพ",
                                                             mainClass: 'input-group',
                                                             initialPreviewAsData: true,
-                                                            overwriteInitial: false,
+                                                            overwriteInitial: true,
                                                             maxFileCount: 1,
                                                             maxFileSize: 800,
                                                             allowedFileExtensions: ["jpg", "JPG", "pnp", "PNG"],
@@ -1101,8 +1103,8 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 <label class="col-form-label col-<?php echo $grid; ?>-2">เนื้อหาข่าว 2</label>
                                                                 <div class="col-<?php echo $grid; ?>-10">
                                                                     <textarea name="news_detail_2" id="news_detail_2" class="summernote"><?php echo $news_detail_2; ?></textarea>
-                                                                    <div>
-                                                                    </div>
+                                                                <div>
+                                                            </div>
                                                         </fieldset>
                                                     </div>
                                                 </div>
@@ -1114,11 +1116,11 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 <label class="col-form-label col-<?php echo $grid; ?>-2">เนื้อหาข่าว 2 รูปภาพที่ 1</label>
                                                                 <div class="col-<?php echo $grid; ?>-10">
 
-                                                                    <input type="file" name="news_image2_1" id="news_image2_1" class="file-input-image2_1" data-show-upload="false" data-show-caption="true" data-show-preview="true" data-fouc>
+                                                                    <input type="file" name="news_image2_1" id="news_image2_1" class="file-update-image2_1" data-show-upload="false" data-show-caption="true" data-show-preview="true" data-fouc>
                                                                     <span class="form-text text-muted">นานสกุลไฟส์ <code>jpg</code>,<code>JPG</code>,<code>png</code>,<code>PNG</code></span>
 
-                                                                    <div>
-                                                                    </div>
+                                                                <div>
+                                                            </div>
                                                         </fieldset>
                                                     </div>
                                                 </div>
@@ -1174,7 +1176,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                             indicatorLoading: '<i class="icon-spinner2 spinner text-muted"></i>'
                                                         };
 
-                                                        $('.file-input-image2_1').fileinput({
+                                                        $('.file-update-image2_1').fileinput({
                                                             previewFileType: 'image',
                                                             browseLabel: 'เลือกรูป',
                                                             browseClass: 'btn btn-secondary',
@@ -1190,7 +1192,9 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 icon: '<i class="icon-file-check"></i>',
                                                                 modal: modalTemplate
                                                             },
+                                                            //-------------------------------------------------------------------------------------------------------------
 
+                                                            
                                                             initialPreview: [
 
                                                                 <?php
@@ -1206,9 +1210,9 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 } else {
                                                                 } ?>
 
-                                                            ],
+                                                                ],
 
-                                                            initialPreviewConfig: [
+                                                                initialPreviewConfig: [
 
                                                                 <?php
                                                                 if ((($news_image2_1 != null))) {
@@ -1229,12 +1233,13 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 } else {
                                                                 } ?>
 
-                                                            ],
-
+                                                                ],
+                                    
+                                                            //-------------------------------------------------------------------------------------------------------------
                                                             initialCaption: "กรุณาเลือกภาพ",
                                                             mainClass: 'input-group',
                                                             initialPreviewAsData: true,
-                                                            overwriteInitial: false,
+                                                            overwriteInitial: true,
                                                             maxFileCount: 1,
                                                             maxFileSize: 800,
                                                             allowedFileExtensions: ["jpg", "JPG", "pnp", "PNG"],
@@ -1254,16 +1259,18 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 <label class="col-form-label col-<?php echo $grid; ?>-2">เนื้อหาข่าว 2 รูปภาพที่ 2</label>
                                                                 <div class="col-<?php echo $grid; ?>-10">
 
-                                                                    <input type="file" name="news_image2_2" id="news_image2_2" class="file-input-image2_2" data-show-upload="false" data-show-caption="true" data-show-preview="true" data-fouc>
+                                                                    <input type="file" name="news_image2_2" id="news_image2_2" class="file-update-image2_2" data-show-upload="false"  data-fouc>
                                                                     <span class="form-text text-muted">นานสกุลไฟส์ <code>jpg</code>,<code>JPG</code>,<code>png</code>,<code>PNG</code></span>
 
-                                                                    <div>
-                                                                    </div>
+                                                                <div>
+                                                            </div>
                                                         </fieldset>
                                                     </div>
                                                 </div>
 
                                                 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+
                                                 <script>
                                                     $(document).ready(function() {
 
@@ -1314,7 +1321,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                             indicatorLoading: '<i class="icon-spinner2 spinner text-muted"></i>'
                                                         };
 
-                                                        $('.file-input-image2_2').fileinput({
+                                                        $('.file-update-image2_2').fileinput({
                                                             previewFileType: 'image',
                                                             browseLabel: 'เลือกรูป',
                                                             browseClass: 'btn btn-secondary',
@@ -1330,6 +1337,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 icon: '<i class="icon-file-check"></i>',
                                                                 modal: modalTemplate
                                                             },
+                                                            //-------------------------------------------------------------------------------------------------------------
 
                                                             initialPreview: [
 
@@ -1347,9 +1355,9 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 } else {
                                                                 } ?>
 
-                                                            ],
+                                                                ],
 
-                                                            initialPreviewConfig: [
+                                                                initialPreviewConfig: [
 
                                                                 <?php
                                                                 if ((($news_image2_2 != null))) {
@@ -1371,12 +1379,13 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 } else {
                                                                 } ?>
 
-                                                            ],
-
+                                                                ],
+                                    
+                                                            //-------------------------------------------------------------------------------------------------------------
                                                             initialCaption: "กรุณาเลือกภาพ",
                                                             mainClass: 'input-group',
                                                             initialPreviewAsData: true,
-                                                            overwriteInitial: false,
+                                                            overwriteInitial: true,
                                                             maxFileCount: 1,
                                                             maxFileSize: 800,
                                                             allowedFileExtensions: ["jpg", "JPG", "pnp", "PNG"],
@@ -1387,6 +1396,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
 
                                                     })
                                                 </script>
+
                                                 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 
                                                 <div class="row">
@@ -1548,11 +1558,11 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 <label class="col-form-label col-<?php echo $grid; ?>-2">เนื้อหาข่าว 3 รูปภาพที่ 2</label>
                                                                 <div class="col-<?php echo $grid; ?>-10">
 
-                                                                    <input type="file" name="news_image3_2" id="news_image3_2" class="file-input-image3_2" data-show-upload="false" data-show-caption="true" data-show-preview="true" data-fouc>
+                                                                    <input type="file" name="news_image3_2" id="news_image3_2" class="file-date-image3_2" data-show-upload="false" data-fouc>
                                                                     <span class="form-text text-muted">นานสกุลไฟส์ <code>jpg</code>,<code>JPG</code>,<code>png</code>,<code>PNG</code></span>
 
-                                                                    <div>
-                                                                    </div>
+                                                                <div>
+                                                            </div>
                                                         </fieldset>
                                                     </div>
                                                 </div>
@@ -1608,7 +1618,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                             indicatorLoading: '<i class="icon-spinner2 spinner text-muted"></i>'
                                                         };
 
-                                                        $('.file-input-image3_2').fileinput({
+                                                        $('.file-date-image3_2').fileinput({
                                                             previewFileType: 'image',
                                                             browseLabel: 'เลือกรูป',
                                                             browseClass: 'btn btn-secondary',
@@ -1624,7 +1634,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 icon: '<i class="icon-file-check"></i>',
                                                                 modal: modalTemplate
                                                             },
-
+                                                            //-------------------------------------------------------------------------------------------------------------
                                                             initialPreview: [
 
                                                                 <?php
@@ -1640,9 +1650,9 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 } else {
                                                                 } ?>
 
-                                                            ],
+                                                                ],
 
-                                                            initialPreviewConfig: [
+                                                                initialPreviewConfig: [
 
                                                                 <?php
                                                                 if ((($news_image3_2 != null))) {
@@ -1663,12 +1673,12 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 } else {
                                                                 } ?>
 
-                                                            ],
-
+                                                                ],
+                                                            //-------------------------------------------------------------------------------------------------------------
                                                             initialCaption: "กรุณาเลือกภาพ",
                                                             mainClass: 'input-group',
                                                             initialPreviewAsData: true,
-                                                            overwriteInitial: false,
+                                                            overwriteInitial: true,
                                                             maxFileCount: 1,
                                                             maxFileSize: 800,
                                                             allowedFileExtensions: ["jpg", "JPG", "pnp", "PNG"],
@@ -1701,11 +1711,11 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 <label class="col-form-label col-<?php echo $grid; ?>-2">เนื้อหาข่าว 4 รูปภาพที่ 1</label>
                                                                 <div class="col-<?php echo $grid; ?>-10">
 
-                                                                    <input type="file" name="news_image4_1" id="news_image4_1" class="file-input-image4_1" data-show-upload="false" data-show-caption="true" data-show-preview="true" data-fouc>
+                                                                    <input type="file" name="news_image4_1" id="news_image4_1" class="file-update-image4_1" data-show-upload="false" data-show-caption="true" data-show-preview="true" data-fouc>
                                                                     <span class="form-text text-muted">นานสกุลไฟส์ <code>jpg</code>,<code>JPG</code>,<code>png</code>,<code>PNG</code></span>
 
-                                                                    <div>
-                                                                    </div>
+                                                                <div>
+                                                            </div>
                                                         </fieldset>
                                                     </div>
                                                 </div>
@@ -1761,7 +1771,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                             indicatorLoading: '<i class="icon-spinner2 spinner text-muted"></i>'
                                                         };
 
-                                                        $('.file-input-image4_1').fileinput({
+                                                        $('.file-update-image4_1').fileinput({
                                                             previewFileType: 'image',
                                                             browseLabel: 'เลือกรูป',
                                                             browseClass: 'btn btn-secondary',
@@ -1777,7 +1787,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 icon: '<i class="icon-file-check"></i>',
                                                                 modal: modalTemplate
                                                             },
-
+                                                            //-------------------------------------------------------------------------------------------------------------
                                                             initialPreview: [
 
                                                                 <?php
@@ -1793,9 +1803,9 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 } else {
                                                                 } ?>
 
-                                                            ],
+                                                                ],
 
-                                                            initialPreviewConfig: [
+                                                                initialPreviewConfig: [
 
                                                                 <?php
                                                                 if ((($news_image4_1 != null))) {
@@ -1816,12 +1826,12 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 } else {
                                                                 } ?>
 
-                                                            ],
-
+                                                                ],
+                                                            //-------------------------------------------------------------------------------------------------------------
                                                             initialCaption: "กรุณาเลือกภาพ",
                                                             mainClass: 'input-group',
                                                             initialPreviewAsData: true,
-                                                            overwriteInitial: false,
+                                                            overwriteInitial: true,
                                                             maxFileCount: 1,
                                                             maxFileSize: 800,
                                                             allowedFileExtensions: ["jpg", "JPG", "pnp", "PNG"],
@@ -1841,11 +1851,11 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 <label class="col-form-label col-<?php echo $grid; ?>-2">เนื้อหาข่าว 4 รูปภาพที่ 2</label>
                                                                 <div class="col-<?php echo $grid; ?>-10">
 
-                                                                    <input type="file" name="news_image4_2" id="news_image4_2" class="file-input-image4_2" data-show-upload="false" data-show-caption="true" data-show-preview="true" data-fouc>
+                                                                    <input type="file" name="news_image4_2" id="news_image4_2" class="file-update-image4_2" data-show-upload="false" data-show-caption="true" data-show-preview="true" data-fouc>
                                                                     <span class="form-text text-muted">นานสกุลไฟส์ <code>jpg</code>,<code>JPG</code>,<code>png</code>,<code>PNG</code></span>
 
-                                                                    <div>
-                                                                    </div>
+                                                                <div>
+                                                            </div>
                                                         </fieldset>
                                                     </div>
                                                 </div>
@@ -1901,7 +1911,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                             indicatorLoading: '<i class="icon-spinner2 spinner text-muted"></i>'
                                                         };
 
-                                                        $('.file-input-image4_2').fileinput({
+                                                        $('.file-update-image4_2').fileinput({
                                                             previewFileType: 'image',
                                                             browseLabel: 'เลือกรูป',
                                                             browseClass: 'btn btn-secondary',
@@ -1917,7 +1927,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 icon: '<i class="icon-file-check"></i>',
                                                                 modal: modalTemplate
                                                             },
-
+                                                            //-------------------------------------------------------------------------------------------------------------
                                                             initialPreview: [
 
                                                                 <?php
@@ -1933,9 +1943,9 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 } else {
                                                                 } ?>
 
-                                                            ],
+                                                                ],
 
-                                                            initialPreviewConfig: [
+                                                                initialPreviewConfig: [
 
                                                                 <?php
                                                                 if ((($news_image4_2 != null))) {
@@ -1956,12 +1966,12 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 } else {
                                                                 } ?>
 
-                                                            ],
-
+                                                                ],                                    
+                                                            //-------------------------------------------------------------------------------------------------------------
                                                             initialCaption: "กรุณาเลือกภาพ",
                                                             mainClass: 'input-group',
                                                             initialPreviewAsData: true,
-                                                            overwriteInitial: false,
+                                                            overwriteInitial: true,
                                                             maxFileCount: 1,
                                                             maxFileSize: 800,
                                                             allowedFileExtensions: ["jpg", "JPG", "pnp", "PNG"],
@@ -1993,15 +2003,16 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                             <div class="form-group row">
                                                                 <label class="col-form-label col-<?php echo $grid; ?>-2">เนื้อหาข่าว 5 รูปภาพที่ 1</label>
                                                                 <div class="col-<?php echo $grid; ?>-10">
-                                                                    <input type="file" name="news_image5_1" id="news_image5_1" class="file-input-image5_1" data-show-upload="false" data-show-caption="true" data-show-preview="true" data-fouc>
+                                                                    <input type="file" name="news_image5_1" id="news_image5_1" class="file-update-image5_1" data-show-upload="false" data-fouc>
                                                                     <span class="form-text text-muted">นานสกุลไฟส์ <code>jpg</code>,<code>JPG</code>,<code>png</code>,<code>PNG</code></span>
-                                                                    <div>
-                                                                    </div>
+                                                                <div>
+                                                            </div>
                                                         </fieldset>
                                                     </div>
                                                 </div>
 
                                                 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
                                                 <script>
                                                     $(document).ready(function() {
 
@@ -2052,7 +2063,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                             indicatorLoading: '<i class="icon-spinner2 spinner text-muted"></i>'
                                                         };
 
-                                                        $('.file-input-image5_1').fileinput({
+                                                        $('.file-update-image5_1').fileinput({
                                                             previewFileType: 'image',
                                                             browseLabel: 'เลือกรูป',
                                                             browseClass: 'btn btn-secondary',
@@ -2068,6 +2079,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 icon: '<i class="icon-file-check"></i>',
                                                                 modal: modalTemplate
                                                             },
+                                                            //-------------------------------------------------------------------------------------------------------------
 
                                                             initialPreview: [
 
@@ -2084,10 +2096,10 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 } else {
                                                                 } ?>
 
-                                                            ],
+                                                                ],
 
 
-                                                            initialPreviewConfig: [
+                                                                initialPreviewConfig: [
 
                                                                 <?php
                                                                 if ((($news_image5_1 != null))) {
@@ -2108,12 +2120,13 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 } else {
                                                                 } ?>
 
-                                                            ],
-
+                                                                ],
+                                    
+                                                            //-------------------------------------------------------------------------------------------------------------
                                                             initialCaption: "กรุณาเลือกภาพ",
                                                             mainClass: 'input-group',
                                                             initialPreviewAsData: true,
-                                                            overwriteInitial: false,
+                                                            overwriteInitial: true,
                                                             maxFileCount: 1,
                                                             maxFileSize: 800,
                                                             allowedFileExtensions: ["jpg", "JPG", "pnp", "PNG"],
@@ -2124,6 +2137,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
 
                                                     })
                                                 </script>
+
                                                 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 
                                                 <div class="row">
@@ -2132,10 +2146,10 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                             <div class="form-group row">
                                                                 <label class="col-form-label col-<?php echo $grid; ?>-2">เนื้อหาข่าว 5 รูปภาพที่ 2</label>
                                                                 <div class="col-<?php echo $grid; ?>-10">
-                                                                    <input type="file" name="news_image5_2" id="news_image5_2" class="file-input-image5_2" data-show-upload="false" data-show-caption="true" data-show-preview="true" data-fouc>
+                                                                    <input type="file" name="news_image5_2" id="news_image5_2" class="file-update-image5_2" data-show-upload="false" data-show-caption="true" data-show-preview="true" data-fouc>
                                                                     <span class="form-text text-muted">นานสกุลไฟส์ <code>jpg</code>,<code>JPG</code>,<code>png</code>,<code>PNG</code></span>
-                                                                    <div>
-                                                                    </div>
+                                                                <div>
+                                                            </div>
                                                         </fieldset>
                                                     </div>
                                                 </div>
@@ -2191,7 +2205,7 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                             indicatorLoading: '<i class="icon-spinner2 spinner text-muted"></i>'
                                                         };
 
-                                                        $('.file-input-image5_2').fileinput({
+                                                        $('.file-update-image5_2').fileinput({
                                                             previewFileType: 'image',
                                                             browseLabel: 'เลือกรูป',
                                                             browseClass: 'btn btn-secondary',
@@ -2207,6 +2221,8 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 icon: '<i class="icon-file-check"></i>',
                                                                 modal: modalTemplate
                                                             },
+                                                            //-------------------------------------------------------------------------------------------------------------
+
 
                                                             initialPreview: [
 
@@ -2223,9 +2239,9 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 } else {
                                                                 } ?>
 
-                                                            ],
+                                                                ],
 
-                                                            initialPreviewConfig: [
+                                                                initialPreviewConfig: [
 
                                                                 <?php
                                                                 if ((($news_image5_2 != null))) {
@@ -2246,12 +2262,13 @@ if ((preg_match("/manage_news.php/", $_SERVER['PHP_SELF']))) {
                                                                 } else {
                                                                 } ?>
 
-                                                            ],
+                                                                ],                                    
 
+                                                            //-------------------------------------------------------------------------------------------------------------
                                                             initialCaption: "กรุณาเลือกภาพ",
                                                             mainClass: 'input-group',
                                                             initialPreviewAsData: true,
-                                                            overwriteInitial: false,
+                                                            overwriteInitial: true,
                                                             maxFileCount: 1,
                                                             maxFileSize: 800,
                                                             allowedFileExtensions: ["jpg", "JPG", "pnp", "PNG"],

@@ -49,10 +49,10 @@
 
 
                                         <script>
-                                            $(document).ready(function() {
-
+                                            $(document).ready(function(){
+                                                var copy_information_image="<?php echo $copy_information_image;?>";
                                                 // Modal template
-                                                var modalTemplate = '<div class="modal-dialog modal-lg" role="document">\n' +
+                                                        var modalTemplate = '<div class="modal-dialog modal-lg" role="document">\n' +
                                                     '  <div class="modal-content">\n' +
                                                     '    <div class="modal-header align-items-center">\n' +
                                                     '      <h6 class="modal-title">{heading} <small><span class="kv-zoom-title"></span></small></h6>\n' +
@@ -106,18 +106,24 @@
                                                     removeLabel: 'ลบ',
                                                     removeClass: 'btn btn-danger',
                                                     removeIcon: '<i class="icon-cancel-square mr-2"></i>',
-                                                    //uploadClass: 'btn btn-teal',
-                                                    //uploadIcon: '<i class="icon-file-upload mr-2"></i>',
-                                                    uploadTitle: "อัปโหลดไฟล์ที่เลือก",
-                                                    uploadLabel: "อัปโหลด",
+                                                    uploadClass: 'btn btn-teal',
+                                                    uploadIcon: '<i class="icon-file-upload mr-2"></i>',
+                                                    uploadTitle:"อัปโหลดไฟล์ที่เลือก",
+                                                    uploadLabel:"อัปโหลด",
                                                     layoutTemplates: {
                                                         icon: '<i class="icon-file-check"></i>',
                                                         modal: modalTemplate
                                                     },
-                                                    initialCaption: "กรุณาเลือกภาพ",
-                                                    mainClass: 'input-group',
+                                                    initialPreview: [
+                                                        '<?php echo $link_web->Call_link_web();?>/uploads/information/'+copy_information_image,
+                                                    ],
+                                                    initialPreviewConfig: [
+                                                        {caption: copy_information_image,  key: 1, url: '{$url}', showDrag: false}
+                                                    ],
                                                     initialPreviewAsData: true,
                                                     overwriteInitial: true,
+                                                    initialCaption: "กรุณาเลือกภาพ",
+                                                    mainClass: 'input-group',
                                                     maxFileCount: 1,
                                                     maxFileSize: 800,
                                                     allowedFileExtensions: ["jpg", "JPG", "pnp", "PNG"],
@@ -126,8 +132,10 @@
                                                     fileActionSettings: fileActionSettings
                                                 });
 
+
                                             })
                                         </script>
+
 
                                         <script>
                                             $(document).ready(function() {
@@ -179,7 +187,7 @@
                                                     indicatorLoading: '<i class="icon-spinner2 spinner text-muted"></i>'
                                                 };
 
-                                                $('.file-input-custom-B').fileinput({
+                                                $('.file-update-custom-ฺB').fileinput({
                                                     previewFileType: 'image',
                                                     browseLabel: 'เลือกรูป',
                                                     browseClass: 'btn btn-secondary',
@@ -187,8 +195,8 @@
                                                     removeLabel: 'ลบ',
                                                     removeClass: 'btn btn-danger',
                                                     removeIcon: '<i class="icon-cancel-square mr-2"></i>',
-                                                    //uploadClass: 'btn btn-teal',
-                                                    //uploadIcon: '<i class="icon-file-upload mr-2"></i>',
+                                                    uploadClass: 'btn btn-teal',
+                                                    uploadIcon: '<i class="icon-file-upload mr-2"></i>',
                                                     uploadTitle: "อัปโหลดไฟล์ที่เลือก",
                                                     uploadLabel: "อัปโหลด",
                                                     layoutTemplates: {
@@ -199,7 +207,7 @@
                                                     mainClass: 'input-group',
                                                     initialPreviewAsData: true,
                                                     overwriteInitial: true,
-                                                    maxFileCount: 20,
+                                                    //maxFileCount: 1,
                                                     maxFileSize: 800,
                                                     allowedFileExtensions: ["jpg", "JPG", "pnp", "PNG"],
                                                     previewZoomButtonClasses: previewZoomButtonClasses,
@@ -209,6 +217,7 @@
 
                                             })
                                         </script>
+
 
 <!--Show Data All-->
 <script>

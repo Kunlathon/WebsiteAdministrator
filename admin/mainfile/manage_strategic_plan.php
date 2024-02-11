@@ -265,9 +265,9 @@ if ((preg_match("/manage_strategic_plan.php/", $_SERVER['PHP_SELF']))) {
                                             <fieldset class="mb-3">
                                                 <div class="form-group row">
                                                     <div class="col-<?php echo $grid; ?>-12">
-                                                        <textarea name="information_detail" id="editor-full" rows="4" cols="4" required="required">
-                                            <?php echo $information_detail; ?>
-                                        </textarea>
+                                                        <textarea name="information_detail" id="information_detail" class="summernote" rows="4" cols="4" required="required">
+                                                        <?php echo $information_detail; ?>
+                                                        </textarea>
                                                     </div>
                                                 </div>
                                             </fieldset>

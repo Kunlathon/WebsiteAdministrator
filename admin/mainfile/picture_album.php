@@ -119,7 +119,7 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-<?php echo $grid; ?>-2">ภาพหน้าปกกิจกรรม</label>
                                             <div class="col-<?php echo $grid; ?>-10">
-                                                <input type="file" name="gallery_thumbnail" id="gallery_thumbnail" class="file-input-custom-A" data-show-upload="false" data-show-caption="true" data-show-preview="true"  data-fouc>
+                                                <input type="file" name="gallery_thumbnail" id="gallery_thumbnail" class="form-control file-input-custom-A" data-show-upload="false" data-fouc>
 										        <span class="form-text text-muted">นานสกุลไฟส์ <code>jpg</code>,<code>JPG</code>,<code>png</code>,<code>PNG</code></span>                                                                                            
                                             <div>
                                         </div>
@@ -133,13 +133,14 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-<?php echo $grid; ?>-2">ภาพกิจกรรม</label>
                                             <div class="col-<?php echo $grid; ?>-10">
-                                                <input type="file" name="picture_name[]" id="picture_name[]" class="file-input-custom-B" multiple="multiple" data-show-upload="false" data-show-caption="true" data-show-preview="true"  data-fouc>
+                                                <input type="file" name="picture_name[]" id="picture_name" class="form-control file-update-custom-ฺB"  data-show-upload="false" multiple="multiple" data-fouc>
 										        <span class="form-text text-muted">นานสกุลไฟส์ <code>jpg</code>,<code>JPG</code>,<code>png</code>,<code>PNG</code></span>                                                                                             
                                             <div>
                                         </div>
                                     </fieldset>
                                 </div>
                             </div>
+
 
                             <div class="row">
                                 <div class="col-<?php echo $grid;?>-12">

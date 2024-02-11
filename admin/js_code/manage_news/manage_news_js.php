@@ -108,8 +108,8 @@
             removeLabel: 'ลบ',
             removeClass: 'btn btn-danger',
             removeIcon: '<i class="icon-cancel-square mr-2"></i>',
-            //uploadClass: 'btn btn-teal',
-            //uploadIcon: '<i class="icon-file-upload mr-2"></i>',
+            uploadClass: 'btn btn-teal',
+            uploadIcon: '<i class="icon-file-upload mr-2"></i>',
             uploadTitle:"อัปโหลดไฟล์ที่เลือก",
             uploadLabel:"อัปโหลด",
             layoutTemplates: {

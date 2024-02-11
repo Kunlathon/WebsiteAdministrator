@@ -46,7 +46,7 @@
             $slide_image_tmp = $_FILES["slide_image"]["tmp_name"];
             $slide_image_size = $_FILES["slide_image"]["size"];
 
-            move_uploaded_file($slide_image_tmp, '../../../dist/img/slides/' . $slide_new_name);
+            move_uploaded_file($slide_image_tmp, '../../../uploads/slides/' . $slide_new_name);
             
 //up image end
 
@@ -119,7 +119,7 @@
                 $copy_slide_image=filter_input(INPUT_POST, 'copy_slide_image');
 //delete image end
 
-                $delete_image="../../../dist/img/slides/".$copy_slide_image;
+                $delete_image="../../../uploads/slides/".$copy_slide_image;
                     if((unlink($delete_image))){
 //up image
                         $slide_image_nameNew=$image_date."_slide";
@@ -132,7 +132,7 @@
                         $slide_new_name = $slide_image_nameNew.".".$fileType;
                         $slide_image_tmp = $_FILES["slide_image"]["tmp_name"];
                         $slide_image_size = $_FILES["slide_image"]["size"];
-                        move_uploaded_file($slide_image_tmp, '../../../dist/img/slides/'.$slide_new_name);
+                        move_uploaded_file($slide_image_tmp, '../../../uploads/slides/'.$slide_new_name);
 //up image end
 
 //update
@@ -167,7 +167,7 @@
             $slide_id=filter_input(INPUT_POST, 'slide_id');
 //delete image 
             $copy_slide_image=filter_input(INPUT_POST, 'copy_slide_image');
-            $delete_image="../../../dist/img/slides/".$copy_slide_image;
+            $delete_image="../../../uploads/slides/".$copy_slide_image;
 //delete image end        
                 if((unlink($delete_image))){
                     $image_slide_table = "tb_slide";
