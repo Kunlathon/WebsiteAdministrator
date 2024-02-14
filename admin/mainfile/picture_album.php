@@ -119,7 +119,7 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-<?php echo $grid; ?>-2">ภาพหน้าปกกิจกรรม</label>
                                             <div class="col-<?php echo $grid; ?>-10">
-                                                <input type="file" name="gallery_thumbnail" id="gallery_thumbnail" class="form-control file-input-custom-A" data-show-upload="false" data-fouc>
+                                                <input type="file" name="gallery_thumbnail" id="gallery_thumbnail" class="form-control file-update-custom-A" data-show-upload="false" data-fouc>
 										        <span class="form-text text-muted">นานสกุลไฟส์ <code>jpg</code>,<code>JPG</code>,<code>png</code>,<code>PNG</code></span>                                                                                            
                                             <div>
                                         </div>
@@ -250,13 +250,16 @@
                         }
                         ?>
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-            <div class="row">
-                <div class="col-<?php echo $grid;?>-12">
-                    <h4>แก้ไขข้อมูลรูปกิจกรรม</h4>
+            <fieldset class="mb-1">
+                <div class="row">
+                    <div class="col-<?php echo $grid;?>-12">
+                        <h4>แก้ไขข้อมูลรูปกิจกรรม</h4>
+                    </div>
                 </div>
-            </div>
+            </fieldset>
 
-            <div class="row">
+            <fieldset class="mb-1">
+                <div class="row">
                 <div class="col-<?php echo $grid;?>-12">
                     <div class="card border border-purple">
                         <div class="card-header header-elements-inline bg-info text-white">
@@ -381,8 +384,8 @@
                                                     removeLabel: 'ลบ',
                                                     removeClass: 'btn btn-danger',
                                                     removeIcon: '<i class="icon-cancel-square mr-2"></i>',
-                                                    //uploadClass: 'btn btn-teal',
-                                                    //uploadIcon: '<i class="icon-file-upload mr-2"></i>',
+                                                    uploadClass: 'btn btn-teal',
+                                                    uploadIcon: '<i class="icon-file-upload mr-2"></i>',
                                                     uploadTitle: "อัปโหลดไฟล์ที่เลือก",
                                                     uploadLabel: "อัปโหลด",
                                                     layoutTemplates: {
@@ -418,7 +421,7 @@
                                                                     caption: '<?php echo $gallery_thumbnail; ?>',
                                                                     size: 800000,
                                                                     key: 1,
-                                                                    url: '{$url}',
+                                                                    //url: '{$url}',
                                                                     showDrag: false
                                                                 }
 
@@ -491,7 +494,204 @@
 
                     </div>
                 </div>
-            </div>
+                </div>                
+            </fieldset>
+
+            <fieldset class="mb-1">
+                <div class="row">
+                    <div class="col-<?php echo $grid;?>-12">
+                        <div class="card">
+							<div class="card-header bg-purple text-white header-elements-inline">
+                          
+                                    <div class="col-<?php echo $grid;?>-6">ภาพกิจกรรม</div>
+                                    <div class="col-<?php echo $grid;?>-6"></div>
+                              
+							</div>
+							<div class="card-body">
+									
+                                <div class="row">
+
+    <?php
+            $picture_sql = "SELECT * FROM `tb_picture` WHERE `gallery_id`='{$picture_album_id}'";
+            $picture_list = result_array($picture_sql);
+            foreach ($picture_list as $key => $picture_row) { 
+
+                if((isset($picture_row["picture_id"]))){
+                    $picture_id=$picture_row["picture_id"];
+                }else{
+                    $picture_id=null;
+                }
+                
+                if((isset($picture_row["picture_name"]))){
+                    $picture_name=$picture_row["picture_name"];
+                }else{
+                    $picture_name=null;
+                }
+
+                ?>
+
+                                    
+                                        <div class="col-<?php echo $grid;?>-3">
+                                    
+                                            <div class="card">
+                                                <div class="card-img-actions mx-1 mt-1">
+
+        <?php
+                if(($picture_name!=null)){
+                    if((file_exists("../uploads/gallery/".$gallery_folder."/".$picture_name))){ ?>
+
+                                                    <img class="card-img img-fluid" src="../uploads/gallery/<?php echo $gallery_folder;?>/<?php echo $picture_name;?>" style="width: 100%; height: 236px;" alt="<?php echo $picture_name;?>">
+                                                    <div class="card-img-actions-overlay card-img">
+                                                        <a href="../uploads/gallery/<?php echo $gallery_folder;?>/<?php echo $picture_name;?>" class="btn btn-outline-white border-2 btn-icon rounded-pill" data-popup="lightbox" data-gallery="gallery1">
+                                                            <i class="icon-zoomin3"></i>
+                                                        </a>
+                                                    </div>
+
+        <?php       }else{ ?>
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+        <?php       }
+                }else{ ?>
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+        <?php   } ?>
+
+
+
+
+
+                                                </div>
+
+                                                <div class="card-body">
+                                                    <div class="d-flex align-items-start flex-nowrap">
+                                                        <div>
+                                                            <div class="font-weight-semibold mr-2"><?php echo $picture_name;?></div>
+                                                        </div>
+
+                                                        <div class="list-icons list-icons-extended ml-auto">
+                                                            <button type="button" name="but_dele_img<?php echo $picture_id;?>" id="but_dele_img<?php echo $picture_id;?>" class="btn btn-danger btn-icon btn-sm"><i class="icon-bin top-0"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                   
+            <script>
+                $(document).ready(function(){
+
+                    var swalInit_DeleImg = swal.mixin({
+                        buttonsStyling: false,
+                        customClass: {
+                            confirmButton: 'btn btn-primary',
+                            cancelButton: 'btn btn-light',
+                            denyButton: 'btn btn-light',
+                            input: 'form-control'
+                        }
+                    });
+
+                    var txt_picture_id="<?php echo $picture_id;?>";
+                    var txt_picture_name="<?php echo $picture_name;?>";
+                    var txt_gallery_folder="<?php echo $gallery_folder;?>";
+                    var txt_action="delect_img_key";
+
+                    $('#but_dele_img<?php echo $picture_id;?>').on('click', function() {
+                        swalInit_DeleImg.fire({
+                            title: 'คุณต้องลบใช้หรือไม่',
+                            text: "ไฟส์รูป "+txt_picture_name,
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonText: 'Yes, delete it!',
+                            cancelButtonText: 'No, cancel!',
+                            buttonsStyling: false,
+                            customClass: {
+                                confirmButton: 'btn btn-success',
+                                cancelButton: 'btn btn-danger'
+                            }
+                        }).then(function(result) {
+                            if(result.value) {
+                                if(txt_action!="delect_img_key"){
+                                    swalInit_DeleImg.fire(
+                                        'พบข้อผิดพลาดไม่สามารถดำเนินการได้',
+                                        'error'
+                                    );                                   
+                                }else{
+                                    $.post("<?php echo $RunLink->Call_Link_System();?>/js_code/picture_album/picture_album_process.php",{
+                                        picture_id:txt_picture_id,
+                                        picture_name:txt_picture_name,
+                                        gallery_folder:txt_gallery_folder,
+                                        action:txt_action
+                                    }).then(function(delete_img){
+                                        var delete_img=delete_img.trim();
+                                            if(delete_img==="no_error"){
+
+                                                let timerInterval;
+                                                    swalInit_DeleImg.fire({
+                                                        title: 'บันทึกสำเร็จ',
+                                                        //html: 'I will close in <b></b> milliseconds.',
+                                                        timer: 1200,
+                                                        icon: 'success',
+                                                        timerProgressBar: true,
+                                                        didOpen: function() {
+                                                            Swal.showLoading()
+                                                            timerInterval = setInterval(function() {
+                                                                const content = Swal.getContent();
+                                                                if (content) {
+                                                                    const b_document_picture_album = content.querySelector('b_document_picture_album')
+                                                                    if (b_document_picture_album) {
+                                                                        b_document_picture_album.textContent = Swal.getTimerLeft();
+                                                                    }else{}
+                                                                }else{}
+                                                            }, 100);
+                                                        },
+                                                        willClose: function() {
+                                                            clearInterval(timerInterval)
+                                                        }
+                                                    }).then(function (result) {
+                                                        if (result.dismiss === Swal.DismissReason.timer) {
+                                                            location.reload();
+                                                        }else{}
+                                                    });
+
+                                            }else if(delete_img==="it_error"){
+                                                swalInit_DeleImg.fire(
+                                                    'ลบไฟส์รูปไม่สำเร็จ',
+                                                    'ไฟส์ภาพ '+delete_img,
+                                                    'error'
+                                                );
+                                            }else{
+                                                swalInit_DeleImg.fire(
+                                                    'ลบไฟส์รูปไม่สำเร็จ',
+                                                    'ไฟส์ภาพ '+delete_img,
+                                                    'error'
+                                                );
+                                            }
+                                    })
+                                }
+                            }else if(result.dismiss === swal.DismissReason.cancel) {
+
+                            }else{}
+                        });
+                    });
+
+                })
+            </script>                  
+
+
+    <?php   } ?>
+
+
+
+                                </div>
+
+							</div>
+						</div>
+                    </div>
+                </div>
+            </fieldset>
+
+            
+
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
         <?php       }else{}
 

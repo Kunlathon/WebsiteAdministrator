@@ -215,6 +215,55 @@
                     echo "it_error";
                 }
 
+        }elseif(($action=="delect_img_key")){
+
+            $count_dik=0;
+
+            if((isset($_POST["picture_id"]))){
+                $picture_id=filter_input(INPUT_POST, 'picture_id');
+                $count_dik=$count_dik+0;
+            }else{
+                $picture_id=null;
+                $count_dik=$count_dik+1;
+            }
+
+            if((isset($_POST["picture_name"]))){
+                $picture_name=filter_input(INPUT_POST, 'picture_name');
+                $count_dik=$count_dik+0;
+            }else{
+                $picture_name=null;
+                $count_dik=$count_dik+1;
+            }
+
+            if((isset($_POST["gallery_folder"]))){
+                $gallery_folder=filter_input(INPUT_POST, 'gallery_folder');
+                $count_dik=$count_dik+0;
+            }else{
+                $gallery_folder=null;
+                $count_dik=$count_dik+1;
+            }
+
+                if(($count_dik>=1)){
+                    echo "it_error";
+                }else{
+
+                    $link_album="../../../uploads/gallery/".$gallery_folder."/".$picture_name;
+                    $delete_album=unlink($link_album);   
+                    
+                        if(($delete_album)){
+
+                            $picture_table = "tb_picture";
+                            $picture_ff = "picture_id";
+                            delete($picture_table, "{$picture_ff} = '{$picture_id}'");
+        
+                            echo "no_error";
+        
+                        }else{
+                            echo "it_error";
+                        }
+
+                }
+
         }else{
 
 
