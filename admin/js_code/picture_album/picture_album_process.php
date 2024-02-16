@@ -112,7 +112,6 @@
             exit("<script>window.location='../../?modules=picture_album';</script>");
         }elseif(($action=="edit")){
 
-        
             $gallery_name=filter_input(INPUT_POST, 'gallery_name');
             $gallery_topic=filter_input(INPUT_POST, 'gallery_topic');
             $FolderName=filter_input(INPUT_POST, 'gallery_folder');
@@ -159,15 +158,48 @@
                                               "gallery_thumbnail"=>$gallery_thumbnail_new_name,
                                               "gallery_status"=>$gallery_status);
                         update("tb_gallery", $gallery_Data, "gallery_id = '{$gallery_id}'");
-                        exit("<script>window.location='../../?modules=picture_album';</script>");
+                        //exit("<script>window.location='../../?modules=picture_album';</script>");
                     }else{
 
                         $gallery_Data = array("gallery_name"=>$gallery_name,
                                               "gallery_topic"=>$gallery_topic,
                                               "gallery_status"=>$gallery_status);
                         update("tb_gallery", $gallery_Data, "gallery_id = '{$gallery_id}'");
-                        exit("<script>window.location='../../?modules=picture_album';</script>");
+                        //exit("<script>window.location='../../?modules=picture_album';</script>");
                     }
+
+                    
+                        $Count_Picture_Name=count($_FILES["picture_name_add"]["name"]);
+                        $Count_Key=0;
+                        while($Count_Key<$Count_Picture_Name){
+
+                            if(($_FILES["picture_name_add"]["name"][$Count_Key]!=null)){
+
+                                $picture_nameNew=$image_date.$Count_Key."_pt";
+                                $picture_name = $_FILES["picture_name_add"]["name"][$Count_Key];
+                                $picture_type = $_FILES["picture_name_add"]["type"][$Count_Key];
+
+                                //new file Name
+                                $picture_imgFile = explode('.', $picture_name);
+                                $picture_fileType = $picture_imgFile[count($picture_imgFile) - 1];
+                                //new file Name end
+
+                                $picture_new_name = $picture_nameNew.".".$picture_fileType;
+                                $picture_tmp = $_FILES["picture_name_add"]["tmp_name"][$Count_Key];
+                                $picture_size = $_FILES["picture_name_add"]["size"][$Count_Key];
+
+                                move_uploaded_file($picture_tmp, '../../../uploads/gallery/'.$FolderName.'/'. $picture_new_name);
+
+                                $Picture_Img_Data = array("gallery_id"=>$gallery_id,
+                                                        "picture_name"=>$picture_new_name);
+                                insert("tb_picture", $Picture_Img_Data); 
+
+                            }else{}
+
+                            $Count_Key=$Count_Key+1; 
+                        }
+
+                        exit("<script>window.location='../../?modules=picture_album';</script>");
 
                 }else{}
 

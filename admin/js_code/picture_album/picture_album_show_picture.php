@@ -88,7 +88,7 @@
                             <div class="card-img-actions mx-1 mt-1">
                                 <img class="card-img img-fluid" src="../uploads/gallery/<?php echo $gallery_folder;?>/<?php echo $picture_row["picture_name"];?>" style="width: 100%; height: 236px;" alt="<?php echo $picture_row["picture_name"];?>">
                                     <div class="card-img-actions-overlay card-img">
-                                        <a href="../uploads/gallery/<?php echo $gallery_folder;?>/<?php echo $picture_row["picture_name"];?>" class="btn btn-outline-white border-2 btn-icon rounded-pill" data-popup="lightbox" data-gallery="gallery1">
+                                        <a href="../uploads/gallery/<?php echo $gallery_folder;?>/<?php echo $picture_row["picture_name"];?>" class="btn-icon" data-popup="lightbox" data-gallery="gallery1">
                                             <i class="icon-zoomin3"></i>
                                         </a>
                                     </div>
